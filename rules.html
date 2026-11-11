@@ -1,0 +1,2999 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Rules, configuration, mathematics and verification of the slot game Tacklin' the Kraken">
+      
+      
+      
+      
+        <link rel="prev" href="play.html">
+      
+      
+        <link rel="next" href="configuration.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Game rules - Tacklin' the Kraken - Game Math Document</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#game-rules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Tacklin&#39; the Kraken - Game Math Document" class="md-header__button md-logo" aria-label="Tacklin' the Kraken - Game Math Document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tacklin' the Kraken - Game Math Document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Game rules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Tacklin&#39; the Kraken - Game Math Document" class="md-nav__button md-logo" aria-label="Tacklin' the Kraken - Game Math Document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Tacklin' the Kraken - Game Math Document
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="play.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Play the game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game rules
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="rules.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-game-in-brief" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The game in brief
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bet-and-game-round" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Bet and game round
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-reels-and-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Reels and window
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Symbols
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-paytable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Paytable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-ways-pays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Ways pays
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Ways pays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-1-one-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: one way
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-wild-and-more-than-one-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: WILD and more than one way
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-two-pay-symbols-win-in-the-same-spin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: two pay symbols win in the same spin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-a-combination-that-is-too-short" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: a combination that is too short
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-fish-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Fish values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-key-and-fish-collect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. KEY and FISH collect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. KEY and FISH collect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-5-collect-and-ways-pays-in-one-spin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: collect and ways pays in one spin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-fish-symbols-and-no-key-symbol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 6: FISH symbols and no KEY symbol
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-win-of-a-spin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Win of a spin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-free-spins-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Free spins trigger
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Free spins trigger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-7-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-free-spins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Free spins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Free spins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reels-and-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reels and symbols
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-multiplier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level multiplier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fish-values-in-the-free-spins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fish values in the free spins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end-of-the-free-spins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End of the free spins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-8-level-multiplier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 8: level multiplier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-9-two-key-symbols-in-one-free-spin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 9: two KEY symbols in one free spin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level scenarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-rule-values-in-one-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Rule values in one table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-questions-and-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Questions and answers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-presentation-rules-of-the-playable-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Presentation rules of the playable game
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="configuration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reels.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reel strips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mathematics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="math-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base game math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="math-freespins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free spins math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rtp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RTP and volatility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tuning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tuning history
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="verification.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="excel.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excel workbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="excel-calc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excel calculation in detail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Playable game and demo suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-game-in-brief" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The game in brief
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bet-and-game-round" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Bet and game round
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-reels-and-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Reels and window
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Symbols
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-paytable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Paytable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-ways-pays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Ways pays
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Ways pays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-1-one-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: one way
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-wild-and-more-than-one-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: WILD and more than one way
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-two-pay-symbols-win-in-the-same-spin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: two pay symbols win in the same spin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-a-combination-that-is-too-short" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: a combination that is too short
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-fish-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Fish values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-key-and-fish-collect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. KEY and FISH collect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. KEY and FISH collect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-5-collect-and-ways-pays-in-one-spin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: collect and ways pays in one spin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-fish-symbols-and-no-key-symbol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 6: FISH symbols and no KEY symbol
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-win-of-a-spin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Win of a spin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-free-spins-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Free spins trigger
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Free spins trigger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-7-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-free-spins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Free spins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Free spins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reels-and-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reels and symbols
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-multiplier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level multiplier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fish-values-in-the-free-spins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fish values in the free spins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end-of-the-free-spins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End of the free spins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-8-level-multiplier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 8: level multiplier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-9-two-key-symbols-in-one-free-spin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 9: two KEY symbols in one free spin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level scenarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-rule-values-in-one-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Rule values in one table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-questions-and-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Questions and answers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-presentation-rules-of-the-playable-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Presentation rules of the playable game
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="game-rules">Game Rules<a class="headerlink" href="#game-rules" title="Permanent link">&para;</a></h1>
+<p>This page gives all rules of the game. A person who reads this page can calculate the result of each spin.
+The examples use real stop positions of the reel strips. A script calculates each example.</p>
+<h2 id="1-the-game-in-brief">1. The game in brief<a class="headerlink" href="#1-the-game-in-brief" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The game has 5 reels and 4 rows. It pays for 1024 ways.</li>
+<li>One base spin costs the bet of 10 credits.</li>
+<li>Pay symbols pay for ways from reel 1 to the right. WILD helps to make ways.</li>
+<li>FISH symbols show credit values. A KEY symbol collects the values of all FISH symbols in the window. The game shows the KEY symbol as a fishing hook and calls it HOOK.</li>
+<li>3, 4 or 5 FS symbols start the free spins. The free spins have 4 levels. Each level has a multiplier. KEY symbols open the subsequent level.</li>
+<li>All wins are in credits.</li>
+</ul>
+<h2 id="2-bet-and-game-round">2. Bet and game round<a class="headerlink" href="#2-bet-and-game-round" title="Permanent link">&para;</a></h2>
+<ol>
+<li>The bet is 10 credits for each base spin. The player cannot change the number of ways.</li>
+<li>A game round starts when the player starts a base spin. The game subtracts the bet from the balance.</li>
+<li>A game round has one base spin. If the base spin starts the free spins, the game round also has all free spins.</li>
+<li>Free spins do not cost a bet.</li>
+<li>The win of a game round is the sum of the win of the base spin and the wins of all free spins.</li>
+<li>The game adds the win to the balance. The game has no win limit.</li>
+</ol>
+<h2 id="3-reels-and-window">3. Reels and window<a class="headerlink" href="#3-reels-and-window" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Each reel has a reel strip of 100 symbols. The reel strip is a loop: position 0 follows position 99.</li>
+<li>A spin selects one stop position for each reel. Each of the 100 stop positions has the same probability. The reels are independent.</li>
+<li>The stop position is the strip position of row 1 (the top row). Rows 2, 3 and 4 show the subsequent strip positions.</li>
+<li>The window is the 20 symbols that the player sees: 4 symbols on each of the 5 reels.</li>
+<li>The game has two sets of reel strips. The base game uses the base reel strips. The free spins use the bonus reel strips. The page <a href="reels.html">Reel strips</a> shows all strips.</li>
+<li>On each reel strip there are 3 or more pay symbols between two special symbols. Thus the window of one reel shows one special symbol at most.</li>
+<li>A reel strip has no more than 3 AUS symbols in sequence. Thus the window of each reel shows one or more symbols that are not AUS symbols.</li>
+</ol>
+<h2 id="4-symbols">4. Symbols<a class="headerlink" href="#4-symbols" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Symbol</th>
+<th>Class</th>
+<th>Reels in the base game</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="PIC1" src="img/PIC1.svg" width="56" /></td>
+<td>PIC1</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="PIC2" src="img/PIC2.svg" width="56" /></td>
+<td>PIC2</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="PIC3" src="img/PIC3.svg" width="56" /></td>
+<td>PIC3</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="PIC4" src="img/PIC4.svg" width="56" /></td>
+<td>PIC4</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="PIC5" src="img/PIC5.svg" width="56" /></td>
+<td>PIC5</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="AUS1" src="img/AUS1.svg" width="56" /></td>
+<td>AUS1</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="AUS2" src="img/AUS2.svg" width="56" /></td>
+<td>AUS2</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="AUS3" src="img/AUS3.svg" width="56" /></td>
+<td>AUS3</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="AUS4" src="img/AUS4.svg" width="56" /></td>
+<td>AUS4</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="AUS5" src="img/AUS5.svg" width="56" /></td>
+<td>AUS5</td>
+<td>Pay symbol</td>
+<td>all reels</td>
+<td>Pays for a way of 3, 4 or 5 of a kind</td>
+</tr>
+<tr>
+<td><img alt="WILD" src="img/WILD.svg" width="56" /></td>
+<td>WILD</td>
+<td>Special</td>
+<td>reels 2, 3, 4, 5 (base game only)</td>
+<td>Substitutes for each PIC symbol and each AUS symbol. It has no pay of its own.</td>
+</tr>
+<tr>
+<td><img alt="KEY" src="img/KEY.svg" width="56" /></td>
+<td>KEY (game text: HOOK)</td>
+<td>Special, blocker</td>
+<td>reels 1, 2, 3</td>
+<td>Collects the value of each FISH symbol in the window</td>
+</tr>
+<tr>
+<td><img alt="FS" src="img/FS.svg" width="56" /></td>
+<td>FS</td>
+<td>Special, blocker</td>
+<td>all reels (base game only)</td>
+<td>3 or more in the window start the free spins</td>
+</tr>
+<tr>
+<td><img alt="FISH1_5" src="img/FISH1_5.svg" width="56" /></td>
+<td>FISH1</td>
+<td>Special, blocker, COR symbol</td>
+<td>all reels</td>
+<td>Shows a credit value. A KEY symbol collects this value.</td>
+</tr>
+<tr>
+<td><img alt="FISH2_25" src="img/FISH2_25.svg" width="56" /></td>
+<td>FISH2</td>
+<td>Special, blocker, COR symbol</td>
+<td>all reels</td>
+<td>Shows a credit value. A KEY symbol collects this value.</td>
+</tr>
+<tr>
+<td><img alt="FISH3_200" src="img/FISH3_200.svg" width="56" /></td>
+<td>FISH3</td>
+<td>Special, blocker, COR symbol</td>
+<td>reel 4</td>
+<td>Shows a credit value. A KEY symbol collects this value.</td>
+</tr>
+<tr>
+<td><img alt="FISH4_2000" src="img/FISH4_2000.svg" width="56" /></td>
+<td>FISH4</td>
+<td>Special, blocker, COR symbol</td>
+<td>reel 5</td>
+<td>Shows a credit value. A KEY symbol collects this value.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>A <strong>pay symbol</strong> is a PIC symbol or an AUS symbol.</li>
+<li>A <strong>special symbol</strong> is WILD, KEY, FS or a FISH symbol.</li>
+<li>A <strong>blocker symbol</strong> is KEY, FS or a FISH symbol. A blocker symbol is never part of a way. WILD does not substitute for a blocker symbol.</li>
+<li>The pictures show asset set A. The game has other asset sets. The rules are the same for each asset set.</li>
+</ul>
+<h2 id="5-paytable">5. Paytable<a class="headerlink" href="#5-paytable" title="Permanent link">&para;</a></h2>
+<p>The values are credits for one way. A bet of 10 credits is necessary for these values.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Symbol</th>
+<th style="text-align: right;">1 of a kind</th>
+<th style="text-align: right;">2 of a kind</th>
+<th style="text-align: right;">3 of a kind</th>
+<th style="text-align: right;">4 of a kind</th>
+<th style="text-align: right;">5 of a kind</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="PIC1" src="img/PIC1.svg" width="44" /></td>
+<td>PIC1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td><img alt="PIC2" src="img/PIC2.svg" width="44" /></td>
+<td>PIC2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr>
+<td><img alt="PIC3" src="img/PIC3.svg" width="44" /></td>
+<td>PIC3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td><img alt="PIC4" src="img/PIC4.svg" width="44" /></td>
+<td>PIC4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td><img alt="PIC5" src="img/PIC5.svg" width="44" /></td>
+<td>PIC5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td><img alt="AUS1" src="img/AUS1.svg" width="44" /></td>
+<td>AUS1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td><img alt="AUS2" src="img/AUS2.svg" width="44" /></td>
+<td>AUS2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td><img alt="AUS3" src="img/AUS3.svg" width="44" /></td>
+<td>AUS3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td><img alt="AUS4" src="img/AUS4.svg" width="44" /></td>
+<td>AUS4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td><img alt="AUS5" src="img/AUS5.svg" width="44" /></td>
+<td>AUS5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+<p>A value of 0 means that the combination does not pay.</p>
+<h2 id="6-ways-pays">6. Ways pays<a class="headerlink" href="#6-ways-pays" title="Permanent link">&para;</a></h2>
+<h3 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">&para;</a></h3>
+<ol>
+<li>The game examines each pay symbol independently.</li>
+<li>A combination of a pay symbol starts on reel 1. It continues on reel 2, reel 3 and the subsequent reels while each reel shows the pay symbol or a WILD symbol in one or more rows. The row is not important.</li>
+<li>The combination ends at the first reel that shows no such symbol. The number of reels in the combination is the "of a kind" number (OAK).</li>
+<li>On each reel of the combination, the game counts the pay symbol and the WILD symbols. The number of ways is the product of these counts.</li>
+<li>The pay of the symbol is the paytable value for its OAK number multiplied by the number of ways.</li>
+<li>Each pay symbol pays one time, for its longest combination only.</li>
+<li>Different pay symbols can pay in the same spin. The ways pays of the spin are the sum of the pays of all pay symbols.</li>
+<li>WILD substitutes for each pay symbol. One WILD symbol can be part of the combinations of different pay symbols in the same spin.</li>
+<li>WILD is not on reel 1. Thus each combination starts with a pay symbol on reel 1, and WILD symbols alone make no combination.</li>
+<li>A blocker symbol (KEY, FS, FISH) does not continue a combination.</li>
+</ol>
+<h3 id="example-1-one-way">Example 1: one way<a class="headerlink" href="#example-1-one-way" title="Permanent link">&para;</a></h3>
+<p>Stops 10, 11, 81, 14, 32 on the base reel strips:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;">PIC2</td>
+<td style="text-align: center;"><strong>PIC4</strong></td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">FISH4</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;">AUS1</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">AUS3</td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;">AUS1</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">AUS4</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;"><strong>PIC4</strong></td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;"><strong>PIC4</strong></td>
+<td style="text-align: center;">AUS3</td>
+<td style="text-align: center;">PIC5</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>PIC4: 3 of a kind. Ways = 1 x 1 x 1 = 1. Pay = 3 x 1 = <strong>3 credits</strong>.</li>
+</ul>
+<p>The ways pays of this spin are <strong>3 credits</strong>.</p>
+<h3 id="example-2-wild-and-more-than-one-way">Example 2: WILD and more than one way<a class="headerlink" href="#example-2-wild-and-more-than-one-way" title="Permanent link">&para;</a></h3>
+<p>Stops 33, 97, 5, 53, 55 on the base reel strips:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">PIC2</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;"><strong>WILD</strong></td>
+<td style="text-align: center;">PIC5</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;">PIC1</td>
+<td style="text-align: center;"><strong>AUS2</strong></td>
+<td style="text-align: center;">PIC1</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;"><strong>AUS2</strong></td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;"><strong>AUS2</strong></td>
+<td style="text-align: center;"><strong>AUS2</strong></td>
+<td style="text-align: center;"><strong>AUS2</strong></td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">PIC3</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;">FS</td>
+<td style="text-align: center;"><strong>AUS2</strong></td>
+<td style="text-align: center;"><strong>WILD</strong></td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">AUS4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>AUS2: 5 of a kind. Ways = 1 x 3 x 2 x 1 x 1 = 6. Pay = 5 x 6 = <strong>30 credits</strong>.</li>
+</ul>
+<p>The count for each reel includes the WILD symbols. The ways pays of this spin are <strong>30 credits</strong>.</p>
+<h3 id="example-3-two-pay-symbols-win-in-the-same-spin">Example 3: two pay symbols win in the same spin<a class="headerlink" href="#example-3-two-pay-symbols-win-in-the-same-spin" title="Permanent link">&para;</a></h3>
+<p>Stops 55, 71, 37, 1, 26 on the base reel strips:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;"><strong>AUS3</strong></td>
+<td style="text-align: center;"><strong>AUS3</strong></td>
+<td style="text-align: center;"><strong>AUS3</strong></td>
+<td style="text-align: center;">FS</td>
+<td style="text-align: center;">AUS2</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;"><strong>AUS3</strong></td>
+<td style="text-align: center;"><strong>PIC4</strong></td>
+<td style="text-align: center;"><strong>PIC4</strong></td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">AUS2</td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;"><strong>PIC4</strong></td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">PIC2</td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">PIC1</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">PIC2</td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">AUS4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>PIC4: 3 of a kind. Ways = 1 x 1 x 1 = 1. Pay = 3 x 1 = <strong>3 credits</strong>.</li>
+<li>AUS3: 3 of a kind. Ways = 2 x 1 x 1 = 2. Pay = 1 x 2 = <strong>2 credits</strong>.</li>
+</ul>
+<p>The ways pays of this spin are 3 + 2 = <strong>5 credits</strong>.</p>
+<h3 id="example-4-a-combination-that-is-too-short">Example 4: a combination that is too short<a class="headerlink" href="#example-4-a-combination-that-is-too-short" title="Permanent link">&para;</a></h3>
+<p>Stops 88, 22, 49, 5, 26 on the base reel strips:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">AUS2</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">AUS2</td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">AUS1</td>
+<td style="text-align: center;">PIC1</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;">AUS3</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">FISH1</td>
+<td style="text-align: center;">AUS1</td>
+<td style="text-align: center;">AUS4</td>
+</tr>
+</tbody>
+</table>
+<p>PIC3 is on reel 1, reel 2 and reel 4. Reel 3 shows no PIC3 and no WILD. Thus the combination ends after reel 2.
+The result is 2 of a kind. The paytable value for 2 of a kind is 0. The PIC3 on reel 4 is not part of the combination.
+This spin has no ways pays.</p>
+<h2 id="7-fish-values">7. Fish values<a class="headerlink" href="#7-fish-values" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Each FISH symbol shows one credit value.</li>
+<li>At the start of each reel spin, the game selects a new value for each FISH symbol on each reel strip. This includes the FISH symbols that do not stop in the window.</li>
+<li>The game selects each value independently of the other values and of the stop positions.</li>
+<li>Each FISH symbol has a list of possible values. A weight table gives the probability of each value.</li>
+<li>The base game and each level of the free spins have their own weight tables.</li>
+<li>The value that a FISH symbol shows when the reels stop is the value that a KEY symbol collects.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Art for each value</th>
+<th style="text-align: right;">Possible values (credits)</th>
+<th style="text-align: right;">Values as multiples of the bet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FISH1</td>
+<td><img alt="FISH1_1" src="img/FISH1_1.svg" width="44" /> <img alt="FISH1_2" src="img/FISH1_2.svg" width="44" /> <img alt="FISH1_3" src="img/FISH1_3.svg" width="44" /> <img alt="FISH1_5" src="img/FISH1_5.svg" width="44" /></td>
+<td style="text-align: right;">1, 2, 3, 5</td>
+<td style="text-align: right;">0.1, 0.2, 0.3, 0.5</td>
+</tr>
+<tr>
+<td>FISH2</td>
+<td><img alt="FISH2_10" src="img/FISH2_10.svg" width="44" /> <img alt="FISH2_15" src="img/FISH2_15.svg" width="44" /> <img alt="FISH2_20" src="img/FISH2_20.svg" width="44" /> <img alt="FISH2_25" src="img/FISH2_25.svg" width="44" /></td>
+<td style="text-align: right;">10, 15, 20, 25</td>
+<td style="text-align: right;">1, 1.5, 2, 2.5</td>
+</tr>
+<tr>
+<td>FISH3</td>
+<td><img alt="FISH3_50" src="img/FISH3_50.svg" width="44" /> <img alt="FISH3_100" src="img/FISH3_100.svg" width="44" /> <img alt="FISH3_150" src="img/FISH3_150.svg" width="44" /> <img alt="FISH3_200" src="img/FISH3_200.svg" width="44" /></td>
+<td style="text-align: right;">50, 100, 150, 200</td>
+<td style="text-align: right;">5, 10, 15, 20</td>
+</tr>
+<tr>
+<td>FISH4</td>
+<td><img alt="FISH4_500" src="img/FISH4_500.svg" width="44" /> <img alt="FISH4_2000" src="img/FISH4_2000.svg" width="44" /></td>
+<td style="text-align: right;">500, 2000</td>
+<td style="text-align: right;">50, 200</td>
+</tr>
+</tbody>
+</table>
+<p>Probability of each value:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th style="text-align: right;">Value</th>
+<th style="text-align: right;">Base game</th>
+<th style="text-align: right;">Level 1</th>
+<th style="text-align: right;">Level 2</th>
+<th style="text-align: right;">Level 3</th>
+<th style="text-align: right;">Level 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FISH1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">42.2%</td>
+<td style="text-align: right;">40.0%</td>
+<td style="text-align: right;">35.0%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;">25.0%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">27.8%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;">30.0%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">20.0%</td>
+<td style="text-align: right;">20.0%</td>
+<td style="text-align: right;">20.0%</td>
+<td style="text-align: right;">22.0%</td>
+<td style="text-align: right;">25.0%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">10.0%</td>
+<td style="text-align: right;">10.0%</td>
+<td style="text-align: right;">15.0%</td>
+<td style="text-align: right;">18.0%</td>
+<td style="text-align: right;">20.0%</td>
+</tr>
+<tr>
+<td>FISH2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">55.0%</td>
+<td style="text-align: right;">35.0%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;">25.0%</td>
+<td style="text-align: right;">20.0%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">27.0%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;">30.0%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">12.0%</td>
+<td style="text-align: right;">20.0%</td>
+<td style="text-align: right;">22.0%</td>
+<td style="text-align: right;">25.0%</td>
+<td style="text-align: right;">27.0%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">6.0%</td>
+<td style="text-align: right;">15.0%</td>
+<td style="text-align: right;">18.0%</td>
+<td style="text-align: right;">20.0%</td>
+<td style="text-align: right;">23.0%</td>
+</tr>
+<tr>
+<td>FISH3</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">75.0%</td>
+<td style="text-align: right;">60.0%</td>
+<td style="text-align: right;">50.0%</td>
+<td style="text-align: right;">45.0%</td>
+<td style="text-align: right;">40.0%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">17.0%</td>
+<td style="text-align: right;">25.0%</td>
+<td style="text-align: right;">28.0%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;">30.0%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">6.0%</td>
+<td style="text-align: right;">10.0%</td>
+<td style="text-align: right;">14.0%</td>
+<td style="text-align: right;">15.0%</td>
+<td style="text-align: right;">18.0%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">2.0%</td>
+<td style="text-align: right;">5.0%</td>
+<td style="text-align: right;">8.0%</td>
+<td style="text-align: right;">10.0%</td>
+<td style="text-align: right;">12.0%</td>
+</tr>
+<tr>
+<td>FISH4</td>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">88.9%</td>
+<td style="text-align: right;">88.9%</td>
+<td style="text-align: right;">88.9%</td>
+<td style="text-align: right;">88.9%</td>
+<td style="text-align: right;">88.9%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">11.1%</td>
+<td style="text-align: right;">11.1%</td>
+<td style="text-align: right;">11.1%</td>
+<td style="text-align: right;">11.1%</td>
+<td style="text-align: right;">11.1%</td>
+</tr>
+</tbody>
+</table>
+<p>FISH4 is the kraken. The value 500 shows the usual kraken. The value 2000 shows the golden kraken.</p>
+<h2 id="8-key-and-fish-collect">8. KEY and FISH collect<a class="headerlink" href="#8-key-and-fish-collect" title="Permanent link">&para;</a></h2>
+<h3 id="rules_1">Rules<a class="headerlink" href="#rules_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>The game counts the KEY symbols in the full window.</li>
+<li>The game adds the values of all FISH symbols in the full window.</li>
+<li>Each KEY symbol pays the sum of the FISH values.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>collect win = (sum of the FISH values in the window) x (number of KEY symbols in the window)
+</code></pre></div>
+<ol>
+<li>The positions of the KEY symbols and of the FISH symbols are not important. A FISH symbol can be on the same reel as the KEY symbol, or on a reel to the left or to the right.</li>
+<li>If the window shows no KEY symbol, the FISH symbols pay nothing.</li>
+<li>If the window shows a KEY symbol and no FISH symbol, the collect win is 0.</li>
+<li>The collect win does not depend on the ways pays. One spin can have ways pays and a collect win.</li>
+<li>In the base game, KEY is on reels 1, 2, 3. FISH3 is on reel 4. FISH4 is on reel 5.</li>
+</ol>
+<h3 id="example-5-collect-and-ways-pays-in-one-spin">Example 5: collect and ways pays in one spin<a class="headerlink" href="#example-5-collect-and-ways-pays-in-one-spin" title="Permanent link">&para;</a></h3>
+<p>Stops 91, 77, 51, 72, 58 on the base reel strips. The FISH symbols show the values in the table:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;">AUS3</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">WILD</td>
+<td style="text-align: center;">AUS4</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;">AUS3</td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;"><strong>FISH1 = 1</strong></td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">AUS4</td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;"><strong>KEY</strong></td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;"><strong>FISH1 = 3</strong></td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;"><strong>FISH1 = 5</strong></td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">AUS5</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Sum of the FISH values = 5 + 1 + 3 = 9 credits.</li>
+<li>There is 1 KEY symbol. Collect win = 9 x 1 = <strong>9 credits</strong>.</li>
+<li>AUS4: 5 of a kind. Ways = 1 x 2 x 2 x 1 x 2 = 8. Pay = 4 x 8 = <strong>32 credits</strong>.</li>
+<li>Win of the spin = 32 + 9 = <strong>41 credits</strong>.</li>
+</ul>
+<h3 id="example-6-fish-symbols-and-no-key-symbol">Example 6: FISH symbols and no KEY symbol<a class="headerlink" href="#example-6-fish-symbols-and-no-key-symbol" title="Permanent link">&para;</a></h3>
+<p>Stops 15, 58, 78, 10, 63 on the base reel strips:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;">AUS1</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">AUS5</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">PIC2</td>
+<td style="text-align: center;">PIC3</td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">FISH2 = 10</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">AUS2</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;">AUS3</td>
+<td style="text-align: center;">FISH1 = 1</td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">FISH1 = 1</td>
+</tr>
+</tbody>
+</table>
+<p>The window shows 3 FISH symbols with a total value of 12 credits. The window shows no KEY symbol. Thus the collect win is 0. This spin has no win.</p>
+<h2 id="9-win-of-a-spin">9. Win of a spin<a class="headerlink" href="#9-win-of-a-spin" title="Permanent link">&para;</a></h2>
+<p>The game calculates a spin in this sequence:</p>
+<ol>
+<li>Select the stop position of each reel.</li>
+<li>Select the value of each FISH symbol.</li>
+<li>Calculate the ways pays (section 6).</li>
+<li>Calculate the collect win (section 8).</li>
+<li>In the free spins, apply the level multiplier (section 11).</li>
+<li>In the base game, count the FS symbols (section 10).</li>
+</ol>
+<div class="highlight"><pre><span></span><code>base spin win = ways pays + collect win
+</code></pre></div>
+<h2 id="10-free-spins-trigger">10. Free spins trigger<a class="headerlink" href="#10-free-spins-trigger" title="Permanent link">&para;</a></h2>
+<ol>
+<li>FS is a scatter symbol. The game counts the FS symbols in the full window. The positions are not important.</li>
+<li>One reel shows one FS symbol at most. Thus the window shows 5 FS symbols at most.</li>
+<li>The table shows the number of initial free spins.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>FS symbols in the window</th>
+<th style="text-align: right;">Initial free spins</th>
+<th style="text-align: right;">Probability for each base spin</th>
+<th style="text-align: right;">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.005558</td>
+<td style="text-align: right;">1 in 180</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.000262</td>
+<td style="text-align: right;">1 in 3,815</td>
+</tr>
+<tr>
+<td>5 or more</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.000005</td>
+<td style="text-align: right;">1 in 203,451</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Fewer than 3 FS symbols have no function.</li>
+<li>The FS symbol has no pay of its own.</li>
+<li>The base spin that starts the free spins pays its ways pays and its collect win as usual.</li>
+<li>The free spins start after the game pays the base spin.</li>
+</ol>
+<h3 id="example-7-trigger">Example 7: trigger<a class="headerlink" href="#example-7-trigger" title="Permanent link">&para;</a></h3>
+<p>Stops 1, 1, 19, 98, 5 on the base reel strips:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;"><strong>FS</strong></td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;">AUS1</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">AUS3</td>
+<td style="text-align: center;">AUS4</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">PIC4</td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">AUS3</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">PIC4</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;"><strong>FS</strong></td>
+<td style="text-align: center;"><strong>FS</strong></td>
+<td style="text-align: center;">AUS5</td>
+</tr>
+</tbody>
+</table>
+<p>The window shows 3 FS symbols. The game starts 10 free spins.
+- PIC3: 3 of a kind. Ways = 2 x 1 x 1 = 2. Pay = 3 x 2 = <strong>6 credits</strong>.</p>
+<p>The base spin pays 6 credits. Then the free spins start.</p>
+<h2 id="11-free-spins">11. Free spins<a class="headerlink" href="#11-free-spins" title="Permanent link">&para;</a></h2>
+<h3 id="reels-and-symbols">Reels and symbols<a class="headerlink" href="#reels-and-symbols" title="Permanent link">&para;</a></h3>
+<ol>
+<li>The free spins use the bonus reel strips.</li>
+<li>The bonus reel strips have no WILD symbol and no FS symbol.</li>
+<li>The bonus reel strips have 70 FISH symbols and 5 KEY symbols. The base reel strips have 24 FISH symbols and 3 KEY symbols.</li>
+<li>The free spins cannot start more free spins. There is no retrigger.</li>
+<li>The rules for ways pays (section 6), fish values (section 7) and collect (section 8) are the same as in the base game.</li>
+</ol>
+<h3 id="levels">Levels<a class="headerlink" href="#levels" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th style="text-align: right;">KEY symbols necessary (total in the free spins)</th>
+<th style="text-align: right;">Spins</th>
+<th style="text-align: right;">Multiplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">none</td>
+<td style="text-align: right;">10 / 15 / 20 (initial free spins)</td>
+<td style="text-align: right;">x1</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">x2</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">x5</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">x10</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>The initial free spins are level 1.</li>
+<li>The game has a KEY counter. The counter starts at 0 when the free spins start. KEY symbols of the base spin do not count.</li>
+<li>Each KEY symbol that lands in a free spin adds 1 to the counter. The counter does not decrease and does not go back to 0 between levels.</li>
+<li>The game examines the counter only when all spins of the current level are complete.</li>
+<li>If the counter is equal to or more than the threshold of the subsequent level, the subsequent level starts with its number of spins.</li>
+<li>If the counter is less than the threshold, the free spins end.</li>
+<li>The levels come in sequence. The game does not skip a level, also when the counter is more than the threshold of a higher level.</li>
+<li>KEY symbols that land in a level count for all subsequent thresholds.</li>
+<li>Spins do not move from one level to the subsequent level. Each level has its own number of spins.</li>
+<li>After the last spin of level 4, the free spins end.</li>
+</ol>
+<h3 id="level-multiplier">Level multiplier<a class="headerlink" href="#level-multiplier" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Each level has a multiplier.</li>
+<li>The level multiplier multiplies the full win of the spin: the ways pays and the collect win.</li>
+<li>The multiplier of a level applies to each spin of that level.</li>
+<li>The multiplier does not change the number of KEY symbols.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>free spin win = level multiplier x (ways pays + collect win)
+</code></pre></div>
+<h3 id="fish-values-in-the-free-spins">Fish values in the free spins<a class="headerlink" href="#fish-values-in-the-free-spins" title="Permanent link">&para;</a></h3>
+<p>Each level uses its own weight tables for the fish values (section 7).</p>
+<h3 id="end-of-the-free-spins">End of the free spins<a class="headerlink" href="#end-of-the-free-spins" title="Permanent link">&para;</a></h3>
+<ol>
+<li>The free spins end when the counter is not sufficient for the subsequent level, or when the top level is complete.</li>
+<li>The win of the free spins is the sum of the wins of all free spins.</li>
+<li>The game adds this win to the balance. Then the game goes back to the base reel strips.</li>
+</ol>
+<h3 id="example-8-level-multiplier">Example 8: level multiplier<a class="headerlink" href="#example-8-level-multiplier" title="Permanent link">&para;</a></h3>
+<p>A free spin on level 3 (multiplier x5), stops 66, 86, 97, 22, 30 on the bonus reel strips:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;">AUS1</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">PIC2</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;"><strong>FISH1 = 1</strong></td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;">PIC2</td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;">PIC2</td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;">PIC2</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;"><strong>FISH1 = 3</strong></td>
+<td style="text-align: center;">AUS5</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;">PIC2</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;"><strong>KEY</strong></td>
+<td style="text-align: center;">AUS5</td>
+<td style="text-align: center;">PIC1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>PIC4: 4 of a kind. Ways = 1 x 2 x 1 x 1 = 2. Pay = 6 x 2 = <strong>12 credits</strong>.</li>
+<li>Sum of the FISH values = 1 + 3 = 4 credits. There is 1 KEY symbol. Collect win = 4 credits.</li>
+<li>Win of the spin = 5 x (12 + 4) = <strong>80 credits</strong>.</li>
+<li>The KEY counter increases by 1.</li>
+</ul>
+<h3 id="example-9-two-key-symbols-in-one-free-spin">Example 9: two KEY symbols in one free spin<a class="headerlink" href="#example-9-two-key-symbols-in-one-free-spin" title="Permanent link">&para;</a></h3>
+<p>Two reels show a KEY symbol in this spin. Stops 50, 53, 0, 45, 23 on the bonus reel strips, level 1:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">AUS3</td>
+<td style="text-align: center;"><strong>KEY</strong></td>
+<td style="text-align: center;">AUS2</td>
+<td style="text-align: center;">PIC4</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;"><strong>KEY</strong></td>
+<td style="text-align: center;"><strong>FISH2 = 20</strong></td>
+<td style="text-align: center;">AUS1</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;"><strong>FISH1 = 3</strong></td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">PIC3</td>
+<td style="text-align: center;">AUS1</td>
+<td style="text-align: center;">PIC4</td>
+<td style="text-align: center;">PIC1</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;">PIC5</td>
+<td style="text-align: center;">AUS3</td>
+<td style="text-align: center;">AUS1</td>
+<td style="text-align: center;">PIC1</td>
+<td style="text-align: center;">AUS2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Sum of the FISH values = 20 + 3 = 23 credits.</li>
+<li>There are 2 KEY symbols. Each KEY symbol collects each FISH value.</li>
+<li>Collect win = 23 x 2 = <strong>46 credits</strong>.</li>
+</ul>
+<h3 id="level-scenarios">Level scenarios<a class="headerlink" href="#level-scenarios" title="Permanent link">&para;</a></h3>
+<p>The scenarios start with 3 FS symbols (10 initial free spins).</p>
+<p><strong>Scenario A: not sufficient KEY symbols on level 1</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Level</th>
+<th style="text-align: right;">Multiplier</th>
+<th style="text-align: right;">Spins</th>
+<th style="text-align: right;">KEY symbols in this level</th>
+<th style="text-align: right;">KEY symbols in total</th>
+<th>At the end of the level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">x1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td>The free spins end (total 2, threshold 3 for level 2)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scenario B: level 2, then the end</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Level</th>
+<th style="text-align: right;">Multiplier</th>
+<th style="text-align: right;">Spins</th>
+<th style="text-align: right;">KEY symbols in this level</th>
+<th style="text-align: right;">KEY symbols in total</th>
+<th>At the end of the level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">x1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td>Level 2 starts (total 3, threshold 3)</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">x2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td>The free spins end (total 5, threshold 6 for level 3)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scenario C: many KEY symbols on level 1 do not skip a level</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Level</th>
+<th style="text-align: right;">Multiplier</th>
+<th style="text-align: right;">Spins</th>
+<th style="text-align: right;">KEY symbols in this level</th>
+<th style="text-align: right;">KEY symbols in total</th>
+<th>At the end of the level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">x1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td>Level 2 starts (total 7, threshold 3)</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">x2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+<td>Level 3 starts (total 7, threshold 6)</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">x5</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td>The free spins end (total 8, threshold 9 for level 4)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scenario D: all levels</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Level</th>
+<th style="text-align: right;">Multiplier</th>
+<th style="text-align: right;">Spins</th>
+<th style="text-align: right;">KEY symbols in this level</th>
+<th style="text-align: right;">KEY symbols in total</th>
+<th>At the end of the level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">x1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td>Level 2 starts (total 4, threshold 3)</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">x2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td>Level 3 starts (total 6, threshold 6)</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">x5</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">9</td>
+<td>Level 4 starts (total 9, threshold 9)</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">x10</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">11</td>
+<td>The free spins end (the top level is complete)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-rule-values-in-one-table">12. Rule values in one table<a class="headerlink" href="#12-rule-values-in-one-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reels x rows</td>
+<td>5 x 4</td>
+</tr>
+<tr>
+<td>Ways</td>
+<td>1024</td>
+</tr>
+<tr>
+<td>Bet</td>
+<td>10 credits</td>
+</tr>
+<tr>
+<td>Symbols on each reel strip</td>
+<td>100</td>
+</tr>
+<tr>
+<td>WILD substitutes for</td>
+<td>PIC1 to PIC5, AUS1 to AUS5</td>
+</tr>
+<tr>
+<td>Blocker symbols</td>
+<td>KEY, FS, FISH1 to FISH4</td>
+</tr>
+<tr>
+<td>Collect</td>
+<td>Each KEY pays the value of each FISH in the window</td>
+</tr>
+<tr>
+<td>Free spins trigger</td>
+<td>3 FS = 10 spins, 4 FS = 15 spins, 5 FS = 20 spins</td>
+</tr>
+<tr>
+<td>Level thresholds (KEY symbols in total)</td>
+<td>level 2: 3, level 3: 6, level 4: 9</td>
+</tr>
+<tr>
+<td>Spins for the levels after level 1</td>
+<td>level 2: 8, level 3: 8, level 4: 8</td>
+</tr>
+<tr>
+<td>Level multipliers</td>
+<td>level 1: x1, level 2: x2, level 3: x5, level 4: x10</td>
+</tr>
+<tr>
+<td>The multiplier applies to</td>
+<td>ways pays and collect win</td>
+</tr>
+<tr>
+<td>Retrigger</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Win limit</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-questions-and-answers">13. Questions and answers<a class="headerlink" href="#13-questions-and-answers" title="Permanent link">&para;</a></h2>
+<p><strong>Can one spin have ways pays, a collect win and a free spins trigger?</strong> Yes. The game pays all of them.</p>
+<p><strong>Does a KEY symbol pay if there is no FISH symbol?</strong> No. In the free spins, the KEY symbol adds 1 to the KEY counter in each case.</p>
+<p><strong>Does a FISH symbol pay if there is no KEY symbol?</strong> No.</p>
+<p><strong>Can two or more KEY symbols land in one spin?</strong> Yes. KEY is on reels 1, 2, 3 in the base game and on reels 1, 2, 3 in the free spins. One reel shows one KEY symbol at most. Thus one spin can show up to 3 KEY symbols in the base game and up to 3 KEY symbols in the free spins. The probability of two or more KEY symbols is 0.47% for each base spin and 1.23% for each free spin. Each KEY symbol collects each FISH value. In the free spins, each KEY symbol adds 1 to the counter.</p>
+<p><strong>Does the multiplier of a level apply to the ways pays?</strong> Yes. It applies to the full win of each spin of that level.</p>
+<p><strong>Do KEY symbols of level 1 count for level 3?</strong> Yes. The counter is the total for the full free spins.</p>
+<p><strong>Can the free spins go from level 1 to level 3 directly?</strong> No. Level 2 comes first.</p>
+<p><strong>Can the free spins start again in the free spins?</strong> No. The bonus reel strips have no FS symbol.</p>
+<p><strong>Does the FISH value change between the spin start and the reel stop?</strong> The game selects the values at the start of the spin. The reels show the new values 500 ms after the spin start, before the first reel stops.</p>
+<h2 id="14-presentation-rules-of-the-playable-game">14. Presentation rules of the playable game<a class="headerlink" href="#14-presentation-rules-of-the-playable-game" title="Permanent link">&para;</a></h2>
+<p>These rules do not change the result of a spin.</p>
+<ul>
+<li><strong>Fish value swap.</strong> The reels start at the wager. The FISH symbols show their new values 500 ms after the wager. The reels are in motion at this time.</li>
+<li><strong>KEY anticipation.</strong> If a KEY symbol lands on reel 1, 2, 3, reels 4 and 5 spin longer and show a glow.</li>
+<li><strong>FS anticipation.</strong> If 2 FS symbols are in the window, each subsequent reel that can show an FS symbol spins longer and shows a glow.</li>
+<li><strong>Kraken slow motion.</strong> This step applies to a reel that shows the KEY anticipation and that has a kraken symbol (FISH4) on its strip.
+  The last 18 symbols before the stop move on the true reel strip. If a kraken symbol comes into the window in this part, the reel decreases its speed to 2.8 symbols for each second.
+  The kraken symbol then stops in the window, or it goes out at the bottom of the window and the reel increases its speed again.
+  A spotlight frame follows the kraken symbol. The step applies to the two kraken values.</li>
+<li><strong>Win presentation.</strong> The game shows the ways pays first, then the collect, then the level multiplier. This sequence does not change the win.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.top", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

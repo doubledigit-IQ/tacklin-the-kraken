@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tacklin' the Kraken</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <div id="viewport">
+    <div id="stage">
+      <img id="bg" alt="">
+      <div id="shade"></div>
+      <img id="logo" alt="Tacklin' the Kraken">
+      <div id="logoText">TACKLIN' THE KRAKEN</div>
+
+      <section id="ladder" class="panel">
+        <h3 id="ladderTitle">FREE SPINS LEVELS</h3>
+        <div id="ladderRows"></div>
+        <div id="bonusInfo" class="hidden">
+          <div><label>SPINS LEFT</label><b id="spinsLeft">0</b></div>
+          <div><label id="keyCountLabel">KEYS</label><b id="keyCount">0</b></div>
+          <div><label>BONUS WIN</label><b id="bonusWin">0</b></div>
+        </div>
+        <p id="ladderNote"></p>
+      </section>
+
+      <section id="fishPanel" class="panel">
+        <h3 id="fishTitle">FISH VALUES</h3>
+        <div id="fishRows"></div>
+        <p id="fishNote"></p>
+      </section>
+
+      <div id="reelFrame">
+        <canvas id="reels"></canvas>
+        <div id="fx"></div>
+      </div>
+      <div id="status"></div>
+
+      <div id="hud">
+        <button id="btnInfo" class="round" title="Paytable and rules">i</button>
+        <button id="btnSound" class="round" title="Sound on or off">&#9835;</button>
+        <div class="meter"><label>BALANCE</label><b id="balance">0</b></div>
+        <div class="meter"><label>BET</label><b id="bet">10</b></div>
+        <div class="meter win"><label>WIN</label><b id="win">0</b></div>
+        <button id="btnTurbo" class="pill" title="Faster reels">TURBO</button>
+        <button id="btnAuto" class="pill" title="Automatic spins">AUTO</button>
+        <button id="btnSpin" title="Spin (space bar)">SPIN</button>
+      </div>
+
+      <div id="overlay" class="hidden"><div id="overlayCard"></div></div>
+      <div id="paytable" class="hidden"></div>
+      <div id="loading"><div>Loading the game&hellip;</div><div id="loadBar"><i></i></div></div>
+    </div>
+  </div>
+  <button id="btnDemo">DEMO SUITE</button>
+  <aside id="demo" class="closed"></aside>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

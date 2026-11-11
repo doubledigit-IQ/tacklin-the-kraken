@@ -1,0 +1,3255 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Rules, configuration, mathematics and verification of the slot game Tacklin' the Kraken">
+      
+      
+      
+      
+        <link rel="prev" href="excel.html">
+      
+      
+        <link rel="next" href="demo.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Excel calculation in detail - Tacklin' the Kraken - Game Math Document</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#excel-calculation-in-detail" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Tacklin&#39; the Kraken - Game Math Document" class="md-header__button md-logo" aria-label="Tacklin' the Kraken - Game Math Document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tacklin' the Kraken - Game Math Document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Excel calculation in detail
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Tacklin&#39; the Kraken - Game Math Document" class="md-nav__button md-logo" aria-label="Tacklin' the Kraken - Game Math Document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Tacklin' the Kraken - Game Math Document
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="play.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Play the game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rules.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="configuration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reels.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reel strips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mathematics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="math-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base game math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="math-freespins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free spins math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rtp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RTP and volatility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tuning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tuning history
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="verification.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="excel.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excel workbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excel calculation in detail
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="excel-calc.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excel calculation in detail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-structure-of-the-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Structure of the calculation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Structure of the calculation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defined names
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sheet-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Sheet Config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sheets-reels_base-and-reels_bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sheets Reels_Base and Reels_Bonus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Sheets Reels_Base and Reels_Bonus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reel-strips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reel strips
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check columns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol-counts-and-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symbol counts and checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-sheets-win_base-and-win_bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Sheets Win_Base and Win_Bonus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sheet-ways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sheet Ways
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sheet Ways">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numbers-for-pic1-on-the-base-reels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numbers for PIC1 on the base reels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-sheet-fish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Sheet Fish
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Sheet Fish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mean-fish-values-cells-b5e9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mean fish values, cells B5:E9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-and-fish-counts-rows-14-to-20-base-reels-and-25-to-31-bonus-reels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KEY and FISH counts, rows 14 to 20 (base reels) and 25 to 31 (bonus reels)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect-ev-rows-36-to-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collect EV, rows 36 to 40
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-sheet-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Sheet Trigger
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Sheet Trigger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fs-symbols-for-each-reel-rows-5-to-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FS symbols for each reel, rows 5 to 9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-of-fs-symbols-in-the-full-window-rows-14-to-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Number of FS symbols in the full window, rows 14 to 18
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-probabilities-rows-23-to-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger probabilities, rows 23 to 26
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-sheet-bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Sheet Bonus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Sheet Bonus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-symbols-in-one-free-spin-rows-5-to-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KEY symbols in one free spin, rows 5 to 22
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spin-ev-for-each-level-rows-27-to-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spin EV for each level, rows 27 to 30
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-tables-from-row-47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State tables, from row 47
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-for-each-trigger-rows-35-to-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results for each trigger, rows 35 to 40
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-limits-cells-b43b44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table limits, cells B43:B44
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sheet-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Sheet Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Sheet Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rtp-rows-6-to-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RTP, rows 6 to 9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-figures-rows-13-to-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key figures, rows 13 to 27
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checks-rows-30-to-36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checks, rows 30 to 36
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-reference-from-row-38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation reference, from row 38
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-sheet-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Sheet Distribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-sheet-readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Sheet ReadMe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-one-result-from-start-to-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. One result from start to end
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-change-an-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Change an input
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-excel-functions-in-the-workbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Excel functions in the workbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-verification-of-the-workbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Verification of the workbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Playable game and demo suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-structure-of-the-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Structure of the calculation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Structure of the calculation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defined names
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sheet-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Sheet Config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sheets-reels_base-and-reels_bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sheets Reels_Base and Reels_Bonus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Sheets Reels_Base and Reels_Bonus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reel-strips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reel strips
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check columns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol-counts-and-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symbol counts and checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-sheets-win_base-and-win_bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Sheets Win_Base and Win_Bonus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sheet-ways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sheet Ways
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sheet Ways">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numbers-for-pic1-on-the-base-reels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numbers for PIC1 on the base reels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-sheet-fish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Sheet Fish
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Sheet Fish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mean-fish-values-cells-b5e9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mean fish values, cells B5:E9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-and-fish-counts-rows-14-to-20-base-reels-and-25-to-31-bonus-reels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KEY and FISH counts, rows 14 to 20 (base reels) and 25 to 31 (bonus reels)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect-ev-rows-36-to-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collect EV, rows 36 to 40
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-sheet-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Sheet Trigger
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Sheet Trigger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fs-symbols-for-each-reel-rows-5-to-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FS symbols for each reel, rows 5 to 9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-of-fs-symbols-in-the-full-window-rows-14-to-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Number of FS symbols in the full window, rows 14 to 18
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-probabilities-rows-23-to-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger probabilities, rows 23 to 26
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-sheet-bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Sheet Bonus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Sheet Bonus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-symbols-in-one-free-spin-rows-5-to-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KEY symbols in one free spin, rows 5 to 22
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spin-ev-for-each-level-rows-27-to-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spin EV for each level, rows 27 to 30
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-tables-from-row-47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State tables, from row 47
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-for-each-trigger-rows-35-to-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results for each trigger, rows 35 to 40
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-limits-cells-b43b44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table limits, cells B43:B44
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sheet-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Sheet Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Sheet Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rtp-rows-6-to-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RTP, rows 6 to 9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-figures-rows-13-to-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key figures, rows 13 to 27
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checks-rows-30-to-36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checks, rows 30 to 36
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-reference-from-row-38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation reference, from row 38
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-sheet-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Sheet Distribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-sheet-readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Sheet ReadMe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-one-result-from-start-to-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. One result from start to end
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-change-an-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Change an input
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-excel-functions-in-the-workbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Excel functions in the workbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-verification-of-the-workbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Verification of the workbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="excel-calculation-in-detail">Excel Calculation in Detail<a class="headerlink" href="#excel-calculation-in-detail" title="Permanent link">&para;</a></h1>
+<p>This page explains each sheet, each block and each formula of the workbook <code>excel/TacklinTheKraken_TheoCalc.xlsx</code>.
+The page <a href="excel.html">Excel workbook</a> gives the short instructions. This page gives the full calculation.</p>
+<p>The cell addresses and the formula texts on this page come from the workbook file. The numbers are the results for math version 2.0.0.</p>
+<h2 id="1-structure-of-the-calculation">1. Structure of the calculation<a class="headerlink" href="#1-structure-of-the-calculation" title="Permanent link">&para;</a></h2>
+<p>The workbook has 12 sheets. The data moves in one direction, from the inputs to the sheet Summary:</p>
+<div class="highlight"><pre><span></span><code>   Config    Reels_Base    Reels_Bonus     inputs (yellow cells)
+                    |
+                    v
+          Win_Base    Win_Bonus            symbol counts for each stop
+                    |
+                    v
+         Ways    Fish    Trigger           expected values, probabilities
+                    |
+                    v
+                  Bonus                    free spins
+                    |
+                    v
+                 Summary                   RTP, key figures, checks
+
+              Distribution                 simulation values (separate)
+</code></pre></div>
+<p>The diagram shows the sequence of the calculation. The table gives the exact sources of each sheet.</p>
+<table>
+<thead>
+<tr>
+<th>Sheet</th>
+<th>Reads from</th>
+<th>Gives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Config</td>
+<td>no other sheet</td>
+<td>All number inputs</td>
+</tr>
+<tr>
+<td>Reels_Base, Reels_Bonus</td>
+<td>no other sheet for the strips. The check cells read the symbol list and the placement rules of Config, and the FS column of the Win sheet.</td>
+<td>The reel strips and the reel strip checks</td>
+</tr>
+<tr>
+<td>Win_Base</td>
+<td>Reels_Base</td>
+<td>The number of each symbol in the window, for each stop of each base reel</td>
+</tr>
+<tr>
+<td>Win_Bonus</td>
+<td>Reels_Bonus</td>
+<td>The same for the bonus reels</td>
+</tr>
+<tr>
+<td>Ways</td>
+<td>Win_Base, Win_Bonus, Config (paytable, bet)</td>
+<td>Expected ways pays for the base reels and for the bonus reels</td>
+</tr>
+<tr>
+<td>Fish</td>
+<td>Win_Base, Win_Bonus, Config (fish values, weights, bet)</td>
+<td>Expected collect for the base game and for each level</td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Win_Base, Config (initial free spins)</td>
+<td>Probability of 3, 4 and 5 FS symbols</td>
+</tr>
+<tr>
+<td>Bonus</td>
+<td>Win_Bonus, Ways, Fish, Trigger, Config (levels, multipliers, multiplier rule, bet)</td>
+<td>Level probabilities and the expected value of the free spins</td>
+</tr>
+<tr>
+<td>Summary</td>
+<td>Ways, Fish, Trigger, Bonus, Reels_Base, Reels_Bonus, Config (bet)</td>
+<td>RTP, key figures and checks</td>
+</tr>
+<tr>
+<td>Distribution</td>
+<td>no other sheet</td>
+<td>Win distribution tables from the simulation</td>
+</tr>
+<tr>
+<td>ReadMe</td>
+<td>no other sheet</td>
+<td>Short instructions</td>
+</tr>
+</tbody>
+</table>
+<p>The calculation has these steps:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Step</th>
+<th>Sheet</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Config, Reels_Base, Reels_Bonus</td>
+<td>Inputs. You change the yellow cells.</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Win_Base, Win_Bonus</td>
+<td>Count each symbol in the window, for each stop of each reel.</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Ways</td>
+<td>Expected ways pays for each pay symbol.</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Fish</td>
+<td>Expected KEY and FISH collect for the base game and for each level.</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Trigger</td>
+<td>Probability of 3, 4 and 5 FS symbols.</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Bonus</td>
+<td>Probability of each level and expected value of the free spins.</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Summary</td>
+<td>RTP, key figures and checks.</td>
+</tr>
+</tbody>
+</table>
+<p>All results are formulas. The workbook has no macros and no values that a person must copy.</p>
+<h3 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Colours.</strong> Yellow cells are inputs. Grey cells are fixed by the layout. Green cells are results or checks.</li>
+<li><strong>Units.</strong> All values are credits. The RTP is the expected win divided by the bet.</li>
+<li><strong>Stops.</strong> Stop <code>s</code> shows strip positions <code>s</code>, <code>s+1</code>, <code>s+2</code> and <code>s+3</code>. Each stop has the probability 1/100.</li>
+<li><strong>Division by 100.</strong> A formula that divides by <code>Config!$B$6</code> calculates a mean or a probability for the 100 stops of one reel.</li>
+<li><strong>Fixed layout.</strong> The workbook is made for 5 reels, 4 rows and 100 symbols for each reel.</li>
+</ul>
+<h3 id="defined-names">Defined names<a class="headerlink" href="#defined-names" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Refers to</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bet</code></td>
+<td><code>Config!$B$3</code></td>
+<td>The bet in credits</td>
+</tr>
+<tr>
+<td><code>Paytable</code></td>
+<td><code>Config!$B$11:$F$20</code></td>
+<td>The paytable values</td>
+</tr>
+<tr>
+<td><code>FishMultiplierRule</code></td>
+<td><code>Config!$B$68</code></td>
+<td>The text <code>all</code> or <code>fish</code></td>
+</tr>
+<tr>
+<td><code>TotalRTP</code></td>
+<td><code>Summary!$C$9</code></td>
+<td>The total RTP</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-sheet-config">2. Sheet Config<a class="headerlink" href="#2-sheet-config" title="Permanent link">&para;</a></h2>
+<p>This sheet holds all number inputs.</p>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Cells</th>
+<th>Contents</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Theoretical RTP</td>
+<td><code>B1:C1</code></td>
+<td>The label and the total RTP of the workbook. <code>C1</code> is the formula <code>=Summary!$C$9</code>. You see the result of a change on the same sheet as the inputs.</td>
+<td>Formula</td>
+</tr>
+<tr>
+<td>Bet</td>
+<td><code>B3</code></td>
+<td>Bet in credits</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>Layout</td>
+<td><code>B4:B6</code></td>
+<td>Rows, reels, symbols for each reel strip</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>Paytable</td>
+<td><code>B11:F20</code></td>
+<td>One row for each pay symbol. Columns B to F are 1 to 5 of a kind. Credits for one way.</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>Symbol list</td>
+<td><code>H11:J27</code></td>
+<td>The 17 symbol names, their class, and the flag "special". The reel sheets use this list.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>Fish values</td>
+<td><code>B25:E28</code></td>
+<td>One row for each FISH symbol. Up to 4 values. An empty cell means "no value".</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>Fish value weights</td>
+<td><code>C33:F52</code></td>
+<td>One row for each mode and FISH symbol. Weight n belongs to value n. Rows are in groups of 4: base, level 1, level 2, level 3, level 4.</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>Weight sum and mean</td>
+<td><code>G33:H52</code></td>
+<td>Sum of the weights and the mean value (from the sheet Fish). For information.</td>
+<td>Formula</td>
+</tr>
+<tr>
+<td>Free spins trigger</td>
+<td><code>B57:B59</code></td>
+<td>Initial free spins for 3, 4 and 5 FS symbols</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>Levels</td>
+<td><code>B63:D66</code></td>
+<td>KEY threshold (column B), spins (column C), multiplier (column D). Level 1 has the text "initial" for its spins.</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>Multiplier rule</td>
+<td><code>B68</code></td>
+<td><code>all</code>: the multiplier applies to ways pays and collect. <code>fish</code>: collect only.</td>
+<td>Input (list)</td>
+</tr>
+<tr>
+<td>Placement rules, base reels</td>
+<td><code>B73:F79</code></td>
+<td>One row for each special symbol, one column for each reel. 1 = permitted, 0 = not permitted.</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>Placement rules, bonus reels</td>
+<td><code>B82:F88</code></td>
+<td>The same for the bonus reel strips</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>Reel strip rules</td>
+<td><code>B90:B91</code></td>
+<td>Number of pay symbols between two special symbols, and the largest number of AUS symbols in sequence. The reel sheet checks are made for these values.</td>
+<td>Fixed</td>
+</tr>
+</tbody>
+</table>
+<p>The placement rules do not change the RTP. They only control the checks on the reel sheets.</p>
+<h2 id="3-sheets-reels_base-and-reels_bonus">3. Sheets Reels_Base and Reels_Bonus<a class="headerlink" href="#3-sheets-reels_base-and-reels_bonus" title="Permanent link">&para;</a></h2>
+<p>The two sheets have the same layout. <code>Reels_Base</code> holds the base reel strips. <code>Reels_Bonus</code> holds the bonus reel strips.</p>
+<h3 id="reel-strips">Reel strips<a class="headerlink" href="#reel-strips" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cells <code>B4:F103</code> hold the 100 symbols of reels 1 to 5. Row 4 is stop 0. Row 103 is stop 99. Column A shows the stop number.</li>
+<li>Each cell has a list of the permitted symbol names. A special symbol has a blue background.</li>
+<li>Rows 104 to 106 are the wrap rows. They repeat the first 3 symbols of the strip, so that a window at the end of the strip can read its symbols in one range:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Reels_Base!B104:  =B4
+Reels_Base!B105:  =B5
+Reels_Base!B106:  =B6
+</code></pre></div>
+<h3 id="check-columns">Check columns<a class="headerlink" href="#check-columns" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Columns</th>
+<th>Rows</th>
+<th>Contents</th>
+<th>Formula (reel 1, first row)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>H:L</code></td>
+<td>4 to 106</td>
+<td>1 if the symbol is a special symbol</td>
+<td><code>=IF(COUNTIF(Config!$H$21:$H$27,B4)&gt;0,1,0)</code></td>
+</tr>
+<tr>
+<td><code>N:R</code></td>
+<td>4 to 103</td>
+<td>1 if the gap rule is broken: the symbol is special and one of the next 3 symbols is special</td>
+<td><code>=IF(AND(H4=1,(H5+H6+H7)&gt;0),1,0)</code></td>
+</tr>
+<tr>
+<td><code>T:X</code></td>
+<td>4 to 103</td>
+<td>1 if the symbol name is not in the symbol list</td>
+<td><code>=IF(COUNTIF(Config!$H$11:$H$27,B4)=0,1,0)</code></td>
+</tr>
+<tr>
+<td><code>AM:AQ</code></td>
+<td>4 to 106</td>
+<td>1 if the symbol is an AUS symbol</td>
+<td><code>=IF(COUNTIF(Config!$H$16:$H$20,B4)&gt;0,1,0)</code></td>
+</tr>
+<tr>
+<td><code>AS:AW</code></td>
+<td>4 to 103</td>
+<td>1 if this position starts more than 3 AUS symbols in sequence</td>
+<td><code>=IF(SUM(AM4:AM7)=4,1,0)</code></td>
+</tr>
+</tbody>
+</table>
+<p>The gap check and the AUS check read the wrap rows. Thus they are also correct at the end of the strip.</p>
+<h3 id="symbol-counts-and-checks">Symbol counts and checks<a class="headerlink" href="#symbol-counts-and-checks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cells</th>
+<th>Contents</th>
+<th>Formula (first cell)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Z4:Z20</code></td>
+<td>The 17 symbol names</td>
+<td>text</td>
+</tr>
+<tr>
+<td><code>AA4:AE20</code></td>
+<td>Number of each symbol on each reel strip</td>
+<td><code>=COUNTIF(B$4:B$103,$Z4)</code></td>
+</tr>
+<tr>
+<td><code>AA21:AE21</code></td>
+<td>Number of symbols on the strip</td>
+<td><code>=SUM(AA4:AA20)</code></td>
+</tr>
+<tr>
+<td><code>AG4:AK20</code></td>
+<td>1 if a special symbol is on a reel where the placement rules do not permit it</td>
+<td><code>=IF(AND(AA14&gt;0,Config!$B$73=0),1,0)</code> (row 14, FISH1)</td>
+</tr>
+<tr>
+<td><code>AA24:AE24</code></td>
+<td>Check: the strip does not have 100 symbols</td>
+<td><code>=IF(AA21=Config!$B$6,0,1)</code></td>
+</tr>
+<tr>
+<td><code>AA25:AE25</code></td>
+<td>Check: number of stops that break the gap rule</td>
+<td><code>=SUM(N4:N103)</code></td>
+</tr>
+<tr>
+<td><code>AA26:AE26</code></td>
+<td>Check: number of unknown symbols</td>
+<td><code>=SUM(T4:T103)</code></td>
+</tr>
+<tr>
+<td><code>AA27:AE27</code></td>
+<td>Check: number of placement rule violations</td>
+<td><code>=SUM(AG4:AG20)</code></td>
+</tr>
+<tr>
+<td><code>AA28:AE28</code></td>
+<td>Check: number of stops that show two FS symbols</td>
+<td><code>=COUNTIF(Win_Base!$R$4:$R$103,"&gt;1")</code></td>
+</tr>
+<tr>
+<td><code>AA29:AE29</code></td>
+<td>Check: number of positions that start too many AUS symbols in sequence</td>
+<td><code>=SUM(AS4:AS103)</code></td>
+</tr>
+<tr>
+<td><code>AA30</code></td>
+<td>Result of all checks: <code>OK</code> or <code>CHECK</code></td>
+<td><code>=IF(SUM(AA24:AE29)=0,"OK","CHECK")</code></td>
+</tr>
+</tbody>
+</table>
+<p>A check value of 0 means "no violation". The checks do not stop the calculation. The RTP formulas use the strips as they are.</p>
+<h2 id="4-sheets-win_base-and-win_bonus">4. Sheets Win_Base and Win_Bonus<a class="headerlink" href="#4-sheets-win_base-and-win_bonus" title="Permanent link">&para;</a></h2>
+<p>These helper sheets are the base of all subsequent formulas. One row is one stop. One column is one symbol on one reel.
+The cell gives the number of that symbol in the 4-row window at that stop.</p>
+<ul>
+<li>Row 3 holds the symbol names. Rows 4 to 103 are stops 0 to 99.</li>
+<li>Each reel has a block of 17 columns. The sequence of the symbols in a block is: PIC1, PIC2, PIC3, PIC4, PIC5, AUS1, AUS2, AUS3, AUS4, AUS5, FISH1, FISH2, FISH3, FISH4, KEY, WILD, FS.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Reel</th>
+<th>Columns</th>
+<th>First column (PIC1)</th>
+<th>KEY column</th>
+<th>WILD column</th>
+<th>FS column</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>B to R</td>
+<td>B</td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>S to AI</td>
+<td>S</td>
+<td>AG</td>
+<td>AH</td>
+<td>AI</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>AJ to AZ</td>
+<td>AJ</td>
+<td>AX</td>
+<td>AY</td>
+<td>AZ</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>BA to BQ</td>
+<td>BA</td>
+<td>BO</td>
+<td>BP</td>
+<td>BQ</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>BR to CH</td>
+<td>BR</td>
+<td>CF</td>
+<td>CG</td>
+<td>CH</td>
+</tr>
+</tbody>
+</table>
+<p>Each cell counts one symbol in a range of 4 cells on the reel sheet:</p>
+<div class="highlight"><pre><span></span><code>Win_Base!B4:  =COUNTIF(Reels_Base!$B4:$B7,B$3)
+Win_Base!AX4:  =COUNTIF(Reels_Base!$D4:$D7,AX$3)
+Win_Base!CE103:  =COUNTIF(Reels_Base!$F103:$F106,CE$3)
+</code></pre></div>
+<p>The last example is the last stop of reel 5. Its range goes into the wrap rows.</p>
+<p>From these counts, the other sheets get three types of results with three formula patterns:</p>
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Formula pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean number of a symbol in the window</td>
+<td><code>SUM(column) / 100</code></td>
+</tr>
+<tr>
+<td>Probability of exactly k symbols in the window</td>
+<td><code>COUNTIF(column, k) / 100</code></td>
+</tr>
+<tr>
+<td>Mean of the product of two counts on the same reel</td>
+<td><code>SUMPRODUCT(column 1, column 2) / 100</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-sheet-ways">5. Sheet Ways<a class="headerlink" href="#5-sheet-ways" title="Permanent link">&para;</a></h2>
+<p>The sheet has two blocks with the same layout. Rows 5 to 14 are the base reel strips. Rows 20 to 29 are the bonus reel strips. One row is one pay symbol.</p>
+<table>
+<thead>
+<tr>
+<th>Columns</th>
+<th>Contents</th>
+<th>Formula in row 5 (PIC1, base reels)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>B:F</code></td>
+<td>M(r): mean number of the symbol or WILD in the window of reel r</td>
+<td><code>=(SUM(Win_Base!$B$4:$B$103)+SUM(Win_Base!$Q$4:$Q$103))/Config!$B$6</code></td>
+</tr>
+<tr>
+<td><code>G:K</code></td>
+<td>Z(r): probability that the window of reel r shows no such symbol and no WILD</td>
+<td><code>=SUMPRODUCT(--((Win_Base!$B$4:$B$103+Win_Base!$Q$4:$Q$103)=0))/Config!$B$6</code></td>
+</tr>
+<tr>
+<td><code>L:P</code></td>
+<td>Expected number of ways for exactly 1, 2, 3, 4 and 5 of a kind</td>
+<td><code>=B5*C5*D5*J5</code> (column N, 3 of a kind)</td>
+</tr>
+<tr>
+<td><code>Q:U</code></td>
+<td>Paytable values from the sheet Config</td>
+<td><code>=Config!$D$11</code> (column S, 3 of a kind)</td>
+</tr>
+<tr>
+<td><code>V:Z</code></td>
+<td>Expected value for each of a kind number = expected ways x pay</td>
+<td><code>=N5*S5</code> (column X, 3 of a kind)</td>
+</tr>
+<tr>
+<td><code>AA</code></td>
+<td>Expected value of the symbol</td>
+<td><code>=SUM(V5:Z5)</code></td>
+</tr>
+<tr>
+<td><code>AB</code></td>
+<td>RTP of the symbol</td>
+<td><code>=AA5/Config!$B$3</code></td>
+</tr>
+<tr>
+<td><code>AC:AG</code></td>
+<td>Probability of exactly 1 to 5 of a kind (for information)</td>
+<td><code>=(1-G5)*(1-H5)*(1-I5)*J5</code> (column AE, 3 of a kind)</td>
+</tr>
+</tbody>
+</table>
+<p>The expected ways for 1 to 5 of a kind in row 5 are:</p>
+<div class="highlight"><pre><span></span><code>Ways!L5:  =B5*H5
+Ways!M5:  =B5*C5*I5
+Ways!N5:  =B5*C5*D5*J5
+Ways!O5:  =B5*C5*D5*E5*K5
+Ways!P5:  =B5*C5*D5*E5*F5
+</code></pre></div>
+<p>The product of the mean counts is correct because the reels are independent. The factor Z of the subsequent reel makes sure that the combination ends there.
+Column P has no factor Z, because a combination cannot continue after reel 5.</p>
+<p>The totals are in <code>AA15</code> and <code>AB15</code> (base reels) and in <code>AA30</code> and <code>AB30</code> (bonus reels):</p>
+<div class="highlight"><pre><span></span><code>Ways!AA15:  =SUM(AA5:AA14)
+Ways!AB15:  =AA15/Config!$B$3
+Ways!AA30:  =SUM(AA20:AA29)
+</code></pre></div>
+<h3 id="numbers-for-pic1-on-the-base-reels">Numbers for PIC1 on the base reels<a class="headerlink" href="#numbers-for-pic1-on-the-base-reels" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Reel</th>
+<th style="text-align: right;">M(r), columns B:F</th>
+<th style="text-align: right;">Z(r), columns G:K</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">0.2000</td>
+<td style="text-align: right;">0.8000</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">0.3200</td>
+<td style="text-align: right;">0.7600</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">0.3200</td>
+<td style="text-align: right;">0.7000</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">0.3200</td>
+<td style="text-align: right;">0.7500</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align: right;">0.3200</td>
+<td style="text-align: right;">0.7100</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Of a kind</th>
+<th style="text-align: right;">Expected ways, columns L:P</th>
+<th style="text-align: right;">Pay, columns Q:U</th>
+<th style="text-align: right;">EV in credits, columns V:Z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">0.152000</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">0.044800</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">0.015360</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.076800</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">0.004653</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.069796</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align: right;">0.002097</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0.104858</td>
+</tr>
+</tbody>
+</table>
+<p><code>AA5</code> = 0.251453 credits. <code>AB5</code> = 2.5145%. The total <code>AA15</code> is 3.614598 credits, and <code>AA30</code> is 3.100092 credits.</p>
+<div class="admonition note">
+<p class="admonition-title">Condition</p>
+<p>The formulas in columns L to P are correct only if reel 1 has no WILD symbol. The sheet Summary has a check for this condition.</p>
+</div>
+<h2 id="6-sheet-fish">6. Sheet Fish<a class="headerlink" href="#6-sheet-fish" title="Permanent link">&para;</a></h2>
+<h3 id="mean-fish-values-cells-b5e9">Mean fish values, cells <code>B5:E9</code><a class="headerlink" href="#mean-fish-values-cells-b5e9" title="Permanent link">&para;</a></h3>
+<p>One row is one mode (base, level 1 to level 4). One column is one FISH symbol. The mean value is the sum of value x weight, divided by the sum of the weights:</p>
+<div class="highlight"><pre><span></span><code>Fish!B5:  =SUMPRODUCT(Config!$B$25:$E$25,Config!$C$33:$F$33)/SUM(Config!$C$33:$F$33)
+Fish!E9:  =SUMPRODUCT(Config!$B$28:$E$28,Config!$C$52:$F$52)/SUM(Config!$C$52:$F$52)
+</code></pre></div>
+<h3 id="key-and-fish-counts-rows-14-to-20-base-reels-and-25-to-31-bonus-reels">KEY and FISH counts, rows 14 to 20 (base reels) and 25 to 31 (bonus reels)<a class="headerlink" href="#key-and-fish-counts-rows-14-to-20-base-reels-and-25-to-31-bonus-reels" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Columns</th>
+<th>Contents</th>
+<th>Formula in row 14 (reel 1, base reels)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>B</code></td>
+<td>E[k(r)]: mean number of KEY symbols in the window of the reel</td>
+<td><code>=SUM(Win_Base!$P$4:$P$103)/Config!$B$6</code></td>
+</tr>
+<tr>
+<td><code>C:F</code></td>
+<td>E[n(r, f)]: mean number of FISH1 to FISH4 in the window of the reel</td>
+<td><code>=SUM(Win_Base!$L$4:$L$103)/Config!$B$6</code></td>
+</tr>
+<tr>
+<td><code>G:J</code></td>
+<td>E[k(r) x n(r, f)]: mean of the product for the same reel</td>
+<td><code>=SUMPRODUCT(Win_Base!$P$4:$P$103,Win_Base!$L$4:$L$103)/Config!$B$6</code></td>
+</tr>
+</tbody>
+</table>
+<p>Row 19 (row 30 for the bonus reels) is the sum of the 5 reels. Row 20 (row 31) is the expected number of KEY and FISH pairs in the full window, E[K x N(f)]:</p>
+<div class="highlight"><pre><span></span><code>Fish!C20:  =$B$19*C19-SUMPRODUCT($B$14:$B$18,C14:C18)+G19
+Fish!F31:  =$B$30*F30-SUMPRODUCT($B$25:$B$29,F25:F29)+J30
+</code></pre></div>
+<p>The formula has three parts:</p>
+<ol>
+<li><code>$B$19*C19</code> is (sum of the KEY means) x (sum of the FISH means). This is correct for a KEY and a FISH on different reels. It is not correct for the same reel.</li>
+<li><code>-SUMPRODUCT($B$14:$B$18,C14:C18)</code> removes the part for the same reel.</li>
+<li><code>+G19</code> adds the correct value for the same reel, from the product of the counts at each stop.</li>
+</ol>
+<h3 id="collect-ev-rows-36-to-40">Collect EV, rows 36 to 40<a class="headerlink" href="#collect-ev-rows-36-to-40" title="Permanent link">&para;</a></h3>
+<p>One row is one mode. Row 36 is the base game and uses row 20. Rows 37 to 40 are levels 1 to 4 and use row 31.</p>
+<div class="highlight"><pre><span></span><code>Fish!C36:  =B5*C20
+Fish!G36:  =SUM(C36:F36)
+Fish!H36:  =G36/Config!$B$3
+Fish!C37:  =B6*C31
+Fish!G40:  =SUM(C40:F40)
+</code></pre></div>
+<p>Each cell in <code>C:F</code> is (mean value of the FISH symbol in the mode) x (expected number of pairs). Column G is the collect EV of one spin, before the level multiplier.</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th style="text-align: right;">FISH symbol</th>
+<th style="text-align: right;">Mean value</th>
+<th style="text-align: right;">E[K x N(f)]</th>
+<th style="text-align: right;">EV (credits)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C36</code></td>
+<td style="text-align: right;">FISH1</td>
+<td style="text-align: right;">2.0775</td>
+<td style="text-align: right;">0.064000</td>
+<td style="text-align: right;">0.132960</td>
+</tr>
+<tr>
+<td><code>D36</code></td>
+<td style="text-align: right;">FISH2</td>
+<td style="text-align: right;">13.4500</td>
+<td style="text-align: right;">0.019200</td>
+<td style="text-align: right;">0.258240</td>
+</tr>
+<tr>
+<td><code>E36</code></td>
+<td style="text-align: right;">FISH3</td>
+<td style="text-align: right;">67.5000</td>
+<td style="text-align: right;">0.004800</td>
+<td style="text-align: right;">0.324000</td>
+</tr>
+<tr>
+<td><code>F36</code></td>
+<td style="text-align: right;">FISH4</td>
+<td style="text-align: right;">666.6667</td>
+<td style="text-align: right;">0.004800</td>
+<td style="text-align: right;">3.200000</td>
+</tr>
+</tbody>
+</table>
+<p><code>G36</code> = 3.915200 credits. This is the collect EV of the base game.</p>
+<h2 id="7-sheet-trigger">7. Sheet Trigger<a class="headerlink" href="#7-sheet-trigger" title="Permanent link">&para;</a></h2>
+<h3 id="fs-symbols-for-each-reel-rows-5-to-9">FS symbols for each reel, rows 5 to 9<a class="headerlink" href="#fs-symbols-for-each-reel-rows-5-to-9" title="Permanent link">&para;</a></h3>
+<p>Columns B, C and D give the probability of 0, 1 and 2 FS symbols in the window of the reel. Column E is the sum. The sum must be 1.</p>
+<div class="highlight"><pre><span></span><code>Trigger!B5:  =COUNTIF(Win_Base!$R$4:$R$103,0)/Config!$B$6
+Trigger!C5:  =COUNTIF(Win_Base!$R$4:$R$103,1)/Config!$B$6
+Trigger!D5:  =COUNTIF(Win_Base!$R$4:$R$103,2)/Config!$B$6
+Trigger!E5:  =SUM(B5:D5)
+</code></pre></div>
+<h3 id="number-of-fs-symbols-in-the-full-window-rows-14-to-18">Number of FS symbols in the full window, rows 14 to 18<a class="headerlink" href="#number-of-fs-symbols-in-the-full-window-rows-14-to-18" title="Permanent link">&para;</a></h3>
+<p>Row 14 is the distribution after reel 1. Each subsequent row adds one reel. Columns D to N are the totals 0 to 10. Columns B and C are zero "pad" columns for the formulas at the left edge.</p>
+<div class="highlight"><pre><span></span><code>Trigger!D14:  =B5
+Trigger!G15:  =G14*$B$6+F14*$C$6+E14*$D$6
+Trigger!G18:  =G17*$B$9+F17*$C$9+E17*$D$9
+</code></pre></div>
+<p>The formula in row 15 reads: the probability of a total of k after reel 2 = (total k after reel 1) x P(0 on reel 2) + (total k-1) x P(1 on reel 2) + (total k-2) x P(2 on reel 2).
+Row 18 is the distribution for all 5 reels.</p>
+<h3 id="trigger-probabilities-rows-23-to-26">Trigger probabilities, rows 23 to 26<a class="headerlink" href="#trigger-probabilities-rows-23-to-26" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Trigger!B23:  =G18
+Trigger!B24:  =H18
+Trigger!B25:  =SUM(I18:N18)
+Trigger!B26:  =SUM(B23:B25)
+Trigger!C26:  =IF(B26&gt;0,1/B26,"")
+Trigger!D23:  =Config!$B$57
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th style="text-align: right;">Meaning</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>B23</code></td>
+<td style="text-align: right;">P(3 FS symbols)</td>
+<td style="text-align: right;">0.00555827</td>
+</tr>
+<tr>
+<td><code>B24</code></td>
+<td style="text-align: right;">P(4 FS symbols)</td>
+<td style="text-align: right;">0.00026214</td>
+</tr>
+<tr>
+<td><code>B25</code></td>
+<td style="text-align: right;">P(5 or more FS symbols)</td>
+<td style="text-align: right;">0.00000492</td>
+</tr>
+<tr>
+<td><code>B26</code></td>
+<td style="text-align: right;">Trigger probability</td>
+<td style="text-align: right;">0.00582533</td>
+</tr>
+<tr>
+<td><code>C26</code></td>
+<td style="text-align: right;">Trigger frequency</td>
+<td style="text-align: right;">1 in 171.66</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-sheet-bonus">8. Sheet Bonus<a class="headerlink" href="#8-sheet-bonus" title="Permanent link">&para;</a></h2>
+<h3 id="key-symbols-in-one-free-spin-rows-5-to-22">KEY symbols in one free spin, rows 5 to 22<a class="headerlink" href="#key-symbols-in-one-free-spin-rows-5-to-22" title="Permanent link">&para;</a></h3>
+<p>Rows 5 to 9 and rows 14 to 18 use the method of the sheet Trigger, with the KEY columns of <code>Win_Bonus</code>.
+Row 18 is the distribution of the number of KEY symbols in one free spin (columns D to N = 0 to 10).</p>
+<div class="highlight"><pre><span></span><code>Bonus!B5:  =COUNTIF(Win_Bonus!$P$4:$P$103,0)/Config!$B$6
+Bonus!D18:  =D17*$B$9+C17*$C$9+B17*$D$9
+Bonus!D20:  =N18
+Bonus!N20:  =D18
+Bonus!B22:  =SUMPRODUCT(D13:N13,D18:N18)
+</code></pre></div>
+<p>Row 20 holds the same distribution in the opposite direction (10 to 0). The state tables use this row. <code>B22</code> is the mean number of KEY symbols for each free spin (0.2000).</p>
+<h3 id="spin-ev-for-each-level-rows-27-to-30">Spin EV for each level, rows 27 to 30<a class="headerlink" href="#spin-ev-for-each-level-rows-27-to-30" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Contents</th>
+<th>Formula in row 28 (level 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>B</code></td>
+<td>Ways EV on the bonus reels</td>
+<td><code>=Ways!$AA$30</code></td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td>Collect EV with the weight tables of the level</td>
+<td><code>=Fish!$G$38</code></td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>Level multiplier</td>
+<td><code>=Config!$D$64</code></td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td>EV of one spin of the level</td>
+<td><code>=IF(Config!$B$68="all",D28*(B28+C28),B28+D28*C28)</code></td>
+</tr>
+<tr>
+<td><code>F</code></td>
+<td>KEY threshold of the level</td>
+<td><code>=Config!$B$64</code></td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>Spins of the level</td>
+<td><code>=Config!$C$64</code></td>
+</tr>
+</tbody>
+</table>
+<p>Column E uses the multiplier rule of <code>Config!B68</code>. With <code>all</code>, the multiplier applies to the two parts. With <code>fish</code>, it applies to the collect only.</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th style="text-align: right;"><code>B</code> ways EV</th>
+<th style="text-align: right;"><code>C</code> collect EV</th>
+<th style="text-align: right;"><code>D</code> multiplier</th>
+<th style="text-align: right;"><code>E</code> spin EV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">3.100092</td>
+<td style="text-align: right;">10.678853</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13.778945</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">3.100092</td>
+<td style="text-align: right;">11.085973</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">28.372131</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">3.100092</td>
+<td style="text-align: right;">11.354645</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">72.273687</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">3.100092</td>
+<td style="text-align: right;">11.652133</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">147.522254</td>
+</tr>
+</tbody>
+</table>
+<h3 id="state-tables-from-row-47">State tables, from row 47<a class="headerlink" href="#state-tables-from-row-47" title="Permanent link">&para;</a></h3>
+<p>The state tables calculate the probability to play each level. The state is the total number of KEY symbols in the free spins.</p>
+<ul>
+<li>Row 47 is the header. Columns <code>M</code> to <code>AL</code> are the states 0 to 25. The last column means "25 or more". Columns <code>C</code> to <code>L</code> are empty pad columns.</li>
+<li>A block has one title row and 41 spin rows (spin 0 to spin 40). Column B shows the spin number.</li>
+<li>A cell gives the probability that the free spins are in this level, after this number of spins of the level, with this total number of KEY symbols.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th style="text-align: right;">Title row</th>
+<th>Spin rows (spin 0 to spin 40)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Level 1 (all triggers)</td>
+<td style="text-align: right;">48</td>
+<td>49 to 89</td>
+</tr>
+<tr>
+<td>Level 2 after a 3 FS trigger</td>
+<td style="text-align: right;">91</td>
+<td>92 to 132</td>
+</tr>
+<tr>
+<td>Level 3 after a 3 FS trigger</td>
+<td style="text-align: right;">134</td>
+<td>135 to 175</td>
+</tr>
+<tr>
+<td>Level 4 after a 3 FS trigger</td>
+<td style="text-align: right;">177</td>
+<td>178 to 218</td>
+</tr>
+<tr>
+<td>Level 2 after a 4 FS trigger</td>
+<td style="text-align: right;">220</td>
+<td>221 to 261</td>
+</tr>
+<tr>
+<td>Level 3 after a 4 FS trigger</td>
+<td style="text-align: right;">263</td>
+<td>264 to 304</td>
+</tr>
+<tr>
+<td>Level 4 after a 4 FS trigger</td>
+<td style="text-align: right;">306</td>
+<td>307 to 347</td>
+</tr>
+<tr>
+<td>Level 2 after a 5 FS trigger</td>
+<td style="text-align: right;">349</td>
+<td>350 to 390</td>
+</tr>
+<tr>
+<td>Level 3 after a 5 FS trigger</td>
+<td style="text-align: right;">392</td>
+<td>393 to 433</td>
+</tr>
+<tr>
+<td>Level 4 after a 5 FS trigger</td>
+<td style="text-align: right;">435</td>
+<td>436 to 476</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Level 1, spin 0.</strong> The free spins start with 0 KEY symbols. Cell <code>M49</code> is 1. The other cells of the row are 0.</p>
+<p><strong>One spin.</strong> Each spin row comes from the row above it:</p>
+<div class="highlight"><pre><span></span><code>Bonus!M50:  =SUMPRODUCT(C49:M49,$D$20:$N$20)
+Bonus!P50:  =SUMPRODUCT(F49:P49,$D$20:$N$20)
+Bonus!AL50:  =SUM($M49:$AL49)-SUM($M50:$AK50)
+</code></pre></div>
+<ul>
+<li>The <code>SUMPRODUCT</code> multiplies 11 cells of the row above (states k-10 to k) with the reversed KEY distribution in row 20. The result is the sum of P(state k-j) x P(j KEY symbols in one spin) for j = 0 to 10.</li>
+<li>For the first states, the range starts in the empty pad columns. An empty cell counts as 0.</li>
+<li>The last column takes the remaining probability: the total of the row above minus the other cells of the row. Thus the total of a row stays the same during a level.</li>
+</ul>
+<p><strong>Start of the subsequent level.</strong> The spin 0 row of a level 2, 3 or 4 block takes the row at the end of the level before it. It keeps only the states at or above the threshold:</p>
+<div class="highlight"><pre><span></span><code>Bonus!M92:  =IF(M$47&gt;=Config!$B$64,INDEX(M$49:M$89,Config!$B$57+1),0)
+Bonus!P92:  =IF(P$47&gt;=Config!$B$64,INDEX(P$49:P$89,Config!$B$57+1),0)
+Bonus!P135:  =IF(P$47&gt;=Config!$B$65,INDEX(P$92:P$132,Config!$C$64+1),0)
+</code></pre></div>
+<ul>
+<li><code>INDEX(range, n + 1)</code> reads the row after n spins. For level 2, n is the number of initial free spins (<code>Config!$B$57</code> for a 3 FS trigger) and the range is the level 1 block. For level 3, n is the number of spins of level 2 and the range is the level 2 block of the same trigger.</li>
+<li>The <code>IF</code> sets a state below the threshold to 0. These states are the free spins that end.</li>
+<li>The sum of the spin 0 row is the probability to play the level.</li>
+</ul>
+<p>The level 1 block is the same for all triggers. The triggers use different rows of it (after 10, 15 or 20 spins).</p>
+<h3 id="results-for-each-trigger-rows-35-to-40">Results for each trigger, rows 35 to 40<a class="headerlink" href="#results-for-each-trigger-rows-35-to-40" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Contents</th>
+<th>Formula in row 35 (3 FS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>B</code></td>
+<td>Probability of the trigger</td>
+<td><code>=Trigger!$B$23</code></td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td>Initial free spins</td>
+<td><code>=Config!$B$57</code></td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>P(play level 1)</td>
+<td><code>=IF(C35&gt;0,1,0)</code></td>
+</tr>
+<tr>
+<td><code>E:G</code></td>
+<td>P(play level 2, 3, 4): the sum of the spin 0 row of the block</td>
+<td><code>=SUM($M$92:$AL$92)</code></td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>EV of level 1 = P x spins x spin EV</td>
+<td><code>=D35*C35*$E$27</code></td>
+</tr>
+<tr>
+<td><code>I:K</code></td>
+<td>EV of levels 2, 3, 4</td>
+<td><code>=E35*$G$28*$E$28</code></td>
+</tr>
+<tr>
+<td><code>L</code></td>
+<td>EV of the free spins for this trigger (credits)</td>
+<td><code>=SUM(H35:K35)</code></td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td>The same as a multiple of the bet</td>
+<td><code>=L35/Config!$B$3</code></td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>Mean number of free spins</td>
+<td><code>=D35*C35+E35*$G$28+F35*$G$29+G35*$G$30</code></td>
+</tr>
+</tbody>
+</table>
+<p>The level EV is a product, because the win of a spin in a level is independent of the event "the free spins get to this level".</p>
+<div class="highlight"><pre><span></span><code>Bonus!L38:  =SUMPRODUCT(B35:B37,L35:L37)
+Bonus!L39:  =IF(SUM(B35:B37)&gt;0,L38/SUM(B35:B37)/Config!$B$3,0)
+Bonus!L40:  =L38/Config!$B$3
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Meaning</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>E35</code>, <code>F35</code>, <code>G35</code></td>
+<td>P(play level 2, 3, 4) after a 3 FS trigger</td>
+<td>0.323171, 0.122812, 0.051681</td>
+</tr>
+<tr>
+<td><code>L35</code></td>
+<td>EV of the free spins after a 3 FS trigger</td>
+<td>343.1430 credits</td>
+</tr>
+<tr>
+<td><code>N35</code></td>
+<td>Mean number of free spins after a 3 FS trigger</td>
+<td>13.9813</td>
+</tr>
+<tr>
+<td><code>L38</code></td>
+<td>EV of the free spins for each base spin</td>
+<td>2.090199 credits</td>
+</tr>
+<tr>
+<td><code>L39</code></td>
+<td>Mean free spins win for each trigger</td>
+<td>35.8812 x bet</td>
+</tr>
+<tr>
+<td><code>L40</code></td>
+<td>Free spins RTP</td>
+<td>20.9020%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="table-limits-cells-b43b44">Table limits, cells <code>B43:B44</code><a class="headerlink" href="#table-limits-cells-b43b44" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Bonus!B43:  =IF(MAX(Config!$B$57:$B$59,Config!$C$64:$C$66)&lt;=40,"OK","LIMIT EXCEEDED")
+Bonus!B44:  =IF(MAX(Config!$B$63:$B$66)&lt;=25,"OK","LIMIT EXCEEDED")
+</code></pre></div>
+<p>The state tables hold 40 spins for each level and thresholds up to 25. If an input is larger, the cell shows <code>LIMIT EXCEEDED</code> and the result is not valid.</p>
+<h2 id="9-sheet-summary">9. Sheet Summary<a class="headerlink" href="#9-sheet-summary" title="Permanent link">&para;</a></h2>
+<h3 id="rtp-rows-6-to-9">RTP, rows 6 to 9<a class="headerlink" href="#rtp-rows-6-to-9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Row</th>
+<th>Component</th>
+<th>Column B: EV in credits</th>
+<th>Column C: RTP</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Base game: ways pays</td>
+<td><code>=Ways!$AA$15</code></td>
+<td><code>=B6/Config!$B$3</code></td>
+<td style="text-align: right;">36.1460%</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Base game: KEY and FISH collect</td>
+<td><code>=Fish!$G$36</code></td>
+<td><code>=B7/Config!$B$3</code></td>
+<td style="text-align: right;">39.1520%</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Free spins</td>
+<td><code>=Bonus!$L$38</code></td>
+<td><code>=B8/Config!$B$3</code></td>
+<td style="text-align: right;">20.9020%</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>Total</td>
+<td><code>=SUM(B6:B8)</code></td>
+<td><code>=B9/Config!$B$3</code></td>
+<td style="text-align: right;"><strong>96.2000%</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Column D is the share of each component: <code>=C6/$C$9</code>.</li>
+<li>Column E is a fixed reference value from the script <code>gamemath/exact_calc.py</code>, written when the workbook was made.</li>
+<li>Column F is the difference: <code>=C9-E9</code>. It is 0 for the configuration of the workbook as delivered. It is not 0 after you change an input. This is correct.</li>
+<li>Column G is a fixed reference value from the simulation.</li>
+</ul>
+<h3 id="key-figures-rows-13-to-27">Key figures, rows 13 to 27<a class="headerlink" href="#key-figures-rows-13-to-27" title="Permanent link">&para;</a></h3>
+<p>Column B is a formula. Column C is the fixed reference value.</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Figure</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B13</td>
+<td>Free spins trigger probability for each base spin</td>
+<td><code>=Trigger!$B$26</code></td>
+</tr>
+<tr>
+<td>B14</td>
+<td>Free spins trigger frequency (1 in N base spins)</td>
+<td><code>=1/B13</code></td>
+</tr>
+<tr>
+<td>B15</td>
+<td>P(3 FS symbols)</td>
+<td><code>=Trigger!$B$23</code></td>
+</tr>
+<tr>
+<td>B16</td>
+<td>P(4 FS symbols)</td>
+<td><code>=Trigger!$B$24</code></td>
+</tr>
+<tr>
+<td>B17</td>
+<td>P(5 FS symbols)</td>
+<td><code>=Trigger!$B$25</code></td>
+</tr>
+<tr>
+<td>B18</td>
+<td>Mean free spins win for each trigger (x bet)</td>
+<td><code>=Bonus!$L$39</code></td>
+</tr>
+<tr>
+<td>B19</td>
+<td>Mean KEY symbols for each base spin</td>
+<td><code>=Fish!$B$19</code></td>
+</tr>
+<tr>
+<td>B20</td>
+<td>Mean KEY symbols for each free spin</td>
+<td><code>=Fish!$B$30</code></td>
+</tr>
+<tr>
+<td>B21</td>
+<td>P(play level 2) after a 3 FS trigger</td>
+<td><code>=Bonus!$E$35</code></td>
+</tr>
+<tr>
+<td>B22</td>
+<td>P(play level 3) after a 3 FS trigger</td>
+<td><code>=Bonus!$F$35</code></td>
+</tr>
+<tr>
+<td>B23</td>
+<td>P(play level 4) after a 3 FS trigger</td>
+<td><code>=Bonus!$G$35</code></td>
+</tr>
+<tr>
+<td>B24</td>
+<td>Mean number of free spins after a 3 FS trigger</td>
+<td><code>=Bonus!$N$35</code></td>
+</tr>
+<tr>
+<td>B25</td>
+<td>Mean bonus win after a 3 FS trigger (x bet)</td>
+<td><code>=Bonus!$M$35</code></td>
+</tr>
+<tr>
+<td>B26</td>
+<td>Mean bonus win after a 4 FS trigger (x bet)</td>
+<td><code>=Bonus!$M$36</code></td>
+</tr>
+<tr>
+<td>B27</td>
+<td>Mean bonus win after a 5 FS trigger (x bet)</td>
+<td><code>=Bonus!$M$37</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="checks-rows-30-to-36">Checks, rows 30 to 36<a class="headerlink" href="#checks-rows-30-to-36" title="Permanent link">&para;</a></h3>
+<p>Each check shows <code>OK</code> or a message.</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B30</td>
+<td>Base reel strips obey the design rules</td>
+</tr>
+<tr>
+<td>B31</td>
+<td>Bonus reel strips obey the design rules</td>
+</tr>
+<tr>
+<td>B32</td>
+<td>No WILD on reel 1 (necessary for the ways formula)</td>
+</tr>
+<tr>
+<td>B33</td>
+<td>No FS on the bonus reels (no retrigger in the model)</td>
+</tr>
+<tr>
+<td>B34</td>
+<td>Spins for each level within the table limit</td>
+</tr>
+<tr>
+<td>B35</td>
+<td>KEY thresholds within the table limit</td>
+</tr>
+<tr>
+<td>B36</td>
+<td>Workbook RTP equals exact_calc.py (shipped configuration)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="simulation-reference-from-row-38">Simulation reference, from row 38<a class="headerlink" href="#simulation-reference-from-row-38" title="Permanent link">&para;</a></h3>
+<p>These rows are fixed values from the Monte Carlo simulation (1,000,000,000,000 rounds). They are not formulas. They do not change when you change an input.</p>
+<h2 id="10-sheet-distribution">10. Sheet Distribution<a class="headerlink" href="#10-sheet-distribution" title="Permanent link">&para;</a></h2>
+<p>This sheet holds two win distribution tables. One table is for full game rounds (rows 6 to 20). The other table is for the free spins features (rows 26 to 40).
+One row is one win band, as a multiple of the bet. The bands are the same as on the page <a href="rtp.html">RTP and volatility</a>.</p>
+<p>The values in columns D and E come from the simulation (1,000,000,000,000 rounds). They are fixed values for the delivered configuration. They do not change when you change an input.
+The other columns are formulas.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Contents</th>
+<th>Formula in row 6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>A</code></td>
+<td>The win band</td>
+<td>text</td>
+</tr>
+<tr>
+<td><code>B</code>, <code>C</code></td>
+<td>Lower and upper limit of the band (x bet)</td>
+<td>values</td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>RTP of the band: the part of the RTP that comes from wins in this band</td>
+<td>value from the simulation</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td>Probability of the band</td>
+<td>value from the simulation</td>
+</tr>
+<tr>
+<td><code>F</code></td>
+<td>Frequency: 1 in N</td>
+<td><code>=IF(E6&gt;0,1/E6,"")</code></td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>Cumulative RTP: this band and all higher bands</td>
+<td><code>=SUM(D6:D$20)</code></td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>Cumulative probability: this band and all higher bands</td>
+<td><code>=SUM(E6:E$20)</code></td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>Cumulative frequency: 1 divided by the cumulative probability</td>
+<td><code>=IF(H6&gt;0,1/H6,"")</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The row below each table has the totals. The total of column D is the RTP of the simulation (round table) or the free spins RTP (free spins table). The total of column E is 1.</li>
+<li>In the free spins table, the probability is for one free spins feature. The RTP is a part of the total bet, so that the two tables use the same unit.</li>
+<li>Example: <code>I15</code> shows that one round in 847 wins 100 x bet or more.</li>
+</ul>
+<h2 id="11-sheet-readme">11. Sheet ReadMe<a class="headerlink" href="#11-sheet-readme" title="Permanent link">&para;</a></h2>
+<p>This sheet gives short instructions, the model, the limits and the command that copies the inputs to the game configuration.</p>
+<h2 id="12-one-result-from-start-to-end">12. One result from start to end<a class="headerlink" href="#12-one-result-from-start-to-end" title="Permanent link">&para;</a></h2>
+<p>This section follows the 3 of a kind pay of PIC1 in the base game through the workbook.</p>
+<ol>
+<li><code>Reels_Base!B4:F103</code> holds the strips. Reel 1 has 5 PIC1 symbols and no WILD symbol.</li>
+<li><code>Win_Base</code> counts PIC1 and WILD in each window. For reel 1, the PIC1 column is <code>B</code> and the WILD column is <code>Q</code>.</li>
+<li><code>Ways!B5</code> = (sum of the two columns) / 100 = 0.2000. This is M(1). <code>Ways!C5</code> = 0.3200 and <code>Ways!D5</code> = 0.3200.</li>
+<li><code>Ways!J5</code> = 0.7500. This is Z(4), the probability that reel 4 shows no PIC1 and no WILD.</li>
+<li><code>Ways!N5</code> = M(1) x M(2) x M(3) x Z(4) = 0.2000 x 0.3200 x 0.3200 x 0.7500 = 0.015360 expected ways.</li>
+<li><code>Ways!S5</code> reads the pay of 5 credits from <code>Config!D11</code>.</li>
+<li><code>Ways!X5</code> = 0.015360 x 5 = 0.076800 credits.</li>
+<li><code>Ways!AA5</code> adds the five EV cells of the symbol: 0.251453 credits.</li>
+<li><code>Ways!AA15</code> adds all pay symbols: 3.614598 credits.</li>
+<li><code>Summary!B6</code> reads <code>Ways!AA15</code>. <code>Summary!C6</code> divides by the bet: 36.1460%.</li>
+<li><code>Summary!C9</code> adds the three components: 96.2000%.</li>
+</ol>
+<h2 id="13-change-an-input">13. Change an input<a class="headerlink" href="#13-change-an-input" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Change a yellow cell. Excel calculates all sheets again.</li>
+<li>Read <code>Summary!C9</code> for the new RTP.</li>
+<li>Read the checks on the sheet Summary. All checks must show <code>OK</code>, with one exception: the last check compares with the delivered configuration.</li>
+<li>To use the new values in the game, save the workbook and run <code>.venv/bin/python tools/excel_to_config.py</code>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>If you change</th>
+<th>These results change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The bet</td>
+<td>All RTP values. The EV values in credits do not change.</td>
+</tr>
+<tr>
+<td>The paytable</td>
+<td>Sheet Ways, the spin EV of each level, the RTP of the ways pays and of the free spins</td>
+</tr>
+<tr>
+<td>Fish values or weights of the base game</td>
+<td>Row 36 of the sheet Fish and the RTP of the base collect</td>
+</tr>
+<tr>
+<td>Fish values or weights of a level</td>
+<td>The spin EV of that level and the RTP of the free spins</td>
+</tr>
+<tr>
+<td>Free spins, thresholds, spins or multipliers</td>
+<td>The state tables and the RTP of the free spins</td>
+</tr>
+<tr>
+<td>A base reel strip</td>
+<td>Win_Base, then the base ways pays, the base collect and the trigger probability</td>
+</tr>
+<tr>
+<td>A bonus reel strip</td>
+<td>Win_Bonus, then the spin EV of each level, the KEY distribution and the level probabilities</td>
+</tr>
+<tr>
+<td>A placement rule</td>
+<td>Only the checks</td>
+</tr>
+</tbody>
+</table>
+<h2 id="14-excel-functions-in-the-workbook">14. Excel functions in the workbook<a class="headerlink" href="#14-excel-functions-in-the-workbook" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COUNTIF</code></td>
+<td>Count a symbol in a window or on a strip. Count the stops with exactly k symbols.</td>
+</tr>
+<tr>
+<td><code>SUM</code></td>
+<td>Totals and means</td>
+</tr>
+<tr>
+<td><code>SUMPRODUCT</code></td>
+<td>Mean of a product of two counts. Mean fish value. One step of the state tables. Probability of "no symbol".</td>
+</tr>
+<tr>
+<td><code>INDEX</code></td>
+<td>Read the row of a state table after n spins</td>
+</tr>
+<tr>
+<td><code>IF</code>, <code>AND</code></td>
+<td>Checks, the multiplier rule, the level threshold</td>
+</tr>
+<tr>
+<td><code>MAX</code>, <code>ABS</code></td>
+<td>Limit checks and the reference check</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15-verification-of-the-workbook">15. Verification of the workbook<a class="headerlink" href="#15-verification-of-the-workbook" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The script <code>tools/verify_all.py</code> compares the workbook with the exact calculator. It also writes three changed configurations into a copy of the workbook and compares again. See <a href="verification.html">Verification</a>.</li>
+<li>Microsoft Excel and the Excel MCP server calculate the same results from the formulas.</li>
+<li>The largest relative difference between the workbook and the exact calculator is smaller than 0.000000001.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.top", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,179 @@
+{
+ "defaultSet": "A",
+ "sets": {
+  "A": {
+   "label": "Painted",
+   "dir": "setA"
+  },
+  "B": {
+   "label": "Neon flat",
+   "dir": "setB"
+  },
+  "C": {
+   "label": "Sailor stickers",
+   "dir": "setC"
+  },
+  "D": {
+   "label": "Poseidon",
+   "dir": "setD",
+   "labels": {
+    "key": "TRIDENT",
+    "item": "catch",
+    "top": "LEVIATHAN",
+    "panel": "CATCH VALUES"
+   },
+   "subjects": {
+    "PIC1": "Poseidon",
+    "PIC2": "Nereid (sea queen)",
+    "PIC3": "Temple of Poseidon",
+    "PIC4": "Trireme",
+    "PIC5": "Conch horn",
+    "AUS1 to AUS5": "Sea-glass tablets with the Greek letters alpha, beta, gamma, delta and omega",
+    "WILD": "The word WILD in a gold laurel wreath",
+    "KEY": "Golden trident (the collector)",
+    "FS": "Temple front with the words FREE SPINS",
+    "FISH1": "Seahorse",
+    "FISH2": "Dolphin",
+    "FISH3": "Hippocampus",
+    "FISH4": "Leviathan sea serpent. The value 2000 shows the golden leviathan."
+   }
+  },
+  "E": {
+   "label": "Odyssey",
+   "dir": "setE",
+   "labels": {
+    "key": "BOW",
+    "item": "bounty",
+    "top": "CHARYBDIS",
+    "panel": "BOUNTY VALUES"
+   },
+   "subjects": {
+    "PIC1": "Odysseus",
+    "PIC2": "The Cyclops",
+    "PIC3": "Greek ship",
+    "PIC4": "The wooden horse",
+    "PIC5": "Lyre",
+    "AUS1 to AUS5": "Pottery sherds with A, K, Q, J and 10",
+    "WILD": "The word WILD on a bronze shield with an owl",
+    "KEY": "Golden bow with an arrow (the collector)",
+    "FS": "Ship sail with the words FREE SPINS",
+    "FISH1": "Lotus flower",
+    "FISH2": "Siren",
+    "FISH3": "Scylla",
+    "FISH4": "Charybdis whirlpool. The value 2000 shows the golden whirlpool."
+   }
+  },
+  "F": {
+   "label": "Loch Ness",
+   "dir": "setF",
+   "labels": {
+    "key": "CAMERA",
+    "item": "sighting",
+    "top": "MONSTER",
+    "panel": "SIGHTING VALUES"
+   },
+   "subjects": {
+    "PIC1": "Castle ruin on the loch shore",
+    "PIC2": "Highland cow",
+    "PIC3": "Rowing boat with a lantern",
+    "PIC4": "Bagpipes",
+    "PIC5": "Thistle",
+    "AUS1 to AUS5": "A, K, Q, J and 10 on green tartan tiles, all in the same colours",
+    "WILD": "The word WILD on a tartan banner",
+    "KEY": "Golden vintage camera (the collector)",
+    "FS": "Lochside signpost with the words FREE SPINS",
+    "FISH1": "Sighting: a ripple on the water",
+    "FISH2": "Sighting: three humps",
+    "FISH3": "Sighting: the long neck in the mist",
+    "FISH4": "Sighting: the whole monster. The value 2000 shows the golden monster."
+   }
+  },
+  "G": {
+   "label": "Aphrodite",
+   "dir": "setG",
+   "labels": {
+    "key": "ARROW",
+    "item": "gift",
+    "top": "HEART",
+    "panel": "GIFT VALUES"
+   },
+   "subjects": {
+    "PIC1": "Aphrodite",
+    "PIC2": "Eros",
+    "PIC3": "Scallop shell with a pearl",
+    "PIC4": "Hand mirror",
+    "PIC5": "Myrtle wreath",
+    "AUS1 to AUS5": "A, K, Q, J and 10 on plain mauve badges, all in the same colours",
+    "WILD": "The word WILD on a ribbon across a rose wreath",
+    "KEY": "Golden arrow of Eros with a heart-shaped head (the collector)",
+    "FS": "Love-letter scroll with the words FREE SPINS",
+    "FISH1": "Gift: a rose",
+    "FISH2": "Gift: a dove",
+    "FISH3": "Gift: a swan",
+    "FISH4": "Gift: the ruby heart. The value 2000 shows the golden heart."
+   }
+  },
+  "H": {
+   "label": "Cupid",
+   "dir": "setH",
+   "labels": {
+    "key": "BOW",
+    "item": "valentine",
+    "top": "DIAMOND",
+    "panel": "VALENTINE VALUES"
+   },
+   "subjects": {
+    "PIC1": "Cupid",
+    "PIC2": "A pair of lovebirds",
+    "PIC3": "Love letter with a wax seal",
+    "PIC4": "Heart-shaped padlock",
+    "PIC5": "Red rose",
+    "AUS1 to AUS5": "A, K, Q, J and 10 on white paper tags, all in the same colours",
+    "WILD": "The word WILD on a heart with an arrow through it",
+    "KEY": "Golden bow of Cupid with a heart-tipped arrow (the collector)",
+    "FS": "Two doves that carry ribbons with the words FREE SPINS",
+    "FISH1": "Valentine: a candy heart",
+    "FISH2": "Valentine: a heart-shaped box of chocolates",
+    "FISH3": "Valentine: a bouquet of roses",
+    "FISH4": "Valentine: the diamond ring. The value 2000 shows the golden diamond."
+   }
+  }
+ },
+ "keys": [
+  "PIC1",
+  "PIC2",
+  "PIC3",
+  "PIC4",
+  "PIC5",
+  "AUS1",
+  "AUS2",
+  "AUS3",
+  "AUS4",
+  "AUS5",
+  "WILD",
+  "KEY",
+  "FS",
+  "FISH1_1",
+  "FISH1_2",
+  "FISH1_3",
+  "FISH1_5",
+  "FISH2_10",
+  "FISH2_15",
+  "FISH2_20",
+  "FISH2_25",
+  "FISH3_50",
+  "FISH3_100",
+  "FISH3_150",
+  "FISH3_200",
+  "FISH4_500",
+  "FISH4_2000",
+  "FISH1",
+  "FISH2",
+  "FISH3",
+  "FISH4",
+  "bg_base",
+  "bg_bonus",
+  "logo"
+ ],
+ "generatedWith": "VectorCraft CLI 0.22.0"
+}
