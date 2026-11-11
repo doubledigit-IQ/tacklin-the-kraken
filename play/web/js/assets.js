@@ -20,10 +20,13 @@ export class Assets {
     this.listeners = [];
     // the set that a new visitor sees: manifest "defaultSet", or the first set
     const first = this.manifest.sets[this.manifest.defaultSet] ? this.manifest.defaultSet : this.setIds[0];
+    this.defaultSet = first;
     this.sel = { set: first, overrides: {} };
     try {
       const saved = JSON.parse(localStorage.getItem(STORE_KEY) || 'null');
-      if (saved && this.manifest.sets[saved.set]) {
+      // a saved choice is valid only for the default set that it was made with:
+      // when the default set of the game changes, each visitor sees the new default set
+      if (saved && saved.def === first && this.manifest.sets[saved.set]) {
         this.sel.set = saved.set;
         for (const [k, v] of Object.entries(saved.overrides || {})) {
           if (this.manifest.sets[v]) this.sel.overrides[k] = v;
@@ -133,7 +136,7 @@ export class Assets {
   // ------------------------------------------------------------ selection
   save() {
     if (this.pinned) return;                 // set chosen in the page address: do not change the saved choice
-    try { localStorage.setItem(STORE_KEY, JSON.stringify(this.sel)); } catch (e) { /* ignore */ }
+    try { localStorage.setItem(STORE_KEY, JSON.stringify({ ...this.sel, def: this.defaultSet })); } catch (e) { /* ignore */ }
   }
 
   /** Show one set for this page only (address ...?set=D). The saved choice stays as it is. */
