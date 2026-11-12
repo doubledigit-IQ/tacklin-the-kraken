@@ -713,6 +713,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-270-a-new-paytable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.7.0: a new paytable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1035,6 +1046,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-270-a-new-paytable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.7.0: a new paytable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1074,7 +1096,7 @@
 
 
 <h1 id="tuning-history">Tuning History<a class="headerlink" href="#tuning-history" title="Permanent link">&para;</a></h1>
-<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. The subsequent versions, to version 2.6.0, have the same target.
+<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. The subsequent versions, to version 2.7.0, have the same target.
 Each iteration used the exact calculator first and the simulator second.</p>
 <h2 id="iterations">Iterations<a class="headerlink" href="#iterations" title="Permanent link">&para;</a></h2>
 <table>
@@ -1206,6 +1228,15 @@ Each iteration used the exact calculator first and the simulator second.</p>
 <td style="text-align: right;">35.8 x</td>
 <td style="text-align: right;">8 x</td>
 <td>Version 2.6.0. The standard deviation is 9.46 x bet.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>New paytable with larger 5 OAK pays for PIC2 to PIC5. The reel strips did not change. The balance came from the collect of the base game: fewer golden krakens.</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">1 in 171.7</td>
+<td style="text-align: right;">36.7 x</td>
+<td style="text-align: right;">8 x</td>
+<td>Version 2.7.0. The standard deviation is 8.83 x bet.</td>
 </tr>
 </tbody>
 </table>
@@ -2617,16 +2648,241 @@ The FISH3 weights of level 1 changed from 23 / 12 / 45 / 20 to 21 / 12 / 47 / 20
 </tbody>
 </table>
 <p>The number of spins with a win stays almost the same. A win is less frequently an AUS win and more frequently a PIC win.</p>
+<h2 id="version-270-a-new-paytable">Version 2.7.0: a new paytable<a class="headerlink" href="#version-270-a-new-paytable" title="Permanent link">&para;</a></h2>
+<p>Version 2.7.0 has a new paytable. The game designer gave the full table. The rest of the game was balanced for this table.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>3 / 4 / 5 OAK, version 2.6.0</th>
+<th>3 / 4 / 5 OAK, version 2.7.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIC1</td>
+<td>6 / 20 / 130</td>
+<td><strong>5 / 25 / 100</strong></td>
+</tr>
+<tr>
+<td>PIC2</td>
+<td>4 / 10 / 35</td>
+<td><strong>4 / 10 / 50</strong></td>
+</tr>
+<tr>
+<td>PIC3</td>
+<td>3 / 8 / 20</td>
+<td><strong>3 / 8 / 40</strong></td>
+</tr>
+<tr>
+<td>PIC4</td>
+<td>3 / 6 / 18</td>
+<td><strong>2 / 5 / 30</strong></td>
+</tr>
+<tr>
+<td>PIC5</td>
+<td>2 / 5 / 15</td>
+<td><strong>2 / 5 / 20</strong></td>
+</tr>
+<tr>
+<td>AUS1</td>
+<td>1 / 2 / 3</td>
+<td>1 / 2 / 3</td>
+</tr>
+<tr>
+<td>AUS2</td>
+<td>1 / 2 / 3</td>
+<td>1 / 2 / 3</td>
+</tr>
+<tr>
+<td>AUS3</td>
+<td>1 / 2 / 3</td>
+<td>1 / 2 / 3</td>
+</tr>
+<tr>
+<td>AUS4</td>
+<td>1 / 2 / 3</td>
+<td>1 / 2 / 3</td>
+</tr>
+<tr>
+<td>AUS5</td>
+<td>1 / 2 / 3</td>
+<td>1 / 2 / 3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effect of the paytable.</strong> With the new paytable and no other change, the RTP was 102.27%: ways pays 41.72%, collect 39.16%, free spins 21.39%.
+This is 6.07% more than version 2.6.0.</p>
+<p><strong>Options.</strong> Four options for the balance were calculated:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th style="text-align: right;">Ways pays</th>
+<th style="text-align: right;">Collect</th>
+<th style="text-align: right;">Free spins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stronger patterns for PIC2 to PIC5 on the base reel strips, so that long PIC wins are less frequent</td>
+<td style="text-align: right;">36.19%</td>
+<td style="text-align: right;">39.16%</td>
+<td style="text-align: right;">20.84%</td>
+</tr>
+<tr>
+<td>No change of the reel strips; the RTP comes from the collect</td>
+<td style="text-align: right;">41.72%</td>
+<td style="text-align: right;">33.09%</td>
+<td style="text-align: right;">21.39%</td>
+</tr>
+<tr>
+<td>No change of the reel strips; the RTP comes from the free spins</td>
+<td style="text-align: right;">41.72%</td>
+<td style="text-align: right;">39.16%</td>
+<td style="text-align: right;">15.32%</td>
+</tr>
+<tr>
+<td>Half from the reel strips, half from the collect</td>
+<td style="text-align: right;">39.2%</td>
+<td style="text-align: right;">36.1%</td>
+<td style="text-align: right;">20.84%</td>
+</tr>
+</tbody>
+</table>
+<p>The second option was selected. The reel strips are the same as in version 2.6.0. Thus the number of spins with a ways win did not change.</p>
+<p><strong>Collect.</strong> The base game has its own weight tables for the fish values. These tables changed. The weight tables of the free spins did not change.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Base weights, version 2.6.0</th>
+<th>Base weights, version 2.7.0</th>
+<th style="text-align: right;">Collect RTP, version 2.6.0</th>
+<th style="text-align: right;">Collect RTP, version 2.7.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FISH1</td>
+<td>4050 / 2950 / 2000 / 1000</td>
+<td><strong>5005 / 1995 / 2000 / 1000</strong></td>
+<td style="text-align: right;">1.34%</td>
+<td style="text-align: right;">1.28%</td>
+</tr>
+<tr>
+<td>FISH2</td>
+<td>55 / 27 / 12 / 6</td>
+<td>55 / 27 / 12 / 6</td>
+<td style="text-align: right;">2.58%</td>
+<td style="text-align: right;">2.58%</td>
+</tr>
+<tr>
+<td>FISH3</td>
+<td>75 / 17 / 6 / 2</td>
+<td><strong>84 / 12 / 3 / 1</strong></td>
+<td style="text-align: right;">3.24%</td>
+<td style="text-align: right;">2.90%</td>
+</tr>
+<tr>
+<td>FISH4</td>
+<td>8 / 1</td>
+<td><strong>30 / 1</strong></td>
+<td style="text-align: right;">32.00%</td>
+<td style="text-align: right;">26.32%</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td style="text-align: right;">39.16%</td>
+<td style="text-align: right;"><strong>33.09%</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The kraken gives the largest part of the collect. Thus the largest part of the balance came from the golden kraken: in the base game, 3.2% of the kraken symbols are golden (before: 11.1%).</li>
+<li>The FISH3 weights moved to the low values.</li>
+<li>The FISH1 weights are the fine adjustment. Thus the RTP is 96.200031%.</li>
+</ul>
+<p><strong>Free spins.</strong> The paytable is also the paytable of the free spins. The free spins give 21.39% RTP (version 2.6.0: 20.84%).</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Version 2.6.0</th>
+<th style="text-align: right;">Version 2.7.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base game: ways pays</td>
+<td style="text-align: right;">36.19%</td>
+<td style="text-align: right;">41.72%</td>
+</tr>
+<tr>
+<td>AUS1 to AUS5</td>
+<td style="text-align: right;">11.71%</td>
+<td style="text-align: right;">11.71%</td>
+</tr>
+<tr>
+<td>PIC1</td>
+<td style="text-align: right;">3.79%</td>
+<td style="text-align: right;">3.35%</td>
+</tr>
+<tr>
+<td>PIC2 to PIC5</td>
+<td style="text-align: right;">20.69%</td>
+<td style="text-align: right;">26.66%</td>
+</tr>
+<tr>
+<td>Base game: collect</td>
+<td style="text-align: right;">39.16%</td>
+<td style="text-align: right;">33.09%</td>
+</tr>
+<tr>
+<td>Free spins</td>
+<td style="text-align: right;">20.84%</td>
+<td style="text-align: right;">21.39%</td>
+</tr>
+<tr>
+<td>Total RTP</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">96.2000%</td>
+</tr>
+<tr>
+<td>Base spins with a win</td>
+<td style="text-align: right;">31.4%</td>
+<td style="text-align: right;">31.4%</td>
+</tr>
+<tr>
+<td>Mean free spins win</td>
+<td style="text-align: right;">35.8 x bet</td>
+<td style="text-align: right;">36.7 x bet</td>
+</tr>
+<tr>
+<td>Median free spins win</td>
+<td style="text-align: right;">8 x bet</td>
+<td style="text-align: right;">8 x bet</td>
+</tr>
+<tr>
+<td>Standard deviation for each round</td>
+<td style="text-align: right;">9.46 x bet</td>
+<td style="text-align: right;">8.83 x bet</td>
+</tr>
+</tbody>
+</table>
+<p>A larger part of the RTP comes from the ways pays. The standard deviation decreased, because the golden kraken is less frequent in the base game.</p>
 <h2 id="design-decisions">Design decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h2>
 <p><strong>One KEY symbol on each of base reels 1, 2 and 3.</strong> A KEY symbol lands 1 in 8.7 base spins. Two or three KEY symbols can land in one spin. Then each KEY symbol collects each FISH value.</p>
 <p><strong>The kraken stays on the base reel strips.</strong> The KEY anticipation on reels 4 and 5 has a purpose only if the large fish are there.
-The kraken gives 32% RTP in the base game. A KEY symbol and the kraken land together 1 in 217 base spins.</p>
-<p><strong>Golden kraken weights 8 : 1 in the base game.</strong> With weights 2 : 1, the kraken gave 48% RTP in the base game, and the total was too high. The golden kraken is now less frequent in the base game. The usual kraken pays 500 credits. The golden kraken pays 2000 credits.</p>
+The kraken gives 26% RTP in the base game. A KEY symbol and the kraken land together 1 in 217 base spins.</p>
+<p><strong>Golden kraken weights 30 : 1 in the base game.</strong> With weights 2 : 1, the kraken gave 48% RTP in the base game, and the total was too high. Version 2.0.0 changed the weights to 8 : 1. Version 2.7.0 changed them to 30 : 1, because the larger paytable took RTP from the collect. The usual kraken pays 500 credits. The golden kraken pays 2000 credits.</p>
 <p><strong>The balance of version 2.0.0 came from the small base fish.</strong> In that version, the paytable and the free spins kept their value. The free spins were less frequent than before, so their value for each trigger did not decrease.</p>
 <p><strong>The balance of version 2.1.0 came from the 5 OAK pays.</strong> The reel strips with patterns give fewer long ways. Larger 5 OAK pays put this RTP back into the ways pays, so that the RTP of each component stays almost the same.</p>
 <p><strong>2 / 2 / 1 KEY symbols on bonus reels 1 / 2 / 3.</strong> This gives 0.20 KEY symbols for each free spin, the same as in version 1.1.0. The levels keep their frequency.</p>
 <p><strong>The AUS symbols give 12% RTP in the base game.</strong> Before version 2.6.0, they gave 22%. The low pay symbols make frequent small wins. The PIC symbols now give the larger part of the ways pays.</p>
-<p><strong>PIC1 is rare and pays the most.</strong> PIC1 has 7 / 2 / 4 / 6 / 5 symbols on base reels 1 to 5. A PIC1 win needs reel 2, where PIC1 has few symbols. The pays of PIC1 are 6 / 20 / 130 credits for 3 / 4 / 5 OAK.</p>
+<p><strong>PIC1 is rare and pays the most.</strong> PIC1 has 7 / 2 / 4 / 6 / 5 symbols on base reels 1 to 5. A PIC1 win needs reel 2, where PIC1 has few symbols. The pays of PIC1 are 5 / 25 / 100 credits for 3 / 4 / 5 OAK.</p>
 <p><strong>Eight spins for levels 2 to 4.</strong> With 10 spins, level 4 was too frequent.</p>
 <p><strong>Bonus reels with more PIC symbols.</strong> The bonus reel strips have no WILD symbol. More PIC symbols give more ways pays in the free spins.</p>
 <p><strong>The best fish values are on level 1.</strong> Each free spins feature plays level 1. Thus each feature has a chance of the high FISH3 values and of the golden kraken.
