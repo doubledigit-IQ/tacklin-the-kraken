@@ -10,6 +10,8 @@
       
       
       
+        <link rel="canonical" href="https://doubledigit-iq.github.io/tacklin-the-kraken/verification.html">
+      
       
         <link rel="prev" href="tuning.html">
       
@@ -818,34 +820,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="demo.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Playable game and demo suite
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -969,7 +943,7 @@
 
 <h1 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h1>
 <h2 id="method">Method<a class="headerlink" href="#method" title="Permanent link">&para;</a></h2>
-<p>Three independent implementations calculate the game:</p>
+<p>Four implementations calculate the game:</p>
 <table>
 <thead>
 <tr>
@@ -994,6 +968,11 @@
 <td><code>web/js/engine.js</code>, <code>sim/simulate.mjs</code></td>
 <td>Monte Carlo simulation with the engine of the playable game</td>
 </tr>
+<tr>
+<td>C++ simulator</td>
+<td><code>sim_cpp/krakensim.cpp</code></td>
+<td>Monte Carlo simulation with its own C++ engine. It made the simulation results of this document.</td>
+</tr>
 </tbody>
 </table>
 <p>The script <code>tools/verify_all.py</code> compares them. It does these checks:</p>
@@ -1008,7 +987,8 @@
 </ul>
 </li>
 <li>The JavaScript engine and an independent Python evaluator give the same result for 40,000 random spins.</li>
-<li>The simulation agrees with the exact values.</li>
+<li>The C++ simulator and the JavaScript engine give the same result for 100,000 random spins.</li>
+<li>The simulation agrees with the exact values: the total RTP, each RTP component, the trigger frequency and the level probabilities.</li>
 </ol>
 <p>Microsoft Excel also calculated the workbook of version 2.0.0. The result was the same as the exact calculator (total RTP 96.1999706942%).</p>
 <h2 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h2>
@@ -1177,7 +1157,7 @@
 <td>Each KEY collected each fish. The x10 multiplier applied. The balance was correct.</td>
 </tr>
 <tr>
-<td>Asset sets A, B and C, and an asset for one symbol</td>
+<td>Asset sets A, B and C, and an asset of a different set for one symbol</td>
 <td>Shown correctly</td>
 </tr>
 <tr>
@@ -1196,12 +1176,28 @@
 <td>Theme sets D and E with their own game texts</td>
 <td>The symbols and the texts showed correctly. A forced collect of the golden top symbol paid 2005 credits.</td>
 </tr>
+<tr>
+<td>Theme sets F, G and H with their own game texts</td>
+<td>The symbols and the texts showed correctly</td>
+</tr>
+<tr>
+<td>All 8 asset sets</td>
+<td>Each set has all 34 asset files. The game showed no placeholder.</td>
+</tr>
+<tr>
+<td>Default asset set</td>
+<td>A browser with no saved selection showed set B (Neon flat)</td>
+</tr>
+<tr>
+<td>The game in the built document (page Play the game), from a web server</td>
+<td>The game started. The math version was 2.0.0. The balance was equal to the start balance minus the bets plus the wins. The browser showed no error.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="limits-of-the-verification">Limits of the verification<a class="headerlink" href="#limits-of-the-verification" title="Permanent link">&para;</a></h2>
 <ul>
 <li>The simulation has a standard error of 0.001% RTP. It cannot show a difference smaller than this.</li>
-<li>The random number generator of the demo is xoshiro128**. It is not certified for real money play.</li>
+<li>The random number generator of the playable game is xoshiro128**. The random number generator of the C++ simulator is xoshiro256++. They are not certified for real money play.</li>
 <li>An independent test laboratory did not examine this model.</li>
 </ul>
 

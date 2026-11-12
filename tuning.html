@@ -10,6 +10,8 @@
       
       
       
+        <link rel="canonical" href="https://doubledigit-iq.github.io/tacklin-the-kraken/tuning.html">
+      
       
         <link rel="prev" href="rtp.html">
       
@@ -818,34 +820,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="demo.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Playable game and demo suite
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -968,7 +942,7 @@
 
 
 <h1 id="tuning-history">Tuning History<a class="headerlink" href="#tuning-history" title="Permanent link">&para;</a></h1>
-<p>The target was an RTP of 96% with high volatility and a good feel in play.
+<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 has a target RTP of 96.20%.
 Each iteration used the exact calculator first and the simulator second.</p>
 <h2 id="iterations">Iterations<a class="headerlink" href="#iterations" title="Permanent link">&para;</a></h2>
 <table>
@@ -1052,7 +1026,7 @@ Each iteration used the exact calculator first and the simulator second.</p>
 <h2 id="version-200-the-redesign">Version 2.0.0: the redesign<a class="headerlink" href="#version-200-the-redesign" title="Permanent link">&para;</a></h2>
 <p>Iteration 6 changed the structure of the game. These were the steps.</p>
 <ol>
-<li><strong>New reel rules.</strong> The gap between special symbols increased from 2 to 3. An AUS limit of 3 in sequence was added. A new generator makes strips that obey the two rules.</li>
+<li><strong>New reel rules.</strong> The gap between special symbols increased from 2 to 3. The design got a limit of 3 AUS symbols in sequence. A new generator makes strips that obey the two rules.</li>
 <li><strong>KEY symbols.</strong> The base game got one KEY symbol on each of reels 1, 2 and 3 (before: one KEY on reel 3). The mean number of KEY symbols for each base spin increased from 0.04 to 0.12.</li>
 <li><strong>First result.</strong> With no other change, the RTP was 105.6%. The base collect was 62.6%, and the kraken gave 48% of this. The free spins gave 8.6%.</li>
 <li><strong>Free spins trigger.</strong> The target was 1 in 175. Whole FS symbols on strips of 100 symbols cannot give this value. The selected layout has FS symbols on all 5 reels (3, 2, 2, 2, 2) and gives 1 in 171.66.</li>

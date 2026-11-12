@@ -10,6 +10,8 @@
       
       
       
+        <link rel="canonical" href="https://doubledigit-iq.github.io/tacklin-the-kraken/index.html">
+      
       
       
         <link rel="next" href="play.html">
@@ -836,34 +838,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="demo.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Playable game and demo suite
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1120,40 +1094,49 @@ It also gives the results of the verification.</p>
 <thead>
 <tr>
 <th>Deliverable</th>
-<th>Location</th>
+<th>In this document</th>
+<th>In the project folder</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Excel theoretical calculation</td>
+<td><a href="excel.html">Excel workbook</a>, with the file to download</td>
 <td><code>excel/TacklinTheKraken_TheoCalc.xlsx</code></td>
 </tr>
 <tr>
 <td>Playable game with demo suite</td>
-<td><code>web/</code> (start with <code>python3 tools/serve.py</code>). The built document holds a copy: page <a href="play.html">Play the game</a>.</td>
+<td><a href="play.html">Play the game</a></td>
+<td><code>web/</code></td>
 </tr>
 <tr>
-<td>This document</td>
+<td>Game math document</td>
+<td>These pages</td>
 <td><code>docs/</code> (build with <code>mkdocs build</code>)</td>
 </tr>
 <tr>
 <td>Math configuration (single source)</td>
+<td><a href="configuration.html">Configuration</a></td>
 <td><code>config/game_config.json</code></td>
 </tr>
 <tr>
 <td>Game engine</td>
+<td>-</td>
 <td><code>web/js/engine.js</code></td>
 </tr>
 <tr>
 <td>Exact calculator</td>
+<td><a href="math-base.html">Base game math</a>, <a href="math-freespins.html">Free spins math</a></td>
 <td><code>gamemath/exact_calc.py</code></td>
 </tr>
 <tr>
-<td>Monte Carlo simulator</td>
+<td>Monte Carlo simulator (JavaScript)</td>
+<td><a href="verification.html">Verification</a></td>
 <td><code>sim/simulate.mjs</code></td>
 </tr>
 <tr>
 <td>Fast Monte Carlo simulator (C++)</td>
+<td><a href="rtp.html">RTP and volatility</a></td>
 <td><code>sim_cpp/krakensim.cpp</code></td>
 </tr>
 </tbody>
@@ -1183,7 +1166,7 @@ You can change each value in the configuration.</p>
 <tbody>
 <tr>
 <td>Pay method</td>
-<td>Ways pays (1024 ways). Lines are not used.</td>
+<td>Ways pays (1024 ways). The game does not use lines.</td>
 </tr>
 <tr>
 <td>Units of the paytable and of the fish values</td>

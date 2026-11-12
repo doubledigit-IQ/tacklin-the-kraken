@@ -10,6 +10,8 @@
       
       
       
+        <link rel="canonical" href="https://doubledigit-iq.github.io/tacklin-the-kraken/excel.html">
+      
       
         <link rel="prev" href="verification.html">
       
@@ -738,6 +740,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#results-that-the-workbook-shows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results that the workbook shows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sheets" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -829,34 +842,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="demo.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Playable game and demo suite
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -916,6 +901,17 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#results-that-the-workbook-shows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results that the workbook shows
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#sheets" class="md-nav__link">
@@ -990,8 +986,77 @@
 
 
 <h1 id="excel-workbook">Excel Workbook<a class="headerlink" href="#excel-workbook" title="Permanent link">&para;</a></h1>
-<p>The file is <code>excel/TacklinTheKraken_TheoCalc.xlsx</code>. All results are formulas. There are no macros.</p>
+<p><a class="md-button md-button--primary" download="TacklinTheKraken_TheoCalc.xlsx" href="files/TacklinTheKraken_TheoCalc.xlsx">Download the workbook (.xlsx, 233 KB)</a></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File</td>
+<td><code>TacklinTheKraken_TheoCalc.xlsx</code></td>
+</tr>
+<tr>
+<td>Math version</td>
+<td>2.0.0</td>
+</tr>
+<tr>
+<td>Theoretical RTP in the workbook (<code>Summary!C9</code>)</td>
+<td>96.2000%</td>
+</tr>
+<tr>
+<td>Contents</td>
+<td>12 sheets. All results are formulas. There are no macros.</td>
+</tr>
+<tr>
+<td>Program</td>
+<td>Microsoft Excel, or a different spreadsheet program that calculates the formulas when it opens the file</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Open the file in a spreadsheet program</p>
+<p>The file holds the formulas and no stored results. The spreadsheet program calculates all values when it opens the file.
+A file preview that does not calculate (for example in an e-mail program) shows empty cells.</p>
+</div>
 <p>This page gives the short instructions. The page <a href="excel-calc.html">Excel calculation in detail</a> explains each sheet, block and formula.</p>
+<h2 id="results-that-the-workbook-shows">Results that the workbook shows<a class="headerlink" href="#results-that-the-workbook-shows" title="Permanent link">&para;</a></h2>
+<p>The sheet <code>Summary</code> shows these results for the delivered inputs:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Component</th>
+<th style="text-align: right;">RTP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Summary!C6</code></td>
+<td>Base game: ways pays</td>
+<td style="text-align: right;">36.1460%</td>
+</tr>
+<tr>
+<td><code>Summary!C7</code></td>
+<td>Base game: KEY and FISH collect</td>
+<td style="text-align: right;">39.1520%</td>
+</tr>
+<tr>
+<td><code>Summary!C8</code></td>
+<td>Free spins</td>
+<td style="text-align: right;">20.9020%</td>
+</tr>
+<tr>
+<td><code>Summary!C9</code></td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>96.2000%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The cell <code>Config!C1</code> shows the total RTP on the same sheet as the inputs.</p>
 <h2 id="sheets">Sheets<a class="headerlink" href="#sheets" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1081,7 +1146,7 @@
 A red cell in the check columns shows a rule that the strip does not obey.</p>
 <h2 id="limits">Limits<a class="headerlink" href="#limits" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The layout is fixed at 5 reels, 4 rows and 100 symbols for each reel.</li>
+<li>The workbook has a fixed layout: 5 reels, 4 rows and 100 symbols for each reel.</li>
 <li>Each FISH symbol can have 4 values or less.</li>
 <li>The level tables hold 40 spins or less for each level. They hold KEY thresholds of 25 or less.</li>
 <li>The ways formula is correct only if reel 1 has no WILD symbol.</li>
@@ -1091,7 +1156,7 @@ A red cell in the check columns shows a rule that the strip does not obey.</p>
 <h2 id="how-the-workbook-is-made">How the workbook is made<a class="headerlink" href="#how-the-workbook-is-made" title="Permanent link">&para;</a></h2>
 <p>The script <code>tools/build_excel.py</code> makes the workbook. It is a client of the public Excel MCP server
 (<code>github.com/haris-musa/excel-mcp-server</code>, in the folder <code>vendor/excel-mcp-server</code>).
-Each sheet, format and formula is written with a tool call to that server (<code>create_workbook</code>, <code>format_range</code>, <code>write_range</code> and others).</p>
+The script writes each sheet, format and formula with a tool call to that server (<code>create_workbook</code>, <code>format_range</code>, <code>write_range</code> and others).</p>
 <div class="highlight"><pre><span></span><code>.venv/bin/python<span class="w"> </span>tools/build_excel.py
 </code></pre></div>
 <p>The script <code>tools/excel_to_config.py</code> reads the yellow cells and writes <code>config/game_config.json</code>.</p>
