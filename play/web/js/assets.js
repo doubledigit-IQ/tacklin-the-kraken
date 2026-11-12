@@ -40,10 +40,12 @@ export class Assets {
   async load(onProgress) {
     const jobs = [];
     let done = 0;
-    const total = this.setIds.length * this.keys.size;
+    // a set can have extra pictures for its own effects (manifest: sets.X.extraKeys)
+    const keysOf = (set) => [...this.keys, ...(this.manifest.sets[set].extraKeys || [])];
+    const total = this.setIds.reduce((n, set) => n + keysOf(set).length, 0);
     for (const set of this.setIds) {
       this.images[set] = {};
-      for (const key of this.keys) {
+      for (const key of keysOf(set)) {
         jobs.push(new Promise((resolve) => {
           const img = new Image();
           img.decoding = 'async';
@@ -57,6 +59,15 @@ export class Assets {
   }
 
   setFor(key) { return this.sel.overrides[key] || this.sel.set; }
+
+  /** Effect settings of the set that draws `key` (manifest: sets.X.fx), or {}. */
+  fxFor(key) { return this.manifest.sets[this.setFor(key)].fx || {}; }
+
+  /** An extra picture of the set that draws `forKey`; null if that set does not have it. */
+  extra(name, forKey) {
+    const set = this.setFor(forKey);
+    return (this.images[set] && this.images[set][name]) || null;
+  }
 
   /** The image for a key in the selected set; falls back to any set that has it. */
   img(key) {

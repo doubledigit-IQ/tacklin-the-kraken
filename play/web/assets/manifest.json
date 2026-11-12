@@ -10,8 +10,46 @@
       "dir": "setB"
     },
     "C": {
-      "label": "Sailor stickers",
-      "dir": "setC"
+      "label": "Nian, Nian, Begone!",
+      "dir": "setC",
+      "labels": {
+        "key": "FIRECRACKER",
+        "fs": "GONG",
+        "item": "fish",
+        "top": "NIAN",
+        "panel": "FISH VALUES"
+      },
+      "subjects": {
+        "PIC1": "Red folding fan",
+        "PIC2": "Red paper lantern",
+        "PIC3": "Red envelope with coins",
+        "PIC4": "Red knot with a jade ring and a tassel",
+        "PIC5": "Red peony",
+        "AUS1 to AUS5": "Aged ivory mahjong tiles with a small A, K, Q, J or 10 in the corner: red dragon (A), green dragon (K), east wind (Q), south wind (J), white dragon (10)",
+        "WILD": "Flaming pearl: a pale pearl in red and gold flames. The symbol has no word.",
+        "KEY": "Red firecracker with a lit fuse (the collector)",
+        "FS": "Golden gong on a red cord, with a mallet. The symbol has no word.",
+        "FISH1": "Small blue fish",
+        "FISH2": "Orange and white koi",
+        "FISH3": "Violet dragon carp with horns",
+        "FISH4": "The Nian monster fish: a horned lion head on a fish body. The value 2000 shows the golden Nian."
+      },
+      "fx": {
+        "collect": "firecracker",
+        "audio": "nian",
+        "anticColors": {
+          "fs": "255,205,70",
+          "key": "255,84,48"
+        }
+      },
+      "extraKeys": [
+        "FX_FISH1",
+        "FX_FISH2",
+        "FX_FISH3",
+        "FX_FISH4",
+        "FX_FISH4_GOLD",
+        "FX_TOKEN"
+      ]
     },
     "D": {
       "label": "Poseidon",

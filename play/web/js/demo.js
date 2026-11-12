@@ -65,14 +65,14 @@ export class Demo {
     const g = this.game;
     const btn = (text, fn) => h('button', { text, onclick: () => { g.sound.unlock(); fn(); } });
     const bonusMode = () => `level${g.bonus ? g.bonus.level : 1}`;
-    const K = g.L.key; const item = g.L.item; const top = g.L.top.charAt(0) + g.L.top.slice(1).toLowerCase();
+    const K = g.L.key; const S = g.L.fs; const item = g.L.item; const top = g.L.top.charAt(0) + g.L.top.slice(1).toLowerCase();
     body.append(
       h('h4', { text: 'Next base spin' }),
       h('div', { class: 'btns' },
-        btn('3 FS trigger', () => this.force('base', '3 FS trigger', 'fs', 3)),
-        btn('4 FS trigger', () => this.force('base', '4 FS trigger', 'fs', 4)),
-        btn('5 FS trigger', () => this.force('base', '5 FS trigger', 'fs', 5)),
-        btn('FS tease (2 FS)', () => this.force('base', 'FS tease', 'fsTease')),
+        btn(`3 ${S} trigger`, () => this.force('base', `3 ${S} trigger`, 'fs', 3)),
+        btn(`4 ${S} trigger`, () => this.force('base', `4 ${S} trigger`, 'fs', 4)),
+        btn(`5 ${S} trigger`, () => this.force('base', `5 ${S} trigger`, 'fs', 5)),
+        btn(`${S} tease (2 ${S})`, () => this.force('base', `${S} tease`, 'fsTease')),
         btn(`${K} + ${item}`, () => this.force('base', `${K} + ${item}`, 'keyFish', 'base', 'base')),
         btn(`${K} + FISH3`, () => this.force('base', `${K} + FISH3`, 'keyFish3', 'base', 'base')),
         btn(`${K} + FISH4 (${top})`, () => this.force('base', `${K} + FISH4`, 'keyFish4', 'base', 'base')),
@@ -111,7 +111,7 @@ export class Demo {
         })));
     body.append(h('h4', { text: 'Start the free spins now (no bet)' }),
       h('div', { class: 'btns' },
-        ...Object.entries(g.cfg.freeSpins.triggerSpins).map(([k, v]) => btn(`${k} FS (${v} spins)`, () => g.demoBonus(Number(k), 1))),
+        ...Object.entries(g.cfg.freeSpins.triggerSpins).map(([k, v]) => btn(`${k} ${S} (${v} spins)`, () => g.demoBonus(Number(k), 1))),
         ...g.cfg.freeSpins.levels.slice(1).map((l) => btn(`Start at level ${l.level} (x${l.multiplier})`, () => g.demoBonus(3, l.level)))));
     this.queueBox = h('div', { class: 'queue' });
     body.append(h('h4', { text: 'Queue' }), this.queueBox, h('div', { class: 'btns', style: 'margin-top:6px' }, btn('Clear queue', () => g.clearQueue())));
@@ -249,7 +249,7 @@ export class Demo {
     const seed = h('input', { type: 'text', placeholder: 'empty = random' });
     body.append(
       h('label', { text: 'Fish value swap: delay after the wager (ms)' }), swap, this.swapInfo,
-      h('label', { class: 'check' }, antic, `Reel anticipation (${g.keyLabel} and FS)`),
+      h('label', { class: 'check' }, antic, `Reel anticipation (${g.keyLabel} and ${g.L.fs})`),
       h('label', { class: 'check' }, slow, 'Slow motion when the top prize symbol comes into view on an anticipating reel'),
       h('label', { text: 'Random number seed (same seed = same results)' }), seed,
       h('div', { class: 'btns', style: 'margin-top:6px' },

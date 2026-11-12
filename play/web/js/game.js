@@ -2,6 +2,7 @@
 // All results come from engine.js. This file only shows them.
 
 import { Rng, prepare, newSpinOut, evalSpin, baseSpin, bonusStart, bonusSpin, describe } from './engine.js';
+import { ANTIC_COLORS } from './reels.js';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const fmt = (n) => Math.round(n).toLocaleString('en-US');
@@ -81,6 +82,7 @@ export class Game {
     const base = {
       key: (this.cfg.presentation && this.cfg.presentation.keyLabel) || this.cfg.symbols.key,
       item: 'fish', top: 'KRAKEN', panel: 'FISH VALUES',
+      fs: this.cfg.symbols.scatter,                          // the word for the scatter symbol
     };
     const set = this.assets.manifest.sets[this.assets.sel.set] || {};
     return { ...base, ...(set.labels || {}) };
@@ -90,9 +92,12 @@ export class Game {
 
   applyLabels() {
     const L = this.L;
+    const set = this.assets.manifest.sets[this.assets.sel.set] || {};
+    this.sound.setTheme((set.fx || {}).audio);              // a set can have its own sounds (manifest: sets.X.fx.audio)
+    this.view.anticColors = { ...ANTIC_COLORS, ...((set.fx || {}).anticColors || {}) };   // and its own glow colours
     this.dom.keyCountLabel.textContent = `${L.key}S`;
     this.dom.fishTitle.textContent = L.panel;
-    this.dom.ladderNote.textContent = `3, 4 or 5 FS symbols start the free spins. ${L.key} symbols open the next level.`;
+    this.dom.ladderNote.textContent = `3, 4 or 5 ${L.fs} symbols start the free spins. ${L.key} symbols open the next level.`;
     this.dom.fishNote.textContent = `Each ${L.key} collects the value of each ${L.item} on the reels.`;
   }
 
@@ -173,7 +178,7 @@ export class Game {
       else if (state && keys >= lv.keysRequired) row.classList.add('open');
       row.appendChild(el('div', 'lv', String(lv.level)));
       const req = el('div', 'req');
-      req.innerHTML = i === 0 ? '<b>START</b><br>3, 4 or 5 FS' : `<b>${lv.keysRequired} ${this.keyLabel}S</b><br>+${lv.spins} spins`;
+      req.innerHTML = i === 0 ? `<b>START</b><br>3, 4 or 5 ${this.L.fs}` : `<b>${lv.keysRequired} ${this.keyLabel}S</b><br>+${lv.spins} spins`;
       row.appendChild(req);
       row.appendChild(el('div', 'mx', `x${lv.multiplier}`));
       if (i > 0) {
@@ -297,7 +302,7 @@ export class Game {
     if (r.freeSpins) {
       this.view.setWinCells(d.scatters, true);
       this.view.pop(d.scatters);
-      this.setStatus(`${d.scatterCount} FS SYMBOLS - FREE SPINS!`);
+      this.setStatus(`${d.scatterCount} ${this.L.fs} SYMBOLS - FREE SPINS!`);
       this.sound.levelUp();
       this.skip = false;
       await this.wait(1100);
@@ -359,6 +364,7 @@ export class Game {
       if (kind && !this.skip) {
         await Promise.all(lands);            // the reels before this one are at rest
         view.setAnticipation(i, kind);
+        view.pop((kind === 'fs' ? d.scatters : d.keys).filter((c) => c.reel < i));   // the symbols that start this anticipation pulse
         sound.startRiser(kind);
         this.setStatus(kind === 'fs' ? 'FREE SPINS CHANCE!' : `${this.L.key} IS IN - BIG ${this.L.item.toUpperCase()} CHANCE!`);
         teased = true;
@@ -465,7 +471,10 @@ export class Game {
     const fish = d.fish.slice().sort((a, b) => a.reel - b.reel || a.row - b.row);
     view.setWinCells([...d.keys, ...fish], true);
     const K = this.L.key; const item = this.L.item;
+    // a set can have its own collect style (manifest: sets.X.fx.collect)
+    const left = this.assets.fxFor(this.cfg.symbols.key).collect === 'firecracker' ? await this.firecracker(d, fish) : null;
     this.setStatus(d.keyCount > 1 ? `${d.keyCount} ${K}S - each ${K} collects each ${item}!` : `${K} collects each ${item}!`);
+    if (left) return this.collectTogether(d, fish, shown, left);
     let step = 0;
     for (const key of d.keys) {
       const kr = view.cellRect(key.reel, key.row);
@@ -480,6 +489,7 @@ export class Game {
         const chip = el('div', 'chip', fmt(f.value));
         chip.style.left = `${fr.cx}px`; chip.style.top = `${fr.cy}px`;
         fx.appendChild(chip);
+        if (left && left.has(f)) { left.get(f).remove(); left.delete(f); }      // the value that the fish left behind starts to move
         chip.getBoundingClientRect();        // start the CSS transition from the fish cell
         chip.style.left = `${kr.cx}px`; chip.style.top = `${kr.cy - 36}px`;
         view.pop([f]);
@@ -501,6 +511,123 @@ export class Game {
     }
     await this.wait(250);
     return shown;
+  }
+
+  /**
+   * The collect of the style "firecracker": all KEY positions collect at the same moment. Each FISH value goes
+   * to each KEY position at the same time, the totals count up together and go to the win together.
+   * `left` = Map(fish -> the value chip that the fish left). Returns the new shown total.
+   */
+  async collectTogether(d, fish, shown, left) {
+    const { view, sound } = this;
+    const fx = this.dom.fx;
+    const token = !!this.assets.extra('FX_TOKEN', this.cfg.symbols.key);
+    const spots = d.keys.map((key) => {
+      const kr = view.cellRect(key.reel, key.row);
+      const total = el('div', 'chip total', '0');
+      // with a token in the cell: the values go into the token and the total shows below it
+      const to = token ? kr.cy : kr.cy - 36;
+      total.style.left = `${kr.cx}px`; total.style.top = `${token ? kr.cy + view.cellH * 0.34 : kr.cy - 36}px`;
+      fx.appendChild(total);
+      return { key, kr, to, total, sum: 0 };
+    });
+    const arrivals = [];
+    let step = 0;
+    for (const f of fish) {
+      const fr = view.cellRect(f.reel, f.row);
+      if (left.has(f)) { left.get(f).remove(); left.delete(f); }                // the value that the fish left behind starts to move
+      for (const s of spots) {
+        const chip = el('div', 'chip', fmt(f.value));
+        chip.style.left = `${fr.cx}px`; chip.style.top = `${fr.cy}px`;
+        fx.appendChild(chip);
+        chip.getBoundingClientRect();        // start the CSS transition from the fish cell
+        chip.style.left = `${s.kr.cx}px`; chip.style.top = `${s.to}px`;
+        arrivals.push(sleep(430).then(() => { chip.remove(); s.sum += f.value; s.total.textContent = fmt(s.sum); view.bumpToken(s.key.reel, s.key.row); }));
+      }
+      const n = step++;
+      arrivals.push(sleep(430).then(() => sound.collect(n)));
+      await this.wait(this.turbo ? 110 : 190);
+    }
+    await Promise.all(arrivals);
+    await this.wait(260);
+    let all = 0;
+    for (const s of spots) {
+      s.total.style.top = `${view.H + 10}px`; s.total.style.left = `${view.W / 2}px`; s.total.style.opacity = '0';
+      all += s.sum;
+    }
+    await this.countWin(shown, shown + all, 380);
+    shown += all;
+    await sleep(120);
+    spots.forEach((s) => s.total.remove());
+    await this.wait(250);
+    return shown;
+  }
+
+  /**
+   * Collect style "firecracker": each KEY is a firecracker. The fuse burns, the firecrackers explode,
+   * and the scared FISH swim off the reels. Each fish leaves its value behind; the usual collect follows.
+   * Returns Map(fish -> the value chip that it left). Presentation only: the result is the engine result.
+   */
+  async firecracker(d, fish) {
+    const { view, sound } = this;
+    const fx = this.dom.fx;
+    const quick = this.turbo || this.skip;
+    const side = Math.min(view.cellW, view.cellH) - 6;
+    const K = this.L.key;
+    this.setStatus(d.keyCount > 1 ? `${d.keyCount} ${K}S ARE LIT!` : `THE ${K} IS LIT!`);
+    const fuseMs = quick ? 200 : 650;
+    for (const key of d.keys) {
+      const c = view.cellRect(key.reel, key.row);
+      view.fuse(c.cx + side * 0.17, c.cy - side * 0.3, fuseMs);     // the fuse tip of the firecracker picture
+    }
+    view.pop(d.keys);
+    sound.fuse(fuseMs / 1000);
+    await this.wait(fuseMs);
+    for (const key of d.keys) {                              // the bang
+      const c = view.cellRect(key.reel, key.row);
+      view.hideCell(key.reel, key.row, true);
+      view.burst(c.cx, c.cy);
+      const token = this.assets.extra('FX_TOKEN', this.cfg.symbols.key);      // what the firecracker leaves: the values collect into it
+      if (token) view.showToken(key.reel, key.row, token, quick ? 60 : 150);
+    }
+    view.flash('#fff6d0', 170); view.shake(quick ? 6 : 10, 330);
+    sound.bang(d.keys.length);
+    this.setStatus(`BANG! THE ${this.L.item.toUpperCase()} SWIM AWAY!`);
+    await this.wait(quick ? 30 : 120);
+    const top = this.cfg.symbols.fish[this.cfg.symbols.fish.length - 1];
+    const gold = Math.max(...this.cfg.fish.values[top]);
+    const left = new Map();
+    const away = fish.map((f, n) => {                        // each fish swims away from the nearest firecracker
+      const c = view.cellRect(f.reel, f.row);
+      let kx = null;
+      for (const key of d.keys) { const k = view.cellRect(key.reel, key.row); if (kx === null || Math.abs(k.cx - c.cx) < Math.abs(kx - c.cx)) kx = k.cx; }
+      const dir = c.cx === kx ? (c.cx < view.W / 2 ? -1 : 1) : Math.sign(c.cx - kx);
+      const tier = f.symbol.replace(/\D/g, '');
+      const scared = (f.symbol === top && f.value === gold && this.assets.extra(`FX_FISH${tier}_GOLD`, f.symbol)) || this.assets.extra(`FX_FISH${tier}`, f.symbol);
+      const img = scared || this.assets.img(f.symbol);       // no scared picture in this set: the plain fish
+      const delay = (quick ? 20 : 55) * n;
+      const dist = (dir < 0 ? c.cx : view.W - c.cx) + side;
+      const wob = 6 + Math.random() * 5; const ph = Math.random() * 6.3;
+      setTimeout(() => {
+        view.hideCell(f.reel, f.row);
+        sound.flee(n);
+        const chip = el('div', 'chip', fmt(f.value));        // the value stays where the fish was
+        chip.style.left = `${c.cx}px`; chip.style.top = `${c.cy}px`;
+        fx.appendChild(chip); left.set(f, chip);
+      }, delay);
+      return view.addActor({
+        img, size: side, delay, dur: quick ? 380 : 680, flip: dir > 0,       // the pictures face left
+        at: (u) => {
+          const start = Math.min(1, u / 0.16);               // a jump of fright, then the dash
+          const go = u < 0.16 ? 0 : Math.pow((u - 0.16) / 0.84, 1.8);
+          return { x: c.cx + dir * dist * go, y: c.cy - 12 * Math.sin(start * Math.PI) + wob * Math.sin(ph + u * 16) * go,
+            rot: dir * 0.1 * Math.sin(ph + u * 16) * (0.3 + go), scale: 1 + 0.16 * Math.sin(start * Math.PI) };
+        },
+      });
+    });
+    await Promise.all(away);
+    await this.wait(quick ? 60 : 220);
+    return left;
   }
 
   async bigWin(amount) {
@@ -605,7 +732,7 @@ export class Game {
       if (!list.length) return 'no reel';
       return (list.length === 1 ? 'reel ' : 'reels ') + list.join(', ').replace(/, (\d+)$/, ' and $1');
     };
-    const trig = Object.entries(cfg.freeSpins.triggerSpins).map(([k, v]) => `${k} FS = ${v} free spins`).join(', ');
+    const trig = Object.entries(cfg.freeSpins.triggerSpins).map(([k, v]) => `${k} ${this.L.fs} = ${v} free spins`).join(', ');
     return `<button class="close">CLOSE</button><h2>PAYTABLE AND RULES</h2>
       <p>Bet: ${fmt(cfg.bet)} credits. All pays are in credits. The game has ${cfg.rows ** cfg.reelCount} ways.</p>
       <h3>WAYS PAYS (credits for each way)</h3><div class="grid">${cards}</div>
@@ -613,7 +740,7 @@ export class Game {
         <li>A way pays from reel 1 to the right. The same symbol must be on adjacent reels.</li>
         <li>Number of ways = the number of that symbol on each reel in the way, multiplied together.</li>
         <li>${pic(cfg.symbols.wild, 'WILD').replace('<img', '<img style="width:34px;height:34px;vertical-align:middle"')} WILD substitutes for all PIC and AUS symbols. In the base game, WILD is on ${reelsOf('base', cfg.symbols.wild)}.</li>
-        <li>FISH, ${K} and FS symbols stop a way.</li>
+        <li>FISH, ${K} and ${this.L.fs} symbols stop a way.</li>
       </ul>
       <h3>${K} AND ${this.L.item.toUpperCase()} VALUES</h3>
       <ul>

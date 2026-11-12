@@ -979,8 +979,8 @@
 <ol>
 <li>The reel strips obey the design rules. The script also examines each window of each reel: one special symbol at most, and one or more symbols that are not AUS symbols.</li>
 <li>The inputs of the workbook are equal to the configuration file.</li>
-<li>The results of the workbook are equal to the results of the exact calculator.</li>
-<li>The script changes the inputs in a copy of the workbook and does check 3 again. It uses three changed configurations:<ul>
+<li>The results of the workbook are equal to the results of the exact calculator. This includes each number of the fish statistics block of the sheet <code>Summary</code>.</li>
+<li>The script changes the inputs in a copy of the workbook and does check 3 again (the RTP results and the fish statistics). It uses three changed configurations:<ul>
 <li>A: new pays (with 1 OAK and 2 OAK pays), new fish values and weights, new level thresholds, spins and multipliers, multiplier rule <code>fish</code>.</li>
 <li>B: new reel strips with KEY symbols on all 5 reels, more FS symbols, a bet of 25 credits.</li>
 <li>C: reel strips with random manual changes that do not obey the gap rule.</li>
@@ -992,7 +992,7 @@
 </ol>
 <p>Microsoft Excel also calculated the workbook of version 2.7.0. The result was the same as the exact calculator (total RTP 96.2000313739%).</p>
 <h2 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h2>
-<p>18 of 18 checks passed.</p>
+<p>31 of 31 checks passed.</p>
 <table>
 <thead>
 <tr>
@@ -1023,9 +1023,44 @@
 <td>7 check cells</td>
 </tr>
 <tr>
+<td>Summary column D shows 1 / probability for each probability row, and no other row (shipped configuration)</td>
+<td>PASS</td>
+<td>15 rows</td>
+</tr>
+<tr>
+<td>Workbook fish statistics equal exact_calc.py (shipped configuration)</td>
+<td>PASS</td>
+<td>335 values compared, largest relative difference 9.57e-15</td>
+</tr>
+<tr>
+<td>Workbook fish statistics: the three check cells are OK</td>
+<td>PASS</td>
+<td>OK; OK; OK</td>
+</tr>
+<tr>
+<td>Simulated base spins with a collect are near the exact P(collect)</td>
+<td>PASS</td>
+<td>sim 6.693117%, exact 6.693120%</td>
+</tr>
+<tr>
 <td>Workbook equals exact_calc.py (variant A: new pays, values, weights, levels, multiplier rule 'fish')</td>
 <td>PASS</td>
 <td>largest relative difference 4.17e-15</td>
+</tr>
+<tr>
+<td>Summary column D shows 1 / probability (variant A)</td>
+<td>PASS</td>
+<td>15 rows</td>
+</tr>
+<tr>
+<td>Workbook fish statistics equal exact_calc.py (variant A)</td>
+<td>PASS</td>
+<td>335 values compared, largest relative difference 9.57e-15</td>
+</tr>
+<tr>
+<td>Workbook fish statistics: RTP check cells are OK (variant A)</td>
+<td>PASS</td>
+<td>OK; OK</td>
 </tr>
 <tr>
 <td>excel_to_config.py reads variant A correctly</td>
@@ -1038,6 +1073,21 @@
 <td>largest relative difference 4.37e-15</td>
 </tr>
 <tr>
+<td>Summary column D shows 1 / probability (variant B)</td>
+<td>PASS</td>
+<td>15 rows</td>
+</tr>
+<tr>
+<td>Workbook fish statistics equal exact_calc.py (variant B)</td>
+<td>PASS</td>
+<td>335 values compared, largest relative difference 7.19e-15</td>
+</tr>
+<tr>
+<td>Workbook fish statistics: RTP check cells are OK (variant B)</td>
+<td>PASS</td>
+<td>OK; OK</td>
+</tr>
+<tr>
 <td>excel_to_config.py reads variant B correctly</td>
 <td>PASS</td>
 <td></td>
@@ -1046,6 +1096,21 @@
 <td>Workbook equals exact_calc.py (variant C: reel strips with random hand edits)</td>
 <td>PASS</td>
 <td>largest relative difference 3.30e-15</td>
+</tr>
+<tr>
+<td>Summary column D shows 1 / probability (variant C)</td>
+<td>PASS</td>
+<td>15 rows</td>
+</tr>
+<tr>
+<td>Workbook fish statistics equal exact_calc.py (variant C)</td>
+<td>PASS</td>
+<td>335 values compared, largest relative difference 9.57e-15</td>
+</tr>
+<tr>
+<td>Workbook fish statistics: RTP check cells are OK (variant C)</td>
+<td>PASS</td>
+<td>OK; OK</td>
 </tr>
 <tr>
 <td>excel_to_config.py reads variant C correctly</td>
@@ -1233,6 +1298,14 @@
 <td>The game showed the new paytable. The forced rounds paid 111, 501 and 4 credits. The balance was equal to the start balance minus the bets plus the wins. The browser showed no error.</td>
 </tr>
 <tr>
+<td>Fish statistics of the workbook (sheet <code>Summary</code>), calculated by Microsoft Excel</td>
+<td>The values were the same as the exact calculator. The three check cells of the block showed OK.</td>
+</tr>
+<tr>
+<td>Fish statistics against a simulation with the engine of the game (3,000,000 spins for the base game and for each level; 165 statistics: mean number on screen, P(on screen), P(collect), KEY x FISH pairs, collect EV, mean value, P(largest value))</td>
+<td>The largest difference was 2.11 standard errors.</td>
+</tr>
+<tr>
 <td>Theme sets D and E with their own game texts</td>
 <td>The symbols and the texts showed correctly. A forced collect of the golden top symbol paid 2005 credits.</td>
 </tr>
@@ -1247,6 +1320,26 @@
 <tr>
 <td>Theme sets D (Poseidon) and F (Loch Ness) after the art changes (new picture symbols and grey tablets in set D; shields in set F), in the game of the built document</td>
 <td>All 34 asset files of each set loaded. The texts of set D showed LEVIATHAN. A forced collect of the leviathan paid correctly, and the balance was correct. The browser showed no error.</td>
+</tr>
+<tr>
+<td>Theme set C (Nian, Nian, Begone!) with its own game texts, its own collect animation and its own sounds, in the game of the built document</td>
+<td>All 40 asset files of the set loaded. The texts showed FIRECRACKER, GONG and NIAN. A forced trigger showed the text "3 GONG SYMBOLS - FREE SPINS!". A forced collect with 2 FIRECRACKER symbols in the base game and in the free spins showed the animation and paid the engine result. With 3 FIRECRACKER symbols, the three explosions started in the same animation frame and the three collects ended at the same time. Each FIRECRACKER left its gold label, and the values moved into the labels. The balance was equal to the start balance minus the bets plus the wins. The browser showed no error.</td>
+</tr>
+<tr>
+<td>Sounds of set C: each of 24 sounds, made with no loudspeaker (offline audio)</td>
+<td>Each sound gave a signal. No sound was louder than the limit of the audio output (largest peak 0.49 of full scale). The usual sounds of the other sets did not change.</td>
+</tr>
+<tr>
+<td>Anticipation rule of the game on 400,000 random base spins (engine and rule of the game, no animation)</td>
+<td>No reel showed the FS anticipation with fewer than 2 FS symbols on the reels before it. The KEY anticipation showed in 1 of 8.8 spins. In 1 of 32 spins it showed while exactly one FS symbol was in the window.</td>
+</tr>
+<tr>
+<td>Anticipation of set C, forced FS tease and forced KEY with no FISH</td>
+<td>Reels 3, 4 and 5 showed the GONG anticipation after GONG symbols on reels 1 and 2. Reels 4 and 5 showed the FIRECRACKER anticipation after a FIRECRACKER on reel 3. The symbols that started each anticipation pulsed. Each anticipation had its own sound and its own glow colour.</td>
+</tr>
+<tr>
+<td>The usual collect animation in a set with no <code>fx</code> field (set B), after the change of the game code</td>
+<td>A forced collect paid the engine result. The balance was correct. The texts showed FS for the FS symbol. The browser showed no error.</td>
 </tr>
 <tr>
 <td>All 8 asset sets</td>
