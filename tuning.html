@@ -669,6 +669,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-230-a-new-pattern-for-pic1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.3.0: a new pattern for PIC1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -947,6 +958,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-230-a-new-pattern-for-pic1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.3.0: a new pattern for PIC1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -986,7 +1008,7 @@
 
 
 <h1 id="tuning-history">Tuning History<a class="headerlink" href="#tuning-history" title="Permanent link">&para;</a></h1>
-<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. Versions 2.1.0 and 2.2.0 have the same target.
+<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. Versions 2.1.0, 2.2.0 and 2.3.0 have the same target.
 Each iteration used the exact calculator first and the simulator second.</p>
 <h2 id="iterations">Iterations<a class="headerlink" href="#iterations" title="Permanent link">&para;</a></h2>
 <table>
@@ -1082,6 +1104,15 @@ Each iteration used the exact calculator first and the simulator second.</p>
 <td style="text-align: right;">35.8 x</td>
 <td style="text-align: right;">8 x</td>
 <td>Version 2.2.0. The standard deviation is 9.41 x bet.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>New pattern for PIC1: most symbols on reels 1, 4 and 5, few symbols on reels 2 and 3. Larger PIC1 pays. Better FISH3 values on level 1.</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">1 in 171.7</td>
+<td style="text-align: right;">35.8 x</td>
+<td style="text-align: right;">8 x</td>
+<td>Version 2.3.0. The standard deviation is 9.39 x bet.</td>
 </tr>
 </tbody>
 </table>
@@ -1216,7 +1247,8 @@ The page <a href="reels.html#symbol-weighting-on-each-reel">Reel strips</a> show
 </tr>
 </tbody>
 </table>
-<p>The column "Base spins with a win" comes from simulations of 4,000,000,000 rounds. The medium strength was selected.</p>
+<p>The column "Base spins with a win" comes from simulations of 4,000,000,000 rounds. The medium strength was selected.
+This column depends also on the arrangement of the symbols on each strip, not only on the strength (see version 2.3.0).</p>
 <p><strong>Cause of the lower RTP.</strong> A way of 5 symbols needs the symbol or a WILD symbol on each reel. The expected number of ways is the product of the mean counts of the reels.
 When the counts are not equal, the product is smaller. With the medium strength, the RTP of the 5 OAK pays in the base game decreased from 17.43% to 14.84%.</p>
 <p><strong>Balance.</strong> The RTP went back into the ways pays. The 5 OAK pay of each pay symbol increased. The 3 OAK pays and the 4 OAK pays did not change.
@@ -1594,6 +1626,280 @@ A FISH3 symbol on level 1 has a mean value of 104.0 credits and a multiplier of 
 </tbody>
 </table>
 <p>The typical free spins win stays the same. The very large wins are less frequent, because they came from the high values on the levels with the large multipliers. Thus the standard deviation decreased.</p>
+<h2 id="version-230-a-new-pattern-for-pic1">Version 2.3.0: a new pattern for PIC1<a class="headerlink" href="#version-230-a-new-pattern-for-pic1" title="Permanent link">&para;</a></h2>
+<p>In version 2.2.0, PIC1 had most of its symbols on the first reels. In version 2.3.0, PIC1 has most of its symbols on reels 1, 4 and 5. It has few symbols on reels 2 and 3.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Base reel strips, version 2.2.0</th>
+<th>Base reel strips, version 2.3.0</th>
+<th>Bonus reel strips, version 2.2.0</th>
+<th>Bonus reel strips, version 2.3.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIC1</td>
+<td>7 / 6 / 4 / 4 / 3</td>
+<td><strong>8 / 2 / 2 / 6 / 6</strong></td>
+<td>11 / 10 / 8 / 7 / 5</td>
+<td><strong>12 / 4 / 4 / 11 / 10</strong></td>
+</tr>
+<tr>
+<td>AUS1</td>
+<td>7 / 10 / 11 / 15 / 17</td>
+<td><strong>7 / 11 / 11 / 14 / 16</strong></td>
+<td>6 / 9 / 12 / 15 / 17</td>
+<td><strong>6 / 11 / 14 / 15 / 15</strong></td>
+</tr>
+<tr>
+<td>AUS2</td>
+<td>16 / 13 / 11 / 10 / 7</td>
+<td><strong>16 / 14 / 11 / 10 / 7</strong></td>
+<td>15 / 13 / 12 / 10 / 7</td>
+<td><strong>14 / 15 / 13 / 8 / 6</strong></td>
+</tr>
+<tr>
+<td>AUS3</td>
+<td>7 / 16 / 6 / 16 / 11</td>
+<td><strong>7 / 17 / 6 / 15 / 10</strong></td>
+<td>5 / 11 / 5 / 11 / 8</td>
+<td><strong>5 / 13 / 6 / 9 / 6</strong></td>
+</tr>
+<tr>
+<td>AUS4</td>
+<td>17 / 7 / 15 / 7 / 11</td>
+<td><strong>16 / 7 / 16 / 7 / 10</strong></td>
+<td>2 / 2 / 3 / 2 / 2</td>
+<td><strong>2 / 2 / 3 / 2 / 2</strong></td>
+</tr>
+<tr>
+<td>AUS5</td>
+<td>8 / 12 / 15 / 12 / 9</td>
+<td><strong>8 / 13 / 16 / 12 / 9</strong></td>
+<td>1 / 1 / 3 / 1 / 2</td>
+<td><strong>1 / 1 / 3 / 1 / 2</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The table shows the number of symbols on reels 1 / 2 / 3 / 4 / 5.</p>
+<p><strong>Other symbols.</strong> On each reel, the AUS symbols took the positions that PIC1 left, and they gave the positions that PIC1 got. Each AUS symbol got or gave positions in proportion to its number of symbols on the reel.
+Each AUS symbol keeps its pattern. The numbers of the other PIC symbols and of the special symbols did not change. The generator made new reel strips from the new recipe.</p>
+<p><strong>Layouts.</strong> The exact calculator gave these results for four layouts, before the balance. Each layout had the reel strips that seed 20261111 gives.</p>
+<table>
+<thead>
+<tr>
+<th>PIC1 on base reels 1 / 2 / 3 / 4 / 5</th>
+<th>PIC1 on bonus reels 1 / 2 / 3 / 4 / 5</th>
+<th style="text-align: right;">RTP</th>
+<th style="text-align: right;">Ways pays</th>
+<th style="text-align: right;">Free spins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version 2.2.0: 7 / 6 / 4 / 4 / 3</td>
+<td>11 / 10 / 8 / 7 / 5</td>
+<td style="text-align: right;">96.20%</td>
+<td style="text-align: right;">36.19%</td>
+<td style="text-align: right;">20.84%</td>
+</tr>
+<tr>
+<td>7 / 3 / 3 / 6 / 5</td>
+<td>11 / 5 / 5 / 10 / 10</td>
+<td style="text-align: right;">95.35%</td>
+<td style="text-align: right;">35.71%</td>
+<td style="text-align: right;">20.47%</td>
+</tr>
+<tr>
+<td>8 / 2 / 2 / 6 / 6</td>
+<td>12 / 4 / 4 / 11 / 10</td>
+<td style="text-align: right;">94.90%</td>
+<td style="text-align: right;">35.46%</td>
+<td style="text-align: right;">20.27%</td>
+</tr>
+<tr>
+<td>8 / 3 / 3 / 7 / 7</td>
+<td>12 / 5 / 5 / 12 / 12</td>
+<td style="text-align: right;">95.52%</td>
+<td style="text-align: right;">35.86%</td>
+<td style="text-align: right;">20.49%</td>
+</tr>
+<tr>
+<td>6 / 4 / 4 / 5 / 5</td>
+<td>10 / 6 / 6 / 10 / 9</td>
+<td style="text-align: right;">95.57%</td>
+<td style="text-align: right;">35.79%</td>
+<td style="text-align: right;">20.61%</td>
+</tr>
+</tbody>
+</table>
+<p>The layout 8 / 2 / 2 / 6 / 6 was selected.</p>
+<p><strong>Arrangement of the reel strips.</strong> With seed 20261111, the new base reel strips gave a ways win in 23.08% of the base spins. Version 2.2.0 gave 25.94%.
+The cause was the arrangement of the symbols on the strips, not the PIC1 layout. For one recipe, different seeds give different arrangements, and the number of spins with a ways win changes with the arrangement:</p>
+<table>
+<thead>
+<tr>
+<th>Recipe</th>
+<th style="text-align: right;">Seeds</th>
+<th style="text-align: right;">Lowest value</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">Highest value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version 2.2.0</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">21.09%</td>
+<td style="text-align: right;">24.05%</td>
+<td style="text-align: right;">27.04%</td>
+</tr>
+<tr>
+<td>Version 2.3.0</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">21.26%</td>
+<td style="text-align: right;">24.06%</td>
+<td style="text-align: right;">27.08%</td>
+</tr>
+</tbody>
+</table>
+<p>The table shows the base spins with a ways win. The values are exact (function <code>ways_hit</code> in <code>gamemath/rebalance_tools.py</code>).
+A search examined 3,000 seeds for the reel strips that are nearest to version 2.2.0 on the two reel sets. Seed 667 was selected.</p>
+<table>
+<thead>
+<tr>
+<th>Spins with a ways win (exact)</th>
+<th style="text-align: right;">Version 2.2.0</th>
+<th style="text-align: right;">Version 2.3.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base reel strips</td>
+<td style="text-align: right;">25.94%</td>
+<td style="text-align: right;">25.81%</td>
+</tr>
+<tr>
+<td>Bonus reel strips</td>
+<td style="text-align: right;">15.30%</td>
+<td style="text-align: right;">15.36%</td>
+</tr>
+</tbody>
+</table>
+<p>With seed 667, the RTP before the balance was 95.19% (ways pays 35.69%, free spins 20.32%).</p>
+<p><strong>Effect on PIC1.</strong> A PIC1 win starts less frequently. When a PIC1 way has 3 symbols, it gets to reel 5 more frequently than before.</p>
+<table>
+<thead>
+<tr>
+<th>PIC1 in the base game</th>
+<th style="text-align: right;">Version 2.2.0</th>
+<th style="text-align: right;">Version 2.3.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expected ways of 3 OAK in 1000 spins</td>
+<td style="text-align: right;">22.58</td>
+<td style="text-align: right;">9.22</td>
+</tr>
+<tr>
+<td>Expected ways of 4 OAK in 1000 spins</td>
+<td style="text-align: right;">6.32</td>
+<td style="text-align: right;">3.46</td>
+</tr>
+<tr>
+<td>Expected ways of 5 OAK in 1000 spins</td>
+<td style="text-align: right;">1.90</td>
+<td style="text-align: right;">1.66</td>
+</tr>
+<tr>
+<td>Part of these ways that gets to reel 5</td>
+<td style="text-align: right;">6.2%</td>
+<td style="text-align: right;">11.6%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Balance.</strong> The RTP of the ways pays went back through the PIC1 pays. The free spins got the rest through the FISH3 values of level 1. Thus the RTP of each component stays almost the same.</p>
+<ul>
+<li>The PIC1 pays changed from 5 / 15 / 60 to 5 / 20 / 80 credits (3 / 4 / 5 OAK). With these pays, the ways pays of the base game give 36.20% RTP (version 2.2.0: 36.19%).</li>
+<li>The free spins were then 0.42% RTP below version 2.2.0. The larger PIC1 pays give little RTP to the free spins: the bonus reel strips have no WILD symbol, and PIC1 has few symbols on bonus reels 2 and 3.</li>
+<li>The FISH3 weights of level 1 changed from 43 / 19 / 25 / 13 to 22 / 11 / 45 / 22. The two high values have 67% of the weight (before: 38%). The mean FISH3 value on level 1 is 133.5 credits (before: 104.0).</li>
+</ul>
+<p><strong>Fine adjustment.</strong> The base weights of FISH1 changed from 3969 / 3031 / 2000 / 1000 to 4061 / 2939 / 2000 / 1000. Thus the RTP is 96.200011%.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Version 2.2.0</th>
+<th style="text-align: right;">Version 2.3.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base game: ways pays</td>
+<td style="text-align: right;">36.19%</td>
+<td style="text-align: right;">36.20%</td>
+</tr>
+<tr>
+<td>Base game: collect</td>
+<td style="text-align: right;">39.17%</td>
+<td style="text-align: right;">39.16%</td>
+</tr>
+<tr>
+<td>Free spins</td>
+<td style="text-align: right;">20.84%</td>
+<td style="text-align: right;">20.84%</td>
+</tr>
+<tr>
+<td>Total RTP</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">96.2000%</td>
+</tr>
+<tr>
+<td>RTP of the PIC1 pays in the base game</td>
+<td style="text-align: right;">3.22%</td>
+<td style="text-align: right;">2.48%</td>
+</tr>
+<tr>
+<td>Base spins with a win</td>
+<td style="text-align: right;">31.2%</td>
+<td style="text-align: right;">31.5%</td>
+</tr>
+<tr>
+<td>Base spins with a ways win</td>
+<td style="text-align: right;">25.9%</td>
+<td style="text-align: right;">25.8%</td>
+</tr>
+<tr>
+<td>Mean free spins win</td>
+<td style="text-align: right;">35.8 x bet</td>
+<td style="text-align: right;">35.8 x bet</td>
+</tr>
+<tr>
+<td>Median free spins win</td>
+<td style="text-align: right;">8 x bet</td>
+<td style="text-align: right;">8 x bet</td>
+</tr>
+<tr>
+<td>90th percentile of the free spins win</td>
+<td style="text-align: right;">88 x bet</td>
+<td style="text-align: right;">88 x bet</td>
+</tr>
+<tr>
+<td>99th percentile of the free spins win</td>
+<td style="text-align: right;">410 x bet</td>
+<td style="text-align: right;">407 x bet</td>
+</tr>
+<tr>
+<td>Standard deviation for each round</td>
+<td style="text-align: right;">9.41 x bet</td>
+<td style="text-align: right;">9.39 x bet</td>
+</tr>
+</tbody>
+</table>
+<p>The number of base spins with a win stays almost the same, because the arrangement of the new reel strips was selected for this. PIC1 wins are less frequent and larger.</p>
 <h2 id="design-decisions">Design decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h2>
 <p><strong>One KEY symbol on each of base reels 1, 2 and 3.</strong> A KEY symbol lands 1 in 8.7 base spins. Two or three KEY symbols can land in one spin. Then each KEY symbol collects each FISH value.</p>
 <p><strong>The kraken stays on the base reel strips.</strong> The KEY anticipation on reels 4 and 5 has a purpose only if the large fish are there.
@@ -1602,10 +1908,11 @@ The kraken gives 32% RTP in the base game. A KEY symbol and the kraken land toge
 <p><strong>The balance of version 2.0.0 came from the small base fish.</strong> In that version, the paytable and the free spins kept their value. The free spins were less frequent than before, so their value for each trigger did not decrease.</p>
 <p><strong>The balance of version 2.1.0 came from the 5 OAK pays.</strong> The reel strips with patterns give fewer long ways. Larger 5 OAK pays put this RTP back into the ways pays, so that the RTP of each component stays almost the same.</p>
 <p><strong>2 / 2 / 1 KEY symbols on bonus reels 1 / 2 / 3.</strong> This gives 0.20 KEY symbols for each free spin, the same as in version 1.1.0. The levels keep their frequency.</p>
+<p><strong>PIC1 is rare and pays the most.</strong> PIC1 has 8 / 2 / 2 / 6 / 6 symbols on base reels 1 to 5. A PIC1 win needs reels 2 and 3, where PIC1 has few symbols. The pays of PIC1 are 5 / 20 / 80 credits for 3 / 4 / 5 OAK.</p>
 <p><strong>Eight spins for levels 2 to 4.</strong> With 10 spins, level 4 was too frequent.</p>
 <p><strong>Bonus reels with more PIC symbols.</strong> The bonus reel strips have no WILD symbol. More PIC symbols give more ways pays in the free spins.</p>
 <p><strong>The best fish values are on level 1.</strong> Each free spins feature plays level 1. Thus each feature has a chance of the high FISH3 values and of the golden kraken.
-On the higher levels, the multiplier gives the large wins, and the high values are harder to get. The mean FISH3 value decreases from 104.0 credits on level 1 to 63.0 credits on level 4.
+On the higher levels, the multiplier gives the large wins, and the high values are harder to get. The mean FISH3 value decreases from 133.5 credits on level 1 to 63.0 credits on level 4.
 The golden kraken has weights of 2 : 1 on level 1 and 64 : 1 on level 4.</p>
 <h2 id="possible-subsequent-changes">Possible subsequent changes<a class="headerlink" href="#possible-subsequent-changes" title="Permanent link">&para;</a></h2>
 <ul>
