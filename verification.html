@@ -992,7 +992,7 @@
 </ol>
 <p>Microsoft Excel also calculated the workbook of version 2.7.0. The result was the same as the exact calculator (total RTP 96.2000313739%).</p>
 <h2 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h2>
-<p>31 of 31 checks passed.</p>
+<p>35 of 35 checks passed.</p>
 <table>
 <thead>
 <tr>
@@ -1033,6 +1033,11 @@
 <td>335 values compared, largest relative difference 9.57e-15</td>
 </tr>
 <tr>
+<td>Workbook statistics of each value of the top FISH symbol equal exact_calc.py (shipped configuration)</td>
+<td>PASS</td>
+<td>60 values compared, largest relative difference 5.07e-13</td>
+</tr>
+<tr>
 <td>Workbook fish statistics: the three check cells are OK</td>
 <td>PASS</td>
 <td>OK; OK; OK</td>
@@ -1056,6 +1061,11 @@
 <td>Workbook fish statistics equal exact_calc.py (variant A)</td>
 <td>PASS</td>
 <td>335 values compared, largest relative difference 9.57e-15</td>
+</tr>
+<tr>
+<td>Workbook statistics of each value of the top FISH symbol equal exact_calc.py (variant A)</td>
+<td>PASS</td>
+<td>60 values compared, largest relative difference 3.48e-14</td>
 </tr>
 <tr>
 <td>Workbook fish statistics: RTP check cells are OK (variant A)</td>
@@ -1083,6 +1093,11 @@
 <td>335 values compared, largest relative difference 7.19e-15</td>
 </tr>
 <tr>
+<td>Workbook statistics of each value of the top FISH symbol equal exact_calc.py (variant B)</td>
+<td>PASS</td>
+<td>60 values compared, largest relative difference 4.44e-13</td>
+</tr>
+<tr>
 <td>Workbook fish statistics: RTP check cells are OK (variant B)</td>
 <td>PASS</td>
 <td>OK; OK</td>
@@ -1106,6 +1121,11 @@
 <td>Workbook fish statistics equal exact_calc.py (variant C)</td>
 <td>PASS</td>
 <td>335 values compared, largest relative difference 9.57e-15</td>
+</tr>
+<tr>
+<td>Workbook statistics of each value of the top FISH symbol equal exact_calc.py (variant C)</td>
+<td>PASS</td>
+<td>60 values compared, largest relative difference 5.07e-13</td>
 </tr>
 <tr>
 <td>Workbook fish statistics: RTP check cells are OK (variant C)</td>
@@ -1304,6 +1324,14 @@
 <tr>
 <td>Fish statistics against a simulation with the engine of the game (3,000,000 spins for the base game and for each level; 165 statistics: mean number on screen, P(on screen), P(collect), KEY x FISH pairs, collect EV, mean value, P(largest value))</td>
 <td>The largest difference was 2.11 standard errors.</td>
+</tr>
+<tr>
+<td>Statistics of each FISH4 value of the workbook (sheet <code>Summary</code>), calculated by Microsoft Excel</td>
+<td>The values were the same as the exact calculator. The two check cells of the block showed OK.</td>
+</tr>
+<tr>
+<td>Statistics of each FISH4 value against a simulation with the engine of the game (20,000,000 spins for the base game and for each level; 40 statistics: P(value), mean number on screen, P(on screen), P(collect))</td>
+<td>The largest difference was 1.93 standard errors.</td>
 </tr>
 <tr>
 <td>Theme sets D and E with their own game texts</td>

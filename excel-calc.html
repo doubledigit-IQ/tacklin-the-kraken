@@ -962,6 +962,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#windows-by-the-number-of-fish4-symbols-rows-67-to-72-base-reels-and-76-to-81-bonus-reels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows by the number of FISH4 symbols, rows 67 to 72 (base reels) and 76 to 81 (bonus reels)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1139,6 +1150,17 @@
     <span class="md-ellipsis">
       
         Fish statistics, rows 61 to 85
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fish4-values-rows-100-to-109" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FISH4 values, rows 100 to 109
       
     </span>
   </a>
@@ -1491,6 +1513,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#windows-by-the-number-of-fish4-symbols-rows-67-to-72-base-reels-and-76-to-81-bonus-reels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows by the number of FISH4 symbols, rows 67 to 72 (base reels) and 76 to 81 (bonus reels)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1668,6 +1701,17 @@
     <span class="md-ellipsis">
       
         Fish statistics, rows 61 to 85
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fish4-values-rows-100-to-109" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FISH4 values, rows 100 to 109
       
     </span>
   </a>
@@ -2530,6 +2574,17 @@ Fish!G52:  =1-$B$50-G50+L50
 </ul>
 <p>These formulas make no assumption about the reel strips. They are also correct when a window shows two special symbols.</p>
 <p>For the base game, <code>G52</code> = 6.6931%: a base spin has a collect with this probability. The simulation gave 6.6931%.</p>
+<h3 id="windows-by-the-number-of-fish4-symbols-rows-67-to-72-base-reels-and-76-to-81-bonus-reels">Windows by the number of FISH4 symbols, rows 67 to 72 (base reels) and 76 to 81 (bonus reels)<a class="headerlink" href="#windows-by-the-number-of-fish4-symbols-rows-67-to-72-base-reels-and-76-to-81-bonus-reels" title="Permanent link">&para;</a></h3>
+<p>These two tables count the windows of each reel by the number of FISH4 symbols in the window. The sheet <code>Summary</code> uses them for the statistics of each FISH4 value.</p>
+<div class="highlight"><pre><span></span><code>Fish!B68:  =COUNTIF(Win_Base!$O$4:$O$103,0)
+Fish!C68:  =COUNTIF(Win_Base!$O$4:$O$103,1)
+Fish!G68:  =SUMPRODUCT(--(Win_Base!$P$4:$P$103=0),--(Win_Base!$O$4:$O$103=0))
+Fish!H68:  =SUMPRODUCT(--(Win_Base!$P$4:$P$103=0),--(Win_Base!$O$4:$O$103=1))
+</code></pre></div>
+<ul>
+<li>Columns <code>B:F</code> are the number of windows with 0, 1, 2, 3 and 4 FISH4 symbols.</li>
+<li>Columns <code>G:K</code> are the number of windows with no KEY symbol and with 0, 1, 2, 3 and 4 FISH4 symbols.</li>
+</ul>
 <h2 id="7-sheet-trigger">7. Sheet Trigger<a class="headerlink" href="#7-sheet-trigger" title="Permanent link">&para;</a></h2>
 <h3 id="fs-symbols-for-each-reel-rows-5-to-9">FS symbols for each reel, rows 5 to 9<a class="headerlink" href="#fs-symbols-for-each-reel-rows-5-to-9" title="Permanent link">&para;</a></h3>
 <p>Columns B, C and D give the probability of 0, 1 and 2 FS symbols in the window of the reel. Column E is the sum. The sum must be 1.</p>
@@ -3571,6 +3626,214 @@ Summary!B94:  =IF(SUMPRODUCT(ABS(R61:R85))&lt;0.000000001,"OK","DIFFERENT (confi
 </code></pre></div>
 <p>The first two checks compare the block with the RTP components in rows 7 and 8. They show <code>OK</code> for all inputs.
 The third check compares the block with the reference values. It is <code>OK</code> for the configuration of the workbook as delivered.</p>
+<h3 id="fish4-values-rows-100-to-109">FISH4 values, rows 100 to 109<a class="headerlink" href="#fish4-values-rows-100-to-109" title="Permanent link">&para;</a></h3>
+<p>This block gives the probability of each value of the FISH4 symbol: 500 and 2000 credits. It has one row for each value in each mode: the base game and levels 1 to 4.
+Each FISH4 symbol gets its value for the spin independently of the other symbols. All probabilities are for one spin of the mode.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Contents</th>
+<th>Formula in row 100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C</code></td>
+<td>The value (credits), from the sheet <code>Config</code></td>
+<td><code>=INDEX(Config!$B$28:$E$28,1)</code></td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>P(value): the probability that one symbol shows this value. It is the weight of the value divided by the sum of the weights of the mode.</td>
+<td><code>=SUMIF(Config!$B$28:$E$28,C100,Config!$C$36:$F$36)/SUM(Config!$C$36:$F$36)</code></td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td>Mean number of symbols on screen that show this value</td>
+<td><code>=D100*Fish!F19</code></td>
+</tr>
+<tr>
+<td><code>F</code></td>
+<td>Probability that one or more symbols on screen show this value</td>
+<td><code>=1-T100</code></td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>Frequency: 1 divided by column F</td>
+<td><code>=IF(F100&gt;0,1/F100,"")</code></td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>Probability of a collect of this value: one or more KEY symbols and one or more symbols with this value on screen</td>
+<td><code>=1-Fish!$B$50-T100+U100</code></td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>Frequency: 1 divided by column H</td>
+<td><code>=IF(H100&gt;0,1/H100,"")</code></td>
+</tr>
+<tr>
+<td><code>J</code>, <code>K</code></td>
+<td>Reference values for columns F and H from the script <code>gamemath/exact_calc.py</code> (orange cells, fixed values)</td>
+<td>values</td>
+</tr>
+<tr>
+<td><code>L</code>, <code>M</code></td>
+<td>Column F minus column J, and column H minus column K</td>
+<td><code>=F100-J100</code></td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>q = 1 - P(value): the probability that one symbol does not show this value</td>
+<td><code>=1-D100</code></td>
+</tr>
+<tr>
+<td><code>O:S</code></td>
+<td>q to the power 0, 1, 2, 3 and 4</td>
+<td><code>=P100*N100</code></td>
+</tr>
+<tr>
+<td><code>T</code></td>
+<td>Probability that no symbol on screen shows this value</td>
+<td>see below</td>
+</tr>
+<tr>
+<td><code>U</code></td>
+<td>Probability of no KEY symbol on screen and no symbol with this value on screen</td>
+<td>see below</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>A window with j FISH4 symbols shows no symbol with this value with probability q to the power j. For one reel, the probability is thus the sum of (number of windows with j symbols) x (q to the power j), divided by the number of stops.
+  Column T is the product of the five reels: <code>=(SUMPRODUCT(Fish!$B$68:$F$68,$O100:$S100)/Config!$B$6)*(SUMPRODUCT(Fish!$B$69:$F$69,$O100:$S100)/Config!$B$6)*(SUMPRODUCT(Fish!$B$70:$F$70,$O100:$S100)/Config!$B$6)*(SUMPRODUCT(Fish!$B$71:$F$71,$O100:$S100)/Config!$B$6)*(SUMPRODUCT(Fish!$B$72:$F$72,$O100:$S100)/Config!$B$6)</code></li>
+<li>Column U is the same calculation with the windows that have no KEY symbol (columns <code>G:K</code> of the table on the sheet <code>Fish</code>).</li>
+<li>P(collect) = 1 - P(no KEY) - P(no symbol with this value) + P(no KEY and no symbol with this value).</li>
+<li>The formulas make no assumption about the reel strips. They are also correct when a window shows two or more FISH4 symbols.</li>
+</ul>
+<p>Values for the configuration of the workbook as delivered:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th style="text-align: right;">Value</th>
+<th style="text-align: right;">P(value), exact</th>
+<th style="text-align: right;">P(value)</th>
+<th style="text-align: right;">P(one or more on screen)</th>
+<th style="text-align: right;">1 in N spins</th>
+<th style="text-align: right;">P(collect of this value)</th>
+<th style="text-align: right;">1 in N spins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>base</td>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">30/31</td>
+<td style="text-align: right;">96.7742%</td>
+<td style="text-align: right;">3.870968%</td>
+<td style="text-align: right;">25.83</td>
+<td style="text-align: right;">0.446183%</td>
+<td style="text-align: right;">224.12</td>
+</tr>
+<tr>
+<td>base</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">1/31</td>
+<td style="text-align: right;">3.2258%</td>
+<td style="text-align: right;">0.129032%</td>
+<td style="text-align: right;">775.00</td>
+<td style="text-align: right;">0.014873%</td>
+<td style="text-align: right;">6723.70</td>
+</tr>
+<tr>
+<td>level1</td>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">2/3</td>
+<td style="text-align: right;">66.6667%</td>
+<td style="text-align: right;">2.666667%</td>
+<td style="text-align: right;">37.50</td>
+<td style="text-align: right;">0.499883%</td>
+<td style="text-align: right;">200.05</td>
+</tr>
+<tr>
+<td>level1</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">1/3</td>
+<td style="text-align: right;">33.3333%</td>
+<td style="text-align: right;">1.333333%</td>
+<td style="text-align: right;">75.00</td>
+<td style="text-align: right;">0.249941%</td>
+<td style="text-align: right;">400.09</td>
+</tr>
+<tr>
+<td>level2</td>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">16/17</td>
+<td style="text-align: right;">94.1176%</td>
+<td style="text-align: right;">3.764706%</td>
+<td style="text-align: right;">26.56</td>
+<td style="text-align: right;">0.705717%</td>
+<td style="text-align: right;">141.70</td>
+</tr>
+<tr>
+<td>level2</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">1/17</td>
+<td style="text-align: right;">5.8824%</td>
+<td style="text-align: right;">0.235294%</td>
+<td style="text-align: right;">425.00</td>
+<td style="text-align: right;">0.044107%</td>
+<td style="text-align: right;">2267.20</td>
+</tr>
+<tr>
+<td>level3</td>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">32/33</td>
+<td style="text-align: right;">96.9697%</td>
+<td style="text-align: right;">3.878788%</td>
+<td style="text-align: right;">25.78</td>
+<td style="text-align: right;">0.727102%</td>
+<td style="text-align: right;">137.53</td>
+</tr>
+<tr>
+<td>level3</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">1/33</td>
+<td style="text-align: right;">3.0303%</td>
+<td style="text-align: right;">0.121212%</td>
+<td style="text-align: right;">825.00</td>
+<td style="text-align: right;">0.022722%</td>
+<td style="text-align: right;">4401.03</td>
+</tr>
+<tr>
+<td>level4</td>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">64/65</td>
+<td style="text-align: right;">98.4615%</td>
+<td style="text-align: right;">3.938462%</td>
+<td style="text-align: right;">25.39</td>
+<td style="text-align: right;">0.738288%</td>
+<td style="text-align: right;">135.45</td>
+</tr>
+<tr>
+<td>level4</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">1/65</td>
+<td style="text-align: right;">1.5385%</td>
+<td style="text-align: right;">0.061538%</td>
+<td style="text-align: right;">1625.00</td>
+<td style="text-align: right;">0.011536%</td>
+<td style="text-align: right;">8668.70</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>Summary!B111:  =IF(ABS(SUM(E100:E109)-(G64+G69+G74+G79+G84))&lt;0.000000000001,"OK","CHECK")
+Summary!B112:  =IF(SUMPRODUCT(ABS(L100:M109))&lt;0.000000001,"OK","DIFFERENT (config changed?)")
+</code></pre></div>
+<p>The first check compares the mean numbers of this block with the FISH4 rows of the fish statistics. It shows <code>OK</code> for all inputs.
+The second check compares the block with the reference values. It is <code>OK</code> for the configuration of the workbook as delivered.</p>
 <h3 id="simulation-reference-from-row-38">Simulation reference, from row 38<a class="headerlink" href="#simulation-reference-from-row-38" title="Permanent link">&para;</a></h3>
 <p>These rows are fixed values from the Monte Carlo simulation (1,000,000,000,000 rounds). They are not formulas. They do not change when you change an input. The cells are orange.</p>
 <p>Column D shows the frequency (1 in N) of each row that is a probability, with the same formula as in the key figures. The cell is empty for the other rows.</p>
