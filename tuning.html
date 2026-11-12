@@ -658,6 +658,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-220-fish-values-that-decrease-with-the-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.2.0: fish values that decrease with the level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -925,6 +936,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-220-fish-values-that-decrease-with-the-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.2.0: fish values that decrease with the level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -964,7 +986,7 @@
 
 
 <h1 id="tuning-history">Tuning History<a class="headerlink" href="#tuning-history" title="Permanent link">&para;</a></h1>
-<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. Version 2.1.0 has the same target.
+<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. Versions 2.1.0 and 2.2.0 have the same target.
 Each iteration used the exact calculator first and the simulator second.</p>
 <h2 id="iterations">Iterations<a class="headerlink" href="#iterations" title="Permanent link">&para;</a></h2>
 <table>
@@ -1051,6 +1073,15 @@ Each iteration used the exact calculator first and the simulator second.</p>
 <td style="text-align: right;">35.8 x</td>
 <td style="text-align: right;">8 x</td>
 <td>Version 2.1.0. The standard deviation is 10.23 x bet.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>The fish values decrease with the level. Level 1 has better FISH3 values and more golden krakens. Levels 2 to 4 have worse weight tables with each level.</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">1 in 171.7</td>
+<td style="text-align: right;">35.8 x</td>
+<td style="text-align: right;">8 x</td>
+<td>Version 2.2.0. The standard deviation is 9.41 x bet.</td>
 </tr>
 </tbody>
 </table>
@@ -1337,17 +1368,245 @@ The paytable was selected because the RTP of each component stays almost the sam
 </tr>
 </tbody>
 </table>
+<h2 id="version-220-fish-values-that-decrease-with-the-level">Version 2.2.0: fish values that decrease with the level<a class="headerlink" href="#version-220-fish-values-that-decrease-with-the-level" title="Permanent link">&para;</a></h2>
+<p>In version 2.1.0, the weight tables of the free spins became better with each level. Version 2.2.0 turns this around.
+Level 1 has the best fish values. On levels 2 to 4, the high values are harder to get with each level. The multipliers of the levels did not change.</p>
+<p><strong>Levels 2 to 4.</strong> The weight tables of FISH1, FISH2 and FISH3 became worse with each level. The step is the same as the step that made them better in version 2.1.0.
+Each value keeps a weight of 1 or more, so each value stays possible on each level.
+The golden kraken has weights of 16 : 1, 32 : 1, 64 : 1 on levels 2, 3 and 4 (before: 8 : 1 on each level).</p>
+<p><strong>RTP that these changes free.</strong> The exact calculator gave these results for changes of levels 2 to 4 only:</p>
+<table>
+<thead>
+<tr>
+<th>Weight tables of levels 2 to 4</th>
+<th style="text-align: right;">Free spins RTP</th>
+<th style="text-align: right;">Total RTP</th>
+<th style="text-align: right;">Free RTP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version 2.1.0: better with each level</td>
+<td style="text-align: right;">20.84%</td>
+<td style="text-align: right;">96.20%</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>The level 1 tables on all levels</td>
+<td style="text-align: right;">20.25%</td>
+<td style="text-align: right;">95.61%</td>
+<td style="text-align: right;">0.59%</td>
+</tr>
+<tr>
+<td>FISH1 to FISH3 worse with each level</td>
+<td style="text-align: right;">19.69%</td>
+<td style="text-align: right;">95.04%</td>
+<td style="text-align: right;">1.16%</td>
+</tr>
+<tr>
+<td>FISH1 to FISH3 worse with each level, and fewer golden krakens with each level</td>
+<td style="text-align: right;">18.89%</td>
+<td style="text-align: right;">94.25%</td>
+<td style="text-align: right;">1.95%</td>
+</tr>
+<tr>
+<td>The largest possible change: the lowest value of FISH1 to FISH3 and no golden kraken</td>
+<td style="text-align: right;">17.29%</td>
+<td style="text-align: right;">92.65%</td>
+<td style="text-align: right;">3.56%</td>
+</tr>
+</tbody>
+</table>
+<p>The fourth row was selected. With a weight of 1 or more for each value, it frees 1.94% RTP.
+The limit is low because the weight tables control only a part of the RTP of levels 2 to 4. In version 2.1.0, levels 2 to 4 gave 12.65% RTP:
+2.69% from ways pays, 4.68% from the kraken and 5.28% from FISH1 to FISH3.</p>
+<p><strong>Level 1.</strong> The free RTP went to level 1, to FISH3 and to the kraken. FISH1 and FISH2 did not change on level 1.</p>
+<ul>
+<li>The FISH3 weights changed from 60 / 25 / 10 / 5 to 43 / 19 / 25 / 13. The two high values have 38% of the weight (before: 15%).</li>
+<li>The golden kraken weights changed from 8 : 1 to 2 : 1. The golden kraken has 33% of the weight (before: 11%).</li>
+</ul>
+<p>Two other options for level 1 were calculated. They were not selected.</p>
+<ul>
+<li>All free RTP in the two high values of FISH1, FISH2 and FISH3: their weights must increase by a factor of 46. Then the two high values have 89% to 96% of the weight, and the two low values almost do not show.</li>
+<li>The two high values of FISH1, FISH2 and FISH3 with a factor of 4.7, and golden kraken weights of 3 : 1.</li>
+</ul>
+<p>Mean value of each FISH symbol (credits):</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Version</th>
+<th style="text-align: right;">Level 1</th>
+<th style="text-align: right;">Level 2</th>
+<th style="text-align: right;">Level 3</th>
+<th style="text-align: right;">Level 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FISH1</td>
+<td>2.1.0</td>
+<td style="text-align: right;">2.10</td>
+<td style="text-align: right;">2.30</td>
+<td style="text-align: right;">2.46</td>
+<td style="text-align: right;">2.60</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>2.2.0</strong></td>
+<td style="text-align: right;"><strong>2.10</strong></td>
+<td style="text-align: right;"><strong>1.90</strong></td>
+<td style="text-align: right;"><strong>1.74</strong></td>
+<td style="text-align: right;"><strong>1.62</strong></td>
+</tr>
+<tr>
+<td>FISH2</td>
+<td>2.1.0</td>
+<td style="text-align: right;">15.8</td>
+<td style="text-align: right;">16.4</td>
+<td style="text-align: right;">17.0</td>
+<td style="text-align: right;">17.6</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>2.2.0</strong></td>
+<td style="text-align: right;"><strong>15.8</strong></td>
+<td style="text-align: right;"><strong>15.1</strong></td>
+<td style="text-align: right;"><strong>14.5</strong></td>
+<td style="text-align: right;"><strong>13.8</strong></td>
+</tr>
+<tr>
+<td>FISH3</td>
+<td>2.1.0</td>
+<td style="text-align: right;">80.0</td>
+<td style="text-align: right;">90.0</td>
+<td style="text-align: right;">95.0</td>
+<td style="text-align: right;">101.0</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>2.2.0</strong></td>
+<td style="text-align: right;"><strong>104.0</strong></td>
+<td style="text-align: right;"><strong>70.0</strong></td>
+<td style="text-align: right;"><strong>65.5</strong></td>
+<td style="text-align: right;"><strong>63.0</strong></td>
+</tr>
+<tr>
+<td>FISH4</td>
+<td>2.1.0</td>
+<td style="text-align: right;">666.7</td>
+<td style="text-align: right;">666.7</td>
+<td style="text-align: right;">666.7</td>
+<td style="text-align: right;">666.7</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>2.2.0</strong></td>
+<td style="text-align: right;"><strong>1000.0</strong></td>
+<td style="text-align: right;"><strong>588.2</strong></td>
+<td style="text-align: right;"><strong>545.5</strong></td>
+<td style="text-align: right;"><strong>523.1</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The multiplier of a level is larger than the decrease of the values. A FISH3 symbol on level 4 has a mean value of 63.0 credits and a multiplier of 10.
+A FISH3 symbol on level 1 has a mean value of 104.0 credits and a multiplier of 1.</p>
+<p><strong>Fine adjustment.</strong> The base weights of FISH1 changed from 4012 / 2988 / 2000 / 1000 to 3969 / 3031 / 2000 / 1000. Thus the RTP is 96.200019%.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Version 2.1.0</th>
+<th style="text-align: right;">Version 2.2.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base game: ways pays</td>
+<td style="text-align: right;">36.19%</td>
+<td style="text-align: right;">36.19%</td>
+</tr>
+<tr>
+<td>Base game: collect</td>
+<td style="text-align: right;">39.17%</td>
+<td style="text-align: right;">39.17%</td>
+</tr>
+<tr>
+<td>Free spins</td>
+<td style="text-align: right;">20.84%</td>
+<td style="text-align: right;">20.84%</td>
+</tr>
+<tr>
+<td>Total RTP</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">96.2000%</td>
+</tr>
+<tr>
+<td>Free spins RTP of level 1 (simulation)</td>
+<td style="text-align: right;">8.19%</td>
+<td style="text-align: right;">10.12%</td>
+</tr>
+<tr>
+<td>Free spins RTP of level 2 (simulation)</td>
+<td style="text-align: right;">4.42%</td>
+<td style="text-align: right;">3.97%</td>
+</tr>
+<tr>
+<td>Free spins RTP of level 3 (simulation)</td>
+<td style="text-align: right;">4.39%</td>
+<td style="text-align: right;">3.69%</td>
+</tr>
+<tr>
+<td>Free spins RTP of level 4 (simulation)</td>
+<td style="text-align: right;">3.84%</td>
+<td style="text-align: right;">3.06%</td>
+</tr>
+<tr>
+<td>Mean free spins win</td>
+<td style="text-align: right;">35.8 x bet</td>
+<td style="text-align: right;">35.8 x bet</td>
+</tr>
+<tr>
+<td>Median free spins win</td>
+<td style="text-align: right;">8 x bet</td>
+<td style="text-align: right;">8 x bet</td>
+</tr>
+<tr>
+<td>90th percentile of the free spins win</td>
+<td style="text-align: right;">81 x bet</td>
+<td style="text-align: right;">88 x bet</td>
+</tr>
+<tr>
+<td>99th percentile of the free spins win</td>
+<td style="text-align: right;">427 x bet</td>
+<td style="text-align: right;">410 x bet</td>
+</tr>
+<tr>
+<td>Free spins that pay 500 x bet or more</td>
+<td style="text-align: right;">0.73%</td>
+<td style="text-align: right;">0.63%</td>
+</tr>
+<tr>
+<td>Standard deviation for each round</td>
+<td style="text-align: right;">10.23 x bet</td>
+<td style="text-align: right;">9.41 x bet</td>
+</tr>
+</tbody>
+</table>
+<p>The typical free spins win stays the same. The very large wins are less frequent, because they came from the high values on the levels with the large multipliers. Thus the standard deviation decreased.</p>
 <h2 id="design-decisions">Design decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h2>
 <p><strong>One KEY symbol on each of base reels 1, 2 and 3.</strong> A KEY symbol lands 1 in 8.7 base spins. Two or three KEY symbols can land in one spin. Then each KEY symbol collects each FISH value.</p>
 <p><strong>The kraken stays on the base reel strips.</strong> The KEY anticipation on reels 4 and 5 has a purpose only if the large fish are there.
 The kraken gives 32% RTP in the base game. A KEY symbol and the kraken land together 1 in 217 base spins.</p>
-<p><strong>Golden kraken weights 8 : 1.</strong> With weights 2 : 1, the kraken gave 48% RTP in the base game, and the total was too high. The golden kraken is now less frequent. The usual kraken pays 500 credits. The golden kraken pays 2000 credits.</p>
+<p><strong>Golden kraken weights 8 : 1 in the base game.</strong> With weights 2 : 1, the kraken gave 48% RTP in the base game, and the total was too high. The golden kraken is now less frequent in the base game. The usual kraken pays 500 credits. The golden kraken pays 2000 credits.</p>
 <p><strong>The balance of version 2.0.0 came from the small base fish.</strong> In that version, the paytable and the free spins kept their value. The free spins were less frequent than before, so their value for each trigger did not decrease.</p>
 <p><strong>The balance of version 2.1.0 came from the 5 OAK pays.</strong> The reel strips with patterns give fewer long ways. Larger 5 OAK pays put this RTP back into the ways pays, so that the RTP of each component stays almost the same.</p>
 <p><strong>2 / 2 / 1 KEY symbols on bonus reels 1 / 2 / 3.</strong> This gives 0.20 KEY symbols for each free spin, the same as in version 1.1.0. The levels keep their frequency.</p>
 <p><strong>Eight spins for levels 2 to 4.</strong> With 10 spins, level 4 was too frequent.</p>
 <p><strong>Bonus reels with more PIC symbols.</strong> The bonus reel strips have no WILD symbol. More PIC symbols give more ways pays in the free spins.</p>
-<p><strong>Better weight tables at higher levels.</strong> The mean FISH3 value increases from 80.0 credits on level 1 to 101.0 credits on level 4.</p>
+<p><strong>The best fish values are on level 1.</strong> Each free spins feature plays level 1. Thus each feature has a chance of the high FISH3 values and of the golden kraken.
+On the higher levels, the multiplier gives the large wins, and the high values are harder to get. The mean FISH3 value decreases from 104.0 credits on level 1 to 63.0 credits on level 4.
+The golden kraken has weights of 2 : 1 on level 1 and 64 : 1 on level 4.</p>
 <h2 id="possible-subsequent-changes">Possible subsequent changes<a class="headerlink" href="#possible-subsequent-changes" title="Permanent link">&para;</a></h2>
 <ul>
 <li>A variant with the kraken only in the free spins: remove FISH4 from the base reel strips and put that RTP into the free spins (mean free spins win approximately 80 x bet).</li>
