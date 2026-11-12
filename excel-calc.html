@@ -1868,7 +1868,7 @@ The page <a href="excel.html">Excel workbook</a> gives the short instructions. T
 <p>All results are formulas. The workbook has no macros and no values that a person must copy.</p>
 <h3 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Colours.</strong> Yellow cells are inputs. Grey cells are fixed by the layout. Green cells are results or checks.</li>
+<li><strong>Colours.</strong> Yellow cells are inputs. Grey cells are fixed by the layout. Green cells are results or checks. Orange cells are fixed values from an external calculation (the script <code>gamemath/exact_calc.py</code> or the simulation). They are not formulas.</li>
 <li><strong>Units.</strong> All values are credits. The RTP is the expected win divided by the bet.</li>
 <li><strong>Stops.</strong> Stop <code>s</code> shows strip positions <code>s</code>, <code>s+1</code>, <code>s+2</code> and <code>s+3</code>. Each stop has the probability 1/100.</li>
 <li><strong>Division by 100.</strong> A formula that divides by <code>Config!$B$6</code> calculates a mean or a probability for the 100 stops of one reel.</li>
@@ -2862,12 +2862,12 @@ Bonus!B44:  =IF(MAX(Config!$B$63:$B$66)&lt;=25,"OK","LIMIT EXCEEDED")
 </table>
 <ul>
 <li>Column D is the share of each component: <code>=C6/$C$9</code>.</li>
-<li>Column E is a fixed reference value from the script <code>gamemath/exact_calc.py</code>, written when the workbook was made.</li>
+<li>Column E is a fixed reference value from the script <code>gamemath/exact_calc.py</code>, written when the workbook was made. The cells are orange.</li>
 <li>Column F is the difference: <code>=C9-E9</code>. It is 0 for the configuration of the workbook as delivered. It is not 0 after you change an input. This is correct.</li>
-<li>Column G is a fixed reference value from the simulation.</li>
+<li>Column G is a fixed reference value from the simulation. The cells are orange.</li>
 </ul>
 <h3 id="key-figures-rows-13-to-27">Key figures, rows 13 to 27<a class="headerlink" href="#key-figures-rows-13-to-27" title="Permanent link">&para;</a></h3>
-<p>Column B is a formula. Column C is the fixed reference value.</p>
+<p>Column B is a formula. Column C is the fixed reference value from the script <code>gamemath/exact_calc.py</code>. The cells in column C are orange.</p>
 <table>
 <thead>
 <tr>
@@ -2995,11 +2995,11 @@ Bonus!B44:  =IF(MAX(Config!$B$63:$B$66)&lt;=25,"OK","LIMIT EXCEEDED")
 </tbody>
 </table>
 <h3 id="simulation-reference-from-row-38">Simulation reference, from row 38<a class="headerlink" href="#simulation-reference-from-row-38" title="Permanent link">&para;</a></h3>
-<p>These rows are fixed values from the Monte Carlo simulation (1,000,000,000,000 rounds). They are not formulas. They do not change when you change an input.</p>
+<p>These rows are fixed values from the Monte Carlo simulation (1,000,000,000,000 rounds). They are not formulas. They do not change when you change an input. The cells are orange.</p>
 <h2 id="10-sheet-distribution">10. Sheet Distribution<a class="headerlink" href="#10-sheet-distribution" title="Permanent link">&para;</a></h2>
 <p>This sheet holds two win distribution tables. One table is for full game rounds (rows 6 to 20). The other table is for the free spins features (rows 26 to 40).
 One row is one win band, as a multiple of the bet. The bands are the same as on the page <a href="rtp.html">RTP and volatility</a>.</p>
-<p>The values in columns D and E come from the simulation (1,000,000,000,000 rounds). They are fixed values for the delivered configuration. They do not change when you change an input.
+<p>The values in columns D and E come from the simulation (1,000,000,000,000 rounds). They are fixed values for the delivered configuration. They do not change when you change an input. The cells are orange.
 The other columns are formulas.</p>
 <table>
 <thead>

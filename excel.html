@@ -986,7 +986,7 @@
 
 
 <h1 id="excel-workbook">Excel Workbook<a class="headerlink" href="#excel-workbook" title="Permanent link">&para;</a></h1>
-<p><a class="md-button md-button--primary" download="TacklinTheKraken_TheoCalc.xlsx" href="files/TacklinTheKraken_TheoCalc.xlsx">Download the workbook (.xlsx, 233 KB)</a></p>
+<p><a class="md-button md-button--primary" download="TacklinTheKraken_TheoCalc.xlsx" href="files/TacklinTheKraken_TheoCalc.xlsx">Download the workbook (.xlsx, 234 KB)</a></p>
 <table>
 <thead>
 <tr>
@@ -1068,7 +1068,7 @@ A file preview that does not calculate (for example in an e-mail program) shows 
 <tbody>
 <tr>
 <td>Summary</td>
-<td>RTP for each component, key figures, checks, reference values</td>
+<td>RTP for each component, key figures, checks, reference values (orange cells)</td>
 </tr>
 <tr>
 <td>Config</td>
@@ -1100,7 +1100,7 @@ A file preview that does not calculate (for example in an e-mail program) shows 
 </tr>
 <tr>
 <td>Distribution</td>
-<td>Win distribution tables from the simulation: RTP and probability of each win band, with cumulative values</td>
+<td>Win distribution tables from the simulation: RTP and probability of each win band (orange cells), with cumulative values</td>
 </tr>
 <tr>
 <td>Win_Base, Win_Bonus</td>
@@ -1133,8 +1133,13 @@ A file preview that does not calculate (for example in an e-mail program) shows 
 <td>Green</td>
 <td>Result or check</td>
 </tr>
+<tr>
+<td>Orange</td>
+<td>Fixed value from an external calculation: the script <code>gamemath/exact_calc.py</code> or the simulation. It is not a formula. It does not change when you change an input.</td>
+</tr>
 </tbody>
 </table>
+<p>The orange cells are on the sheets <code>Summary</code> and <code>Distribution</code>. Use them to compare the results of the workbook with the results of the other calculations.</p>
 <h2 id="how-to-use-the-workbook">How to use the workbook<a class="headerlink" href="#how-to-use-the-workbook" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Open the workbook. Excel calculates all formulas.</li>
