@@ -990,7 +990,7 @@
 <li>The C++ simulator and the JavaScript engine give the same result for 100,000 random spins.</li>
 <li>The simulation agrees with the exact values: the total RTP, each RTP component, the trigger frequency and the level probabilities.</li>
 </ol>
-<p>Microsoft Excel also calculated the workbook of version 2.5.0. The result was the same as the exact calculator (total RTP 96.2000251732%).</p>
+<p>Microsoft Excel also calculated the workbook of version 2.6.0. The result was the same as the exact calculator (total RTP 96.2000139050%).</p>
 <h2 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h2>
 <p>18 of 18 checks passed.</p>
 <table>
@@ -1025,7 +1025,7 @@
 <tr>
 <td>Workbook equals exact_calc.py (variant A: new pays, values, weights, levels, multiplier rule 'fish')</td>
 <td>PASS</td>
-<td>largest relative difference 3.74e-15</td>
+<td>largest relative difference 2.01e-15</td>
 </tr>
 <tr>
 <td>excel_to_config.py reads variant A correctly</td>
@@ -1035,7 +1035,7 @@
 <tr>
 <td>Workbook equals exact_calc.py (variant B: new reel strips, KEY on all 5 reels, more FS, bet 25)</td>
 <td>PASS</td>
-<td>largest relative difference 2.72e-15</td>
+<td>largest relative difference 5.02e-15</td>
 </tr>
 <tr>
 <td>excel_to_config.py reads variant B correctly</td>
@@ -1045,7 +1045,7 @@
 <tr>
 <td>Workbook equals exact_calc.py (variant C: reel strips with random hand edits)</td>
 <td>PASS</td>
-<td>largest relative difference 4.22e-15</td>
+<td>largest relative difference 3.30e-15</td>
 </tr>
 <tr>
 <td>excel_to_config.py reads variant C correctly</td>
@@ -1065,27 +1065,27 @@
 <tr>
 <td>Simulated RTP is within 3 standard errors of the exact RTP</td>
 <td>PASS</td>
-<td>sim 0.961992, exact 0.962000, SE 0.000009, z = -0.91, rounds 1.00e+12</td>
+<td>sim 0.962009, exact 0.962000, SE 0.000009, z = +0.95, rounds 1.00e+12</td>
 </tr>
 <tr>
 <td>Simulated RTP component baseWays is near the exact value</td>
 <td>PASS</td>
-<td>difference +0.000001</td>
+<td>difference +0.000003</td>
 </tr>
 <tr>
 <td>Simulated RTP component baseFish is near the exact value</td>
 <td>PASS</td>
-<td>difference -0.000009</td>
+<td>difference +0.000003</td>
 </tr>
 <tr>
 <td>Simulated RTP component bonus is near the exact value</td>
 <td>PASS</td>
-<td>difference -0.000000</td>
+<td>difference +0.000003</td>
 </tr>
 <tr>
 <td>Simulated trigger frequency is near the exact value</td>
 <td>PASS</td>
-<td>relative difference -0.00000</td>
+<td>relative difference +0.00001</td>
 </tr>
 <tr>
 <td>Simulated level probabilities are near the exact values</td>
@@ -1217,6 +1217,14 @@
 <td>The forced rounds paid 501 and 166 credits. The balance was equal to the start balance minus the bets plus the wins. The browser showed no error.</td>
 </tr>
 <tr>
+<td>Version 2.6.0: all forced results of the demo suite with the new base reel strips (59 scenarios, 10 searches for each scenario, engine test in Node.js)</td>
+<td>Each search found reel stops. The engine gave the wanted result for each of them.</td>
+</tr>
+<tr>
+<td>Version 2.6.0: forced big ways win, KEY with FISH4 and small ways win, then 9 usual rounds, in the game of the built document</td>
+<td>The forced rounds paid 260, 509 and 9 credits. The balance was equal to the start balance minus the bets plus the wins. The browser showed no error.</td>
+</tr>
+<tr>
 <td>Theme sets D and E with their own game texts</td>
 <td>The symbols and the texts showed correctly. A forced collect of the golden top symbol paid 2005 credits.</td>
 </tr>
@@ -1238,7 +1246,7 @@
 </tr>
 <tr>
 <td>The game in the built document (page Play the game), from a web server</td>
-<td>The game started. The math version was 2.5.0. The balance was equal to the start balance minus the bets plus the wins. The browser showed no error.</td>
+<td>The game started. The math version was 2.6.0. The balance was equal to the start balance minus the bets plus the wins. The browser showed no error.</td>
 </tr>
 </tbody>
 </table>

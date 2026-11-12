@@ -702,6 +702,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-260-fewer-aus-wins-more-pic-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.6.0: fewer AUS wins, more PIC wins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1013,6 +1024,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-260-fewer-aus-wins-more-pic-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.6.0: fewer AUS wins, more PIC wins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1052,7 +1074,7 @@
 
 
 <h1 id="tuning-history">Tuning History<a class="headerlink" href="#tuning-history" title="Permanent link">&para;</a></h1>
-<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. The subsequent versions, to version 2.5.0, have the same target.
+<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. The subsequent versions, to version 2.6.0, have the same target.
 Each iteration used the exact calculator first and the simulator second.</p>
 <h2 id="iterations">Iterations<a class="headerlink" href="#iterations" title="Permanent link">&para;</a></h2>
 <table>
@@ -1175,6 +1197,15 @@ Each iteration used the exact calculator first and the simulator second.</p>
 <td style="text-align: right;">35.8 x</td>
 <td style="text-align: right;">8 x</td>
 <td>Version 2.5.0. The standard deviation is 9.37 x bet.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Base game: 6 AUS symbols of each reel became PIC2 to PIC5 symbols. The 5 OAK pay of the AUS symbols is 3 credits. PIC1 pays more.</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">1 in 171.7</td>
+<td style="text-align: right;">35.8 x</td>
+<td style="text-align: right;">8 x</td>
+<td>Version 2.6.0. The standard deviation is 9.46 x bet.</td>
 </tr>
 </tbody>
 </table>
@@ -2310,6 +2341,282 @@ The difference is the reel that stops a PIC1 way. In version 2.4.0, most PIC1 wa
 </tbody>
 </table>
 <p>The base game is the same as in version 2.4.0. The wins of the free spins are almost the same. The difference is what the player sees: PIC1 on the first two reels more frequently.</p>
+<h2 id="version-260-fewer-aus-wins-more-pic-wins">Version 2.6.0: fewer AUS wins, more PIC wins<a class="headerlink" href="#version-260-fewer-aus-wins-more-pic-wins" title="Permanent link">&para;</a></h2>
+<p>In version 2.5.0, the AUS symbols gave 21.85% RTP in the base game. This was more than the half of the ways pays.
+The target of version 2.6.0 was 12% or less for the AUS symbols, 1% more for PIC1, and the rest for PIC2 to PIC5. The RTP of the ways pays stays the same.</p>
+<table>
+<thead>
+<tr>
+<th>Ways pays in the base game</th>
+<th style="text-align: right;">RTP, version 2.5.0</th>
+<th style="text-align: right;">RTP, version 2.6.0</th>
+<th style="text-align: right;">Ways in 1000 spins, version 2.5.0</th>
+<th style="text-align: right;">Ways in 1000 spins, version 2.6.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUS1 to AUS5</td>
+<td style="text-align: right;">21.85%</td>
+<td style="text-align: right;"><strong>11.71%</strong></td>
+<td style="text-align: right;">964</td>
+<td style="text-align: right;">703</td>
+</tr>
+<tr>
+<td>PIC1</td>
+<td style="text-align: right;">2.80%</td>
+<td style="text-align: right;"><strong>3.79%</strong></td>
+<td style="text-align: right;">16.9</td>
+<td style="text-align: right;">16.4</td>
+</tr>
+<tr>
+<td>PIC2 to PIC5</td>
+<td style="text-align: right;">11.54%</td>
+<td style="text-align: right;"><strong>20.69%</strong></td>
+<td style="text-align: right;">189</td>
+<td style="text-align: right;">313</td>
+</tr>
+<tr>
+<td>Total</td>
+<td style="text-align: right;">36.19%</td>
+<td style="text-align: right;">36.19%</td>
+<td style="text-align: right;">1170</td>
+<td style="text-align: right;">1032</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Options.</strong> The 3 OAK pay of an AUS symbol is 1 credit. This is the lowest pay that is possible. Thus the paytable alone cannot decrease the AUS wins much. Three options were calculated:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Base reel strips</th>
+<th>AUS pays (3 / 4 / 5 OAK)</th>
+<th>Pays of PIC2 to PIC5</th>
+<th style="text-align: right;">AUS RTP</th>
+<th style="text-align: right;">PIC ways in 1000 spins</th>
+<th style="text-align: right;">Change of the free spins RTP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>No change</td>
+<td>1 / 1 / 2</td>
+<td>79% larger</td>
+<td style="text-align: right;">11.77%</td>
+<td style="text-align: right;">206</td>
+<td style="text-align: right;">+2.10%</td>
+</tr>
+<tr>
+<td>B</td>
+<td>6 AUS symbols of each reel become PIC2 to PIC5 symbols</td>
+<td>1 / 2 / 3</td>
+<td>Almost no change</td>
+<td style="text-align: right;">11.65%</td>
+<td style="text-align: right;">331</td>
+<td style="text-align: right;">-0.07%</td>
+</tr>
+<tr>
+<td>C</td>
+<td>7 AUS symbols of each reel become PIC2 to PIC5 symbols</td>
+<td>1 / 2 / 4 and 1 / 2 / 3</td>
+<td>10% smaller</td>
+<td style="text-align: right;">11.41%</td>
+<td style="text-align: right;">359</td>
+<td style="text-align: right;">-0.20%</td>
+</tr>
+</tbody>
+</table>
+<p>Option B was selected. With option A, 4 OAK of an AUS symbol pays the same as 3 OAK, and the larger PIC pays also increase the free spins.</p>
+<p><strong>Reel strips.</strong> On each base reel strip, 6 AUS symbols became PIC2 to PIC5 symbols. Each symbol gave or got positions in proportion to its number of symbols on the reel, and each symbol keeps its pattern.
+PIC1 and the special symbols did not change. The bonus reel strips did not change.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Base reel strips, version 2.5.0</th>
+<th>Base reel strips, version 2.6.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIC2</td>
+<td>4 / 5 / 5 / 7 / 9</td>
+<td><strong>5 / 6 / 6 / 9 / 11</strong></td>
+</tr>
+<tr>
+<td>PIC3</td>
+<td>5 / 8 / 9 / 8 / 5</td>
+<td><strong>6 / 10 / 11 / 10 / 6</strong></td>
+</tr>
+<tr>
+<td>PIC4</td>
+<td>9 / 7 / 4 / 6 / 10</td>
+<td><strong>11 / 9 / 5 / 7 / 12</strong></td>
+</tr>
+<tr>
+<td>PIC5</td>
+<td>11 / 5 / 10 / 5 / 8</td>
+<td><strong>13 / 6 / 12 / 6 / 9</strong></td>
+</tr>
+<tr>
+<td>AUS1</td>
+<td>7 / 11 / 11 / 14 / 16</td>
+<td><strong>6 / 10 / 10 / 12 / 14</strong></td>
+</tr>
+<tr>
+<td>AUS2</td>
+<td>16 / 14 / 11 / 10 / 7</td>
+<td><strong>14 / 12 / 10 / 9 / 6</strong></td>
+</tr>
+<tr>
+<td>AUS3</td>
+<td>7 / 17 / 6 / 15 / 10</td>
+<td><strong>7 / 15 / 6 / 13 / 9</strong></td>
+</tr>
+<tr>
+<td>AUS4</td>
+<td>17 / 7 / 15 / 7 / 11</td>
+<td><strong>15 / 7 / 13 / 7 / 10</strong></td>
+</tr>
+<tr>
+<td>AUS5</td>
+<td>8 / 13 / 15 / 12 / 9</td>
+<td><strong>7 / 12 / 13 / 11 / 8</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The table shows the number of symbols on reels 1 / 2 / 3 / 4 / 5.</p>
+<p><strong>Arrangement of the reel strips.</strong> A search examined 6,000 seeds for base reel strips that keep the number of spins with a ways win, and that need few changes of the pays. Seed 803 was selected.</p>
+<table>
+<thead>
+<tr>
+<th>Spins with a ways win (exact)</th>
+<th style="text-align: right;">Version 2.5.0</th>
+<th style="text-align: right;">Version 2.6.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base reel strips</td>
+<td style="text-align: right;">25.74%</td>
+<td style="text-align: right;">25.85%</td>
+</tr>
+<tr>
+<td>Bonus reel strips</td>
+<td style="text-align: right;">15.23%</td>
+<td style="text-align: right;">15.23%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pays.</strong> These pays changed (credits for 3 / 4 / 5 OAK). The other pays did not change.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Version 2.5.0</th>
+<th>Version 2.6.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIC1</td>
+<td>5 / 20 / 80</td>
+<td><strong>6 / 20 / 130</strong></td>
+</tr>
+<tr>
+<td>PIC3</td>
+<td>3 / 8 / 25</td>
+<td><strong>3 / 8 / 20</strong></td>
+</tr>
+<tr>
+<td>AUS1</td>
+<td>1 / 2 / 6</td>
+<td><strong>1 / 2 / 3</strong></td>
+</tr>
+<tr>
+<td>AUS2</td>
+<td>1 / 2 / 6</td>
+<td><strong>1 / 2 / 3</strong></td>
+</tr>
+<tr>
+<td>AUS3</td>
+<td>1 / 2 / 5</td>
+<td><strong>1 / 2 / 3</strong></td>
+</tr>
+<tr>
+<td>AUS4</td>
+<td>1 / 2 / 5</td>
+<td><strong>1 / 2 / 3</strong></td>
+</tr>
+<tr>
+<td>AUS5</td>
+<td>1 / 2 / 5</td>
+<td><strong>1 / 2 / 3</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Free spins.</strong> The bonus reel strips are the same, but the paytable is also the paytable of the free spins. With the new pays, the free spins were 0.03% RTP below version 2.5.0.
+The FISH3 weights of level 1 changed from 23 / 12 / 45 / 20 to 21 / 12 / 47 / 20. The two high values have 67% of the weight (before: 65%).</p>
+<p><strong>Fine adjustment.</strong> The base weights of FISH1 changed from 4041 / 2959 / 2000 / 1000 to 4050 / 2950 / 2000 / 1000. Thus the RTP is 96.200014%.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Version 2.5.0</th>
+<th style="text-align: right;">Version 2.6.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base game: ways pays</td>
+<td style="text-align: right;">36.19%</td>
+<td style="text-align: right;">36.19%</td>
+</tr>
+<tr>
+<td>Base game: collect</td>
+<td style="text-align: right;">39.16%</td>
+<td style="text-align: right;">39.16%</td>
+</tr>
+<tr>
+<td>Free spins</td>
+<td style="text-align: right;">20.84%</td>
+<td style="text-align: right;">20.84%</td>
+</tr>
+<tr>
+<td>Total RTP</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">96.2000%</td>
+</tr>
+<tr>
+<td>Base spins with a win</td>
+<td style="text-align: right;">31.3%</td>
+<td style="text-align: right;">31.4%</td>
+</tr>
+<tr>
+<td>Base spins with a ways win</td>
+<td style="text-align: right;">25.7%</td>
+<td style="text-align: right;">25.9%</td>
+</tr>
+<tr>
+<td>Mean free spins win</td>
+<td style="text-align: right;">35.8 x bet</td>
+<td style="text-align: right;">35.8 x bet</td>
+</tr>
+<tr>
+<td>Median free spins win</td>
+<td style="text-align: right;">8 x bet</td>
+<td style="text-align: right;">8 x bet</td>
+</tr>
+<tr>
+<td>Standard deviation for each round</td>
+<td style="text-align: right;">9.37 x bet</td>
+<td style="text-align: right;">9.46 x bet</td>
+</tr>
+</tbody>
+</table>
+<p>The number of spins with a win stays almost the same. A win is less frequently an AUS win and more frequently a PIC win.</p>
 <h2 id="design-decisions">Design decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h2>
 <p><strong>One KEY symbol on each of base reels 1, 2 and 3.</strong> A KEY symbol lands 1 in 8.7 base spins. Two or three KEY symbols can land in one spin. Then each KEY symbol collects each FISH value.</p>
 <p><strong>The kraken stays on the base reel strips.</strong> The KEY anticipation on reels 4 and 5 has a purpose only if the large fish are there.
@@ -2318,11 +2625,12 @@ The kraken gives 32% RTP in the base game. A KEY symbol and the kraken land toge
 <p><strong>The balance of version 2.0.0 came from the small base fish.</strong> In that version, the paytable and the free spins kept their value. The free spins were less frequent than before, so their value for each trigger did not decrease.</p>
 <p><strong>The balance of version 2.1.0 came from the 5 OAK pays.</strong> The reel strips with patterns give fewer long ways. Larger 5 OAK pays put this RTP back into the ways pays, so that the RTP of each component stays almost the same.</p>
 <p><strong>2 / 2 / 1 KEY symbols on bonus reels 1 / 2 / 3.</strong> This gives 0.20 KEY symbols for each free spin, the same as in version 1.1.0. The levels keep their frequency.</p>
-<p><strong>PIC1 is rare and pays the most.</strong> PIC1 has 7 / 2 / 4 / 6 / 5 symbols on base reels 1 to 5. A PIC1 win needs reel 2, where PIC1 has few symbols. The pays of PIC1 are 5 / 20 / 80 credits for 3 / 4 / 5 OAK.</p>
+<p><strong>The AUS symbols give 12% RTP in the base game.</strong> Before version 2.6.0, they gave 22%. The low pay symbols make frequent small wins. The PIC symbols now give the larger part of the ways pays.</p>
+<p><strong>PIC1 is rare and pays the most.</strong> PIC1 has 7 / 2 / 4 / 6 / 5 symbols on base reels 1 to 5. A PIC1 win needs reel 2, where PIC1 has few symbols. The pays of PIC1 are 6 / 20 / 130 credits for 3 / 4 / 5 OAK.</p>
 <p><strong>Eight spins for levels 2 to 4.</strong> With 10 spins, level 4 was too frequent.</p>
 <p><strong>Bonus reels with more PIC symbols.</strong> The bonus reel strips have no WILD symbol. More PIC symbols give more ways pays in the free spins.</p>
 <p><strong>The best fish values are on level 1.</strong> Each free spins feature plays level 1. Thus each feature has a chance of the high FISH3 values and of the golden kraken.
-On the higher levels, the multiplier gives the large wins, and the high values are harder to get. The mean FISH3 value decreases from 131.0 credits on level 1 to 63.0 credits on level 4.
+On the higher levels, the multiplier gives the large wins, and the high values are harder to get. The mean FISH3 value decreases from 133.0 credits on level 1 to 63.0 credits on level 4.
 The golden kraken has weights of 2 : 1 on level 1 and 64 : 1 on level 4.</p>
 <h2 id="possible-subsequent-changes">Possible subsequent changes<a class="headerlink" href="#possible-subsequent-changes" title="Permanent link">&para;</a></h2>
 <ul>
