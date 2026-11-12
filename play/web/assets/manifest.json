@@ -19,23 +19,23 @@
       "labels": {
         "key": "TRIDENT",
         "item": "catch",
-        "top": "LEVIATHAN",
+        "top": "TIDAL WAVE",
         "panel": "CATCH VALUES"
       },
       "subjects": {
         "PIC1": "Poseidon",
-        "PIC2": "Nereid (sea queen)",
+        "PIC2": "Amphitrite (sea queen)",
         "PIC3": "Temple of Poseidon",
         "PIC4": "Trireme",
-        "PIC5": "Conch horn",
-        "AUS1 to AUS5": "Sea-glass tablets with the Greek letters alpha, beta, gamma, delta and omega",
+        "PIC5": "Amphora",
+        "AUS1 to AUS5": "Grey stone tablets with the Greek letters alpha, beta, gamma, delta and omega, all in the same colours",
         "WILD": "The word WILD in a gold laurel wreath",
         "KEY": "Golden trident (the collector)",
         "FS": "Temple front with the words FREE SPINS",
         "FISH1": "Seahorse",
         "FISH2": "Dolphin",
         "FISH3": "Hippocampus",
-        "FISH4": "Leviathan sea serpent. The value 2000 shows the golden leviathan."
+        "FISH4": "Tidal wave. The value 2000 shows the golden tidal wave."
       }
     },
     "E": {
@@ -78,7 +78,7 @@
         "PIC3": "Rowing boat with a lantern",
         "PIC4": "Bagpipes",
         "PIC5": "Thistle",
-        "AUS1 to AUS5": "A, K, Q, J and 10 on green tartan tiles, all in the same colours",
+        "AUS1 to AUS5": "A, K, Q, J and 10 on round leather shields with brass studs, all in the same colours",
         "WILD": "The word WILD on a tartan banner",
         "KEY": "Golden vintage camera (the collector)",
         "FS": "Lochside signpost with the words FREE SPINS",
