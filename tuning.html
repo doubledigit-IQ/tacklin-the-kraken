@@ -691,6 +691,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-250-pic1-on-the-bonus-reel-strips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.5.0: PIC1 on the bonus reel strips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -991,6 +1002,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-250-pic1-on-the-bonus-reel-strips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.5.0: PIC1 on the bonus reel strips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1030,7 +1052,7 @@
 
 
 <h1 id="tuning-history">Tuning History<a class="headerlink" href="#tuning-history" title="Permanent link">&para;</a></h1>
-<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. The subsequent versions, to version 2.4.0, have the same target.
+<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. The subsequent versions, to version 2.5.0, have the same target.
 Each iteration used the exact calculator first and the simulator second.</p>
 <h2 id="iterations">Iterations<a class="headerlink" href="#iterations" title="Permanent link">&para;</a></h2>
 <table>
@@ -1144,6 +1166,15 @@ Each iteration used the exact calculator first and the simulator second.</p>
 <td style="text-align: right;">35.8 x</td>
 <td style="text-align: right;">8 x</td>
 <td>Version 2.4.0. The standard deviation is 9.35 x bet.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Bonus reel strips only: PIC1 has 12 / 7 / 3 / 10 / 9 symbols (before: 12 / 3 / 7 / 10 / 9). The base reel strips and the pays did not change.</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">1 in 171.7</td>
+<td style="text-align: right;">35.8 x</td>
+<td style="text-align: right;">8 x</td>
+<td>Version 2.5.0. The standard deviation is 9.37 x bet.</td>
 </tr>
 </tbody>
 </table>
@@ -2124,6 +2155,161 @@ Each AUS symbol keeps its pattern. The numbers of the other PIC symbols and of t
 </tbody>
 </table>
 <p>The game plays almost the same as version 2.3.0. The differences are in the PIC1 wins.</p>
+<h2 id="version-250-pic1-on-the-bonus-reel-strips">Version 2.5.0: PIC1 on the bonus reel strips<a class="headerlink" href="#version-250-pic1-on-the-bonus-reel-strips" title="Permanent link">&para;</a></h2>
+<p>Version 2.5.0 changes the bonus reel strips only. On bonus reels 2 and 3, the numbers of PIC1 symbols changed places. The base reel strips are the same as in version 2.4.0.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Bonus reel strips, version 2.4.0</th>
+<th>Bonus reel strips, version 2.5.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIC1</td>
+<td>12 / 3 / 7 / 10 / 9</td>
+<td><strong>12 / 7 / 3 / 10 / 9</strong></td>
+</tr>
+<tr>
+<td>AUS1</td>
+<td>6 / 11 / 13 / 14 / 15</td>
+<td><strong>6 / 10 / 14 / 15 / 15</strong></td>
+</tr>
+<tr>
+<td>AUS2</td>
+<td>14 / 16 / 12 / 9 / 6</td>
+<td><strong>14 / 14 / 13 / 9 / 6</strong></td>
+</tr>
+<tr>
+<td>AUS3</td>
+<td>5 / 13 / 5 / 10 / 7</td>
+<td><strong>5 / 12 / 7 / 9 / 7</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The table shows the number of symbols on reels 1 / 2 / 3 / 4 / 5. The numbers of the other symbols did not change.
+The AUS symbols started again from their numbers of version 2.2.0 and took or gave positions in proportion to their numbers on each reel.</p>
+<p><strong>Generator.</strong> The generator got a second seed, <code>bonusSeed</code>, for the bonus reel strips. Thus the bonus reel strips can change while the base reel strips stay the same.
+A search examined 3,000 seeds for the bonus reel strips that are nearest to version 2.4.0 in the number of spins with a ways win. Seed 374 was selected.</p>
+<table>
+<thead>
+<tr>
+<th>Spins with a ways win (exact)</th>
+<th style="text-align: right;">Version 2.4.0</th>
+<th style="text-align: right;">Version 2.5.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base reel strips</td>
+<td style="text-align: right;">25.74%</td>
+<td style="text-align: right;">25.74%</td>
+</tr>
+<tr>
+<td>Bonus reel strips</td>
+<td style="text-align: right;">15.25%</td>
+<td style="text-align: right;">15.23%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effect on PIC1.</strong> A PIC1 way needs reels 1, 2 and 3, and the bonus reel strips have no WILD symbol. The number of PIC1 ways stays almost the same, because the same two numbers are on reels 2 and 3.
+The difference is the reel that stops a PIC1 way. In version 2.4.0, most PIC1 ways stopped on reel 2. In version 2.5.0, PIC1 shows on reels 1 and 2 more frequently, and reel 3 stops the way.</p>
+<table>
+<thead>
+<tr>
+<th>PIC1 in one free spin</th>
+<th style="text-align: right;">Version 2.4.0</th>
+<th style="text-align: right;">Version 2.5.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIC1 on reels 1 and 2</td>
+<td style="text-align: right;">1 in 30.9</td>
+<td style="text-align: right;">1 in 15.9</td>
+</tr>
+<tr>
+<td>PIC1 on reels 1 and 2, and not on reel 3</td>
+<td style="text-align: right;">1 in 39.1</td>
+<td style="text-align: right;">1 in 17.4</td>
+</tr>
+<tr>
+<td>PIC1 on reels 1, 2 and 3 (a PIC1 win)</td>
+<td style="text-align: right;">1 in 147.0</td>
+<td style="text-align: right;">1 in 176.4</td>
+</tr>
+<tr>
+<td>Expected ways of 3 / 4 / 5 OAK in 1000 free spins</td>
+<td style="text-align: right;">10.64 / 5.10 / 2.32</td>
+<td style="text-align: right;">12.26 / 4.64 / 2.32</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Balance.</strong> With the new bonus reel strips, the free spins give 20.844% RTP (version 2.4.0: 20.843%). Thus the paytable and the weight tables of the free spins did not change.</p>
+<p><strong>Fine adjustment.</strong> The base weights of FISH1 changed from 4031 / 2969 / 2000 / 1000 to 4041 / 2959 / 2000 / 1000. Thus the RTP is 96.200025%.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Version 2.4.0</th>
+<th style="text-align: right;">Version 2.5.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base game: ways pays</td>
+<td style="text-align: right;">36.19%</td>
+<td style="text-align: right;">36.19%</td>
+</tr>
+<tr>
+<td>Base game: collect</td>
+<td style="text-align: right;">39.16%</td>
+<td style="text-align: right;">39.16%</td>
+</tr>
+<tr>
+<td>Free spins</td>
+<td style="text-align: right;">20.84%</td>
+<td style="text-align: right;">20.84%</td>
+</tr>
+<tr>
+<td>Total RTP</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">96.2000%</td>
+</tr>
+<tr>
+<td>Base spins with a win</td>
+<td style="text-align: right;">31.3%</td>
+<td style="text-align: right;">31.3%</td>
+</tr>
+<tr>
+<td>Mean free spins win</td>
+<td style="text-align: right;">35.8 x bet</td>
+<td style="text-align: right;">35.8 x bet</td>
+</tr>
+<tr>
+<td>Median free spins win</td>
+<td style="text-align: right;">8 x bet</td>
+<td style="text-align: right;">8 x bet</td>
+</tr>
+<tr>
+<td>90th percentile of the free spins win</td>
+<td style="text-align: right;">88 x bet</td>
+<td style="text-align: right;">88 x bet</td>
+</tr>
+<tr>
+<td>99th percentile of the free spins win</td>
+<td style="text-align: right;">407 x bet</td>
+<td style="text-align: right;">408 x bet</td>
+</tr>
+<tr>
+<td>Standard deviation for each round</td>
+<td style="text-align: right;">9.35 x bet</td>
+<td style="text-align: right;">9.37 x bet</td>
+</tr>
+</tbody>
+</table>
+<p>The base game is the same as in version 2.4.0. The wins of the free spins are almost the same. The difference is what the player sees: PIC1 on the first two reels more frequently.</p>
 <h2 id="design-decisions">Design decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h2>
 <p><strong>One KEY symbol on each of base reels 1, 2 and 3.</strong> A KEY symbol lands 1 in 8.7 base spins. Two or three KEY symbols can land in one spin. Then each KEY symbol collects each FISH value.</p>
 <p><strong>The kraken stays on the base reel strips.</strong> The KEY anticipation on reels 4 and 5 has a purpose only if the large fish are there.
