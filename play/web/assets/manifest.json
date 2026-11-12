@@ -1,5 +1,6 @@
 {
-  "defaultSet": "B",
+  "defaultSet": "C",
+  "docSet": "B",
   "defaultRev": 1,
   "sets": {
     "A": {
@@ -13,6 +14,7 @@
     "C": {
       "label": "Nian, Nian, Begone!",
       "dir": "setC",
+      "title": "Nian, Nian, Begone!",
       "labels": {
         "key": "FIRECRACKER",
         "fs": "GONG",

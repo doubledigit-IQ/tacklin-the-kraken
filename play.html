@@ -1082,7 +1082,7 @@ The demo suite finds real stop positions on the reel strips that give the result
 <p><strong>Settings.</strong> The fish value swap delay, the anticipation, the kraken slow motion, the random number seed and more credits.</p>
 <p><strong>Math configuration.</strong> Shows the configuration as JSON. You can change values and apply them in the game. You can load a configuration file.</p>
 <h2 id="art-sets">Art sets<a class="headerlink" href="#art-sets" title="Permanent link">&para;</a></h2>
-<p>The game has 8 art sets. The game starts with set B (Neon flat). You can change the set in the demo suite.
+<p>The game has 8 art sets. The game starts with set C (Nian, Nian, Begone!). You can change the set in the demo suite.
 The browser keeps your selection. If the default set of the game changes, the game shows the new default set and you select again.
 A new version of the game can also reset the selection of each browser. The game then shows the default set and you select again.</p>
 <p>Each link opens the game in a new window with one set:</p>
@@ -1104,12 +1104,12 @@ A new version of the game can also reset the selection of each browser. The game
 </tr>
 <tr>
 <td>B</td>
-<td>Neon flat (default set)</td>
+<td>Neon flat</td>
 <td>Fishing theme</td>
 </tr>
 <tr>
 <td>C</td>
-<td>Nian, Nian, Begone!</td>
+<td>Nian, Nian, Begone! (default set)</td>
 <td>Theme set</td>
 </tr>
 <tr>
@@ -1724,7 +1724,8 @@ A theme set can also give its own words for the game texts.</p>
 <li>To add an asset set, add a folder with the same file names and add the set to <code>manifest.json</code>.</li>
 <li>A set can have more files for its own animations (field <code>extraKeys</code> of the set in <code>manifest.json</code>). Set C has 6 more files: 5 files (<code>FX_FISH1</code> to <code>FX_FISH4_GOLD</code>) show each fish when it swims away from the explosion, and <code>FX_TOKEN</code> shows the gold label that a FIRECRACKER leaves.</li>
 <li>The field <code>fx</code> of a set in <code>manifest.json</code> selects the collect animation of that set. A set with no <code>fx</code> field uses the usual collect animation.</li>
-<li>The field <code>defaultSet</code> of <code>manifest.json</code> gives the set that the game shows first. The symbol pictures in this document use the same set.</li>
+<li>The field <code>defaultSet</code> of <code>manifest.json</code> gives the set that the game shows first (now set C).</li>
+<li>The field <code>docSet</code> of <code>manifest.json</code> gives the set of the symbol pictures in this document (now set B). If the field is not there, the document uses the default set.</li>
 <li>The field <code>defaultRev</code> of <code>manifest.json</code> is a number (now 1). A browser keeps a selection only for the number that it was made with. To reset the selection of each browser, increase the number.</li>
 </ul>
 

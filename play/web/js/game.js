@@ -102,6 +102,9 @@ export class Game {
   }
 
   applySkin() {
+    if (this.pageTitle === undefined) this.pageTitle = document.title;
+    const set = this.assets.manifest.sets[this.assets.sel.set] || {};
+    document.title = set.title || this.pageTitle;            // a set can have its own name for the game (manifest: sets.X.title)
     const bg = this.assets.src(this.mode === 'bonus' ? 'bg_bonus' : 'bg_base');
     if (bg) this.dom.bg.src = bg; else this.dom.bg.removeAttribute('src');
     const logo = this.assets.src('logo');
