@@ -1,5 +1,6 @@
 {
   "defaultSet": "B",
+  "defaultRev": 1,
   "sets": {
     "A": {
       "label": "Painted",
