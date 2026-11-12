@@ -647,6 +647,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-210-reels-that-are-different-from-each-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.1.0: reels that are different from each other
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -903,6 +914,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-210-reels-that-are-different-from-each-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.1.0: reels that are different from each other
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -942,7 +964,7 @@
 
 
 <h1 id="tuning-history">Tuning History<a class="headerlink" href="#tuning-history" title="Permanent link">&para;</a></h1>
-<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 has a target RTP of 96.20%.
+<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. Version 2.1.0 has the same target.
 Each iteration used the exact calculator first and the simulator second.</p>
 <h2 id="iterations">Iterations<a class="headerlink" href="#iterations" title="Permanent link">&para;</a></h2>
 <table>
@@ -1021,6 +1043,15 @@ Each iteration used the exact calculator first and the simulator second.</p>
 <td style="text-align: right;">8 x</td>
 <td>Version 2.0.0. The standard deviation is 10.17 x bet.</td>
 </tr>
+<tr>
+<td>7</td>
+<td>Each PIC and AUS symbol has a pattern: more symbols on some reels and fewer symbols on other reels. The special symbols did not change. Larger 5 OAK pays.</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">1 in 171.7</td>
+<td style="text-align: right;">35.8 x</td>
+<td style="text-align: right;">8 x</td>
+<td>Version 2.1.0. The standard deviation is 10.23 x bet.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="version-200-the-redesign">Version 2.0.0: the redesign<a class="headerlink" href="#version-200-the-redesign" title="Permanent link">&para;</a></h2>
@@ -1096,12 +1127,223 @@ Each iteration used the exact calculator first and the simulator second.</p>
 </tbody>
 </table>
 <p>The standard deviation decreased. In version 2.0.0, a larger part of the RTP comes from the base game collect, which is frequent. A smaller part comes from the free spins.</p>
+<h2 id="version-210-reels-that-are-different-from-each-other">Version 2.1.0: reels that are different from each other<a class="headerlink" href="#version-210-reels-that-are-different-from-each-other" title="Permanent link">&para;</a></h2>
+<p>In version 2.0.0, the five reels of a reel set were almost the same. Each PIC symbol had the same number of symbols on each reel strip. Each AUS symbol had almost the same number.
+Version 2.1.0 gives each PIC and AUS symbol more symbols on some reels and fewer symbols on other reels.
+The page <a href="reels.html#symbol-weighting-on-each-reel">Reel strips</a> shows the pattern of each symbol.</p>
+<p><strong>Patterns.</strong> Each symbol got its own pattern. For example, PIC1 has most of its symbols on reels 1 and 2, and PIC2 has most of its symbols on reels 4 and 5.</p>
+<p><strong>Special symbols.</strong> The number of each special symbol on each reel did not change. Thus the trigger frequency, the KEY frequency and the level probabilities did not change.</p>
+<p><strong>Strength.</strong> The exact calculator and the simulator gave these results for three strengths, before the balance:</p>
+<table>
+<thead>
+<tr>
+<th>Strength</th>
+<th style="text-align: right;">Change of the symbol counts</th>
+<th style="text-align: right;">RTP</th>
+<th style="text-align: right;">Ways pays</th>
+<th style="text-align: right;">Collect</th>
+<th style="text-align: right;">Free spins</th>
+<th style="text-align: right;">Base spins with a win</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version 2.0.0</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">96.20%</td>
+<td style="text-align: right;">36.15%</td>
+<td style="text-align: right;">39.15%</td>
+<td style="text-align: right;">20.90%</td>
+<td style="text-align: right;">29.9%</td>
+</tr>
+<tr>
+<td>Mild</td>
+<td style="text-align: right;">20% or less</td>
+<td style="text-align: right;">95.34%</td>
+<td style="text-align: right;">35.43%</td>
+<td style="text-align: right;">39.15%</td>
+<td style="text-align: right;">20.76%</td>
+<td style="text-align: right;">30.1%</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td style="text-align: right;">40% or less</td>
+<td style="text-align: right;">92.56%</td>
+<td style="text-align: right;">32.90%</td>
+<td style="text-align: right;">39.15%</td>
+<td style="text-align: right;">20.51%</td>
+<td style="text-align: right;">31.2%</td>
+</tr>
+<tr>
+<td>Strong</td>
+<td style="text-align: right;">60% or less</td>
+<td style="text-align: right;">88.40%</td>
+<td style="text-align: right;">29.58%</td>
+<td style="text-align: right;">39.15%</td>
+<td style="text-align: right;">19.67%</td>
+<td style="text-align: right;">27.0%</td>
+</tr>
+</tbody>
+</table>
+<p>The column "Base spins with a win" comes from simulations of 4,000,000,000 rounds. The medium strength was selected.</p>
+<p><strong>Cause of the lower RTP.</strong> A way of 5 symbols needs the symbol or a WILD symbol on each reel. The expected number of ways is the product of the mean counts of the reels.
+When the counts are not equal, the product is smaller. With the medium strength, the RTP of the 5 OAK pays in the base game decreased from 17.43% to 14.84%.</p>
+<p><strong>Balance.</strong> The RTP went back into the ways pays. The 5 OAK pay of each pay symbol increased. The 3 OAK pays and the 4 OAK pays did not change.
+Long wins are less frequent than before, and they pay more. The RTP of the 5 OAK pays in the base game is now 18.13%.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th style="text-align: right;">3 OAK</th>
+<th style="text-align: right;">4 OAK</th>
+<th style="text-align: right;">5 OAK, version 2.0.0</th>
+<th style="text-align: right;">5 OAK, version 2.1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIC1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;"><strong>60</strong></td>
+</tr>
+<tr>
+<td>PIC2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;"><strong>35</strong></td>
+</tr>
+<tr>
+<td>PIC3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;"><strong>25</strong></td>
+</tr>
+<tr>
+<td>PIC4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;"><strong>18</strong></td>
+</tr>
+<tr>
+<td>PIC5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;"><strong>15</strong></td>
+</tr>
+<tr>
+<td>AUS1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;"><strong>6</strong></td>
+</tr>
+<tr>
+<td>AUS2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;"><strong>6</strong></td>
+</tr>
+<tr>
+<td>AUS3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;"><strong>5</strong></td>
+</tr>
+<tr>
+<td>AUS4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;"><strong>5</strong></td>
+</tr>
+<tr>
+<td>AUS5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;"><strong>5</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Other options for the balance were more PIC symbols on the reel strips, a larger collect and larger free spins.
+The paytable was selected because the RTP of each component stays almost the same.</p>
+<p><strong>Fine adjustment.</strong> The base weights of FISH1 changed from 4225 / 2775 / 2000 / 1000 to 4012 / 2988 / 2000 / 1000. Thus the RTP is 96.199968%.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Version 2.0.0</th>
+<th style="text-align: right;">Version 2.1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base game: ways pays</td>
+<td style="text-align: right;">36.15%</td>
+<td style="text-align: right;">36.19%</td>
+</tr>
+<tr>
+<td>Base game: collect</td>
+<td style="text-align: right;">39.15%</td>
+<td style="text-align: right;">39.17%</td>
+</tr>
+<tr>
+<td>Free spins</td>
+<td style="text-align: right;">20.90%</td>
+<td style="text-align: right;">20.84%</td>
+</tr>
+<tr>
+<td>Total RTP</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">96.2000%</td>
+</tr>
+<tr>
+<td>Free spins trigger</td>
+<td style="text-align: right;">1 in 171.7</td>
+<td style="text-align: right;">1 in 171.7</td>
+</tr>
+<tr>
+<td>Mean free spins win</td>
+<td style="text-align: right;">35.9 x bet</td>
+<td style="text-align: right;">35.8 x bet</td>
+</tr>
+<tr>
+<td>Median free spins win</td>
+<td style="text-align: right;">8 x bet</td>
+<td style="text-align: right;">8 x bet</td>
+</tr>
+<tr>
+<td>Base spins with a win</td>
+<td style="text-align: right;">29.9%</td>
+<td style="text-align: right;">31.2%</td>
+</tr>
+<tr>
+<td>Base spins with a ways win</td>
+<td style="text-align: right;">24.2%</td>
+<td style="text-align: right;">25.9%</td>
+</tr>
+<tr>
+<td>Standard deviation for each round</td>
+<td style="text-align: right;">10.17 x bet</td>
+<td style="text-align: right;">10.23 x bet</td>
+</tr>
+</tbody>
+</table>
 <h2 id="design-decisions">Design decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h2>
 <p><strong>One KEY symbol on each of base reels 1, 2 and 3.</strong> A KEY symbol lands 1 in 8.7 base spins. Two or three KEY symbols can land in one spin. Then each KEY symbol collects each FISH value.</p>
 <p><strong>The kraken stays on the base reel strips.</strong> The KEY anticipation on reels 4 and 5 has a purpose only if the large fish are there.
 The kraken gives 32% RTP in the base game. A KEY symbol and the kraken land together 1 in 217 base spins.</p>
 <p><strong>Golden kraken weights 8 : 1.</strong> With weights 2 : 1, the kraken gave 48% RTP in the base game, and the total was too high. The golden kraken is now less frequent. The usual kraken pays 500 credits. The golden kraken pays 2000 credits.</p>
-<p><strong>The balance came from the small base fish.</strong> The paytable and the free spins keep their value. The free spins are less frequent than before, so their value for each trigger must not decrease.</p>
+<p><strong>The balance of version 2.0.0 came from the small base fish.</strong> In that version, the paytable and the free spins kept their value. The free spins were less frequent than before, so their value for each trigger did not decrease.</p>
+<p><strong>The balance of version 2.1.0 came from the 5 OAK pays.</strong> The reel strips with patterns give fewer long ways. Larger 5 OAK pays put this RTP back into the ways pays, so that the RTP of each component stays almost the same.</p>
 <p><strong>2 / 2 / 1 KEY symbols on bonus reels 1 / 2 / 3.</strong> This gives 0.20 KEY symbols for each free spin, the same as in version 1.1.0. The levels keep their frequency.</p>
 <p><strong>Eight spins for levels 2 to 4.</strong> With 10 spins, level 4 was too frequent.</p>
 <p><strong>Bonus reels with more PIC symbols.</strong> The bonus reel strips have no WILD symbol. More PIC symbols give more ways pays in the free spins.</p>
