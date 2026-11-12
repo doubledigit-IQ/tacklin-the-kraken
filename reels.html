@@ -1154,7 +1154,7 @@
 </table>
 <h2 id="reel-strip-generator">Reel strip generator<a class="headerlink" href="#reel-strip-generator" title="Permanent link">&para;</a></h2>
 <p>The script <code>gamemath/gen_reels.py</code> makes the reel strips from a recipe. The recipe gives the number of each symbol on each reel.
-The generator uses a fixed seed (667). Thus the result is repeatable.
+The generator uses a fixed seed (501). Thus the result is repeatable.
 A different seed gives a different arrangement of the same symbols. The arrangement changes the RTP of the ways pays a little, and it changes the number of spins with a win. See <a href="tuning.html">Tuning history</a>.</p>
 <p>The generator does these steps for each reel:</p>
 <ol>
@@ -1178,9 +1178,9 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <tbody>
 <tr>
 <td>PIC1</td>
-<td>Most symbols on reels 1, 4 and 5</td>
-<td><strong>8</strong> / 2 / 2 / <strong>6</strong> / <strong>6</strong></td>
-<td><strong>12</strong> / 4 / 4 / <strong>11</strong> / <strong>10</strong></td>
+<td>Few symbols on reel 2</td>
+<td><strong>7</strong> / 2 / <strong>4</strong> / <strong>6</strong> / <strong>5</strong></td>
+<td><strong>12</strong> / 3 / <strong>7</strong> / <strong>10</strong> / <strong>9</strong></td>
 </tr>
 <tr>
 <td>PIC2</td>
@@ -1210,30 +1210,30 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <td>AUS1</td>
 <td>Most symbols on the last reels</td>
 <td>7 / 11 / 11 / <strong>14</strong> / <strong>16</strong></td>
-<td>6 / 11 / 14 / <strong>15</strong> / <strong>15</strong></td>
+<td>6 / 11 / 13 / <strong>14</strong> / <strong>15</strong></td>
 </tr>
 <tr>
 <td>AUS2</td>
 <td>Most symbols on the first reels</td>
 <td><strong>16</strong> / <strong>14</strong> / 11 / 10 / 7</td>
-<td><strong>14</strong> / <strong>15</strong> / 13 / 8 / 6</td>
+<td><strong>14</strong> / <strong>16</strong> / 12 / 9 / 6</td>
 </tr>
 <tr>
 <td>AUS3</td>
 <td>Most symbols on reels 2 and 4</td>
 <td>7 / <strong>17</strong> / 6 / <strong>15</strong> / 10</td>
-<td>5 / <strong>13</strong> / 6 / <strong>9</strong> / 6</td>
+<td>5 / <strong>13</strong> / 5 / <strong>10</strong> / 7</td>
 </tr>
 <tr>
 <td>AUS4</td>
 <td>Most symbols on reels 1 and 3</td>
-<td><strong>16</strong> / 7 / <strong>16</strong> / 7 / 10</td>
+<td><strong>17</strong> / 7 / <strong>15</strong> / 7 / 11</td>
 <td>2 / 2 / 3 / 2 / 2 (no pattern)</td>
 </tr>
 <tr>
 <td>AUS5</td>
 <td>Most symbols on the middle reels</td>
-<td>8 / <strong>13</strong> / <strong>16</strong> / <strong>12</strong> / 9</td>
+<td>8 / <strong>13</strong> / <strong>15</strong> / <strong>12</strong> / 9</td>
 <td>1 / 1 / 3 / 1 / 2 (no pattern)</td>
 </tr>
 </tbody>
@@ -1242,11 +1242,11 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <ul>
 <li>When a symbol has most of its symbols on the first reels, a win of this symbol starts frequently. Few of these wins continue to reel 5.</li>
 <li>When a symbol has most of its symbols on the last reels, a win of this symbol starts less frequently. More of these wins continue to reel 5.</li>
-<li>PIC1 has few symbols on reels 2 and 3. Thus a PIC1 win starts rarely. PIC1 has the largest pays.</li>
+<li>Base reel 2 has 2 PIC1 symbols and 3 WILD symbols. Thus a PIC1 win starts rarely. Of the stops of base reel 2 that continue a PIC1 way, 63% show a WILD symbol. PIC1 has the largest pays.</li>
 <li>On the bonus reel strips, AUS4 and AUS5 have 3 symbols or fewer on each reel. They have no pattern there.</li>
 <li>The special symbols have no pattern. The requirements and the math model give their numbers.</li>
 </ul>
-<p>The patterns came with version 2.1.0. Before that version, each PIC symbol had the same number of symbols on each reel of a reel set. The pattern of PIC1 changed with version 2.3.0. See <a href="tuning.html">Tuning history</a>.</p>
+<p>The patterns came with version 2.1.0. Before that version, each PIC symbol had the same number of symbols on each reel of a reel set. The pattern of PIC1 changed with versions 2.3.0 and 2.4.0. See <a href="tuning.html">Tuning history</a>.</p>
 <h2 id="symbol-counts-base-reel-strips">Symbol counts: base reel strips<a class="headerlink" href="#symbol-counts-base-reel-strips" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1263,11 +1263,11 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <tbody>
 <tr>
 <td>PIC1</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">24</td>
 </tr>
 <tr>
@@ -1335,21 +1335,21 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 </tr>
 <tr>
 <td>AUS4</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: right;">17</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">56</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">57</td>
 </tr>
 <tr>
 <td>AUS5</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">13</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: right;">12</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">58</td>
+<td style="text-align: right;">57</td>
 </tr>
 <tr>
 <td>FISH1</td>
@@ -1442,10 +1442,10 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <tr>
 <td>PIC1</td>
 <td style="text-align: right;">12</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">10</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: right;">41</td>
 </tr>
 <tr>
@@ -1488,28 +1488,28 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <td>AUS1</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">11</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">61</td>
+<td style="text-align: right;">59</td>
 </tr>
 <tr>
 <td>AUS2</td>
 <td style="text-align: right;">14</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">56</td>
+<td style="text-align: right;">57</td>
 </tr>
 <tr>
 <td>AUS3</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">13</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">39</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">40</td>
 </tr>
 <tr>
 <td>AUS4</td>
@@ -1620,803 +1620,803 @@ The bonus reel strips have 5 KEY symbols. The base reel strips have 3 KEY symbol
 <tbody>
 <tr>
 <td style="text-align: right;">0</td>
-<td>AUS2</td>
+<td>AUS4</td>
 <td>AUS3</td>
 <td>AUS2</td>
-<td>AUS3</td>
+<td>PIC3</td>
 <td>AUS5</td>
 </tr>
 <tr>
 <td style="text-align: right;">1</td>
-<td>AUS2</td>
-<td>AUS3</td>
-<td>WILD</td>
-<td>PIC1</td>
-<td>WILD</td>
+<td>AUS4</td>
+<td>PIC3</td>
+<td>PIC5</td>
+<td>AUS4</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">2</td>
+<td>FISH1</td>
+<td>AUS5</td>
+<td>PIC5</td>
+<td>AUS4</td>
 <td>PIC4</td>
-<td>WILD</td>
-<td>AUS1</td>
-<td>PIC1</td>
-<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">3</td>
-<td>PIC4</td>
-<td>AUS5</td>
-<td>PIC1</td>
-<td>AUS5</td>
 <td>AUS2</td>
+<td>AUS5</td>
+<td>AUS5</td>
+<td>FISH1</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">4</td>
-<td>AUS1</td>
-<td>AUS4</td>
-<td>AUS1</td>
+<td>PIC5</td>
 <td>AUS5</td>
-<td>AUS2</td>
+<td>WILD</td>
+<td>AUS3</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">5</td>
-<td>AUS1</td>
-<td>PIC3</td>
-<td>AUS1</td>
-<td>FISH3</td>
 <td>AUS2</td>
-</tr>
-<tr>
-<td style="text-align: right;">6</td>
 <td>PIC4</td>
-<td>PIC3</td>
-<td>PIC4</td>
-<td>AUS1</td>
+<td>AUS5</td>
+<td>PIC1</td>
 <td>FISH1</td>
 </tr>
 <tr>
-<td style="text-align: right;">7</td>
-<td>PIC4</td>
-<td>AUS5</td>
-<td>AUS3</td>
+<td style="text-align: right;">6</td>
+<td>PIC1</td>
 <td>AUS1</td>
-<td>AUS4</td>
+<td>AUS5</td>
+<td>PIC1</td>
+<td>PIC3</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>AUS3</td>
+<td>FS</td>
+<td>PIC1</td>
+<td>AUS3</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">8</td>
-<td>AUS1</td>
-<td>AUS5</td>
+<td>PIC1</td>
 <td>AUS3</td>
-<td>AUS1</td>
-<td>AUS4</td>
+<td>PIC1</td>
+<td>AUS3</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">9</td>
+<td>AUS4</td>
+<td>AUS3</td>
+<td>AUS3</td>
+<td>AUS3</td>
 <td>AUS1</td>
-<td>WILD</td>
-<td>PIC3</td>
-<td>PIC4</td>
-<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">10</td>
 <td>FISH1</td>
-<td>AUS4</td>
-<td>AUS1</td>
-<td>AUS1</td>
 <td>AUS3</td>
+<td>PIC3</td>
+<td>WILD</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">11</td>
-<td>AUS2</td>
-<td>AUS4</td>
-<td>AUS4</td>
+<td>AUS3</td>
+<td>PIC4</td>
+<td>PIC3</td>
+<td>AUS3</td>
 <td>AUS1</td>
-<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">12</td>
+<td>PIC1</td>
+<td>AUS3</td>
 <td>AUS2</td>
-<td>AUS4</td>
-<td>PIC2</td>
-<td>AUS1</td>
-<td>AUS1</td>
+<td>AUS2</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">13</td>
-<td>PIC1</td>
-<td>PIC1</td>
-<td>AUS2</td>
-<td>PIC3</td>
-<td>AUS1</td>
+<td>AUS5</td>
+<td>AUS3</td>
+<td>PIC4</td>
+<td>PIC4</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">14</td>
-<td>AUS4</td>
-<td>AUS1</td>
+<td>PIC4</td>
 <td>FISH1</td>
-<td>AUS3</td>
-<td>AUS1</td>
+<td>PIC4</td>
+<td>AUS2</td>
+<td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">15</td>
-<td>PIC2</td>
-<td>AUS3</td>
+<td>PIC4</td>
+<td>AUS2</td>
 <td>AUS4</td>
-<td>AUS3</td>
-<td>FISH2</td>
+<td>AUS2</td>
+<td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">16</td>
-<td>PIC2</td>
-<td>PIC4</td>
+<td>AUS2</td>
+<td>AUS2</td>
 <td>AUS4</td>
-<td>PIC2</td>
-<td>AUS1</td>
+<td>PIC1</td>
+<td>FISH1</td>
 </tr>
 <tr>
 <td style="text-align: right;">17</td>
-<td>AUS4</td>
-<td>AUS3</td>
+<td>AUS2</td>
+<td>AUS2</td>
 <td>PIC5</td>
-<td>PIC2</td>
-<td>PIC1</td>
+<td>AUS5</td>
+<td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">18</td>
+<td>PIC5</td>
 <td>PIC2</td>
 <td>AUS3</td>
-<td>PIC5</td>
-<td>AUS3</td>
-<td>PIC1</td>
+<td>AUS5</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">19</td>
-<td>AUS5</td>
-<td>FISH1</td>
-<td>PIC5</td>
-<td>PIC2</td>
 <td>AUS4</td>
+<td>AUS5</td>
+<td>PIC4</td>
+<td>AUS5</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">20</td>
-<td>PIC1</td>
-<td>AUS1</td>
-<td>AUS2</td>
-<td>PIC2</td>
 <td>AUS4</td>
+<td>AUS1</td>
+<td>AUS4</td>
+<td>PIC4</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">21</td>
-<td>PIC1</td>
 <td>AUS4</td>
+<td>WILD</td>
+<td>AUS4</td>
+<td>AUS5</td>
 <td>AUS1</td>
-<td>AUS1</td>
-<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">22</td>
-<td>AUS1</td>
-<td>PIC2</td>
-<td>FISH2</td>
-<td>FISH1</td>
+<td>PIC3</td>
 <td>AUS3</td>
+<td>PIC1</td>
+<td>AUS5</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">23</td>
+<td>PIC3</td>
+<td>AUS3</td>
+<td>AUS2</td>
 <td>FISH1</td>
-<td>PIC2</td>
-<td>AUS5</td>
-<td>AUS1</td>
 <td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">24</td>
-<td>AUS4</td>
 <td>AUS2</td>
-<td>AUS5</td>
-<td>AUS1</td>
-<td>PIC5</td>
+<td>PIC1</td>
+<td>AUS2</td>
+<td>AUS2</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">25</td>
+<td>KEY</td>
 <td>AUS4</td>
-<td>PIC4</td>
-<td>AUS5</td>
-<td>AUS1</td>
-<td>AUS3</td>
+<td>KEY</td>
+<td>AUS2</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">26</td>
-<td>PIC1</td>
-<td>PIC4</td>
-<td>PIC1</td>
-<td>PIC1</td>
-<td>FISH1</td>
+<td>AUS2</td>
+<td>AUS4</td>
+<td>AUS4</td>
+<td>AUS2</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">27</td>
-<td>PIC1</td>
-<td>AUS3</td>
+<td>AUS2</td>
+<td>PIC2</td>
 <td>AUS4</td>
-<td>AUS1</td>
-<td>AUS1</td>
+<td>PIC3</td>
+<td>FS</td>
 </tr>
 <tr>
 <td style="text-align: right;">28</td>
-<td>AUS4</td>
-<td>AUS3</td>
-<td>AUS4</td>
-<td>AUS1</td>
+<td>AUS2</td>
+<td>PIC2</td>
 <td>PIC3</td>
+<td>AUS3</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">29</td>
-<td>AUS4</td>
-<td>KEY</td>
-<td>AUS4</td>
-<td>FS</td>
+<td>PIC2</td>
 <td>AUS1</td>
+<td>AUS5</td>
+<td>FS</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">30</td>
+<td>AUS1</td>
+<td>FISH1</td>
+<td>PIC3</td>
+<td>AUS2</td>
 <td>PIC2</td>
-<td>AUS5</td>
-<td>WILD</td>
-<td>AUS1</td>
-<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">31</td>
-<td>AUS4</td>
-<td>AUS5</td>
-<td>AUS5</td>
-<td>PIC4</td>
+<td>FS</td>
+<td>AUS3</td>
+<td>PIC3</td>
+<td>AUS2</td>
 <td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">32</td>
-<td>FS</td>
-<td>PIC3</td>
-<td>AUS5</td>
-<td>AUS5</td>
-<td>AUS1</td>
+<td>AUS3</td>
+<td>AUS3</td>
+<td>AUS3</td>
+<td>PIC2</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">33</td>
-<td>AUS2</td>
-<td>AUS5</td>
-<td>PIC5</td>
-<td>AUS5</td>
-<td>AUS1</td>
+<td>AUS3</td>
+<td>PIC3</td>
+<td>AUS3</td>
+<td>PIC2</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">34</td>
+<td>PIC4</td>
+<td>PIC3</td>
 <td>PIC5</td>
-<td>AUS5</td>
-<td>AUS2</td>
-<td>PIC4</td>
-<td>AUS1</td>
-</tr>
-<tr>
-<td style="text-align: right;">35</td>
-<td>AUS4</td>
-<td>AUS5</td>
-<td>AUS2</td>
-<td>PIC4</td>
+<td>AUS3</td>
 <td>WILD</td>
 </tr>
 <tr>
-<td style="text-align: right;">36</td>
-<td>AUS4</td>
-<td>PIC5</td>
+<td style="text-align: right;">35</td>
 <td>AUS2</td>
-<td>AUS5</td>
+<td>AUS2</td>
+<td>AUS3</td>
+<td>PIC2</td>
+<td>AUS1</td>
+</tr>
+<tr>
+<td style="text-align: right;">36</td>
+<td>AUS2</td>
+<td>AUS2</td>
+<td>AUS3</td>
+<td>AUS4</td>
 <td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">37</td>
-<td>PIC5</td>
 <td>AUS2</td>
+<td>PIC4</td>
 <td>FISH1</td>
-<td>AUS5</td>
+<td>PIC5</td>
 <td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">38</td>
-<td>PIC5</td>
+<td>FISH2</td>
 <td>AUS2</td>
-<td>AUS4</td>
-<td>FISH1</td>
-<td>AUS3</td>
+<td>AUS1</td>
+<td>AUS1</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">39</td>
+<td>AUS5</td>
 <td>AUS2</td>
-<td>FS</td>
 <td>AUS1</td>
-<td>AUS1</td>
+<td>PIC4</td>
 <td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">40</td>
-<td>AUS2</td>
-<td>AUS4</td>
+<td>AUS5</td>
+<td>WILD</td>
 <td>PIC2</td>
-<td>PIC2</td>
-<td>AUS4</td>
+<td>PIC4</td>
+<td>AUS5</td>
 </tr>
 <tr>
 <td style="text-align: right;">41</td>
-<td>PIC1</td>
 <td>PIC5</td>
-<td>PIC2</td>
-<td>PIC2</td>
-<td>AUS4</td>
+<td>AUS2</td>
+<td>AUS5</td>
+<td>AUS5</td>
+<td>AUS5</td>
 </tr>
 <tr>
 <td style="text-align: right;">42</td>
-<td>FISH2</td>
-<td>AUS5</td>
+<td>AUS4</td>
+<td>AUS2</td>
 <td>PIC2</td>
 <td>AUS5</td>
-<td>FISH4</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">43</td>
-<td>AUS3</td>
-<td>AUS5</td>
-<td>AUS5</td>
-<td>AUS5</td>
-<td>AUS3</td>
+<td>PIC5</td>
+<td>PIC5</td>
+<td>AUS2</td>
+<td>PIC1</td>
+<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">44</td>
-<td>AUS3</td>
-<td>AUS5</td>
-<td>AUS5</td>
 <td>PIC5</td>
-<td>PIC3</td>
+<td>AUS5</td>
+<td>PIC4</td>
+<td>AUS3</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">45</td>
-<td>PIC1</td>
-<td>FISH1</td>
-<td>KEY</td>
-<td>PIC5</td>
-<td>PIC3</td>
+<td>AUS1</td>
+<td>AUS5</td>
+<td>AUS5</td>
+<td>AUS3</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">46</td>
-<td>AUS2</td>
-<td>AUS3</td>
 <td>AUS1</td>
-<td>PIC5</td>
-<td>AUS2</td>
+<td>AUS5</td>
+<td>FISH1</td>
+<td>FISH3</td>
+<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">47</td>
-<td>PIC4</td>
-<td>AUS3</td>
+<td>PIC1</td>
+<td>WILD</td>
+<td>AUS4</td>
 <td>AUS1</td>
-<td>PIC3</td>
-<td>PIC5</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">48</td>
-<td>PIC4</td>
-<td>PIC3</td>
+<td>AUS4</td>
 <td>AUS1</td>
-<td>AUS5</td>
+<td>AUS4</td>
 <td>PIC3</td>
+<td>WILD</td>
 </tr>
 <tr>
 <td style="text-align: right;">49</td>
+<td>PIC5</td>
+<td>AUS1</td>
 <td>AUS4</td>
-<td>AUS2</td>
-<td>PIC3</td>
-<td>WILD</td>
-<td>AUS4</td>
+<td>AUS1</td>
+<td>AUS5</td>
 </tr>
 <tr>
 <td style="text-align: right;">50</td>
-<td>AUS4</td>
-<td>AUS2</td>
+<td>AUS1</td>
+<td>PIC4</td>
+<td>PIC5</td>
+<td>AUS1</td>
 <td>AUS5</td>
-<td>AUS4</td>
-<td>WILD</td>
 </tr>
 <tr>
 <td style="text-align: right;">51</td>
-<td>PIC4</td>
+<td>AUS1</td>
 <td>AUS2</td>
+<td>AUS1</td>
+<td>AUS1</td>
 <td>AUS5</td>
-<td>AUS4</td>
-<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">52</td>
-<td>AUS4</td>
-<td>PIC4</td>
-<td>AUS5</td>
-<td>AUS4</td>
-<td>PIC1</td>
+<td>AUS1</td>
+<td>AUS2</td>
+<td>AUS1</td>
+<td>PIC3</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">53</td>
 <td>FS</td>
-<td>AUS1</td>
-<td>PIC2</td>
 <td>PIC4</td>
-<td>PIC1</td>
+<td>FS</td>
+<td>AUS2</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">54</td>
-<td>AUS1</td>
-<td>AUS1</td>
-<td>AUS5</td>
-<td>AUS5</td>
-<td>PIC1</td>
+<td>AUS4</td>
+<td>PIC4</td>
+<td>AUS4</td>
+<td>WILD</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">55</td>
-<td>PIC5</td>
-<td>WILD</td>
+<td>PIC3</td>
 <td>AUS5</td>
-<td>AUS5</td>
-<td>AUS5</td>
+<td>AUS4</td>
+<td>AUS1</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">56</td>
-<td>AUS3</td>
-<td>AUS2</td>
-<td>FS</td>
-<td>PIC5</td>
+<td>AUS4</td>
 <td>AUS5</td>
+<td>AUS4</td>
+<td>AUS1</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">57</td>
-<td>AUS3</td>
-<td>AUS2</td>
-<td>AUS4</td>
-<td>AUS2</td>
-<td>PIC2</td>
+<td>PIC3</td>
+<td>FISH1</td>
+<td>PIC5</td>
+<td>PIC1</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">58</td>
 <td>AUS3</td>
-<td>PIC2</td>
-<td>AUS2</td>
-<td>AUS2</td>
-<td>PIC2</td>
+<td>AUS5</td>
+<td>PIC5</td>
+<td>PIC1</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">59</td>
-<td>KEY</td>
-<td>PIC2</td>
-<td>PIC4</td>
-<td>FS</td>
 <td>AUS3</td>
+<td>AUS1</td>
+<td>AUS1</td>
+<td>AUS1</td>
+<td>FISH4</td>
 </tr>
 <tr>
 <td style="text-align: right;">60</td>
-<td>AUS5</td>
-<td>AUS1</td>
 <td>PIC4</td>
-<td>AUS2</td>
-<td>AUS3</td>
+<td>PIC5</td>
+<td>AUS1</td>
+<td>PIC2</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">61</td>
-<td>AUS5</td>
-<td>FISH1</td>
-<td>AUS4</td>
-<td>AUS2</td>
+<td>PIC4</td>
 <td>PIC5</td>
+<td>WILD</td>
+<td>AUS5</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">62</td>
-<td>AUS5</td>
 <td>AUS1</td>
-<td>AUS4</td>
 <td>AUS2</td>
-<td>AUS2</td>
+<td>AUS5</td>
+<td>FISH2</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">63</td>
 <td>PIC5</td>
-<td>AUS1</td>
-<td>PIC5</td>
-<td>PIC4</td>
-<td>PIC4</td>
+<td>PIC1</td>
+<td>AUS5</td>
+<td>AUS3</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">64</td>
-<td>AUS4</td>
-<td>PIC1</td>
 <td>PIC5</td>
+<td>AUS1</td>
+<td>AUS5</td>
 <td>AUS3</td>
-<td>PIC4</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">65</td>
-<td>PIC3</td>
 <td>AUS2</td>
-<td>PIC5</td>
-<td>PIC3</td>
+<td>AUS1</td>
+<td>PIC2</td>
+<td>AUS3</td>
 <td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">66</td>
-<td>PIC3</td>
-<td>AUS4</td>
 <td>AUS2</td>
-<td>AUS3</td>
+<td>PIC5</td>
+<td>AUS2</td>
+<td>PIC4</td>
 <td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">67</td>
-<td>AUS1</td>
+<td>FISH1</td>
+<td>AUS4</td>
+<td>PIC2</td>
 <td>PIC4</td>
-<td>PIC3</td>
-<td>AUS3</td>
 <td>FS</td>
 </tr>
 <tr>
 <td style="text-align: right;">68</td>
-<td>PIC5</td>
-<td>AUS3</td>
-<td>AUS1</td>
-<td>WILD</td>
+<td>AUS2</td>
 <td>AUS4</td>
+<td>AUS2</td>
+<td>AUS1</td>
+<td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">69</td>
-<td>PIC5</td>
-<td>FISH2</td>
+<td>PIC4</td>
+<td>FISH1</td>
+<td>AUS2</td>
 <td>AUS1</td>
 <td>AUS2</td>
-<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">70</td>
-<td>AUS5</td>
-<td>AUS2</td>
-<td>PIC3</td>
-<td>AUS2</td>
-<td>AUS5</td>
+<td>PIC4</td>
+<td>AUS3</td>
+<td>WILD</td>
+<td>FS</td>
+<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">71</td>
-<td>FISH1</td>
-<td>AUS2</td>
-<td>PIC3</td>
-<td>AUS2</td>
+<td>PIC4</td>
 <td>PIC2</td>
+<td>AUS5</td>
+<td>AUS3</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">72</td>
-<td>AUS2</td>
-<td>PIC4</td>
-<td>AUS5</td>
+<td>AUS3</td>
 <td>PIC2</td>
 <td>AUS5</td>
+<td>AUS3</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">73</td>
-<td>AUS2</td>
-<td>PIC4</td>
-<td>WILD</td>
-<td>AUS3</td>
-<td>AUS5</td>
+<td>PIC5</td>
+<td>AUS1</td>
+<td>PIC5</td>
+<td>PIC5</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">74</td>
 <td>PIC5</td>
-<td>AUS1</td>
+<td>PIC3</td>
 <td>AUS4</td>
-<td>AUS3</td>
-<td>PIC4</td>
+<td>AUS5</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">75</td>
-<td>PIC5</td>
-<td>AUS1</td>
 <td>AUS4</td>
-<td>FISH2</td>
-<td>PIC4</td>
+<td>AUS3</td>
+<td>AUS4</td>
+<td>PIC3</td>
+<td>AUS5</td>
 </tr>
 <tr>
 <td style="text-align: right;">76</td>
-<td>AUS2</td>
+<td>AUS4</td>
+<td>AUS3</td>
 <td>PIC3</td>
-<td>PIC5</td>
+<td>PIC3</td>
 <td>AUS5</td>
-<td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">77</td>
-<td>AUS2</td>
-<td>PIC3</td>
-<td>PIC5</td>
+<td>PIC2</td>
+<td>FS</td>
+<td>AUS1</td>
 <td>PIC3</td>
 <td>FISH1</td>
 </tr>
 <tr>
 <td style="text-align: right;">78</td>
+<td>PIC2</td>
 <td>AUS2</td>
-<td>AUS3</td>
-<td>AUS4</td>
-<td>PIC3</td>
 <td>AUS1</td>
+<td>AUS1</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">79</td>
-<td>PIC3</td>
+<td>PIC2</td>
 <td>AUS2</td>
-<td>AUS4</td>
-<td>PIC3</td>
-<td>AUS1</td>
+<td>FISH2</td>
+<td>FISH1</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">80</td>
 <td>AUS5</td>
-<td>PIC5</td>
+<td>PIC3</td>
+<td>AUS1</td>
 <td>AUS4</td>
-<td>PIC5</td>
-<td>PIC1</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">81</td>
-<td>PIC1</td>
-<td>AUS2</td>
-<td>PIC4</td>
-<td>AUS2</td>
+<td>AUS5</td>
 <td>AUS3</td>
+<td>PIC1</td>
+<td>AUS4</td>
+<td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">82</td>
-<td>AUS4</td>
-<td>AUS2</td>
+<td>AUS5</td>
 <td>AUS3</td>
+<td>AUS1</td>
+<td>PIC5</td>
 <td>AUS2</td>
-<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">83</td>
-<td>AUS4</td>
-<td>FS</td>
+<td>FISH1</td>
 <td>AUS3</td>
-<td>WILD</td>
-<td>PIC4</td>
+<td>AUS1</td>
+<td>PIC5</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">84</td>
-<td>FS</td>
-<td>AUS5</td>
-<td>FISH1</td>
-<td>AUS3</td>
-<td>PIC4</td>
+<td>AUS4</td>
+<td>PIC3</td>
+<td>PIC3</td>
+<td>AUS1</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">85</td>
-<td>AUS5</td>
-<td>AUS5</td>
-<td>AUS3</td>
-<td>AUS3</td>
-<td>AUS2</td>
+<td>AUS4</td>
+<td>PIC3</td>
+<td>PIC3</td>
+<td>AUS1</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">86</td>
-<td>PIC4</td>
 <td>PIC5</td>
-<td>AUS3</td>
-<td>PIC1</td>
-<td>PIC5</td>
+<td>PIC3</td>
+<td>AUS5</td>
+<td>PIC3</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">87</td>
-<td>AUS3</td>
-<td>AUS3</td>
-<td>PIC5</td>
-<td>PIC1</td>
-<td>AUS3</td>
+<td>AUS4</td>
+<td>AUS1</td>
+<td>FISH1</td>
+<td>AUS5</td>
+<td>WILD</td>
 </tr>
 <tr>
 <td style="text-align: right;">88</td>
-<td>AUS3</td>
-<td>AUS3</td>
-<td>AUS2</td>
+<td>PIC4</td>
+<td>FISH2</td>
 <td>AUS4</td>
+<td>AUS2</td>
 <td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">89</td>
+<td>AUS4</td>
+<td>AUS4</td>
+<td>PIC3</td>
 <td>PIC5</td>
 <td>AUS3</td>
-<td>PIC3</td>
-<td>AUS4</td>
-<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">90</td>
-<td>PIC5</td>
-<td>FISH1</td>
-<td>PIC3</td>
+<td>PIC1</td>
 <td>AUS4</td>
-<td>AUS1</td>
+<td>AUS2</td>
+<td>AUS4</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">91</td>
-<td>AUS5</td>
-<td>AUS3</td>
-<td>AUS2</td>
-<td>FISH1</td>
-<td>FS</td>
+<td>PIC1</td>
+<td>AUS4</td>
+<td>PIC5</td>
+<td>AUS4</td>
+<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">92</td>
-<td>FISH1</td>
-<td>AUS3</td>
-<td>AUS4</td>
-<td>AUS4</td>
+<td>AUS5</td>
+<td>PIC5</td>
+<td>AUS5</td>
+<td>PIC2</td>
 <td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">93</td>
-<td>AUS4</td>
-<td>PIC2</td>
 <td>FS</td>
-<td>PIC3</td>
+<td>AUS5</td>
 <td>PIC5</td>
+<td>AUS1</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">94</td>
-<td>PIC3</td>
-<td>AUS3</td>
+<td>AUS2</td>
 <td>AUS5</td>
-<td>PIC3</td>
-<td>PIC5</td>
+<td>AUS2</td>
+<td>WILD</td>
+<td>FISH2</td>
 </tr>
 <tr>
 <td style="text-align: right;">95</td>
-<td>PIC3</td>
-<td>AUS1</td>
+<td>AUS2</td>
 <td>AUS5</td>
-<td>AUS3</td>
-<td>PIC5</td>
+<td>AUS2</td>
+<td>AUS5</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">96</td>
-<td>AUS2</td>
 <td>PIC3</td>
-<td>AUS5</td>
-<td>AUS3</td>
-<td>AUS5</td>
+<td>PIC4</td>
+<td>FS</td>
+<td>PIC2</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">97</td>
-<td>AUS2</td>
-<td>PIC3</td>
-<td>PIC3</td>
-<td>AUS3</td>
 <td>AUS5</td>
+<td>AUS1</td>
+<td>AUS5</td>
+<td>PIC2</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">98</td>
-<td>PIC4</td>
-<td>AUS1</td>
-<td>PIC3</td>
 <td>PIC1</td>
-<td>PIC4</td>
+<td>KEY</td>
+<td>AUS5</td>
+<td>AUS3</td>
+<td>AUS5</td>
 </tr>
 <tr>
 <td style="text-align: right;">99</td>
-<td>AUS2</td>
-<td>PIC5</td>
-<td>AUS2</td>
+<td>AUS4</td>
 <td>AUS3</td>
+<td>PIC2</td>
 <td>AUS5</td>
+<td>PIC1</td>
 </tr>
 </tbody>
 </table>
@@ -2435,803 +2435,803 @@ The bonus reel strips have 5 KEY symbols. The base reel strips have 3 KEY symbol
 <tbody>
 <tr>
 <td style="text-align: right;">0</td>
-<td>PIC4</td>
 <td>AUS1</td>
+<td>AUS3</td>
 <td>AUS1</td>
-<td>FISH2</td>
+<td>FISH3</td>
 <td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">1</td>
 <td>AUS1</td>
+<td>AUS3</td>
 <td>AUS1</td>
-<td>PIC2</td>
-<td>PIC2</td>
-<td>PIC2</td>
+<td>PIC4</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">2</td>
-<td>AUS1</td>
-<td>PIC1</td>
-<td>PIC2</td>
-<td>PIC2</td>
-<td>PIC2</td>
+<td>PIC4</td>
+<td>FISH1</td>
+<td>FISH2</td>
+<td>PIC4</td>
+<td>FISH2</td>
 </tr>
 <tr>
 <td style="text-align: right;">3</td>
-<td>FISH1</td>
-<td>PIC1</td>
+<td>AUS4</td>
 <td>AUS2</td>
-<td>PIC5</td>
-<td>PIC1</td>
+<td>PIC4</td>
+<td>AUS5</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">4</td>
-<td>PIC2</td>
-<td>AUS3</td>
+<td>AUS4</td>
 <td>AUS2</td>
-<td>FISH1</td>
+<td>PIC2</td>
+<td>PIC3</td>
 <td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">5</td>
-<td>PIC4</td>
-<td>PIC4</td>
-<td>FISH2</td>
 <td>PIC1</td>
+<td>AUS2</td>
 <td>PIC2</td>
+<td>PIC3</td>
+<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">6</td>
-<td>PIC4</td>
-<td>PIC4</td>
-<td>AUS2</td>
+<td>FISH1</td>
+<td>PIC3</td>
 <td>AUS1</td>
-<td>FISH2</td>
+<td>PIC3</td>
+<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">7</td>
 <td>PIC4</td>
-<td>FISH1</td>
-<td>PIC2</td>
 <td>AUS1</td>
-<td>PIC5</td>
+<td>AUS1</td>
+<td>AUS1</td>
+<td>FISH2</td>
 </tr>
 <tr>
 <td style="text-align: right;">8</td>
-<td>FISH1</td>
+<td>PIC5</td>
 <td>AUS1</td>
-<td>PIC2</td>
-<td>PIC5</td>
-<td>PIC5</td>
+<td>PIC4</td>
+<td>PIC1</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">9</td>
+<td>PIC5</td>
+<td>FISH2</td>
 <td>PIC4</td>
-<td>PIC2</td>
-<td>PIC2</td>
-<td>PIC4</td>
-<td>AUS2</td>
+<td>FISH1</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">10</td>
-<td>PIC1</td>
-<td>PIC4</td>
-<td>AUS5</td>
-<td>PIC4</td>
+<td>PIC5</td>
 <td>PIC3</td>
+<td>AUS5</td>
+<td>AUS1</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">11</td>
 <td>PIC1</td>
-<td>AUS1</td>
-<td>FISH2</td>
-<td>AUS1</td>
 <td>PIC3</td>
+<td>AUS5</td>
+<td>AUS1</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">12</td>
-<td>FISH1</td>
-<td>AUS1</td>
-<td>AUS2</td>
-<td>AUS1</td>
+<td>FISH2</td>
+<td>AUS3</td>
+<td>KEY</td>
 <td>PIC3</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">13</td>
-<td>PIC3</td>
-<td>KEY</td>
+<td>PIC5</td>
+<td>AUS3</td>
 <td>AUS2</td>
-<td>FISH3</td>
-<td>FISH1</td>
+<td>PIC1</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">14</td>
 <td>PIC3</td>
-<td>AUS1</td>
-<td>PIC5</td>
-<td>AUS3</td>
 <td>PIC2</td>
+<td>AUS2</td>
+<td>AUS1</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">15</td>
+<td>AUS2</td>
+<td>PIC2</td>
+<td>PIC2</td>
 <td>AUS1</td>
-<td>AUS1</td>
-<td>PIC5</td>
-<td>AUS3</td>
-<td>PIC4</td>
+<td>FISH1</td>
 </tr>
 <tr>
 <td style="text-align: right;">16</td>
-<td>AUS1</td>
-<td>PIC5</td>
 <td>AUS2</td>
-<td>PIC3</td>
-<td>AUS3</td>
+<td>PIC2</td>
+<td>AUS2</td>
+<td>AUS1</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">17</td>
-<td>FISH1</td>
-<td>AUS3</td>
-<td>FISH1</td>
+<td>AUS2</td>
 <td>PIC3</td>
-<td>AUS3</td>
+<td>AUS2</td>
+<td>FISH2</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">18</td>
-<td>PIC4</td>
-<td>KEY</td>
-<td>AUS3</td>
-<td>PIC3</td>
 <td>FISH1</td>
+<td>PIC3</td>
+<td>AUS2</td>
+<td>AUS2</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">19</td>
-<td>AUS3</td>
-<td>AUS3</td>
-<td>AUS3</td>
-<td>FISH1</td>
-<td>PIC4</td>
+<td>AUS2</td>
+<td>AUS2</td>
+<td>PIC1</td>
+<td>AUS2</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">20</td>
-<td>PIC2</td>
-<td>PIC1</td>
-<td>PIC4</td>
 <td>AUS2</td>
-<td>AUS1</td>
+<td>FISH1</td>
+<td>FISH1</td>
+<td>AUS2</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">21</td>
-<td>AUS4</td>
-<td>PIC3</td>
+<td>AUS2</td>
+<td>PIC5</td>
+<td>AUS1</td>
+<td>PIC2</td>
 <td>PIC4</td>
+</tr>
+<tr>
+<td style="text-align: right;">22</td>
+<td>PIC5</td>
+<td>PIC5</td>
+<td>AUS1</td>
+<td>PIC2</td>
+<td>PIC4</td>
+</tr>
+<tr>
+<td style="text-align: right;">23</td>
+<td>FISH1</td>
+<td>AUS2</td>
+<td>PIC4</td>
+<td>FISH1</td>
+<td>PIC1</td>
+</tr>
+<tr>
+<td style="text-align: right;">24</td>
+<td>AUS3</td>
+<td>PIC3</td>
+<td>PIC5</td>
+<td>PIC2</td>
+<td>PIC1</td>
+</tr>
+<tr>
+<td style="text-align: right;">25</td>
+<td>AUS3</td>
+<td>FISH2</td>
+<td>PIC5</td>
+<td>PIC2</td>
+<td>FISH1</td>
+</tr>
+<tr>
+<td style="text-align: right;">26</td>
+<td>PIC2</td>
+<td>PIC4</td>
+<td>AUS2</td>
+<td>PIC2</td>
+<td>PIC2</td>
+</tr>
+<tr>
+<td style="text-align: right;">27</td>
+<td>PIC2</td>
+<td>AUS2</td>
+<td>AUS2</td>
+<td>PIC4</td>
+<td>PIC2</td>
+</tr>
+<tr>
+<td style="text-align: right;">28</td>
+<td>PIC5</td>
+<td>AUS2</td>
+<td>PIC5</td>
+<td>FISH1</td>
+<td>PIC4</td>
+</tr>
+<tr>
+<td style="text-align: right;">29</td>
+<td>FISH1</td>
+<td>AUS2</td>
+<td>PIC5</td>
+<td>AUS2</td>
+<td>PIC4</td>
+</tr>
+<tr>
+<td style="text-align: right;">30</td>
+<td>PIC4</td>
+<td>FISH2</td>
+<td>AUS2</td>
 <td>AUS2</td>
 <td>AUS1</td>
 </tr>
 <tr>
-<td style="text-align: right;">22</td>
-<td>AUS4</td>
-<td>PIC3</td>
-<td>AUS5</td>
-<td>AUS2</td>
-<td>PIC2</td>
-</tr>
-<tr>
-<td style="text-align: right;">23</td>
-<td>KEY</td>
-<td>AUS2</td>
-<td>PIC4</td>
-<td>PIC1</td>
-<td>FISH2</td>
-</tr>
-<tr>
-<td style="text-align: right;">24</td>
-<td>PIC4</td>
-<td>FISH2</td>
-<td>AUS2</td>
-<td>PIC1</td>
-<td>AUS3</td>
-</tr>
-<tr>
-<td style="text-align: right;">25</td>
-<td>PIC4</td>
-<td>AUS2</td>
-<td>PIC5</td>
-<td>FISH1</td>
-<td>AUS3</td>
-</tr>
-<tr>
-<td style="text-align: right;">26</td>
-<td>PIC4</td>
-<td>AUS2</td>
-<td>PIC5</td>
-<td>AUS4</td>
-<td>PIC1</td>
-</tr>
-<tr>
-<td style="text-align: right;">27</td>
-<td>FISH1</td>
-<td>PIC4</td>
-<td>PIC5</td>
-<td>AUS4</td>
-<td>PIC1</td>
-</tr>
-<tr>
-<td style="text-align: right;">28</td>
-<td>PIC1</td>
-<td>PIC4</td>
-<td>AUS2</td>
-<td>PIC2</td>
-<td>FISH1</td>
-</tr>
-<tr>
-<td style="text-align: right;">29</td>
-<td>PIC1</td>
-<td>FISH2</td>
-<td>PIC3</td>
-<td>PIC2</td>
-<td>PIC3</td>
-</tr>
-<tr>
-<td style="text-align: right;">30</td>
-<td>PIC5</td>
-<td>AUS4</td>
-<td>PIC3</td>
-<td>AUS2</td>
-<td>PIC3</td>
-</tr>
-<tr>
 <td style="text-align: right;">31</td>
-<td>PIC5</td>
-<td>PIC5</td>
+<td>PIC4</td>
+<td>AUS1</td>
+<td>AUS2</td>
+<td>AUS2</td>
 <td>PIC3</td>
-<td>FISH1</td>
-<td>AUS5</td>
 </tr>
 <tr>
 <td style="text-align: right;">32</td>
-<td>PIC1</td>
 <td>PIC5</td>
-<td>AUS2</td>
-<td>AUS3</td>
-<td>AUS5</td>
+<td>AUS1</td>
+<td>PIC5</td>
+<td>PIC4</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">33</td>
-<td>KEY</td>
-<td>AUS5</td>
-<td>KEY</td>
-<td>PIC1</td>
+<td>PIC5</td>
+<td>AUS1</td>
+<td>PIC5</td>
+<td>PIC4</td>
 <td>FISH1</td>
 </tr>
 <tr>
 <td style="text-align: right;">34</td>
-<td>AUS3</td>
-<td>PIC2</td>
-<td>AUS1</td>
-<td>PIC1</td>
+<td>AUS2</td>
+<td>PIC3</td>
+<td>PIC5</td>
+<td>FISH2</td>
 <td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">35</td>
-<td>AUS3</td>
-<td>AUS2</td>
-<td>PIC5</td>
-<td>AUS1</td>
-<td>PIC5</td>
+<td>FISH2</td>
+<td>FISH2</td>
+<td>PIC3</td>
+<td>PIC3</td>
+<td>AUS5</td>
 </tr>
 <tr>
 <td style="text-align: right;">36</td>
-<td>PIC1</td>
-<td>FISH2</td>
-<td>PIC4</td>
+<td>PIC5</td>
+<td>AUS5</td>
+<td>FISH1</td>
 <td>PIC3</td>
-<td>AUS1</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">37</td>
-<td>PIC5</td>
-<td>PIC5</td>
 <td>PIC4</td>
-<td>PIC3</td>
-<td>PIC4</td>
+<td>PIC5</td>
+<td>PIC2</td>
+<td>PIC1</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">38</td>
-<td>PIC5</td>
-<td>PIC4</td>
-<td>AUS1</td>
-<td>AUS3</td>
-<td>PIC4</td>
+<td>AUS2</td>
+<td>PIC2</td>
+<td>AUS4</td>
+<td>PIC1</td>
+<td>FISH2</td>
 </tr>
 <tr>
 <td style="text-align: right;">39</td>
-<td>FISH1</td>
-<td>PIC4</td>
-<td>AUS1</td>
-<td>PIC2</td>
 <td>AUS2</td>
+<td>PIC2</td>
+<td>PIC2</td>
+<td>AUS1</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">40</td>
-<td>PIC1</td>
-<td>AUS2</td>
-<td>PIC3</td>
-<td>PIC2</td>
-<td>PIC2</td>
+<td>KEY</td>
+<td>FISH1</td>
+<td>PIC5</td>
+<td>AUS1</td>
+<td>AUS5</td>
 </tr>
 <tr>
 <td style="text-align: right;">41</td>
-<td>AUS2</td>
-<td>FISH1</td>
-<td>PIC3</td>
+<td>AUS3</td>
 <td>AUS1</td>
-<td>PIC2</td>
+<td>FISH2</td>
+<td>FISH3</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">42</td>
-<td>AUS2</td>
-<td>PIC5</td>
-<td>PIC1</td>
-<td>FISH1</td>
+<td>PIC3</td>
 <td>AUS1</td>
+<td>AUS1</td>
+<td>PIC1</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">43</td>
-<td>AUS2</td>
+<td>PIC3</td>
+<td>PIC3</td>
 <td>PIC5</td>
-<td>PIC1</td>
 <td>PIC4</td>
-<td>AUS1</td>
+<td>FISH2</td>
 </tr>
 <tr>
 <td style="text-align: right;">44</td>
-<td>FISH1</td>
-<td>AUS3</td>
-<td>PIC1</td>
 <td>PIC4</td>
-<td>FISH4</td>
+<td>PIC3</td>
+<td>PIC5</td>
+<td>AUS3</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">45</td>
-<td>PIC3</td>
+<td>FISH1</td>
+<td>AUS1</td>
+<td>AUS1</td>
 <td>AUS3</td>
-<td>FISH2</td>
-<td>PIC4</td>
 <td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">46</td>
-<td>PIC3</td>
+<td>PIC4</td>
 <td>FISH1</td>
+<td>AUS1</td>
 <td>AUS3</td>
-<td>AUS3</td>
-<td>PIC1</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">47</td>
-<td>AUS2</td>
-<td>AUS4</td>
+<td>PIC4</td>
 <td>AUS3</td>
-<td>AUS3</td>
-<td>PIC2</td>
+<td>FISH1</td>
+<td>FISH2</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">48</td>
-<td>PIC5</td>
-<td>PIC2</td>
-<td>PIC2</td>
+<td>PIC1</td>
+<td>AUS3</td>
+<td>PIC3</td>
 <td>PIC2</td>
 <td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">49</td>
-<td>PIC5</td>
-<td>AUS2</td>
-<td>PIC2</td>
-<td>FISH1</td>
+<td>PIC1</td>
+<td>AUS3</td>
+<td>PIC3</td>
+<td>PIC1</td>
 <td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">50</td>
+<td>FISH2</td>
+<td>PIC5</td>
 <td>AUS3</td>
-<td>AUS2</td>
-<td>AUS1</td>
+<td>PIC1</td>
 <td>PIC4</td>
-<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">51</td>
+<td>PIC5</td>
+<td>FISH2</td>
 <td>AUS3</td>
-<td>PIC5</td>
-<td>PIC5</td>
+<td>PIC3</td>
 <td>PIC4</td>
-<td>FISH1</td>
 </tr>
 <tr>
 <td style="text-align: right;">52</td>
-<td>FISH2</td>
-<td>FISH1</td>
 <td>PIC5</td>
-<td>PIC5</td>
-<td>PIC2</td>
+<td>AUS2</td>
+<td>PIC3</td>
+<td>PIC3</td>
+<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">53</td>
+<td>PIC5</td>
 <td>AUS2</td>
+<td>PIC3</td>
 <td>AUS1</td>
-<td>FISH1</td>
-<td>FISH2</td>
-<td>PIC2</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">54</td>
+<td>AUS5</td>
+<td>PIC5</td>
 <td>AUS2</td>
+<td>FISH2</td>
 <td>PIC3</td>
-<td>AUS4</td>
-<td>AUS2</td>
-<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">55</td>
-<td>AUS2</td>
-<td>PIC3</td>
-<td>PIC2</td>
 <td>PIC5</td>
-<td>AUS1</td>
+<td>PIC5</td>
+<td>FISH2</td>
+<td>PIC5</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">56</td>
+<td>FISH2</td>
+<td>FISH2</td>
+<td>AUS3</td>
 <td>PIC5</td>
-<td>PIC3</td>
-<td>PIC2</td>
-<td>PIC5</td>
-<td>AUS1</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">57</td>
+<td>PIC4</td>
 <td>AUS1</td>
+<td>PIC1</td>
 <td>AUS3</td>
 <td>AUS3</td>
-<td>PIC5</td>
-<td>FISH2</td>
 </tr>
 <tr>
 <td style="text-align: right;">58</td>
+<td>PIC1</td>
 <td>AUS1</td>
-<td>FISH1</td>
+<td>AUS5</td>
 <td>AUS3</td>
-<td>PIC3</td>
-<td>PIC4</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">59</td>
-<td>FISH2</td>
-<td>AUS3</td>
+<td>PIC2</td>
+<td>PIC5</td>
+<td>PIC5</td>
 <td>PIC1</td>
-<td>PIC3</td>
-<td>PIC1</td>
+<td>FISH1</td>
 </tr>
 <tr>
 <td style="text-align: right;">60</td>
-<td>PIC5</td>
-<td>PIC3</td>
+<td>PIC2</td>
 <td>FISH1</td>
-<td>AUS1</td>
-<td>PIC1</td>
+<td>PIC5</td>
+<td>FISH1</td>
+<td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">61</td>
+<td>PIC4</td>
 <td>AUS2</td>
-<td>PIC3</td>
+<td>PIC2</td>
 <td>AUS1</td>
-<td>FISH2</td>
-<td>PIC1</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">62</td>
-<td>AUS2</td>
-<td>PIC1</td>
-<td>PIC3</td>
 <td>PIC4</td>
-<td>AUS1</td>
+<td>PIC4</td>
+<td>PIC2</td>
+<td>PIC5</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">63</td>
-<td>PIC2</td>
 <td>FISH2</td>
+<td>AUS3</td>
 <td>PIC3</td>
-<td>AUS2</td>
-<td>FISH2</td>
+<td>PIC5</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">64</td>
-<td>PIC5</td>
-<td>AUS2</td>
 <td>PIC3</td>
-<td>AUS2</td>
 <td>AUS3</td>
+<td>PIC3</td>
+<td>PIC2</td>
+<td>FISH4</td>
 </tr>
 <tr>
 <td style="text-align: right;">65</td>
-<td>PIC5</td>
+<td>PIC3</td>
+<td>FISH1</td>
 <td>AUS2</td>
-<td>AUS4</td>
-<td>AUS2</td>
-<td>PIC5</td>
+<td>PIC2</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">66</td>
-<td>FISH2</td>
+<td>AUS1</td>
+<td>AUS4</td>
 <td>AUS2</td>
-<td>PIC4</td>
-<td>FISH3</td>
-<td>AUS2</td>
+<td>AUS3</td>
+<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">67</td>
+<td>AUS1</td>
+<td>PIC4</td>
+<td>FISH2</td>
 <td>PIC3</td>
 <td>PIC5</td>
-<td>AUS4</td>
-<td>PIC1</td>
-<td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">68</td>
-<td>PIC5</td>
-<td>AUS1</td>
-<td>FISH2</td>
 <td>PIC1</td>
-<td>PIC2</td>
+<td>PIC4</td>
+<td>AUS3</td>
+<td>PIC3</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">69</td>
-<td>PIC5</td>
-<td>FISH1</td>
-<td>AUS2</td>
 <td>PIC1</td>
-<td>PIC2</td>
+<td>AUS3</td>
+<td>AUS3</td>
+<td>FISH2</td>
+<td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">70</td>
-<td>PIC4</td>
+<td>FISH1</td>
+<td>PIC3</td>
+<td>PIC1</td>
+<td>PIC1</td>
 <td>AUS2</td>
-<td>AUS2</td>
-<td>FISH2</td>
-<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">71</td>
-<td>PIC4</td>
+<td>AUS2</td>
 <td>PIC3</td>
 <td>PIC3</td>
-<td>AUS3</td>
-<td>PIC4</td>
+<td>AUS1</td>
+<td>FISH1</td>
 </tr>
 <tr>
 <td style="text-align: right;">72</td>
+<td>AUS2</td>
+<td>KEY</td>
 <td>FISH2</td>
-<td>PIC3</td>
-<td>PIC3</td>
-<td>AUS3</td>
-<td>FISH1</td>
+<td>AUS1</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">73</td>
-<td>AUS5</td>
-<td>AUS3</td>
-<td>PIC3</td>
+<td>AUS2</td>
+<td>PIC1</td>
 <td>PIC1</td>
 <td>PIC5</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">74</td>
+<td>PIC5</td>
 <td>PIC1</td>
-<td>PIC3</td>
+<td>PIC1</td>
 <td>FISH1</td>
-<td>PIC1</td>
-<td>PIC1</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">75</td>
+<td>FISH1</td>
+<td>AUS2</td>
 <td>PIC1</td>
+<td>AUS2</td>
 <td>AUS3</td>
-<td>PIC5</td>
-<td>PIC4</td>
-<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">76</td>
-<td>PIC4</td>
-<td>FISH2</td>
-<td>PIC5</td>
-<td>AUS3</td>
+<td>PIC1</td>
 <td>AUS2</td>
+<td>PIC5</td>
+<td>AUS2</td>
+<td>AUS3</td>
 </tr>
 <tr>
 <td style="text-align: right;">77</td>
-<td>PIC4</td>
-<td>PIC4</td>
-<td>AUS1</td>
-<td>PIC4</td>
-<td>PIC4</td>
+<td>PIC1</td>
+<td>KEY</td>
+<td>PIC5</td>
+<td>AUS2</td>
+<td>FISH1</td>
 </tr>
 <tr>
 <td style="text-align: right;">78</td>
-<td>PIC2</td>
 <td>AUS3</td>
+<td>AUS3</td>
+<td>PIC5</td>
+<td>PIC3</td>
 <td>AUS1</td>
-<td>AUS5</td>
-<td>AUS4</td>
 </tr>
 <tr>
 <td style="text-align: right;">79</td>
-<td>PIC2</td>
 <td>AUS3</td>
-<td>PIC5</td>
+<td>PIC4</td>
+<td>FISH1</td>
 <td>FISH3</td>
-<td>AUS4</td>
+<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">80</td>
-<td>PIC1</td>
+<td>PIC4</td>
+<td>PIC4</td>
+<td>PIC3</td>
 <td>AUS3</td>
-<td>PIC5</td>
-<td>AUS1</td>
-<td>FISH2</td>
+<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">81</td>
-<td>PIC1</td>
-<td>FISH1</td>
 <td>PIC5</td>
+<td>AUS2</td>
 <td>PIC3</td>
+<td>AUS3</td>
 <td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">82</td>
-<td>PIC3</td>
-<td>PIC3</td>
-<td>FISH1</td>
-<td>AUS1</td>
-<td>PIC5</td>
+<td>PIC2</td>
+<td>AUS2</td>
+<td>AUS4</td>
+<td>AUS3</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">83</td>
-<td>PIC3</td>
-<td>AUS1</td>
-<td>AUS1</td>
-<td>AUS1</td>
-<td>PIC5</td>
+<td>KEY</td>
+<td>FISH2</td>
+<td>AUS4</td>
+<td>PIC4</td>
+<td>PIC4</td>
 </tr>
 <tr>
 <td style="text-align: right;">84</td>
-<td>FISH2</td>
-<td>AUS1</td>
-<td>AUS1</td>
-<td>AUS1</td>
-<td>AUS1</td>
-</tr>
-<tr>
-<td style="text-align: right;">85</td>
-<td>AUS2</td>
-<td>PIC4</td>
 <td>PIC5</td>
-<td>PIC1</td>
-<td>AUS1</td>
-</tr>
-<tr>
-<td style="text-align: right;">86</td>
-<td>AUS2</td>
-<td>FISH1</td>
-<td>PIC5</td>
-<td>FISH2</td>
-<td>PIC5</td>
-</tr>
-<tr>
-<td style="text-align: right;">87</td>
-<td>PIC4</td>
-<td>PIC2</td>
-<td>AUS1</td>
-<td>PIC2</td>
-<td>PIC5</td>
-</tr>
-<tr>
-<td style="text-align: right;">88</td>
-<td>FISH1</td>
-<td>PIC2</td>
-<td>AUS1</td>
-<td>AUS1</td>
-<td>FISH2</td>
-</tr>
-<tr>
-<td style="text-align: right;">89</td>
-<td>PIC1</td>
-<td>PIC2</td>
-<td>AUS1</td>
-<td>PIC2</td>
-<td>PIC4</td>
-</tr>
-<tr>
-<td style="text-align: right;">90</td>
-<td>AUS2</td>
-<td>AUS2</td>
-<td>FISH1</td>
-<td>PIC5</td>
-<td>PIC4</td>
-</tr>
-<tr>
-<td style="text-align: right;">91</td>
-<td>AUS2</td>
 <td>AUS2</td>
 <td>PIC3</td>
 <td>FISH1</td>
+<td>PIC4</td>
+</tr>
+<tr>
+<td style="text-align: right;">85</td>
+<td>PIC1</td>
+<td>PIC4</td>
+<td>PIC3</td>
+<td>PIC5</td>
+<td>PIC2</td>
+</tr>
+<tr>
+<td style="text-align: right;">86</td>
+<td>PIC1</td>
+<td>PIC4</td>
+<td>PIC4</td>
+<td>PIC5</td>
+<td>FISH1</td>
+</tr>
+<tr>
+<td style="text-align: right;">87</td>
+<td>FISH2</td>
+<td>PIC1</td>
+<td>PIC4</td>
+<td>AUS4</td>
+<td>PIC4</td>
+</tr>
+<tr>
+<td style="text-align: right;">88</td>
+<td>PIC3</td>
+<td>FISH1</td>
+<td>PIC2</td>
+<td>AUS4</td>
+<td>PIC4</td>
+</tr>
+<tr>
+<td style="text-align: right;">89</td>
+<td>PIC3</td>
+<td>PIC2</td>
+<td>PIC5</td>
+<td>PIC1</td>
+<td>AUS2</td>
+</tr>
+<tr>
+<td style="text-align: right;">90</td>
 <td>AUS1</td>
+<td>PIC2</td>
+<td>FISH1</td>
+<td>AUS1</td>
+<td>AUS2</td>
+</tr>
+<tr>
+<td style="text-align: right;">91</td>
+<td>PIC4</td>
+<td>AUS4</td>
+<td>PIC3</td>
+<td>AUS1</td>
+<td>FISH2</td>
 </tr>
 <tr>
 <td style="text-align: right;">92</td>
-<td>AUS2</td>
+<td>PIC4</td>
+<td>PIC4</td>
+<td>PIC3</td>
 <td>PIC2</td>
-<td>AUS5</td>
 <td>AUS1</td>
-<td>PIC5</td>
 </tr>
 <tr>
 <td style="text-align: right;">93</td>
-<td>FISH2</td>
-<td>PIC2</td>
-<td>PIC5</td>
+<td>FISH1</td>
+<td>PIC4</td>
 <td>AUS1</td>
 <td>PIC4</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">94</td>
 <td>PIC5</td>
-<td>AUS3</td>
-<td>AUS2</td>
-<td>PIC3</td>
+<td>AUS1</td>
+<td>AUS1</td>
 <td>PIC4</td>
+<td>AUS1</td>
 </tr>
 <tr>
 <td style="text-align: right;">95</td>
+<td>PIC1</td>
 <td>PIC5</td>
-<td>FISH2</td>
-<td>AUS2</td>
-<td>PIC3</td>
-<td>PIC4</td>
+<td>FISH1</td>
+<td>FISH1</td>
+<td>PIC2</td>
 </tr>
 <tr>
 <td style="text-align: right;">96</td>
-<td>PIC5</td>
-<td>PIC4</td>
-<td>PIC3</td>
-<td>AUS1</td>
+<td>AUS2</td>
+<td>FISH1</td>
+<td>PIC2</td>
+<td>AUS3</td>
 <td>AUS2</td>
 </tr>
 <tr>
 <td style="text-align: right;">97</td>
-<td>FISH2</td>
 <td>AUS2</td>
-<td>PIC3</td>
-<td>PIC3</td>
-<td>FISH1</td>
+<td>AUS3</td>
+<td>AUS1</td>
+<td>PIC4</td>
+<td>FISH2</td>
 </tr>
 <tr>
 <td style="text-align: right;">98</td>
-<td>PIC5</td>
-<td>AUS2</td>
 <td>FISH2</td>
 <td>PIC2</td>
-<td>PIC3</td>
+<td>PIC1</td>
+<td>PIC2</td>
+<td>PIC1</td>
 </tr>
 <tr>
 <td style="text-align: right;">99</td>
-<td>PIC5</td>
-<td>FISH2</td>
+<td>AUS1</td>
+<td>AUS3</td>
 <td>AUS1</td>
 <td>PIC2</td>
-<td>PIC3</td>
+<td>PIC1</td>
 </tr>
 </tbody>
 </table>

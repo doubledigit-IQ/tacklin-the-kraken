@@ -1732,7 +1732,7 @@
 <h1 id="excel-calculation-in-detail">Excel Calculation in Detail<a class="headerlink" href="#excel-calculation-in-detail" title="Permanent link">&para;</a></h1>
 <p>This page explains each sheet, each block and each formula of the workbook <code>excel/TacklinTheKraken_TheoCalc.xlsx</code>.
 The page <a href="excel.html">Excel workbook</a> gives the short instructions. This page gives the full calculation.</p>
-<p>The cell addresses and the formula texts on this page come from the workbook file. The numbers are the results for math version 2.3.0.</p>
+<p>The cell addresses and the formula texts on this page come from the workbook file. The numbers are the results for math version 2.4.0.</p>
 <h2 id="1-structure-of-the-calculation">1. Structure of the calculation<a class="headerlink" href="#1-structure-of-the-calculation" title="Permanent link">&para;</a></h2>
 <p>The workbook has 12 sheets. The data moves in one direction, from the inputs to the sheet Summary:</p>
 <div class="highlight"><pre><span></span><code>   Config    Reels_Base    Reels_Bonus     inputs (yellow cells)
@@ -2298,28 +2298,28 @@ Ways!AA30:  =SUM(AA20:AA29)
 <tbody>
 <tr>
 <td>1</td>
-<td style="text-align: right;">0.3200</td>
-<td style="text-align: right;">0.7400</td>
+<td style="text-align: right;">0.2800</td>
+<td style="text-align: right;">0.7700</td>
 </tr>
 <tr>
 <td>2</td>
 <td style="text-align: right;">0.2000</td>
-<td style="text-align: right;">0.8000</td>
+<td style="text-align: right;">0.8100</td>
 </tr>
 <tr>
 <td>3</td>
-<td style="text-align: right;">0.2000</td>
-<td style="text-align: right;">0.8200</td>
+<td style="text-align: right;">0.2800</td>
+<td style="text-align: right;">0.7600</td>
 </tr>
 <tr>
 <td>4</td>
 <td style="text-align: right;">0.3600</td>
-<td style="text-align: right;">0.7200</td>
+<td style="text-align: right;">0.7100</td>
 </tr>
 <tr>
 <td>5</td>
-<td style="text-align: right;">0.3600</td>
-<td style="text-align: right;">0.7500</td>
+<td style="text-align: right;">0.3200</td>
+<td style="text-align: right;">0.7100</td>
 </tr>
 </tbody>
 </table>
@@ -2335,37 +2335,37 @@ Ways!AA30:  =SUM(AA20:AA29)
 <tbody>
 <tr>
 <td>1</td>
-<td style="text-align: right;">0.256000</td>
+<td style="text-align: right;">0.226800</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.000000</td>
 </tr>
 <tr>
 <td>2</td>
-<td style="text-align: right;">0.052480</td>
+<td style="text-align: right;">0.042560</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.000000</td>
 </tr>
 <tr>
 <td>3</td>
-<td style="text-align: right;">0.009216</td>
+<td style="text-align: right;">0.011133</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">0.046080</td>
+<td style="text-align: right;">0.055664</td>
 </tr>
 <tr>
 <td>4</td>
-<td style="text-align: right;">0.003456</td>
+<td style="text-align: right;">0.004008</td>
 <td style="text-align: right;">20</td>
-<td style="text-align: right;">0.069120</td>
+<td style="text-align: right;">0.080156</td>
 </tr>
 <tr>
 <td>5</td>
-<td style="text-align: right;">0.001659</td>
+<td style="text-align: right;">0.001806</td>
 <td style="text-align: right;">80</td>
-<td style="text-align: right;">0.132710</td>
+<td style="text-align: right;">0.144507</td>
 </tr>
 </tbody>
 </table>
-<p><code>AA5</code> = 0.247910 credits. <code>AB5</code> = 2.4791%. The total <code>AA15</code> is 3.619762 credits, and <code>AA30</code> is 2.773536 credits.</p>
+<p><code>AA5</code> = 0.280327 credits. <code>AB5</code> = 2.8033%. The total <code>AA15</code> is 3.619273 credits, and <code>AA30</code> is 2.799784 credits.</p>
 <div class="admonition note">
 <p class="admonition-title">Condition</p>
 <p>The formulas in columns L to P are correct only if reel 1 has no WILD symbol. The sheet Summary has a check for this condition.</p>
@@ -2436,9 +2436,9 @@ Fish!G40:  =SUM(C40:F40)
 <tr>
 <td><code>C36</code></td>
 <td style="text-align: right;">FISH1</td>
-<td style="text-align: right;">2.0939</td>
+<td style="text-align: right;">2.0969</td>
 <td style="text-align: right;">0.064000</td>
-<td style="text-align: right;">0.134010</td>
+<td style="text-align: right;">0.134202</td>
 </tr>
 <tr>
 <td><code>D36</code></td>
@@ -2463,7 +2463,7 @@ Fish!G40:  =SUM(C40:F40)
 </tr>
 </tbody>
 </table>
-<p><code>G36</code> = 3.916250 credits. This is the collect EV of the base game.</p>
+<p><code>G36</code> = 3.916442 credits. This is the collect EV of the base game.</p>
 <h2 id="7-sheet-trigger">7. Sheet Trigger<a class="headerlink" href="#7-sheet-trigger" title="Permanent link">&para;</a></h2>
 <h3 id="fs-symbols-for-each-reel-rows-5-to-9">FS symbols for each reel, rows 5 to 9<a class="headerlink" href="#fs-symbols-for-each-reel-rows-5-to-9" title="Permanent link">&para;</a></h3>
 <p>Columns B, C and D give the probability of 0, 1 and 2 FS symbols in the window of the reel. Column E is the sum. The sum must be 1.</p>
@@ -2591,31 +2591,31 @@ Bonus!B22:  =SUMPRODUCT(D13:N13,D18:N18)
 <tbody>
 <tr>
 <td>1</td>
-<td style="text-align: right;">2.773536</td>
-<td style="text-align: right;">14.629520</td>
+<td style="text-align: right;">2.799784</td>
+<td style="text-align: right;">14.569520</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">17.403056</td>
+<td style="text-align: right;">17.369304</td>
 </tr>
 <tr>
 <td>2</td>
-<td style="text-align: right;">2.773536</td>
+<td style="text-align: right;">2.799784</td>
 <td style="text-align: right;">9.644282</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">24.835637</td>
+<td style="text-align: right;">24.888133</td>
 </tr>
 <tr>
 <td>3</td>
-<td style="text-align: right;">2.773536</td>
+<td style="text-align: right;">2.799784</td>
 <td style="text-align: right;">9.045364</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">59.094501</td>
+<td style="text-align: right;">59.225742</td>
 </tr>
 <tr>
 <td>4</td>
-<td style="text-align: right;">2.773536</td>
+<td style="text-align: right;">2.799784</td>
 <td style="text-align: right;">8.657399</td>
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">114.309353</td>
+<td style="text-align: right;">114.571834</td>
 </tr>
 </tbody>
 </table>
@@ -2788,7 +2788,7 @@ Bonus!L40:  =L38/Config!$B$3
 <tr>
 <td><code>L35</code></td>
 <td>EV of the free spins after a 3 FS trigger</td>
-<td>343.5607 credits</td>
+<td>343.5964 credits</td>
 </tr>
 <tr>
 <td><code>N35</code></td>
@@ -2798,17 +2798,17 @@ Bonus!L40:  =L38/Config!$B$3
 <tr>
 <td><code>L38</code></td>
 <td>EV of the free spins for each base spin</td>
-<td>2.083990 credits</td>
+<td>2.084283 credits</td>
 </tr>
 <tr>
 <td><code>L39</code></td>
 <td>Mean free spins win for each trigger</td>
-<td>35.7746 x bet</td>
+<td>35.7796 x bet</td>
 </tr>
 <tr>
 <td><code>L40</code></td>
 <td>Free spins RTP</td>
-<td>20.8399%</td>
+<td>20.8428%</td>
 </tr>
 </tbody>
 </table>
@@ -2835,21 +2835,21 @@ Bonus!B44:  =IF(MAX(Config!$B$63:$B$66)&lt;=25,"OK","LIMIT EXCEEDED")
 <td>Base game: ways pays</td>
 <td><code>=Ways!$AA$15</code></td>
 <td><code>=B6/Config!$B$3</code></td>
-<td style="text-align: right;">36.1976%</td>
+<td style="text-align: right;">36.1927%</td>
 </tr>
 <tr>
 <td style="text-align: right;">7</td>
 <td>Base game: KEY and FISH collect</td>
 <td><code>=Fish!$G$36</code></td>
 <td><code>=B7/Config!$B$3</code></td>
-<td style="text-align: right;">39.1625%</td>
+<td style="text-align: right;">39.1644%</td>
 </tr>
 <tr>
 <td style="text-align: right;">8</td>
 <td>Free spins</td>
 <td><code>=Bonus!$L$38</code></td>
 <td><code>=B8/Config!$B$3</code></td>
-<td style="text-align: right;">20.8399%</td>
+<td style="text-align: right;">20.8428%</td>
 </tr>
 <tr>
 <td style="text-align: right;">9</td>
@@ -3055,23 +3055,23 @@ The other columns are formulas.</p>
 <ul>
 <li>The row below each table has the totals. The total of column D is the RTP of the simulation (round table) or the free spins RTP (free spins table). The total of column E is 1.</li>
 <li>In the free spins table, the probability is for one free spins feature. The RTP is a part of the total bet, so that the two tables use the same unit.</li>
-<li>Example: <code>I15</code> shows that one round in 819 wins 100 x bet or more.</li>
+<li>Example: <code>I15</code> shows that one round in 818 wins 100 x bet or more.</li>
 </ul>
 <h2 id="11-sheet-readme">11. Sheet ReadMe<a class="headerlink" href="#11-sheet-readme" title="Permanent link">&para;</a></h2>
 <p>This sheet gives short instructions, the model, the limits and the command that copies the inputs to the game configuration.</p>
 <h2 id="12-one-result-from-start-to-end">12. One result from start to end<a class="headerlink" href="#12-one-result-from-start-to-end" title="Permanent link">&para;</a></h2>
 <p>This section follows the 3 of a kind pay of PIC1 in the base game through the workbook.</p>
 <ol>
-<li><code>Reels_Base!B4:F103</code> holds the strips. Reel 1 has 8 PIC1 symbols and no WILD symbol.</li>
+<li><code>Reels_Base!B4:F103</code> holds the strips. Reel 1 has 7 PIC1 symbols and no WILD symbol.</li>
 <li><code>Win_Base</code> counts PIC1 and WILD in each window. For reel 1, the PIC1 column is <code>B</code> and the WILD column is <code>Q</code>.</li>
-<li><code>Ways!B5</code> = (sum of the two columns) / 100 = 0.3200. This is M(1). <code>Ways!C5</code> = 0.2000 and <code>Ways!D5</code> = 0.2000.</li>
-<li><code>Ways!J5</code> = 0.7200. This is Z(4), the probability that reel 4 shows no PIC1 and no WILD.</li>
-<li><code>Ways!N5</code> = M(1) x M(2) x M(3) x Z(4) = 0.3200 x 0.2000 x 0.2000 x 0.7200 = 0.009216 expected ways.</li>
+<li><code>Ways!B5</code> = (sum of the two columns) / 100 = 0.2800. This is M(1). <code>Ways!C5</code> = 0.2000 and <code>Ways!D5</code> = 0.2800.</li>
+<li><code>Ways!J5</code> = 0.7100. This is Z(4), the probability that reel 4 shows no PIC1 and no WILD.</li>
+<li><code>Ways!N5</code> = M(1) x M(2) x M(3) x Z(4) = 0.2800 x 0.2000 x 0.2800 x 0.7100 = 0.011133 expected ways.</li>
 <li><code>Ways!S5</code> reads the pay of 5 credits from <code>Config!D11</code>.</li>
-<li><code>Ways!X5</code> = 0.009216 x 5 = 0.046080 credits.</li>
-<li><code>Ways!AA5</code> adds the five EV cells of the symbol: 0.247910 credits.</li>
-<li><code>Ways!AA15</code> adds all pay symbols: 3.619762 credits.</li>
-<li><code>Summary!B6</code> reads <code>Ways!AA15</code>. <code>Summary!C6</code> divides by the bet: 36.1976%.</li>
+<li><code>Ways!X5</code> = 0.011133 x 5 = 0.055664 credits.</li>
+<li><code>Ways!AA5</code> adds the five EV cells of the symbol: 0.280327 credits.</li>
+<li><code>Ways!AA15</code> adds all pay symbols: 3.619273 credits.</li>
+<li><code>Summary!B6</code> reads <code>Ways!AA15</code>. <code>Summary!C6</code> divides by the bet: 36.1927%.</li>
 <li><code>Summary!C9</code> adds the three components: 96.2000%.</li>
 </ol>
 <h2 id="13-change-an-input">13. Change an input<a class="headerlink" href="#13-change-an-input" title="Permanent link">&para;</a></h2>

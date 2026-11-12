@@ -1058,26 +1058,26 @@
 <tbody>
 <tr>
 <td>Base game: ways pays</td>
-<td style="text-align: right;">3.619762</td>
-<td style="text-align: right;">36.197618%</td>
-<td style="text-align: right;">37.63%</td>
+<td style="text-align: right;">3.619273</td>
+<td style="text-align: right;">36.192728%</td>
+<td style="text-align: right;">37.62%</td>
 </tr>
 <tr>
 <td>Base game: KEY and FISH collect</td>
-<td style="text-align: right;">3.916250</td>
-<td style="text-align: right;">39.162496%</td>
+<td style="text-align: right;">3.916442</td>
+<td style="text-align: right;">39.164416%</td>
 <td style="text-align: right;">40.71%</td>
 </tr>
 <tr>
 <td>Free spins</td>
-<td style="text-align: right;">2.083990</td>
-<td style="text-align: right;">20.839897%</td>
-<td style="text-align: right;">21.66%</td>
+<td style="text-align: right;">2.084283</td>
+<td style="text-align: right;">20.842828%</td>
+<td style="text-align: right;">21.67%</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
-<td style="text-align: right;">9.620001</td>
-<td style="text-align: right;"><strong>96.200011%</strong></td>
+<td style="text-align: right;">9.619997</td>
+<td style="text-align: right;"><strong>96.199972%</strong></td>
 <td style="text-align: right;">100.00%</td>
 </tr>
 </tbody>
@@ -1096,26 +1096,26 @@
 <tr>
 <td>1</td>
 <td style="text-align: right;">x1</td>
-<td style="text-align: right;">10.3745%</td>
-<td style="text-align: right;">10.3744%</td>
+<td style="text-align: right;">10.3544%</td>
+<td style="text-align: right;">10.3542%</td>
 </tr>
 <tr>
 <td>2</td>
 <td style="text-align: right;">x2</td>
-<td style="text-align: right;">3.8813%</td>
-<td style="text-align: right;">3.8811%</td>
+<td style="text-align: right;">3.8895%</td>
+<td style="text-align: right;">3.8895%</td>
 </tr>
 <tr>
 <td>3</td>
 <td style="text-align: right;">x5</td>
-<td style="text-align: right;">3.6007%</td>
-<td style="text-align: right;">3.6005%</td>
+<td style="text-align: right;">3.6087%</td>
+<td style="text-align: right;">3.6086%</td>
 </tr>
 <tr>
 <td>4</td>
 <td style="text-align: right;">x10</td>
-<td style="text-align: right;">2.9834%</td>
-<td style="text-align: right;">2.9833%</td>
+<td style="text-align: right;">2.9903%</td>
+<td style="text-align: right;">2.9907%</td>
 </tr>
 </tbody>
 </table>
@@ -1133,23 +1133,23 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 <tbody>
 <tr>
 <td>RTP</td>
-<td style="text-align: right;">96.1986%</td>
+<td style="text-align: right;">96.1996%</td>
 <td style="text-align: right;">96.2000%</td>
 </tr>
 <tr>
 <td>RTP: base ways pays</td>
-<td style="text-align: right;">36.1975%</td>
-<td style="text-align: right;">36.1976%</td>
+<td style="text-align: right;">36.1928%</td>
+<td style="text-align: right;">36.1927%</td>
 </tr>
 <tr>
 <td>RTP: base collect</td>
-<td style="text-align: right;">39.1618%</td>
-<td style="text-align: right;">39.1625%</td>
+<td style="text-align: right;">39.1638%</td>
+<td style="text-align: right;">39.1644%</td>
 </tr>
 <tr>
 <td>RTP: free spins</td>
-<td style="text-align: right;">20.8393%</td>
-<td style="text-align: right;">20.8399%</td>
+<td style="text-align: right;">20.8430%</td>
+<td style="text-align: right;">20.8428%</td>
 </tr>
 <tr>
 <td>Standard error of the simulated RTP</td>
@@ -1158,7 +1158,7 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 </tr>
 <tr>
 <td>Difference in standard errors</td>
-<td style="text-align: right;">-1.55</td>
+<td style="text-align: right;">-0.42</td>
 <td style="text-align: right;">-</td>
 </tr>
 <tr>
@@ -1168,8 +1168,8 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 </tr>
 <tr>
 <td>Mean free spins win (x bet)</td>
-<td style="text-align: right;">35.77</td>
-<td style="text-align: right;">35.77</td>
+<td style="text-align: right;">35.78</td>
+<td style="text-align: right;">35.78</td>
 </tr>
 </tbody>
 </table>
@@ -1181,7 +1181,7 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 <li>One reel stop is one 32-byte record. A spin reads five records. The program examines only the pay symbols that can make a paying combination.</li>
 <li>The program selects FISH values only when a KEY symbol is in the window, and only for the FISH symbols in the window. The values are independent of the stop positions. Thus the win distribution is the same as in the game engine.</li>
 <li>The script <code>sim_cpp/crosscheck.py</code> gives the same reel stops to the C++ program and to the JavaScript engine. All results of 100,000 spins were equal.</li>
-<li>The run for this document played 1,000,000,000,000 rounds in 953 seconds (15.9 minutes) on 18 threads. It gave an RTP of 96.1986% with a standard error of 0.0009%. The exact RTP is 96.2000%.</li>
+<li>The run for this document played 1,000,000,000,000 rounds in 902 seconds (15.0 minutes) on 18 threads. It gave an RTP of 96.1996% with a standard error of 0.0009%. The exact RTP is 96.2000%.</li>
 <li>Each thread starts on a different seed. Thread 0 uses the seed of the <code>--seed</code> option. Each subsequent thread uses the next number. The program prints the seeds and writes them to the result file.</li>
 <li>The program writes the same result file as the JavaScript simulator. Thus <code>--json build/sim.json</code> puts its results into this document and into the workbook.</li>
 </ul>
@@ -1196,15 +1196,15 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 <tbody>
 <tr>
 <td>Standard deviation for each round</td>
-<td style="text-align: right;">9.39 x bet</td>
+<td style="text-align: right;">9.35 x bet</td>
 </tr>
 <tr>
 <td>Base spins with a win</td>
-<td style="text-align: right;">31.55%</td>
+<td style="text-align: right;">31.26%</td>
 </tr>
 <tr>
 <td>Base spins with a ways win</td>
-<td style="text-align: right;">25.81%</td>
+<td style="text-align: right;">25.74%</td>
 </tr>
 <tr>
 <td>Base spins with a collect win</td>
@@ -1212,7 +1212,7 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 </tr>
 <tr>
 <td>Rounds with a win</td>
-<td style="text-align: right;">31.94%</td>
+<td style="text-align: right;">31.72%</td>
 </tr>
 <tr>
 <td>KEY symbol in the base game</td>
@@ -1224,7 +1224,7 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 </tr>
 <tr>
 <td>Largest round win</td>
-<td style="text-align: right;">10,816.8 x bet</td>
+<td style="text-align: right;">7,562.8 x bet</td>
 </tr>
 </tbody>
 </table>
@@ -1250,137 +1250,137 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 <tr>
 <td>No win</td>
 <td style="text-align: right;">0.0000%</td>
-<td style="text-align: right;">68.0607%</td>
+<td style="text-align: right;">68.2807%</td>
 <td style="text-align: right;">1 in 1.5</td>
-<td style="text-align: right;">96.1986%</td>
+<td style="text-align: right;">96.1996%</td>
 <td style="text-align: right;">100.000000%</td>
 <td style="text-align: right;">1 in 1.00</td>
 </tr>
 <tr>
 <td>More than 0, less than 0.5</td>
-<td style="text-align: right;">3.5363%</td>
-<td style="text-align: right;">14.5515%</td>
-<td style="text-align: right;">1 in 6.9</td>
-<td style="text-align: right;">96.1986%</td>
-<td style="text-align: right;">31.939269%</td>
-<td style="text-align: right;">1 in 3.13</td>
+<td style="text-align: right;">3.4808%</td>
+<td style="text-align: right;">13.7917%</td>
+<td style="text-align: right;">1 in 7.3</td>
+<td style="text-align: right;">96.1996%</td>
+<td style="text-align: right;">31.719261%</td>
+<td style="text-align: right;">1 in 3.15</td>
 </tr>
 <tr>
 <td>0.5 to less than 1</td>
-<td style="text-align: right;">4.1340%</td>
-<td style="text-align: right;">6.2449%</td>
-<td style="text-align: right;">1 in 16.0</td>
-<td style="text-align: right;">92.6622%</td>
-<td style="text-align: right;">17.387799%</td>
-<td style="text-align: right;">1 in 5.75</td>
+<td style="text-align: right;">4.3579%</td>
+<td style="text-align: right;">6.5087%</td>
+<td style="text-align: right;">1 in 15.4</td>
+<td style="text-align: right;">92.7187%</td>
+<td style="text-align: right;">17.927529%</td>
+<td style="text-align: right;">1 in 5.58</td>
 </tr>
 <tr>
 <td>1 to less than 2</td>
-<td style="text-align: right;">6.7554%</td>
-<td style="text-align: right;">5.1495%</td>
-<td style="text-align: right;">1 in 19.4</td>
-<td style="text-align: right;">88.5282%</td>
-<td style="text-align: right;">11.142851%</td>
-<td style="text-align: right;">1 in 8.97</td>
+<td style="text-align: right;">6.9818%</td>
+<td style="text-align: right;">5.3122%</td>
+<td style="text-align: right;">1 in 18.8</td>
+<td style="text-align: right;">88.3609%</td>
+<td style="text-align: right;">11.418845%</td>
+<td style="text-align: right;">1 in 8.76</td>
 </tr>
 <tr>
 <td>2 to less than 5</td>
-<td style="text-align: right;">9.7631%</td>
-<td style="text-align: right;">3.2913%</td>
-<td style="text-align: right;">1 in 30.4</td>
-<td style="text-align: right;">81.7729%</td>
-<td style="text-align: right;">5.993316%</td>
-<td style="text-align: right;">1 in 16.69</td>
+<td style="text-align: right;">10.1822%</td>
+<td style="text-align: right;">3.4490%</td>
+<td style="text-align: right;">1 in 29.0</td>
+<td style="text-align: right;">81.3791%</td>
+<td style="text-align: right;">6.106620%</td>
+<td style="text-align: right;">1 in 16.38</td>
 </tr>
 <tr>
 <td>5 to less than 10</td>
-<td style="text-align: right;">8.5958%</td>
-<td style="text-align: right;">1.3148%</td>
-<td style="text-align: right;">1 in 76.1</td>
-<td style="text-align: right;">72.0098%</td>
-<td style="text-align: right;">2.702054%</td>
-<td style="text-align: right;">1 in 37.01</td>
+<td style="text-align: right;">8.5291%</td>
+<td style="text-align: right;">1.3051%</td>
+<td style="text-align: right;">1 in 76.6</td>
+<td style="text-align: right;">71.1969%</td>
+<td style="text-align: right;">2.657648%</td>
+<td style="text-align: right;">1 in 37.63</td>
 </tr>
 <tr>
 <td>10 to less than 20</td>
-<td style="text-align: right;">7.6177%</td>
-<td style="text-align: right;">0.5786%</td>
-<td style="text-align: right;">1 in 172.8</td>
-<td style="text-align: right;">63.4140%</td>
-<td style="text-align: right;">1.387280%</td>
-<td style="text-align: right;">1 in 72.08</td>
+<td style="text-align: right;">7.4445%</td>
+<td style="text-align: right;">0.5623%</td>
+<td style="text-align: right;">1 in 177.8</td>
+<td style="text-align: right;">62.6678%</td>
+<td style="text-align: right;">1.352498%</td>
+<td style="text-align: right;">1 in 73.94</td>
 </tr>
 <tr>
 <td>20 to less than 50</td>
-<td style="text-align: right;">6.6601%</td>
-<td style="text-align: right;">0.2344%</td>
-<td style="text-align: right;">1 in 426.6</td>
-<td style="text-align: right;">55.7963%</td>
-<td style="text-align: right;">0.808657%</td>
-<td style="text-align: right;">1 in 124</td>
+<td style="text-align: right;">6.2148%</td>
+<td style="text-align: right;">0.2180%</td>
+<td style="text-align: right;">1 in 458.8</td>
+<td style="text-align: right;">55.2233%</td>
+<td style="text-align: right;">0.790160%</td>
+<td style="text-align: right;">1 in 127</td>
 </tr>
 <tr>
 <td>50 to less than 100</td>
-<td style="text-align: right;">23.8794%</td>
-<td style="text-align: right;">0.4521%</td>
-<td style="text-align: right;">1 in 221.2</td>
-<td style="text-align: right;">49.1362%</td>
-<td style="text-align: right;">0.574225%</td>
-<td style="text-align: right;">1 in 174</td>
+<td style="text-align: right;">23.7472%</td>
+<td style="text-align: right;">0.4499%</td>
+<td style="text-align: right;">1 in 222.3</td>
+<td style="text-align: right;">49.0084%</td>
+<td style="text-align: right;">0.572197%</td>
+<td style="text-align: right;">1 in 175</td>
 </tr>
 <tr>
 <td>100 to less than 200</td>
-<td style="text-align: right;">5.2551%</td>
-<td style="text-align: right;">0.0427%</td>
-<td style="text-align: right;">1 in 2,341.2</td>
-<td style="text-align: right;">25.2568%</td>
-<td style="text-align: right;">0.122118%</td>
-<td style="text-align: right;">1 in 819</td>
+<td style="text-align: right;">5.2649%</td>
+<td style="text-align: right;">0.0428%</td>
+<td style="text-align: right;">1 in 2,337.4</td>
+<td style="text-align: right;">25.2612%</td>
+<td style="text-align: right;">0.122271%</td>
+<td style="text-align: right;">1 in 818</td>
 </tr>
 <tr>
 <td>200 to less than 500</td>
-<td style="text-align: right;">17.3039%</td>
-<td style="text-align: right;">0.0758%</td>
-<td style="text-align: right;">1 in 1,320.0</td>
-<td style="text-align: right;">20.0016%</td>
-<td style="text-align: right;">0.079406%</td>
-<td style="text-align: right;">1 in 1,259</td>
+<td style="text-align: right;">17.3418%</td>
+<td style="text-align: right;">0.0759%</td>
+<td style="text-align: right;">1 in 1,317.8</td>
+<td style="text-align: right;">19.9963%</td>
+<td style="text-align: right;">0.079489%</td>
+<td style="text-align: right;">1 in 1,258</td>
 </tr>
 <tr>
 <td>500 to less than 1000</td>
-<td style="text-align: right;">2.0657%</td>
-<td style="text-align: right;">0.0032%</td>
-<td style="text-align: right;">1 in 31,608.9</td>
-<td style="text-align: right;">2.6978%</td>
-<td style="text-align: right;">0.003646%</td>
-<td style="text-align: right;">1 in 27,431</td>
+<td style="text-align: right;">2.0533%</td>
+<td style="text-align: right;">0.0031%</td>
+<td style="text-align: right;">1 in 31,816.4</td>
+<td style="text-align: right;">2.6545%</td>
+<td style="text-align: right;">0.003605%</td>
+<td style="text-align: right;">1 in 27,738</td>
 </tr>
 <tr>
 <td>1000 to less than 2000</td>
-<td style="text-align: right;">0.5203%</td>
+<td style="text-align: right;">0.4989%</td>
 <td style="text-align: right;">0.0004%</td>
-<td style="text-align: right;">1 in 230,142.8</td>
-<td style="text-align: right;">0.6321%</td>
-<td style="text-align: right;">0.000482%</td>
-<td style="text-align: right;">1 in 207,525</td>
+<td style="text-align: right;">1 in 239,024.3</td>
+<td style="text-align: right;">0.6012%</td>
+<td style="text-align: right;">0.000462%</td>
+<td style="text-align: right;">1 in 216,389</td>
 </tr>
 <tr>
 <td>2000 to less than 5000</td>
-<td style="text-align: right;">0.1107%</td>
-<td style="text-align: right;">0.000047%</td>
-<td style="text-align: right;">1 in 2,119,856.7</td>
-<td style="text-align: right;">0.1118%</td>
-<td style="text-align: right;">0.000047%</td>
-<td style="text-align: right;">1 in 2,111,678</td>
+<td style="text-align: right;">0.1018%</td>
+<td style="text-align: right;">0.000044%</td>
+<td style="text-align: right;">1 in 2,289,649.9</td>
+<td style="text-align: right;">0.1023%</td>
+<td style="text-align: right;">0.000044%</td>
+<td style="text-align: right;">1 in 2,285,020</td>
 </tr>
 <tr>
 <td>5000 or more</td>
-<td style="text-align: right;">0.0011%</td>
-<td style="text-align: right;">0.00000018%</td>
-<td style="text-align: right;">1 in 547,345,374.9</td>
-<td style="text-align: right;">0.0011%</td>
+<td style="text-align: right;">0.0005%</td>
+<td style="text-align: right;">0.00000009%</td>
+<td style="text-align: right;">1 in 1,129,943,502.8</td>
+<td style="text-align: right;">0.0005%</td>
 <td style="text-align: right;">0.000000%</td>
-<td style="text-align: right;">1 in 547,345,375</td>
+<td style="text-align: right;">1 in 1,129,943,503</td>
 </tr>
 </tbody>
 </table>
@@ -1401,11 +1401,11 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 <tbody>
 <tr>
 <td>Mean win</td>
-<td style="text-align: right;">35.77 x bet</td>
+<td style="text-align: right;">35.78 x bet</td>
 </tr>
 <tr>
 <td>Standard deviation</td>
-<td style="text-align: right;">85.7 x bet</td>
+<td style="text-align: right;">85.2 x bet</td>
 </tr>
 <tr>
 <td>25th percentile</td>
@@ -1429,11 +1429,11 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 </tr>
 <tr>
 <td>Largest win</td>
-<td style="text-align: right;">10,816.7 x bet</td>
+<td style="text-align: right;">7,562.8 x bet</td>
 </tr>
 <tr>
 <td>Free spins with no win</td>
-<td style="text-align: right;">2.29%</td>
+<td style="text-align: right;">2.45%</td>
 </tr>
 <tr>
 <td>Mean number of free spins</td>
@@ -1449,7 +1449,7 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 </tr>
 <tr>
 <td>Free spins that play level 3</td>
-<td style="text-align: right;">13.07%</td>
+<td style="text-align: right;">13.08%</td>
 </tr>
 <tr>
 <td>Free spins that play level 4</td>
@@ -1474,137 +1474,137 @@ These results come from the C++ simulator <code>sim_cpp/krakensim</code> (see "F
 <tr>
 <td>No win</td>
 <td style="text-align: right;">0.0000%</td>
-<td style="text-align: right;">2.290%</td>
-<td style="text-align: right;">1 in 43.7</td>
-<td style="text-align: right;">20.8393%</td>
+<td style="text-align: right;">2.447%</td>
+<td style="text-align: right;">1 in 40.9</td>
+<td style="text-align: right;">20.8430%</td>
 <td style="text-align: right;">100.00000%</td>
 <td style="text-align: right;">1 in 1.00</td>
 </tr>
 <tr>
 <td>More than 0, less than 0.5</td>
-<td style="text-align: right;">0.0048%</td>
-<td style="text-align: right;">2.899%</td>
-<td style="text-align: right;">1 in 34.5</td>
-<td style="text-align: right;">20.8393%</td>
-<td style="text-align: right;">97.70960%</td>
-<td style="text-align: right;">1 in 1.02</td>
+<td style="text-align: right;">0.0045%</td>
+<td style="text-align: right;">2.663%</td>
+<td style="text-align: right;">1 in 37.5</td>
+<td style="text-align: right;">20.8430%</td>
+<td style="text-align: right;">97.55324%</td>
+<td style="text-align: right;">1 in 1.03</td>
 </tr>
 <tr>
 <td>0.5 to less than 1</td>
-<td style="text-align: right;">0.0144%</td>
-<td style="text-align: right;">3.525%</td>
-<td style="text-align: right;">1 in 28.4</td>
-<td style="text-align: right;">20.8345%</td>
-<td style="text-align: right;">94.81071%</td>
+<td style="text-align: right;">0.0140%</td>
+<td style="text-align: right;">3.468%</td>
+<td style="text-align: right;">1 in 28.8</td>
+<td style="text-align: right;">20.8385%</td>
+<td style="text-align: right;">94.88982%</td>
 <td style="text-align: right;">1 in 1.05</td>
 </tr>
 <tr>
 <td>1 to less than 2</td>
-<td style="text-align: right;">0.0622%</td>
-<td style="text-align: right;">7.401%</td>
+<td style="text-align: right;">0.0620%</td>
+<td style="text-align: right;">7.390%</td>
 <td style="text-align: right;">1 in 13.5</td>
-<td style="text-align: right;">20.8201%</td>
-<td style="text-align: right;">91.28550%</td>
-<td style="text-align: right;">1 in 1.10</td>
+<td style="text-align: right;">20.8245%</td>
+<td style="text-align: right;">91.42135%</td>
+<td style="text-align: right;">1 in 1.09</td>
 </tr>
 <tr>
 <td>2 to less than 5</td>
-<td style="text-align: right;">0.4149%</td>
-<td style="text-align: right;">21.173%</td>
-<td style="text-align: right;">1 in 4.7</td>
-<td style="text-align: right;">20.7579%</td>
-<td style="text-align: right;">83.88485%</td>
+<td style="text-align: right;">0.4107%</td>
+<td style="text-align: right;">20.947%</td>
+<td style="text-align: right;">1 in 4.8</td>
+<td style="text-align: right;">20.7625%</td>
+<td style="text-align: right;">84.03133%</td>
 <td style="text-align: right;">1 in 1.19</td>
 </tr>
 <tr>
 <td>5 to less than 10</td>
-<td style="text-align: right;">0.6910%</td>
-<td style="text-align: right;">16.995%</td>
+<td style="text-align: right;">0.6963%</td>
+<td style="text-align: right;">17.092%</td>
 <td style="text-align: right;">1 in 5.9</td>
-<td style="text-align: right;">20.3430%</td>
-<td style="text-align: right;">62.71157%</td>
+<td style="text-align: right;">20.3519%</td>
+<td style="text-align: right;">63.08451%</td>
 <td style="text-align: right;">1 in 1.59</td>
 </tr>
 <tr>
 <td>10 to less than 20</td>
-<td style="text-align: right;">1.1690%</td>
-<td style="text-align: right;">13.670%</td>
-<td style="text-align: right;">1 in 7.3</td>
-<td style="text-align: right;">19.6520%</td>
-<td style="text-align: right;">45.71685%</td>
-<td style="text-align: right;">1 in 2.19</td>
+<td style="text-align: right;">1.1910%</td>
+<td style="text-align: right;">13.944%</td>
+<td style="text-align: right;">1 in 7.2</td>
+<td style="text-align: right;">19.6556%</td>
+<td style="text-align: right;">45.99232%</td>
+<td style="text-align: right;">1 in 2.17</td>
 </tr>
 <tr>
 <td>20 to less than 50</td>
-<td style="text-align: right;">2.6067%</td>
-<td style="text-align: right;">14.805%</td>
-<td style="text-align: right;">1 in 6.8</td>
-<td style="text-align: right;">18.4830%</td>
-<td style="text-align: right;">32.04664%</td>
+<td style="text-align: right;">2.6133%</td>
+<td style="text-align: right;">14.825%</td>
+<td style="text-align: right;">1 in 6.7</td>
+<td style="text-align: right;">18.4646%</td>
+<td style="text-align: right;">32.04815%</td>
 <td style="text-align: right;">1 in 3.12</td>
 </tr>
 <tr>
 <td>50 to less than 100</td>
-<td style="text-align: right;">3.1528%</td>
-<td style="text-align: right;">8.085%</td>
+<td style="text-align: right;">3.1451%</td>
+<td style="text-align: right;">8.064%</td>
 <td style="text-align: right;">1 in 12.4</td>
-<td style="text-align: right;">15.8763%</td>
-<td style="text-align: right;">17.24158%</td>
-<td style="text-align: right;">1 in 5.80</td>
+<td style="text-align: right;">15.8512%</td>
+<td style="text-align: right;">17.22276%</td>
+<td style="text-align: right;">1 in 5.81</td>
 </tr>
 <tr>
 <td>100 to less than 200</td>
-<td style="text-align: right;">3.4442%</td>
-<td style="text-align: right;">4.328%</td>
+<td style="text-align: right;">3.4413%</td>
+<td style="text-align: right;">4.321%</td>
 <td style="text-align: right;">1 in 23.1</td>
-<td style="text-align: right;">12.7235%</td>
-<td style="text-align: right;">9.15649%</td>
+<td style="text-align: right;">12.7061%</td>
+<td style="text-align: right;">9.15884%</td>
 <td style="text-align: right;">1 in 10.92</td>
 </tr>
 <tr>
 <td>200 to less than 500</td>
-<td style="text-align: right;">6.6010%</td>
-<td style="text-align: right;">4.208%</td>
-<td style="text-align: right;">1 in 23.8</td>
-<td style="text-align: right;">9.2793%</td>
-<td style="text-align: right;">4.82872%</td>
-<td style="text-align: right;">1 in 20.71</td>
+<td style="text-align: right;">6.6300%</td>
+<td style="text-align: right;">4.225%</td>
+<td style="text-align: right;">1 in 23.7</td>
+<td style="text-align: right;">9.2649%</td>
+<td style="text-align: right;">4.83818%</td>
+<td style="text-align: right;">1 in 20.67</td>
 </tr>
 <tr>
 <td>500 to less than 1000</td>
-<td style="text-align: right;">2.0466%</td>
-<td style="text-align: right;">0.538%</td>
-<td style="text-align: right;">1 in 186.0</td>
-<td style="text-align: right;">2.6783%</td>
-<td style="text-align: right;">0.62044%</td>
-<td style="text-align: right;">1 in 161</td>
+<td style="text-align: right;">2.0339%</td>
+<td style="text-align: right;">0.534%</td>
+<td style="text-align: right;">1 in 187.2</td>
+<td style="text-align: right;">2.6349%</td>
+<td style="text-align: right;">0.61344%</td>
+<td style="text-align: right;">1 in 163</td>
 </tr>
 <tr>
 <td>1000 to less than 2000</td>
-<td style="text-align: right;">0.5200%</td>
-<td style="text-align: right;">0.075%</td>
-<td style="text-align: right;">1 in 1,341.3</td>
-<td style="text-align: right;">0.6317%</td>
-<td style="text-align: right;">0.08268%</td>
-<td style="text-align: right;">1 in 1,209</td>
+<td style="text-align: right;">0.4986%</td>
+<td style="text-align: right;">0.072%</td>
+<td style="text-align: right;">1 in 1,393.0</td>
+<td style="text-align: right;">0.6009%</td>
+<td style="text-align: right;">0.07930%</td>
+<td style="text-align: right;">1 in 1,261</td>
 </tr>
 <tr>
 <td>2000 to less than 5000</td>
-<td style="text-align: right;">0.1107%</td>
-<td style="text-align: right;">0.008%</td>
-<td style="text-align: right;">1 in 12,350.5</td>
-<td style="text-align: right;">0.1118%</td>
-<td style="text-align: right;">0.00813%</td>
-<td style="text-align: right;">1 in 12,303</td>
+<td style="text-align: right;">0.1017%</td>
+<td style="text-align: right;">0.007%</td>
+<td style="text-align: right;">1 in 13,339.1</td>
+<td style="text-align: right;">0.1023%</td>
+<td style="text-align: right;">0.00751%</td>
+<td style="text-align: right;">1 in 13,312</td>
 </tr>
 <tr>
 <td>5000 or more</td>
-<td style="text-align: right;">0.0011%</td>
-<td style="text-align: right;">0.000031%</td>
-<td style="text-align: right;">1 in 3,188,420.7</td>
-<td style="text-align: right;">0.0011%</td>
-<td style="text-align: right;">0.00003%</td>
-<td style="text-align: right;">1 in 3,188,421</td>
+<td style="text-align: right;">0.0005%</td>
+<td style="text-align: right;">0.000015%</td>
+<td style="text-align: right;">1 in 6,582,226.1</td>
+<td style="text-align: right;">0.0005%</td>
+<td style="text-align: right;">0.00002%</td>
+<td style="text-align: right;">1 in 6,582,226</td>
 </tr>
 </tbody>
 </table>
