@@ -990,9 +990,9 @@
 <li>The C++ simulator and the JavaScript engine give the same result for 100,000 random spins.</li>
 <li>The simulation agrees with the exact values: the total RTP, each RTP component, the trigger frequency and the level probabilities.</li>
 </ol>
-<p>Microsoft Excel also calculated the workbook of version 2.7.0. The result was the same as the exact calculator (total RTP 96.2000313739%).</p>
+<p>Microsoft Excel also calculated the workbook of version 2.8.0. The result was the same as the exact calculator (total RTP 96.2000347019%).</p>
 <h2 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h2>
-<p>35 of 35 checks passed.</p>
+<p>56 of 56 checks passed.</p>
 <table>
 <thead>
 <tr>
@@ -1020,12 +1020,22 @@
 <tr>
 <td>Workbook check cells are all OK</td>
 <td>PASS</td>
-<td>7 check cells</td>
+<td>6 check cells</td>
 </tr>
 <tr>
 <td>Summary column D shows 1 / probability for each probability row, and no other row (shipped configuration)</td>
 <td>PASS</td>
 <td>15 rows</td>
+</tr>
+<tr>
+<td>Workbook median of the paid spins of a session equals the session simulation (build/sessions.json)</td>
+<td>PASS</td>
+<td>workbook 172, simulation 172</td>
+</tr>
+<tr>
+<td>Ways sheet equals exact_calc.py for each symbol and each n of a kind (shipped configuration)</td>
+<td>PASS</td>
+<td>400 values compared, largest difference 9.76e-19</td>
 </tr>
 <tr>
 <td>Workbook fish statistics equal exact_calc.py (shipped configuration)</td>
@@ -1138,9 +1148,64 @@
 <td></td>
 </tr>
 <tr>
+<td>Workbook equals exact_calc.py (variant D: WILD on reel 1 of the base reels, WILD on all the bonus reels)</td>
+<td>PASS</td>
+<td>largest relative difference 3.30e-15</td>
+</tr>
+<tr>
+<td>Ways sheet equals exact_calc.py for each symbol and each n of a kind (variant D, WILD on reel 1)</td>
+<td>PASS</td>
+<td>400 values compared, largest difference 0.00e+00</td>
+</tr>
+<tr>
+<td>Summary column D shows 1 / probability (variant D)</td>
+<td>PASS</td>
+<td>15 rows</td>
+</tr>
+<tr>
+<td>Workbook fish statistics equal exact_calc.py (variant D)</td>
+<td>PASS</td>
+<td>335 values compared, largest relative difference 9.57e-15</td>
+</tr>
+<tr>
+<td>Workbook statistics of each value of the top FISH symbol equal exact_calc.py (variant D)</td>
+<td>PASS</td>
+<td>60 values compared, largest relative difference 5.07e-13</td>
+</tr>
+<tr>
+<td>Workbook fish statistics: RTP check cells are OK (variant D)</td>
+<td>PASS</td>
+<td>OK; OK</td>
+</tr>
+<tr>
+<td>excel_to_config.py reads variant D correctly</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
 <td>JavaScript engine equals the Python evaluator on random stops</td>
 <td>PASS</td>
 <td>40000 spins compared, 0 different</td>
+</tr>
+<tr>
+<td>Test configuration config/test_wild_reel1.json is the shipped configuration with the WILD changes of tools/make_wild_reel1_test.py</td>
+<td>PASS</td>
+<td>WILD on reel 1: base 4, bonus 3</td>
+</tr>
+<tr>
+<td>Exact ways calculation equals a full enumeration, each way counted one by one (shipped configuration)</td>
+<td>PASS</td>
+<td>300 exact values compared</td>
+</tr>
+<tr>
+<td>Exact ways calculation equals a full enumeration, each way counted one by one (test configuration, WILD on reel 1)</td>
+<td>PASS</td>
+<td>300 exact values compared</td>
+</tr>
+<tr>
+<td>JavaScript engine equals the Python evaluator on random stops (test configuration, WILD on reel 1)</td>
+<td>PASS</td>
+<td>100000 spins compared, 0 different</td>
 </tr>
 <tr>
 <td>C++ simulator equals the JavaScript engine on random stops</td>
@@ -1148,14 +1213,19 @@
 <td>100000 spins compared, 0 different</td>
 </tr>
 <tr>
+<td>C++ simulator equals the JavaScript engine on random stops (test configuration, WILD on reel 1)</td>
+<td>PASS</td>
+<td>100000 spins compared, 0 different</td>
+</tr>
+<tr>
 <td>Simulated RTP is within 3 standard errors of the exact RTP</td>
 <td>PASS</td>
-<td>sim 0.962010, exact 0.962000, SE 0.000009, z = +1.05, rounds 1.00e+12</td>
+<td>sim 0.962009, exact 0.962000, SE 0.000009, z = +0.98, rounds 1.00e+12</td>
 </tr>
 <tr>
 <td>Simulated RTP component baseWays is near the exact value</td>
 <td>PASS</td>
-<td>difference +0.000004</td>
+<td>difference +0.000003</td>
 </tr>
 <tr>
 <td>Simulated RTP component baseFish is near the exact value</td>
@@ -1176,6 +1246,41 @@
 <td>Simulated level probabilities are near the exact values</td>
 <td>PASS</td>
 <td>largest difference 0.00000</td>
+</tr>
+<tr>
+<td>Simulated sessions: the RTP is within 3 standard errors of the exact RTP, and the mean paid spins agree with the balance</td>
+<td>PASS</td>
+<td>RTP 0.962008, z = +0.66, 4.00e+08 sessions, 6.27e+11 rounds, mean 1566.59 paid spins</td>
+</tr>
+<tr>
+<td>Simulated sessions: the median is clear (cumulative probabilities more than 4 standard errors from 50%)</td>
+<td>PASS</td>
+<td>median 172, P(&lt;= 171) = 0.498040, P(&lt;= 172) = 0.500257, SE 0.000025</td>
+</tr>
+<tr>
+<td>Simulated sessions: the JavaScript engine gives the same distribution near the median as the C++ simulator</td>
+<td>PASS</td>
+<td>JavaScript median 172 (4.0e+06 sessions), largest difference 0.09 standard errors</td>
+</tr>
+<tr>
+<td>WILD on reel 1: simulated RTP of the test configuration is within 3 standard errors of the exact RTP (1,000,000,000 rounds or more)</td>
+<td>PASS</td>
+<td>sim 1.215098, exact 1.214627, SE 0.000334, z = +1.41, rounds 1.00e+09</td>
+</tr>
+<tr>
+<td>WILD on reel 1: simulated RTP components of the test configuration are near the exact values</td>
+<td>PASS</td>
+<td>largest difference 0.000270</td>
+</tr>
+<tr>
+<td>WILD on reel 1: simulated base spins with a ways win and trigger frequency are near the exact values</td>
+<td>PASS</td>
+<td>ways hit difference -0.0000150, trigger relative difference -0.00019</td>
+</tr>
+<tr>
+<td>WILD on reel 1: simulation of 1,000,000,000,000 rounds (test configuration of version 2.7.0) is within 3 standard errors of the exact RTP</td>
+<td>PASS</td>
+<td>sim 1.224093, exact 1.224080, z = +1.18; the evaluation with no rule is 355 standard errors away</td>
 </tr>
 </tbody>
 </table>
@@ -1246,8 +1351,32 @@
 <td>Shown correctly</td>
 </tr>
 <tr>
-<td>Configuration with a WILD symbol on reel 1</td>
+<td>Configuration with a WILD symbol on reel 1 (versions before the rule for ways with only WILD symbols)</td>
 <td>Rejected with a message</td>
+</tr>
+<tr>
+<td>Test configuration with WILD on reel 1, made from version 2.7.0 (<code>build/test_wild_reel1_v2.7.0.json</code>): simulation of 1,000,000,000,000 rounds with the C++ simulator against the exact calculator</td>
+<td>Simulated RTP 122.4093%, exact RTP 122.4080%. The difference was +1.18 standard errors. Each RTP component was nearer than 3 standard errors to its exact value. The base spins with a ways win were 29.7191% (exact 29.7191%).</td>
+</tr>
+<tr>
+<td>Test configuration with WILD on reel 1 of this version (<code>config/test_wild_reel1.json</code>): simulation of 1,000,000,000 rounds with the C++ simulator against the exact calculator</td>
+<td>Simulated RTP 121.5098%, exact RTP 121.4627%. The difference was +1.41 standard errors.</td>
+</tr>
+<tr>
+<td>Exact ways calculation against a full enumeration of the reel sets, with each way counted one by one (delivered configuration and test configuration with WILD on reel 1)</td>
+<td>All values were equal as exact fractions (300 values for each configuration: expected ways, ways with only WILD symbols, probability of each n of a kind).</td>
+</tr>
+<tr>
+<td>Test configuration with WILD on reel 1 in the workbook: the cross-check writes its inputs into a copy of the workbook</td>
+<td>The RTP values and the cells of the two blocks of the sheet <code>Ways</code> were equal to the exact calculator. Microsoft Excel calculated the same total RTP for this copy (121.4627%).</td>
+</tr>
+<tr>
+<td>Version 2.7.0: game of the built document after the change of the engine for WILD on reel 1: forced big ways win, KEY with FISH4 and small ways win, then 8 usual rounds</td>
+<td>The balance was equal to the start balance minus the bets plus the wins (10,000 - 110 + 715 = 10,605 credits). The rules text of the game did not change. The browser showed no error.</td>
+</tr>
+<tr>
+<td>Version 2.7.0: configuration after the change of the engine and the C++ simulator for WILD on reel 1</td>
+<td>The exact RTP did not change. The C++ simulator gave the same result file as the earlier program for the same seed (200,000,000 rounds). Its speed did not change.</td>
 </tr>
 <tr>
 <td>Version 2.0.0: KEY symbols on reels 1, 2 and 3; all forced results of the demo suite</td>
@@ -1334,6 +1463,30 @@
 <td>The largest difference was 1.93 standard errors.</td>
 </tr>
 <tr>
+<td>Session mode of the C++ simulator (400,000,000 sessions with a start balance of 60 x bet) against the same sessions with the JavaScript engine of the game (4,000,000 sessions, program <code>sim/sessions.mjs</code>)</td>
+<td>The C++ simulator gave a median of 172 paid spins. The JavaScript engine gave 172. The cumulative probabilities at 171 and 172 paid spins were different by 0.09 standard errors at most.</td>
+</tr>
+<tr>
+<td>Session mode of the C++ simulator: RTP of all the sessions, and the mean number of paid spins against the balance</td>
+<td>The RTP was 96.2008% (exact RTP 96.2000%). Mean paid spins x bet x (1 - RTP of the sessions) was equal to the start balance minus the mean balance at the end.</td>
+</tr>
+<tr>
+<td>Version 2.8.0: all forced results of the demo suite with the new base reel strips (50 scenarios, 10 searches for each scenario, program <code>sim/forces_test.mjs</code>)</td>
+<td>Each search found reel stops. The engine gave the wanted result for each of them.</td>
+</tr>
+<tr>
+<td>Version 2.8.0: forced stops 24, 16, 29, 69, 2 in the game (a WILD symbol on reels 1, 2 and 3; example 5 of the page Game rules)</td>
+<td>The game paid 62 credits, the same as the example. The way with only WILD symbols paid as PIC1. The balance was equal to the start balance minus the bet plus the win. The rules text of the game showed the rule for ways with only WILD symbols. The browser showed no error.</td>
+</tr>
+<tr>
+<td>Volume control of the game: output signal at the volume 100%, 50%, 10% and 0%, measured in the browser</td>
+<td>The signal was in proportion to the volume (ratios 0.501 and 0.100; no signal at 0%). The note symbol set the sound off and on. The slider set the sound on again. The settings were the same after the page loaded again. The space bar started a spin while the slider had the focus. The browser showed no error.</td>
+</tr>
+<tr>
+<td>Meter TOTAL WON in the free spins: forced free spins features in the game and in the game of the built document (18 free spins in levels 1 and 2), meters read 20 times each second</td>
+<td>The meter was hidden in the base game and showed 0 at the start of the free spins. In each of 1,100 samples it was equal to the win of the earlier free spins plus the meter WIN. It did not decrease and was not more than the engine total. At the end it showed 237 credits, equal to the engine total and to the increase of the balance. The browser showed no error.</td>
+</tr>
+<tr>
 <td>Theme sets D and E with their own game texts</td>
 <td>The symbols and the texts showed correctly. A forced collect of the golden top symbol paid 2005 credits.</td>
 </tr>
@@ -1383,7 +1536,7 @@
 </tr>
 <tr>
 <td>The game in the built document (page Play the game), from a web server</td>
-<td>The game started. The math version was 2.7.0. The balance was equal to the start balance minus the bets plus the wins. The browser showed no error.</td>
+<td>The game started. The math version was 2.8.0. The balance was equal to the start balance minus the bets plus the wins. The browser showed no error.</td>
 </tr>
 </tbody>
 </table>

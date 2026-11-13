@@ -15,6 +15,7 @@ export class Game {
     this.assets = assets; this.sound = sound; this.view = view; this.dom = dom;
     this.balance = 10000;
     this.mode = 'base'; this.bonus = null;
+    this.bonusBase = null;                                   // free spins: win of the feature before the spin on the reels
     this.busy = false; this.skip = false; this.turbo = false; this.auto = false;
     this.queue = [];                       // forced outcomes from the demo suite
     this.listeners = {};
@@ -113,7 +114,20 @@ export class Game {
 
   // ------------------------------------------------------------ small UI helpers
   setBalance(v) { this.balance = v; this.dom.balance.textContent = fmt(v); }
-  setWin(v) { this.winShown = v; this.dom.win.textContent = fmt(v); }
+  setWin(v) {
+    this.winShown = v;
+    this.dom.win.textContent = fmt(v);
+    // free spins: the TOTAL WON meter counts with the win of the spin
+    if (this.bonusBase !== null) this.dom.totalWon.textContent = fmt(this.bonusBase + Math.round(v));
+  }
+
+  /** Free spins: show the TOTAL WON meter (base = the win of the free spins before this spin), or hide it (null). */
+  setBonusTotal(base) {
+    this.bonusBase = base;
+    this.dom.totalMeter.classList.toggle('hidden', base === null);
+    this.dom.hud.classList.toggle('bonus', base !== null);
+    if (base !== null) this.dom.totalWon.textContent = fmt(base);
+  }
   setStatus(t) { this.dom.status.textContent = t; }
 
   wait(ms) {
@@ -671,14 +685,18 @@ export class Game {
     this.applySkin();
     this.renderLadder(state);
     this.setBonusHud({ spinsLeft: state.spinsLeft, keys: state.keys, total: 0 });
+    this.setWin(0);
+    this.setBonusTotal(0);
     while (!state.done) {
       this.skip = false;
       await this.wait(320);
       const pre = { spinsLeft: state.spinsLeft, keys: state.keys, level: state.level };
       const forced = this.takeForced('bonus');
+      const before = state.totalWin;
       const r = bonusSpin(model, state, this.rng, forced, this.outs.bonus);
       const d = describe(model, r.out);
       const vals = r.out.fishVals.map((v) => Int32Array.from(v));
+      this.setBonusTotal(before);
       this.setWin(0);
       this.setBonusHud({ spinsLeft: pre.spinsLeft - 1 });
       this.setStatus(`FREE SPIN  -  LEVEL ${pre.level}  -  x${r.multiplier}`);
@@ -691,6 +709,8 @@ export class Game {
       }
       await this.presentWins(d, r.win, { isBonus: true, mult: r.multiplier });
       this.setBonusHud({ total: state.totalWin });
+      if (before + r.win !== state.totalWin) console.error('free spins total differs from the engine result', before, r.win, state.totalWin);
+      this.setBonusTotal(state.totalWin);                    // the win of this spin is now in the total
       if (r.event === 'levelUp') {
         sound.levelUp();
         this.skip = false;
@@ -713,6 +733,7 @@ export class Game {
     view.setStrips(this.names.base, this.display.base, this.lastBaseStops);
     this.applySkin();
     this.renderLadder(null);
+    this.setBonusTotal(null);
     this.setWin(state.totalWin);
     this.setStatus(`Free spins win ${fmt(state.totalWin)}`);
     return state.totalWin;
@@ -743,6 +764,8 @@ export class Game {
         <li>A way pays from reel 1 to the right. The same symbol must be on adjacent reels.</li>
         <li>Number of ways = the number of that symbol on each reel in the way, multiplied together.</li>
         <li>${pic(cfg.symbols.wild, 'WILD').replace('<img', '<img style="width:34px;height:34px;vertical-align:middle"')} WILD substitutes for all PIC and AUS symbols. In the base game, WILD is on ${reelsOf('base', cfg.symbols.wild)}.</li>
+        ${cfg.reels.base[0].includes(cfg.symbols.wild) || cfg.reels.bonus[0].includes(cfg.symbols.wild)
+    ? `<li>A way with only WILD symbols pays one time, as ${pic(cfg.symbols.pays[0], cfg.symbols.pays[0]).replace('<img', '<img style="width:34px;height:34px;vertical-align:middle"')} (the top symbol). For each other symbol, a paying way has one or more of that symbol.</li>` : ''}
         <li>FISH, ${K} and ${this.L.fs} symbols stop a way.</li>
       </ul>
       <h3>${K} AND ${this.L.item.toUpperCase()} VALUES</h3>

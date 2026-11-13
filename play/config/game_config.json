@@ -1,7 +1,7 @@
 {
  "meta": {
   "name": "Tacklin' the Kraken",
-  "mathVersion": "2.7.0",
+  "mathVersion": "2.8.0",
   "targetRtp": 0.962
  },
  "bet": 10,
@@ -37,7 +37,7 @@
   },
   "weights": {
    "base": {
-    "FISH1": [5005, 1995, 2000, 1000],
+    "FISH1": [5013, 1995, 1992, 1000],
     "FISH2": [55, 27, 12, 6],
     "FISH3": [84, 12, 3, 1],
     "FISH4": [30, 1]
@@ -97,7 +97,7 @@
    "FISH3": [0, 0, 0, 1, 0],
    "FISH4": [0, 0, 0, 0, 1],
    "KEY": [1, 1, 1, 0, 0],
-   "WILD": [0, 1, 1, 1, 1],
+   "WILD": [1, 1, 1, 1, 1],
    "FS": [1, 1, 1, 1, 1]
   },
   "bonus": {
@@ -134,15 +134,20 @@
    {"FISH1": 7, "FISH2": 6, "FISH4": 1, "PIC1": 9, "PIC2": 12, "PIC3": 7, "PIC4": 14, "PIC5": 12, "AUS1": 15, "AUS2": 6, "AUS3": 7, "AUS4": 2, "AUS5": 2}
   ],
   "maxAusRun": 3,
-  "bonusSeed": 374
+  "bonusSeed": 374,
+  "handEdits": [
+   {"set": "base", "reel": 1, "position": 27, "from": "AUS5", "to": "WILD"},
+   {"set": "base", "reel": 2, "position": 0, "from": "WILD", "to": "PIC3"},
+   {"set": "base", "reel": 5, "position": 35, "from": "WILD", "to": "PIC3"}
+  ]
  },
  "reels": {
   "base": [
-   ["AUS1", "PIC3", "AUS2", "FISH2", "AUS2", "AUS2", "PIC5", "PIC4", "PIC1", "PIC1", "AUS2", "FISH1", "AUS5", "PIC4", "PIC5", "PIC2", "PIC2", "AUS3", "FS", "AUS2", "PIC4", "PIC4", "AUS2", "PIC1", "AUS4", "AUS4", "PIC5", "AUS5", "PIC3", "AUS2", "PIC1", "AUS3", "AUS3", "FISH1", "AUS1", "PIC4", "AUS1", "PIC1", "AUS2", "AUS2", "PIC1", "AUS2", "PIC5", "PIC5", "AUS2", "PIC5", "AUS4", "AUS4", "PIC5", "AUS5", "FISH1", "AUS4", "PIC4", "PIC4", "PIC4", "AUS2", "PIC3", "PIC3", "AUS2", "PIC4", "AUS4", "AUS4", "AUS4", "PIC2", "AUS3", "AUS3", "FISH1", "AUS4", "AUS4", "PIC5", "PIC3", "PIC3", "AUS2", "FS", "AUS5", "PIC2", "PIC5", "AUS5", "PIC1", "PIC5", "AUS5", "AUS5", "FS", "AUS4", "AUS4", "PIC5", "AUS1", "PIC4", "PIC4", "AUS1", "KEY", "AUS4", "AUS4", "AUS4", "PIC2", "AUS3", "AUS3", "PIC5", "PIC5", "AUS1"],
-   ["WILD", "AUS3", "AUS3", "PIC5", "AUS1", "PIC2", "PIC2", "AUS1", "PIC2", "AUS5", "AUS5", "FS", "AUS5", "AUS5", "AUS5", "PIC5", "PIC5", "AUS3", "AUS3", "WILD", "AUS1", "PIC4", "AUS3", "AUS3", "AUS3", "FS", "AUS4", "AUS4", "PIC5", "PIC2", "PIC2", "AUS5", "FISH1", "PIC4", "PIC4", "AUS1", "PIC3", "AUS2", "AUS2", "PIC3", "AUS5", "AUS5", "KEY", "AUS5", "AUS5", "PIC3", "AUS4", "AUS4", "PIC4", "AUS4", "AUS4", "PIC3", "PIC3", "AUS2", "AUS2", "PIC4", "PIC4", "AUS2", "PIC2", "AUS3", "AUS3", "FISH2", "AUS4", "PIC3", "AUS3", "AUS3", "AUS3", "PIC4", "WILD", "AUS1", "AUS1", "PIC4", "PIC4", "AUS1", "AUS1", "AUS1", "FISH1", "AUS2", "AUS2", "PIC3", "AUS5", "AUS5", "PIC3", "PIC3", "AUS2", "AUS2", "FISH1", "AUS2", "PIC5", "AUS3", "PIC3", "AUS3", "AUS3", "FISH1", "PIC1", "PIC1", "AUS2", "AUS2", "PIC5", "AUS1"],
+   ["AUS1", "PIC3", "AUS2", "FISH2", "AUS2", "AUS2", "PIC5", "PIC4", "PIC1", "PIC1", "AUS2", "FISH1", "AUS5", "PIC4", "PIC5", "PIC2", "PIC2", "AUS3", "FS", "AUS2", "PIC4", "PIC4", "AUS2", "PIC1", "AUS4", "AUS4", "PIC5", "WILD", "PIC3", "AUS2", "PIC1", "AUS3", "AUS3", "FISH1", "AUS1", "PIC4", "AUS1", "PIC1", "AUS2", "AUS2", "PIC1", "AUS2", "PIC5", "PIC5", "AUS2", "PIC5", "AUS4", "AUS4", "PIC5", "AUS5", "FISH1", "AUS4", "PIC4", "PIC4", "PIC4", "AUS2", "PIC3", "PIC3", "AUS2", "PIC4", "AUS4", "AUS4", "AUS4", "PIC2", "AUS3", "AUS3", "FISH1", "AUS4", "AUS4", "PIC5", "PIC3", "PIC3", "AUS2", "FS", "AUS5", "PIC2", "PIC5", "AUS5", "PIC1", "PIC5", "AUS5", "AUS5", "FS", "AUS4", "AUS4", "PIC5", "AUS1", "PIC4", "PIC4", "AUS1", "KEY", "AUS4", "AUS4", "AUS4", "PIC2", "AUS3", "AUS3", "PIC5", "PIC5", "AUS1"],
+   ["PIC3", "AUS3", "AUS3", "PIC5", "AUS1", "PIC2", "PIC2", "AUS1", "PIC2", "AUS5", "AUS5", "FS", "AUS5", "AUS5", "AUS5", "PIC5", "PIC5", "AUS3", "AUS3", "WILD", "AUS1", "PIC4", "AUS3", "AUS3", "AUS3", "FS", "AUS4", "AUS4", "PIC5", "PIC2", "PIC2", "AUS5", "FISH1", "PIC4", "PIC4", "AUS1", "PIC3", "AUS2", "AUS2", "PIC3", "AUS5", "AUS5", "KEY", "AUS5", "AUS5", "PIC3", "AUS4", "AUS4", "PIC4", "AUS4", "AUS4", "PIC3", "PIC3", "AUS2", "AUS2", "PIC4", "PIC4", "AUS2", "PIC2", "AUS3", "AUS3", "FISH2", "AUS4", "PIC3", "AUS3", "AUS3", "AUS3", "PIC4", "WILD", "AUS1", "AUS1", "PIC4", "PIC4", "AUS1", "AUS1", "AUS1", "FISH1", "AUS2", "AUS2", "PIC3", "AUS5", "AUS5", "PIC3", "PIC3", "AUS2", "AUS2", "FISH1", "AUS2", "PIC5", "AUS3", "PIC3", "AUS3", "AUS3", "FISH1", "PIC1", "PIC1", "AUS2", "AUS2", "PIC5", "AUS1"],
    ["AUS1", "AUS1", "PIC5", "AUS4", "AUS4", "FISH1", "AUS1", "AUS1", "PIC2", "AUS1", "AUS1", "AUS1", "PIC5", "AUS5", "AUS5", "WILD", "PIC2", "AUS5", "PIC5", "PIC5", "WILD", "AUS5", "AUS5", "AUS5", "PIC5", "PIC5", "AUS5", "PIC5", "PIC2", "AUS2", "AUS2", "WILD", "AUS4", "AUS4", "PIC5", "AUS3", "AUS3", "AUS3", "KEY", "AUS2", "AUS2", "PIC3", "PIC3", "AUS2", "PIC3", "AUS5", "AUS5", "AUS5", "PIC3", "PIC3", "PIC5", "PIC5", "PIC5", "AUS3", "FISH1", "AUS4", "PIC4", "PIC4", "AUS3", "AUS3", "PIC4", "AUS5", "FISH2", "AUS4", "PIC1", "PIC1", "AUS1", "AUS1", "PIC2", "AUS4", "PIC3", "PIC2", "PIC2", "AUS2", "PIC3", "AUS4", "AUS4", "FISH1", "PIC1", "PIC1", "AUS2", "PIC4", "AUS2", "AUS2", "FS", "AUS4", "AUS4", "PIC3", "PIC3", "AUS4", "PIC4", "AUS4", "PIC3", "PIC3", "AUS2", "FS", "AUS5", "AUS5", "PIC5", "AUS1"],
    ["AUS1", "AUS1", "PIC2", "PIC2", "AUS1", "AUS1", "FS", "AUS5", "AUS5", "PIC4", "PIC4", "AUS3", "WILD", "AUS1", "AUS1", "PIC3", "PIC3", "AUS4", "PIC4", "AUS5", "PIC3", "AUS3", "PIC4", "AUS3", "AUS3", "PIC2", "AUS2", "PIC3", "AUS1", "PIC3", "AUS5", "FISH1", "AUS5", "AUS5", "PIC4", "PIC1", "AUS3", "AUS3", "PIC3", "PIC3", "AUS5", "PIC5", "FS", "AUS3", "PIC2", "AUS1", "AUS1", "PIC2", "PIC5", "AUS4", "PIC4", "PIC2", "AUS5", "FISH1", "AUS5", "AUS5", "PIC4", "AUS4", "PIC1", "PIC1", "AUS3", "PIC3", "AUS2", "AUS2", "WILD", "AUS2", "AUS2", "PIC2", "PIC2", "AUS3", "PIC5", "PIC5", "AUS2", "PIC5", "PIC5", "AUS3", "FISH3", "AUS3", "PIC1", "AUS4", "AUS4", "AUS4", "FISH2", "AUS4", "PIC2", "AUS5", "PIC1", "AUS1", "AUS1", "AUS1", "WILD", "AUS2", "AUS2", "PIC3", "AUS2", "PIC3", "FISH1", "AUS3", "AUS3", "PIC1"],
-   ["PIC5", "PIC5", "AUS5", "AUS5", "PIC1", "AUS4", "PIC3", "AUS1", "FISH4", "AUS3", "PIC5", "AUS1", "AUS1", "PIC3", "AUS2", "PIC2", "PIC2", "AUS3", "PIC5", "AUS4", "FISH1", "AUS4", "AUS4", "AUS4", "PIC3", "PIC2", "PIC2", "PIC2", "FISH2", "AUS2", "AUS2", "PIC4", "AUS5", "AUS5", "AUS5", "WILD", "AUS3", "PIC4", "AUS2", "PIC1", "PIC1", "AUS3", "AUS3", "PIC2", "PIC2", "AUS1", "AUS1", "PIC1", "FISH1", "AUS4", "AUS4", "PIC4", "AUS3", "PIC5", "PIC5", "FS", "AUS4", "PIC2", "AUS2", "AUS2", "PIC4", "PIC4", "AUS3", "AUS3", "PIC1", "AUS1", "AUS1", "WILD", "AUS1", "AUS1", "AUS1", "PIC3", "PIC3", "AUS5", "FS", "AUS5", "AUS5", "PIC2", "AUS1", "PIC5", "PIC5", "AUS1", "AUS1", "PIC4", "PIC4", "PIC4", "PIC3", "FISH1", "AUS4", "PIC2", "PIC2", "AUS1", "PIC4", "AUS4", "WILD", "AUS3", "PIC4", "PIC4", "PIC4", "PIC5"]
+   ["PIC5", "PIC5", "AUS5", "AUS5", "PIC1", "AUS4", "PIC3", "AUS1", "FISH4", "AUS3", "PIC5", "AUS1", "AUS1", "PIC3", "AUS2", "PIC2", "PIC2", "AUS3", "PIC5", "AUS4", "FISH1", "AUS4", "AUS4", "AUS4", "PIC3", "PIC2", "PIC2", "PIC2", "FISH2", "AUS2", "AUS2", "PIC4", "AUS5", "AUS5", "AUS5", "PIC3", "AUS3", "PIC4", "AUS2", "PIC1", "PIC1", "AUS3", "AUS3", "PIC2", "PIC2", "AUS1", "AUS1", "PIC1", "FISH1", "AUS4", "AUS4", "PIC4", "AUS3", "PIC5", "PIC5", "FS", "AUS4", "PIC2", "AUS2", "AUS2", "PIC4", "PIC4", "AUS3", "AUS3", "PIC1", "AUS1", "AUS1", "WILD", "AUS1", "AUS1", "AUS1", "PIC3", "PIC3", "AUS5", "FS", "AUS5", "AUS5", "PIC2", "AUS1", "PIC5", "PIC5", "AUS1", "AUS1", "PIC4", "PIC4", "PIC4", "PIC3", "FISH1", "AUS4", "PIC2", "PIC2", "AUS1", "PIC4", "AUS4", "WILD", "AUS3", "PIC4", "PIC4", "PIC4", "PIC5"]
   ],
   "bonus": [
    ["AUS5", "PIC4", "AUS1", "AUS1", "FISH1", "AUS1", "PIC4", "PIC5", "PIC5", "FISH2", "PIC4", "PIC4", "PIC4", "PIC5", "AUS2", "FISH2", "PIC5", "PIC5", "PIC5", "PIC3", "AUS2", "FISH2", "PIC3", "PIC4", "PIC4", "PIC1", "PIC1", "PIC3", "FISH1", "PIC1", "PIC5", "PIC5", "KEY", "PIC3", "AUS2", "PIC1", "PIC1", "KEY", "PIC2", "AUS3", "AUS3", "AUS3", "PIC2", "FISH2", "PIC4", "AUS2", "AUS2", "AUS2", "FISH2", "PIC1", "PIC4", "AUS1", "AUS1", "AUS1", "FISH2", "PIC1", "PIC1", "PIC5", "PIC5", "PIC5", "PIC3", "AUS2", "AUS2", "PIC5", "PIC5", "FISH1", "PIC1", "PIC1", "AUS2", "PIC1", "PIC1", "AUS3", "AUS3", "FISH2", "PIC3", "PIC3", "PIC5", "PIC2", "FISH1", "PIC5", "PIC2", "AUS2", "AUS2", "FISH1", "AUS2", "PIC4", "PIC5", "PIC4", "FISH1", "PIC4", "PIC4", "AUS2", "AUS2", "FISH1", "PIC2", "PIC5", "AUS4", "AUS4", "FISH1", "PIC4"],

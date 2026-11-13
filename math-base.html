@@ -564,6 +564,34 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#wild-on-reel-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WILD on reel 1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WILD on reel 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-with-a-test-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation with a test configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#example-pic1-on-the-base-reel-strips" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -949,6 +977,34 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#wild-on-reel-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WILD on reel 1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WILD on reel 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-with-a-test-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation with a test configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#example-pic1-on-the-base-reel-strips" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1055,11 +1111,102 @@ EV(S)   = sum for k = 1 to 5 of  pay(S, k) x E[ways for exactly k OAK]
 EV ways = sum of EV(S) for all pay symbols
 </code></pre></div>
 <p>The product is correct because the term <code>n(1) x ... x n(k)</code> is zero when one of the counts is zero.</p>
-<div class="admonition note">
-<p class="admonition-title">Condition</p>
-<p>The formula is correct only if reel 1 has no WILD symbol.
-With a WILD symbol on reel 1, one way can pay for more than one symbol. The engine and the workbook reject such a strip.</p>
-</div>
+<h3 id="wild-on-reel-1">WILD on reel 1<a class="headerlink" href="#wild-on-reel-1" title="Permanent link">&para;</a></h3>
+<p>Base reel 1 has 1 WILD symbol (since version 2.8.0). Thus a way can have only WILD symbols. The rule for such a way is:</p>
+<ul>
+<li>A way with only WILD symbols pays one time, as the first pay symbol of the paytable (PIC1).</li>
+<li>For each other pay symbol, a way with only WILD symbols is not a paying way. A paying way has one or more symbols <code>S</code>.</li>
+</ul>
+<p>Let <code>w(r)</code> be the number of WILD symbols in the window of reel <code>r</code>. When <code>S</code> gives <code>k</code> of a kind, <code>w(1) x ... x w(k)</code> of its ways have only WILD symbols.</p>
+<div class="highlight"><pre><span></span><code>paying ways of S = n(1) x ... x n(k)                           S is the first pay symbol
+paying ways of S = n(1) x ... x n(k) - w(1) x ... x w(k)       each other pay symbol
+
+E[paying ways for exactly k OAK] = (M(1) x ... x M(k) - W(1) x ... x W(k)) x Z(k+1)      for k = 1 to 4
+E[paying ways for exactly 5 OAK] =  M(1) x ... x M(5) - W(1) x ... x W(5)
+
+W(r) = mean of w(r) for the 100 stops of reel r
+</code></pre></div>
+<ul>
+<li>The term with <code>W</code> is not in the formula of the first pay symbol.</li>
+<li>The reels are independent. Thus the mean of <code>w(1) x ... x w(k)</code> is the product of the means, as for the counts <code>n(r)</code>.</li>
+<li><code>Z(k+1)</code> is the same factor in the two terms: the combination of <code>S</code> ends on reel <code>k+1</code>.</li>
+<li>If reel 1 has no WILD symbol, <code>W(1)</code> is 0. Then the term is 0 and the formula is the formula of the section above.</li>
+<li>The symbol <code>S</code> has exactly <code>k</code> of a kind with one or more paying ways with this probability:
+  <code>((1 - Z(1)) x ... x (1 - Z(k)) - V(1) x ... x V(k)) x Z(k+1)</code>. <code>V(r)</code> is the fraction of the stops of reel <code>r</code> where the window shows a WILD symbol and no symbol <code>S</code>.
+  The term with <code>V</code> is not in the formula of the first pay symbol.</li>
+</ul>
+<h4 id="validation-with-a-test-configuration">Validation with a test configuration<a class="headerlink" href="#validation-with-a-test-configuration" title="Permanent link">&para;</a></h4>
+<p>The file <code>config/test_wild_reel1.json</code> is a test configuration. It is not a game for release. The script <code>tools/make_wild_reel1_test.py</code> makes it from the delivered configuration:</p>
+<ul>
+<li>The base reel strips have 4, 3, 3, 3 and 2 WILD symbols on reels 1 to 5 (delivered: 1, 2, 3, 3, 2). Reel 1 and reel 2 have a stack of two WILD symbols.</li>
+<li>The bonus reel strips have 3, 2, 3, 2 and 2 WILD symbols on reels 1 to 5 (delivered: none). Reel 1 and reel 3 have a stack of two.</li>
+<li>All other values are the values of the delivered configuration.</li>
+<li>The test configuration has many more ways with only WILD symbols than the delivered game, in the base game and in the free spins. Thus it is a hard test of the rule.</li>
+</ul>
+<p><strong>Validation with 1,000,000,000,000 rounds.</strong> The rule was made in version 2.7.0. The test configuration of that time was made in the same way from the configuration of version 2.7.0 (file <code>build/test_wild_reel1_v2.7.0.json</code>, with 3, 4, 3, 3 and 3 WILD symbols on base reels 1 to 5).
+The C++ simulator played 1,000,000,000,000 game rounds of it.</p>
+<table>
+<thead>
+<tr>
+<th>Figure</th>
+<th style="text-align: right;">Simulation</th>
+<th style="text-align: right;">Exact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RTP</td>
+<td style="text-align: right;">122.4093%</td>
+<td style="text-align: right;">122.4080%</td>
+</tr>
+<tr>
+<td>RTP: base ways pays</td>
+<td style="text-align: right;">60.7284%</td>
+<td style="text-align: right;">60.7281%</td>
+</tr>
+<tr>
+<td>RTP: base collect</td>
+<td style="text-align: right;">33.0890%</td>
+<td style="text-align: right;">33.0887%</td>
+</tr>
+<tr>
+<td>RTP: free spins</td>
+<td style="text-align: right;">28.5919%</td>
+<td style="text-align: right;">28.5913%</td>
+</tr>
+<tr>
+<td>Standard error of the simulated RTP</td>
+<td style="text-align: right;">0.0011%</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>Difference in standard errors</td>
+<td style="text-align: right;">+1.18</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>Base spins with a ways win</td>
+<td style="text-align: right;">29.7191%</td>
+<td style="text-align: right;">29.7191%</td>
+</tr>
+<tr>
+<td>Free spins trigger</td>
+<td style="text-align: right;">1 in 171.66</td>
+<td style="text-align: right;">1 in 171.66</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The RTP of a test configuration is far above 100%, because the WILD symbols replace pay symbols and no pay decreased. This is correct for a test.</li>
+<li>With the evaluation "each symbol counts each WILD way" (no rule for ways with only WILD symbols), the exact RTP of this test configuration is 122.7830%. The difference is 355 standard errors of the simulation. Thus the simulation makes sure that the rule is in the calculation and in the simulator in the same way.</li>
+</ul>
+<p><strong>Test configuration of this version.</strong> The test configuration changes when the delivered configuration changes. The code of the rule did not change.
+Thus a shorter simulation is sufficient for the new test configuration: 1,000,000,000 game rounds.
+The simulated RTP was 121.5098% and the exact RTP is 121.4627%. The difference is +1.41 standard errors. The evaluation with no rule is 11 standard errors away.</p>
+<ul>
+<li>The exact ways calculation was also equal to a full enumeration of the two test reel sets and the two delivered reel sets, with each way counted one by one (300 exact values for each configuration).</li>
+<li>The game engine, an independent Python evaluator and the C++ simulator gave the same results for random stops of the test configuration. See <a href="verification.html">Verification</a>.</li>
+</ul>
 <h3 id="example-pic1-on-the-base-reel-strips">Example: PIC1 on the base reel strips<a class="headerlink" href="#example-pic1-on-the-base-reel-strips" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1072,13 +1219,13 @@ With a WILD symbol on reel 1, one way can pay for more than one symbol. The engi
 <tbody>
 <tr>
 <td>1</td>
-<td style="text-align: right;">0.2800</td>
-<td style="text-align: right;">0.7600</td>
+<td style="text-align: right;">0.3200</td>
+<td style="text-align: right;">0.7300</td>
 </tr>
 <tr>
 <td>2</td>
-<td style="text-align: right;">0.2000</td>
-<td style="text-align: right;">0.8300</td>
+<td style="text-align: right;">0.1600</td>
+<td style="text-align: right;">0.8700</td>
 </tr>
 <tr>
 <td>3</td>
@@ -1092,8 +1239,8 @@ With a WILD symbol on reel 1, one way can pay for more than one symbol. The engi
 </tr>
 <tr>
 <td>5</td>
-<td style="text-align: right;">0.3200</td>
-<td style="text-align: right;">0.7200</td>
+<td style="text-align: right;">0.2800</td>
+<td style="text-align: right;">0.7600</td>
 </tr>
 </tbody>
 </table>
@@ -1112,91 +1259,91 @@ With a WILD symbol on reel 1, one way can pay for more than one symbol. The engi
 <tbody>
 <tr>
 <td>PIC1</td>
-<td style="text-align: right;">0.010506</td>
-<td style="text-align: right;">0.004064</td>
-<td style="text-align: right;">0.001806</td>
-<td style="text-align: right;">0.334768</td>
-<td style="text-align: right;">3.3477%</td>
+<td style="text-align: right;">0.009605</td>
+<td style="text-align: right;">0.003922</td>
+<td style="text-align: right;">0.001445</td>
+<td style="text-align: right;">0.290591</td>
+<td style="text-align: right;">2.9059%</td>
 </tr>
 <tr>
 <td>PIC2</td>
-<td style="text-align: right;">0.015552</td>
-<td style="text-align: right;">0.007341</td>
-<td style="text-align: right;">0.006967</td>
-<td style="text-align: right;">0.483978</td>
-<td style="text-align: right;">4.8398%</td>
+<td style="text-align: right;">0.016358</td>
+<td style="text-align: right;">0.008332</td>
+<td style="text-align: right;">0.006897</td>
+<td style="text-align: right;">0.493614</td>
+<td style="text-align: right;">4.9361%</td>
 </tr>
 <tr>
 <td>PIC3</td>
-<td style="text-align: right;">0.042632</td>
-<td style="text-align: right;">0.024349</td>
-<td style="text-align: right;">0.013083</td>
-<td style="text-align: right;">0.846008</td>
-<td style="text-align: right;">8.4601%</td>
+<td style="text-align: right;">0.049503</td>
+<td style="text-align: right;">0.028376</td>
+<td style="text-align: right;">0.015260</td>
+<td style="text-align: right;">0.985912</td>
+<td style="text-align: right;">9.8591%</td>
 </tr>
 <tr>
 <td>PIC4</td>
-<td style="text-align: right;">0.043930</td>
-<td style="text-align: right;">0.016490</td>
-<td style="text-align: right;">0.016220</td>
-<td style="text-align: right;">0.656916</td>
-<td style="text-align: right;">6.5692%</td>
+<td style="text-align: right;">0.043680</td>
+<td style="text-align: right;">0.017002</td>
+<td style="text-align: right;">0.015135</td>
+<td style="text-align: right;">0.626425</td>
+<td style="text-align: right;">6.2642%</td>
 </tr>
 <tr>
 <td>PIC5</td>
-<td style="text-align: right;">0.080870</td>
-<td style="text-align: right;">0.025879</td>
-<td style="text-align: right;">0.019409</td>
-<td style="text-align: right;">0.679311</td>
-<td style="text-align: right;">6.7931%</td>
+<td style="text-align: right;">0.077138</td>
+<td style="text-align: right;">0.026290</td>
+<td style="text-align: right;">0.017027</td>
+<td style="text-align: right;">0.626273</td>
+<td style="text-align: right;">6.2627%</td>
 </tr>
 <tr>
 <td>AUS1</td>
-<td style="text-align: right;">0.042182</td>
-<td style="text-align: right;">0.022584</td>
-<td style="text-align: right;">0.026478</td>
-<td style="text-align: right;">0.166783</td>
-<td style="text-align: right;">1.6678%</td>
+<td style="text-align: right;">0.045178</td>
+<td style="text-align: right;">0.025970</td>
+<td style="text-align: right;">0.026833</td>
+<td style="text-align: right;">0.177617</td>
+<td style="text-align: right;">1.7762%</td>
 </tr>
 <tr>
 <td>AUS2</td>
-<td style="text-align: right;">0.125798</td>
-<td style="text-align: right;">0.059545</td>
-<td style="text-align: right;">0.030192</td>
-<td style="text-align: right;">0.335462</td>
-<td style="text-align: right;">3.3546%</td>
+<td style="text-align: right;">0.125522</td>
+<td style="text-align: right;">0.062026</td>
+<td style="text-align: right;">0.026833</td>
+<td style="text-align: right;">0.330075</td>
+<td style="text-align: right;">3.3007%</td>
 </tr>
 <tr>
 <td>AUS3</td>
-<td style="text-align: right;">0.037740</td>
-<td style="text-align: right;">0.029727</td>
-<td style="text-align: right;">0.022295</td>
-<td style="text-align: right;">0.164080</td>
-<td style="text-align: right;">1.6408%</td>
+<td style="text-align: right;">0.040535</td>
+<td style="text-align: right;">0.032558</td>
+<td style="text-align: right;">0.022056</td>
+<td style="text-align: right;">0.171818</td>
+<td style="text-align: right;">1.7182%</td>
 </tr>
 <tr>
 <td>AUS4</td>
-<td style="text-align: right;">0.104448</td>
-<td style="text-align: right;">0.038093</td>
-<td style="text-align: right;">0.031949</td>
-<td style="text-align: right;">0.276480</td>
-<td style="text-align: right;">2.7648%</td>
+<td style="text-align: right;">0.100009</td>
+<td style="text-align: right;">0.038898</td>
+<td style="text-align: right;">0.028308</td>
+<td style="text-align: right;">0.262728</td>
+<td style="text-align: right;">2.6273%</td>
 </tr>
 <tr>
 <td>AUS5</td>
-<td style="text-align: right;">0.061286</td>
-<td style="text-align: right;">0.043954</td>
-<td style="text-align: right;">0.026493</td>
-<td style="text-align: right;">0.228674</td>
-<td style="text-align: right;">2.2867%</td>
+<td style="text-align: right;">0.056982</td>
+<td style="text-align: right;">0.041552</td>
+<td style="text-align: right;">0.022475</td>
+<td style="text-align: right;">0.207511</td>
+<td style="text-align: right;">2.0751%</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
 <td style="text-align: right;"></td>
 <td style="text-align: right;"></td>
 <td style="text-align: right;"></td>
-<td style="text-align: right;">4.172461</td>
-<td style="text-align: right;">41.7246%</td>
+<td style="text-align: right;">4.172564</td>
+<td style="text-align: right;">41.7256%</td>
 </tr>
 </tbody>
 </table>
@@ -1229,10 +1376,10 @@ n(r, f) = number of FISH type f symbols in the window of reel r
 <tbody>
 <tr>
 <td>FISH1</td>
-<td style="text-align: right;">1.9995</td>
+<td style="text-align: right;">1.9979</td>
 <td style="text-align: right;">0.064000</td>
-<td style="text-align: right;">0.127968</td>
-<td style="text-align: right;">1.2797%</td>
+<td style="text-align: right;">0.127866</td>
+<td style="text-align: right;">1.2787%</td>
 </tr>
 <tr>
 <td>FISH2</td>
@@ -1259,8 +1406,8 @@ n(r, f) = number of FISH type f symbols in the window of reel r
 <td><strong>Total</strong></td>
 <td style="text-align: right;"></td>
 <td style="text-align: right;"></td>
-<td style="text-align: right;">3.308866</td>
-<td style="text-align: right;">33.0887%</td>
+<td style="text-align: right;">3.308764</td>
+<td style="text-align: right;">33.0876%</td>
 </tr>
 </tbody>
 </table>
@@ -1278,13 +1425,13 @@ n(r, f) = number of FISH type f symbols in the window of reel r
 <tbody>
 <tr>
 <td>Ways pays</td>
-<td style="text-align: right;">4.172461</td>
-<td style="text-align: right;">41.7246%</td>
+<td style="text-align: right;">4.172564</td>
+<td style="text-align: right;">41.7256%</td>
 </tr>
 <tr>
 <td>KEY and FISH collect</td>
-<td style="text-align: right;">3.308866</td>
-<td style="text-align: right;">33.0887%</td>
+<td style="text-align: right;">3.308764</td>
+<td style="text-align: right;">33.0876%</td>
 </tr>
 <tr>
 <td><strong>Base game</strong></td>

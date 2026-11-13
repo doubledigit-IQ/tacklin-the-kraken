@@ -106,8 +106,9 @@ export function validateConfig(cfg) {
           const allowed = cfg.placement[setName][sym];
           if (allowed && !allowed[r]) {
             const msg = `${tag}: ${sym} is not permitted on this reel`;
-            // WILD on reel 1 and FS on bonus reels change the math model
-            if ((sym === S.wild && r === 0) || (sym === S.scatter && setName === 'bonus')) errors.push(msg);
+            // FS on the bonus reels changes the math model (retrigger). WILD on reel 1 is a design rule only:
+            // the engine and the calculation pay a way with only WILD symbols one time, as the first pay symbol.
+            if (sym === S.scatter && setName === 'bonus') errors.push(msg);
             else warnings.push(msg);
           }
         }
@@ -246,15 +247,19 @@ export function evalSpin(model, setName, modeName, rng, forced, out) {
     }
   }
   // 4. ways pays, left to right, WILD substitutes for PIC and AUS
+  //    A way with only WILD symbols (possible with WILD on reel 1) pays one time, as the first pay symbol.
+  //    For each other symbol, the ways with only WILD symbols are not paying ways.
   let waysWin = 0; let nWins = 0;
   for (let s = 0; s < nPay; s++) {
-    let n = 0; let ways = 1;
+    let n = 0; let ways = 1; let wildOnly = 1;
     for (let r = 0; r < R; r++) {
-      const c = out.cnt[r * nSym + s] + out.cnt[r * nSym + WILD];
+      const w = out.cnt[r * nSym + WILD];
+      const c = out.cnt[r * nSym + s] + w;
       if (c === 0) break;
-      ways *= c; n++;
+      ways *= c; wildOnly *= w; n++;
     }
-    if (n > 0) {
+    if (s > 0) ways -= wildOnly;
+    if (n > 0 && ways > 0) {
       const pay = model.pay[s][n - 1];
       if (pay > 0) {
         const win = pay * ways;

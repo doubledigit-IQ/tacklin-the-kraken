@@ -724,6 +724,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-280-a-wild-symbol-on-reel-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.8.0: a WILD symbol on reel 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1057,6 +1068,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#version-280-a-wild-symbol-on-reel-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2.8.0: a WILD symbol on reel 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1096,7 +1118,7 @@
 
 
 <h1 id="tuning-history">Tuning History<a class="headerlink" href="#tuning-history" title="Permanent link">&para;</a></h1>
-<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. The subsequent versions, to version 2.7.0, have the same target.
+<p>The first target was an RTP of 96% with high volatility and a good feel in play. Version 2.0.0 got a target RTP of 96.20%. The subsequent versions, to version 2.8.0, have the same target.
 Each iteration used the exact calculator first and the simulator second.</p>
 <h2 id="iterations">Iterations<a class="headerlink" href="#iterations" title="Permanent link">&para;</a></h2>
 <table>
@@ -1237,6 +1259,15 @@ Each iteration used the exact calculator first and the simulator second.</p>
 <td style="text-align: right;">36.7 x</td>
 <td style="text-align: right;">8 x</td>
 <td>Version 2.7.0. The standard deviation is 8.83 x bet.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>One WILD symbol on base reel 1. Base reels 2 and 5 have one WILD symbol less. A way with only WILD symbols pays as PIC1. The paytable, the collect and the free spins did not change.</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">1 in 171.7</td>
+<td style="text-align: right;">36.7 x</td>
+<td style="text-align: right;">8 x</td>
+<td>Version 2.8.0. The standard deviation is 8.84 x bet.</td>
 </tr>
 </tbody>
 </table>
@@ -2873,6 +2904,180 @@ This is 6.07% more than version 2.6.0.</p>
 </tbody>
 </table>
 <p>A larger part of the RTP comes from the ways pays. The standard deviation decreased, because the golden kraken is less frequent in the base game.</p>
+<h2 id="version-280-a-wild-symbol-on-reel-1">Version 2.8.0: a WILD symbol on reel 1<a class="headerlink" href="#version-280-a-wild-symbol-on-reel-1" title="Permanent link">&para;</a></h2>
+<p>Version 2.8.0 has one WILD symbol on base reel 1. The game designer asked for this symbol. In the versions before, reel 1 had no WILD symbol.</p>
+<p><strong>Rule for ways with only WILD symbols.</strong> With a WILD symbol on reel 1, a way can have only WILD symbols. Such a way pays one time, as PIC1.
+For each other pay symbol, a paying way has one or more of that pay symbol. The page <a href="math-base.html">Base game math</a> gives the formula and its validation.</p>
+<p><strong>Effect of the WILD symbol.</strong> With one WILD symbol on base reel 1 and no other change, the RTP was 101.02%: ways pays 46.55%, collect 33.09%, free spins 21.39%.
+This is 4.82% more than version 2.7.0. All of the increase is in the ways pays of the base game.</p>
+<p>The WILD symbol replaced an AUS5 symbol (base reel 1, stop 27). Of the positions that obey the rules of the reel strips, this position gives the smallest increase of the spins with a ways win (25.85% to 26.81%).</p>
+<p><strong>Options.</strong> Four options for the balance were calculated:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th style="text-align: right;">Total RTP</th>
+<th style="text-align: right;">Ways pays</th>
+<th style="text-align: right;">Collect</th>
+<th style="text-align: right;">Free spins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base reels 2 and 5 have one WILD symbol less</td>
+<td style="text-align: right;">96.20%</td>
+<td style="text-align: right;">41.73%</td>
+<td style="text-align: right;">33.09%</td>
+<td style="text-align: right;">21.39%</td>
+</tr>
+<tr>
+<td>Lower pays for the PIC symbols (9 values of the paytable)</td>
+<td style="text-align: right;">96.20%</td>
+<td style="text-align: right;">42.20%</td>
+<td style="text-align: right;">33.09%</td>
+<td style="text-align: right;">20.91%</td>
+</tr>
+<tr>
+<td>Levels 2 to 4 of the free spins have 6 spins (before: 8)</td>
+<td style="text-align: right;">96.37%</td>
+<td style="text-align: right;">46.55%</td>
+<td style="text-align: right;">33.09%</td>
+<td style="text-align: right;">16.73%</td>
+</tr>
+<tr>
+<td>The kraken pays 415 credits (before: 500)</td>
+<td style="text-align: right;">96.23%</td>
+<td style="text-align: right;">46.55%</td>
+<td style="text-align: right;">29.14%</td>
+<td style="text-align: right;">20.54%</td>
+</tr>
+</tbody>
+</table>
+<p>The first option was selected. The paytable, the fish values and the free spins are the same as in version 2.7.0.</p>
+<p><strong>Fine adjustment.</strong> The selected option gave an RTP of 96.2011%. The FISH1 weights of the base game are the fine adjustment, as in version 2.7.0:
+5005 / 1995 / 2000 / 1000 became 5013 / 1995 / 1992 / 1000. Thus the RTP is 96.200035%. All other weight tables did not change.</p>
+<p><strong>Reel strips.</strong> Three symbols of the base reel strips changed. The bonus reel strips did not change.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Base reel</th>
+<th style="text-align: right;">Stop</th>
+<th>Version 2.7.0</th>
+<th>Version 2.8.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">27</td>
+<td>AUS5</td>
+<td><strong>WILD</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td>WILD</td>
+<td><strong>PIC3</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">35</td>
+<td>WILD</td>
+<td><strong>PIC3</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>WILD symbols on the base reel strips</th>
+<th style="text-align: right;">Reel 1</th>
+<th style="text-align: right;">Reel 2</th>
+<th style="text-align: right;">Reel 3</th>
+<th style="text-align: right;">Reel 4</th>
+<th style="text-align: right;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version 2.7.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>Version 2.8.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The reel generator makes the strips of version 2.7.0 from the recipe. The configuration then applies the three changes (<code>reelRecipe.handEdits</code>). Thus all other symbols are in the same positions as in version 2.7.0.</li>
+<li>The placement table of the configuration now permits WILD on reel 1 of the base reel strips.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Version 2.7.0</th>
+<th style="text-align: right;">Version 2.8.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base game: ways pays</td>
+<td style="text-align: right;">41.7246%</td>
+<td style="text-align: right;">41.7256%</td>
+</tr>
+<tr>
+<td>Base game: collect</td>
+<td style="text-align: right;">33.0887%</td>
+<td style="text-align: right;">33.0876%</td>
+</tr>
+<tr>
+<td>Free spins</td>
+<td style="text-align: right;">21.3868%</td>
+<td style="text-align: right;">21.3868%</td>
+</tr>
+<tr>
+<td>Total RTP</td>
+<td style="text-align: right;">96.2000%</td>
+<td style="text-align: right;">96.2000%</td>
+</tr>
+<tr>
+<td>Base spins with a ways win (exact)</td>
+<td style="text-align: right;">25.85%</td>
+<td style="text-align: right;">25.46%</td>
+</tr>
+<tr>
+<td>Base spins with a win</td>
+<td style="text-align: right;">31.42%</td>
+<td style="text-align: right;">31.04%</td>
+</tr>
+<tr>
+<td>Mean free spins win</td>
+<td style="text-align: right;">36.7 x bet</td>
+<td style="text-align: right;">36.7 x bet</td>
+</tr>
+<tr>
+<td>Standard deviation for each round</td>
+<td style="text-align: right;">8.83 x bet</td>
+<td style="text-align: right;">8.84 x bet</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The RTP is 96.200035%.</li>
+<li>The game has fewer WILD symbols in total (11, before: 12). Thus a spin has a ways win a little less frequently.</li>
+<li>A way with only WILD symbols and 3 of a kind or more needs a WILD symbol on reels 1, 2 and 3. This occurs 1 in 2,604 base spins.</li>
+<li>The free spins did not change: the bonus reel strips have no WILD symbol.</li>
+</ul>
 <h2 id="design-decisions">Design decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h2>
 <p><strong>One KEY symbol on each of base reels 1, 2 and 3.</strong> A KEY symbol lands 1 in 8.7 base spins. Two or three KEY symbols can land in one spin. Then each KEY symbol collects each FISH value.</p>
 <p><strong>The kraken stays on the base reel strips.</strong> The KEY anticipation on reels 4 and 5 has a purpose only if the large fish are there.
@@ -2881,7 +3086,7 @@ The kraken gives 26% RTP in the base game. A KEY symbol and the kraken land toge
 <p><strong>The balance of version 2.0.0 came from the small base fish.</strong> In that version, the paytable and the free spins kept their value. The free spins were less frequent than before, so their value for each trigger did not decrease.</p>
 <p><strong>The balance of version 2.1.0 came from the 5 OAK pays.</strong> The reel strips with patterns give fewer long ways. Larger 5 OAK pays put this RTP back into the ways pays, so that the RTP of each component stays almost the same.</p>
 <p><strong>2 / 2 / 1 KEY symbols on bonus reels 1 / 2 / 3.</strong> This gives 0.20 KEY symbols for each free spin, the same as in version 1.1.0. The levels keep their frequency.</p>
-<p><strong>The AUS symbols give 12% RTP in the base game.</strong> Before version 2.6.0, they gave 22%. The low pay symbols make frequent small wins. The PIC symbols now give the larger part of the ways pays.</p>
+<p><strong>The AUS symbols give 11% RTP in the base game.</strong> Before version 2.6.0, they gave 22%. The low pay symbols make frequent small wins. The PIC symbols now give the larger part of the ways pays.</p>
 <p><strong>PIC1 is rare and pays the most.</strong> PIC1 has 7 / 2 / 4 / 6 / 5 symbols on base reels 1 to 5. A PIC1 win needs reel 2, where PIC1 has few symbols. The pays of PIC1 are 5 / 25 / 100 credits for 3 / 4 / 5 OAK.</p>
 <p><strong>Eight spins for levels 2 to 4.</strong> With 10 spins, level 4 was too frequent.</p>
 <p><strong>Bonus reels with more PIC symbols.</strong> The bonus reel strips have no WILD symbol. More PIC symbols give more ways pays in the free spins.</p>

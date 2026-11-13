@@ -41,9 +41,11 @@
       <div id="hud">
         <button id="btnInfo" class="round" title="Paytable and rules">i</button>
         <button id="btnSound" class="round" title="Sound on or off">&#9835;</button>
+        <input id="volume" type="range" min="0" max="100" step="1" value="100" title="Volume" aria-label="Volume">
         <div class="meter"><label>BALANCE</label><b id="balance">0</b></div>
         <div class="meter"><label>BET</label><b id="bet">10</b></div>
         <div class="meter win"><label>WIN</label><b id="win">0</b></div>
+        <div id="totalMeter" class="meter total hidden"><label>TOTAL WON</label><b id="totalWon">0</b></div>
         <button id="btnTurbo" class="pill" title="Faster reels">TURBO</button>
         <button id="btnAuto" class="pill" title="Automatic spins">AUTO</button>
         <button id="btnSpin" title="Spin (space bar)">SPIN</button>

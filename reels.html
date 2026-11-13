@@ -1091,7 +1091,7 @@
 </tr>
 <tr>
 <td>4</td>
-<td>Reel 1 has no WILD symbol.</td>
+<td>WILD is only on the reels that the placement table of the configuration permits: all reels of the base reel strips.</td>
 <td>Generator, engine, workbook</td>
 </tr>
 <tr>
@@ -1111,7 +1111,8 @@
 </tr>
 </tbody>
 </table>
-<p>Requirements 4 and 7 are also conditions of the math model. See <a href="math-base.html">Base game math</a>.</p>
+<p>Requirement 7 (no FS symbol on the bonus reel strips) is also a condition of the math model. Requirement 4 is a design rule only: the math model is correct for WILD symbols on each reel. See <a href="math-base.html">Base game math</a>.</p>
+<p>The reel generator makes the strips from the recipe. Then the configuration applies 3 changes by hand (<code>reelRecipe.handEdits</code>): base reel 1, stop 27: AUS5 became WILD; base reel 2, stop 0: WILD became PIC3; base reel 5, stop 35: WILD became PIC3. The page <a href="tuning.html">Tuning history</a> gives the reason.</p>
 <h3 id="results-of-the-requirements">Results of the requirements<a class="headerlink" href="#results-of-the-requirements" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Requirement 2 has this result: a 4-row window of one reel shows one special symbol at most. Thus one reel shows one KEY symbol, one FS symbol or one FISH symbol at most.</li>
@@ -1191,7 +1192,7 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <tr>
 <td>PIC3</td>
 <td>Most symbols on the middle reels</td>
-<td>6 / <strong>10</strong> / <strong>11</strong> / <strong>10</strong> / 6</td>
+<td>6 / <strong>11</strong> / <strong>11</strong> / <strong>10</strong> / 7</td>
 <td>7 / <strong>11</strong> / <strong>14</strong> / <strong>11</strong> / 7</td>
 </tr>
 <tr>
@@ -1233,7 +1234,7 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <tr>
 <td>AUS5</td>
 <td>Most symbols on the middle reels</td>
-<td>7 / <strong>12</strong> / <strong>13</strong> / <strong>11</strong> / 8</td>
+<td>6 / <strong>12</strong> / <strong>13</strong> / <strong>11</strong> / 8</td>
 <td>1 / 1 / 3 / 1 / 2 (no pattern)</td>
 </tr>
 </tbody>
@@ -1242,7 +1243,7 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <ul>
 <li>When a symbol has most of its symbols on the first reels, a win of this symbol starts frequently. Few of these wins continue to reel 5.</li>
 <li>When a symbol has most of its symbols on the last reels, a win of this symbol starts less frequently. More of these wins continue to reel 5.</li>
-<li>Base reel 2 has 2 PIC1 symbols and 3 WILD symbols. Thus a PIC1 win starts rarely. Of the stops of base reel 2 that continue a PIC1 way, 71% show a WILD symbol. PIC1 has the largest pays.</li>
+<li>Base reel 2 has 2 PIC1 symbols and 2 WILD symbols. Thus a PIC1 win starts rarely. Of the stops of base reel 2 that continue a PIC1 way, 62% show a WILD symbol. PIC1 has the largest pays.</li>
 <li>On the bonus reel strips, AUS4 and AUS5 have 3 symbols or fewer on each reel. They have no pattern there.</li>
 <li>The special symbols have no pattern. The requirements and the math model give their numbers.</li>
 </ul>
@@ -1282,11 +1283,11 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 <tr>
 <td>PIC3</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">43</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">45</td>
 </tr>
 <tr>
 <td>PIC4</td>
@@ -1344,12 +1345,12 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 </tr>
 <tr>
 <td>AUS5</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">12</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">51</td>
+<td style="text-align: right;">50</td>
 </tr>
 <tr>
 <td>FISH1</td>
@@ -1398,12 +1399,12 @@ A different seed gives a different arrangement of the same symbols. The arrangem
 </tr>
 <tr>
 <td>WILD</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">11</td>
 </tr>
 <tr>
 <td>FS</td>
@@ -1621,7 +1622,7 @@ The bonus reel strips have 5 KEY symbols. The base reel strips have 3 KEY symbol
 <tr>
 <td style="text-align: right;">0</td>
 <td>AUS1</td>
-<td>WILD</td>
+<td>PIC3</td>
 <td>AUS1</td>
 <td>AUS1</td>
 <td>PIC5</td>
@@ -1836,7 +1837,7 @@ The bonus reel strips have 5 KEY symbols. The base reel strips have 3 KEY symbol
 </tr>
 <tr>
 <td style="text-align: right;">27</td>
-<td>AUS5</td>
+<td>WILD</td>
 <td>AUS4</td>
 <td>PIC5</td>
 <td>PIC3</td>
@@ -1904,7 +1905,7 @@ The bonus reel strips have 5 KEY symbols. The base reel strips have 3 KEY symbol
 <td>AUS1</td>
 <td>AUS3</td>
 <td>PIC1</td>
-<td>WILD</td>
+<td>PIC3</td>
 </tr>
 <tr>
 <td style="text-align: right;">36</td>

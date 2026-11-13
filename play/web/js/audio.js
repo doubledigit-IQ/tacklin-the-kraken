@@ -9,10 +9,13 @@ const penta = (k, base = 523.25) => base * Math.pow(2, (12 * Math.floor(k / 5) +
 const THEMED = ['spinStart', 'reelStop', 'fishLand', 'keyLand', 'scatterLand', 'swap', 'winTick', 'collect', 'smallWin', 'multiplier',
   'levelUp', 'bigWin', 'bonusEnd', 'krakenNear', 'krakenMiss', 'krakenHit', 'click', 'bang', 'startRiser'];
 
+const MASTER_GAIN = 0.35;                                    // gain of the output at the volume 100%
+
 export class Sound {
   constructor() {
     this.ctx = null;
     this.enabled = true;
+    this.volume = 1;                                         // 0 to 1, see setVolume()
     this.master = null;
     this.riserNodes = null;
     this.rollBus = null;
@@ -40,13 +43,20 @@ export class Sound {
     if (!AC) return;
     this.ctx = new AC();
     this.master = this.ctx.createGain();
-    this.master.gain.value = 0.35;
+    this.master.gain.value = MASTER_GAIN * this.volume;
     this.master.connect(this.ctx.destination);
   }
 
   setEnabled(on) {
     this.enabled = on;
     if (!on) this.stopRiser();
+  }
+
+  /** Loudness of all the sounds: 0 (silent) to 1 (the usual loudness). Sounds that play now change also. */
+  setVolume(v) {
+    v = Number(v);
+    this.volume = Number.isFinite(v) ? Math.min(1, Math.max(0, v)) : 1;
+    if (this.master) this.master.gain.setTargetAtTime(MASTER_GAIN * this.volume, this.ctx.currentTime, 0.015);
   }
 
   tone(freq, dur, { type = 'sine', gain = 0.5, delay = 0, slide = 0, out = null } = {}) {

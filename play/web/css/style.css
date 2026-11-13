@@ -76,8 +76,22 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .meter b { font-size: 24px; font-variant-numeric: tabular-nums; }
 .meter.win { min-width: 210px; flex: 1; text-align: center; border-color: var(--gold); }
 .meter.win b { font-size: 30px; color: var(--gold); }
+/* free spins: the total win of the feature, adjacent to the win of the spin */
+.meter.total { min-width: 150px; flex: 1; text-align: center; border-color: var(--gold); background: rgba(58,37,0,.6); }
+.meter.total b { font-size: 30px; color: #fff; }
+#hud.bonus .meter.win { min-width: 150px; }
 .round { width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(255,214,90,.6); background: rgba(0,0,0,.5); font-weight: 900; font-size: 18px; }
 .round.off { opacity: .45; text-decoration: line-through; }
+#volume { -webkit-appearance: none; appearance: none; flex: none; width: 96px; height: 44px; margin: 0 2px 0 -4px; padding: 0; background: transparent; cursor: pointer; --fill: 100%; }
+#volume::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; border: 1px solid rgba(255,214,90,.6);
+  background: linear-gradient(to right, var(--gold) var(--fill), rgba(0,0,0,.5) var(--fill)); }
+#volume::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; margin-top: -7px; border-radius: 50%; border: 2px solid #7a4a00;
+  background: radial-gradient(circle at 35% 30%, #fff3b0, var(--gold) 60%, var(--gold2)); box-shadow: 0 2px 5px rgba(0,0,0,.5); }
+#volume::-moz-range-track { height: 8px; border-radius: 4px; border: 1px solid rgba(255,214,90,.6); background: rgba(0,0,0,.5); }
+#volume::-moz-range-progress { height: 8px; border-radius: 4px; background: var(--gold); }
+#volume::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #7a4a00; background: radial-gradient(circle at 35% 30%, #fff3b0, var(--gold) 60%, var(--gold2)); }
+#volume.off { opacity: .45; }
+#volume:focus-visible { outline: 3px solid #fff; outline-offset: 2px; border-radius: 8px; }
 .pill { height: 44px; padding: 0 16px; border-radius: 22px; border: 2px solid rgba(255,214,90,.6); background: rgba(0,0,0,.5); font-weight: 800; letter-spacing: 1px; font-size: 13px; }
 .pill.on { background: var(--gold); color: #3a2500; }
 #btnSpin { width: 150px; height: 68px; border-radius: 34px; border: 3px solid #7a4a00; font-weight: 900; font-size: 26px; letter-spacing: 2px; color: #3a2500;

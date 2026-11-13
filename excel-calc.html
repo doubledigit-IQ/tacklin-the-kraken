@@ -891,6 +891,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#wild-on-reel-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WILD on reel 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#numbers-for-pic1-on-the-base-reels" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1135,10 +1146,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#checks-rows-30-to-36" class="md-nav__link">
+  <a href="#checks-rows-30-to-35" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checks, rows 30 to 36
+        Checks, rows 30 to 35
       
     </span>
   </a>
@@ -1168,10 +1179,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#simulation-reference-from-row-38" class="md-nav__link">
+  <a href="#simulation-reference-from-row-37" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Simulation reference, from row 38
+        Simulation reference, from row 37
       
     </span>
   </a>
@@ -1442,6 +1453,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#wild-on-reel-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WILD on reel 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#numbers-for-pic1-on-the-base-reels" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1686,10 +1708,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#checks-rows-30-to-36" class="md-nav__link">
+  <a href="#checks-rows-30-to-35" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checks, rows 30 to 36
+        Checks, rows 30 to 35
       
     </span>
   </a>
@@ -1719,10 +1741,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#simulation-reference-from-row-38" class="md-nav__link">
+  <a href="#simulation-reference-from-row-37" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Simulation reference, from row 38
+        Simulation reference, from row 37
       
     </span>
   </a>
@@ -1820,7 +1842,7 @@
 <h1 id="excel-calculation-in-detail">Excel Calculation in Detail<a class="headerlink" href="#excel-calculation-in-detail" title="Permanent link">&para;</a></h1>
 <p>This page explains each sheet, each block and each formula of the workbook <code>excel/TacklinTheKraken_TheoCalc.xlsx</code>.
 The page <a href="excel.html">Excel workbook</a> gives the short instructions. This page gives the full calculation.</p>
-<p>The cell addresses and the formula texts on this page come from the workbook file. The numbers are the results for math version 2.7.0.</p>
+<p>The cell addresses and the formula texts on this page come from the workbook file. The numbers are the results for math version 2.8.0.</p>
 <h2 id="1-structure-of-the-calculation">1. Structure of the calculation<a class="headerlink" href="#1-structure-of-the-calculation" title="Permanent link">&para;</a></h2>
 <p>The workbook has 12 sheets. The data moves in one direction, from the inputs to the sheet Summary:</p>
 <div class="highlight"><pre><span></span><code>   Config    Reels_Base    Reels_Bonus     inputs (yellow cells)
@@ -2331,7 +2353,7 @@ Win_Base!CE103:  =COUNTIF(Reels_Base!$F103:$F106,CE$3)
 <tr>
 <td><code>L:P</code></td>
 <td>Expected number of ways for exactly 1, 2, 3, 4 and 5 of a kind</td>
-<td><code>=B5*C5*D5*J5</code> (column N, 3 of a kind)</td>
+<td><code>=B5*C5*D5*J5-AT5</code> (column N, 3 of a kind)</td>
 </tr>
 <tr>
 <td><code>Q:U</code></td>
@@ -2355,20 +2377,58 @@ Win_Base!CE103:  =COUNTIF(Reels_Base!$F103:$F106,CE$3)
 </tr>
 <tr>
 <td><code>AC:AG</code></td>
-<td>Probability of exactly 1 to 5 of a kind (for information)</td>
-<td><code>=(1-G5)*(1-H5)*(1-I5)*J5</code> (column AE, 3 of a kind)</td>
+<td>Probability of exactly 1 to 5 of a kind with one or more paying ways (for information)</td>
+<td><code>=(1-G5)*(1-H5)*(1-I5)*J5-AY5</code> (column AE, 3 of a kind)</td>
+</tr>
+<tr>
+<td><code>AH:AL</code></td>
+<td>W(r): mean number of WILD in the window of reel r</td>
+<td><code>=SUM(Win_Base!$Q$4:$Q$103)/Config!$B$6</code></td>
+</tr>
+<tr>
+<td><code>AM:AQ</code></td>
+<td>V(r): probability that the window of reel r shows a WILD symbol and does not show the symbol</td>
+<td><code>=SUMPRODUCT(--(Win_Base!$B$4:$B$103=0),--(Win_Base!$Q$4:$Q$103&gt;0))/Config!$B$6</code></td>
+</tr>
+<tr>
+<td><code>AR:AV</code></td>
+<td>Expected number of ways with only WILD symbols, for exactly 1 to 5 of a kind</td>
+<td><code>=AH6*AI6*AJ6*J6</code> (row 6, PIC2, 3 of a kind)</td>
+</tr>
+<tr>
+<td><code>AW:BA</code></td>
+<td>Probability of exactly 1 to 5 of a kind with only WILD symbols</td>
+<td><code>=AM6*AN6*AO6*J6</code> (row 6, PIC2, 3 of a kind)</td>
 </tr>
 </tbody>
 </table>
 <p>The expected ways for 1 to 5 of a kind in row 5 are:</p>
-<div class="highlight"><pre><span></span><code>Ways!L5:  =B5*H5
-Ways!M5:  =B5*C5*I5
-Ways!N5:  =B5*C5*D5*J5
-Ways!O5:  =B5*C5*D5*E5*K5
-Ways!P5:  =B5*C5*D5*E5*F5
+<div class="highlight"><pre><span></span><code>Ways!L5:  =B5*H5-AR5
+Ways!M5:  =B5*C5*I5-AS5
+Ways!N5:  =B5*C5*D5*J5-AT5
+Ways!O5:  =B5*C5*D5*E5*K5-AU5
+Ways!P5:  =B5*C5*D5*E5*F5-AV5
 </code></pre></div>
 <p>The product of the mean counts is correct because the reels are independent. The factor Z of the subsequent reel makes sure that the combination ends there.
 Column P has no factor Z, because a combination cannot continue after reel 5.</p>
+<h3 id="wild-on-reel-1">WILD on reel 1<a class="headerlink" href="#wild-on-reel-1" title="Permanent link">&para;</a></h3>
+<p>The last term of each formula in columns <code>L:P</code> is the expected number of ways with only WILD symbols (columns <code>AR:AV</code>).</p>
+<ul>
+<li>A way with only WILD symbols is possible only if reel 1 has a WILD symbol. Such a way pays one time, as the first pay symbol (PIC1).</li>
+<li>For PIC1 (rows 5 and 20), the columns <code>AR:AV</code> and <code>AW:BA</code> are 0: the ways with only WILD symbols stay in the ways of this symbol.</li>
+<li>For each other pay symbol, the workbook subtracts these ways. The formulas for PIC2 (row 6), 3 of a kind, are:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Ways!N6:  =B6*C6*D6*J6-AT6
+Ways!AT6:  =AH6*AI6*AJ6*J6
+Ways!AE6:  =(1-G6)*(1-H6)*(1-I6)*J6-AY6
+Ways!AY6:  =AM6*AN6*AO6*J6
+</code></pre></div>
+<ul>
+<li>The expected number of ways with only WILD symbols is W(1) x ... x W(k) x Z(k+1). The reels are independent, thus the mean of the product is the product of the means.</li>
+<li>Base reel 1 has 1 WILD symbol. Thus W(1) = 0.0400 for the base reels. For PIC2, 3 of a kind, the expected number of ways with only WILD symbols is 0.000230 (<code>AT6</code>).</li>
+<li>The bonus reel strips have no WILD symbol. Thus the four blocks are 0 in rows 20 to 29.</li>
+<li>The page <a href="math-base.html">Base game math</a> gives the rule, the formulas and the validation with a test configuration.</li>
+</ul>
 <p>The totals are in <code>AA15</code> and <code>AB15</code> (base reels) and in <code>AA30</code> and <code>AB30</code> (bonus reels):</p>
 <div class="highlight"><pre><span></span><code>Ways!AA15:  =SUM(AA5:AA14)
 Ways!AB15:  =AA15/Config!$B$3
@@ -2386,13 +2446,13 @@ Ways!AA30:  =SUM(AA20:AA29)
 <tbody>
 <tr>
 <td>1</td>
-<td style="text-align: right;">0.2800</td>
-<td style="text-align: right;">0.7600</td>
+<td style="text-align: right;">0.3200</td>
+<td style="text-align: right;">0.7300</td>
 </tr>
 <tr>
 <td>2</td>
-<td style="text-align: right;">0.2000</td>
-<td style="text-align: right;">0.8300</td>
+<td style="text-align: right;">0.1600</td>
+<td style="text-align: right;">0.8700</td>
 </tr>
 <tr>
 <td>3</td>
@@ -2406,8 +2466,8 @@ Ways!AA30:  =SUM(AA20:AA29)
 </tr>
 <tr>
 <td>5</td>
-<td style="text-align: right;">0.3200</td>
-<td style="text-align: right;">0.7200</td>
+<td style="text-align: right;">0.2800</td>
+<td style="text-align: right;">0.7600</td>
 </tr>
 </tbody>
 </table>
@@ -2423,40 +2483,40 @@ Ways!AA30:  =SUM(AA20:AA29)
 <tbody>
 <tr>
 <td>1</td>
-<td style="text-align: right;">0.232400</td>
+<td style="text-align: right;">0.278400</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.000000</td>
 </tr>
 <tr>
 <td>2</td>
-<td style="text-align: right;">0.043680</td>
+<td style="text-align: right;">0.039936</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.000000</td>
 </tr>
 <tr>
 <td>3</td>
-<td style="text-align: right;">0.010506</td>
+<td style="text-align: right;">0.009605</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">0.052528</td>
+<td style="text-align: right;">0.048026</td>
 </tr>
 <tr>
 <td>4</td>
-<td style="text-align: right;">0.004064</td>
+<td style="text-align: right;">0.003922</td>
 <td style="text-align: right;">25</td>
-<td style="text-align: right;">0.101606</td>
+<td style="text-align: right;">0.098058</td>
 </tr>
 <tr>
 <td>5</td>
-<td style="text-align: right;">0.001806</td>
+<td style="text-align: right;">0.001445</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">0.180634</td>
+<td style="text-align: right;">0.144507</td>
 </tr>
 </tbody>
 </table>
-<p><code>AA5</code> = 0.334768 credits. <code>AB5</code> = 3.3477%. The total <code>AA15</code> is 4.172461 credits, and <code>AA30</code> is 3.149311 credits.</p>
+<p><code>AA5</code> = 0.290591 credits. <code>AB5</code> = 2.9059%. The total <code>AA15</code> is 4.172564 credits, and <code>AA30</code> is 3.149311 credits.</p>
 <div class="admonition note">
-<p class="admonition-title">Condition</p>
-<p>The formulas in columns L to P are correct only if reel 1 has no WILD symbol. The sheet Summary has a check for this condition.</p>
+<p class="admonition-title">WILD on reel 1</p>
+<p>The formulas in columns L to P are also correct if reel 1 has a WILD symbol. The cross-check writes a test configuration with WILD on reel 1 into the workbook and compares each cell of the two blocks with the exact calculator.</p>
 </div>
 <h2 id="6-sheet-fish">6. Sheet Fish<a class="headerlink" href="#6-sheet-fish" title="Permanent link">&para;</a></h2>
 <h3 id="mean-fish-values-cells-b5e9">Mean fish values, cells <code>B5:E9</code><a class="headerlink" href="#mean-fish-values-cells-b5e9" title="Permanent link">&para;</a></h3>
@@ -2524,9 +2584,9 @@ Fish!G40:  =SUM(C40:F40)
 <tr>
 <td><code>C36</code></td>
 <td style="text-align: right;">FISH1</td>
-<td style="text-align: right;">1.9995</td>
+<td style="text-align: right;">1.9979</td>
 <td style="text-align: right;">0.064000</td>
-<td style="text-align: right;">0.127968</td>
+<td style="text-align: right;">0.127866</td>
 </tr>
 <tr>
 <td><code>D36</code></td>
@@ -2551,7 +2611,7 @@ Fish!G40:  =SUM(C40:F40)
 </tr>
 </tbody>
 </table>
-<p><code>G36</code> = 3.308866 credits. This is the collect EV of the base game.</p>
+<p><code>G36</code> = 3.308764 credits. This is the collect EV of the base game.</p>
 <h3 id="probability-of-a-symbol-on-screen-and-of-a-collect-rows-44-to-52-base-reels-and-55-to-63-bonus-reels">Probability of a symbol on screen and of a collect, rows 44 to 52 (base reels) and 55 to 63 (bonus reels)<a class="headerlink" href="#probability-of-a-symbol-on-screen-and-of-a-collect-rows-44-to-52-base-reels-and-55-to-63-bonus-reels" title="Permanent link">&para;</a></h3>
 <p>These two tables give the probability that a symbol is on screen and the probability of a collect.</p>
 <div class="highlight"><pre><span></span><code>Fish!B45:  =COUNTIF(Win_Base!$P$4:$P$103,0)/Config!$B$6
@@ -2956,14 +3016,14 @@ Bonus!B44:  =IF(MAX(Config!$B$63:$B$66)&lt;=25,"OK","LIMIT EXCEEDED")
 <td>Base game: ways pays</td>
 <td><code>=Ways!$AA$15</code></td>
 <td><code>=B6/Config!$B$3</code></td>
-<td style="text-align: right;">41.7246%</td>
+<td style="text-align: right;">41.7256%</td>
 </tr>
 <tr>
 <td style="text-align: right;">7</td>
 <td>Base game: KEY and FISH collect</td>
 <td><code>=Fish!$G$36</code></td>
 <td><code>=B7/Config!$B$3</code></td>
-<td style="text-align: right;">33.0887%</td>
+<td style="text-align: right;">33.0876%</td>
 </tr>
 <tr>
 <td style="text-align: right;">8</td>
@@ -3131,7 +3191,7 @@ The cell is empty for a figure that is not a probability.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="checks-rows-30-to-36">Checks, rows 30 to 36<a class="headerlink" href="#checks-rows-30-to-36" title="Permanent link">&para;</a></h3>
+<h3 id="checks-rows-30-to-35">Checks, rows 30 to 35<a class="headerlink" href="#checks-rows-30-to-35" title="Permanent link">&para;</a></h3>
 <p>Each check shows <code>OK</code> or a message.</p>
 <table>
 <thead>
@@ -3151,22 +3211,18 @@ The cell is empty for a figure that is not a probability.</p>
 </tr>
 <tr>
 <td>B32</td>
-<td>No WILD on reel 1 (necessary for the ways formula)</td>
-</tr>
-<tr>
-<td>B33</td>
 <td>No FS on the bonus reels (no retrigger in the model)</td>
 </tr>
 <tr>
-<td>B34</td>
+<td>B33</td>
 <td>Spins for each level within the table limit</td>
 </tr>
 <tr>
-<td>B35</td>
+<td>B34</td>
 <td>KEY thresholds within the table limit</td>
 </tr>
 <tr>
-<td>B36</td>
+<td>B35</td>
 <td>Workbook RTP equals exact_calc.py (shipped configuration)</td>
 </tr>
 </tbody>
@@ -3295,9 +3351,9 @@ The cell is empty for a figure that is not a probability.</p>
 <td style="text-align: right;">51.92%</td>
 <td style="text-align: right;">5.073%</td>
 <td style="text-align: right;">1 in 19.7</td>
-<td style="text-align: right;">0.1280</td>
+<td style="text-align: right;">0.1279</td>
 <td style="text-align: right;">1.00000</td>
-<td style="text-align: right;">1.2797%</td>
+<td style="text-align: right;">1.2787%</td>
 </tr>
 <tr>
 <td>base</td>
@@ -3347,9 +3403,9 @@ The cell is empty for a figure that is not a probability.</p>
 <td style="text-align: right;">65.59%</td>
 <td style="text-align: right;">6.693%</td>
 <td style="text-align: right;">1 in 14.9</td>
-<td style="text-align: right;">3.3089</td>
+<td style="text-align: right;">3.3088</td>
 <td style="text-align: right;">1.00000</td>
-<td style="text-align: right;">33.0887%</td>
+<td style="text-align: right;">33.0876%</td>
 </tr>
 <tr>
 <td>level1</td>
@@ -3834,9 +3890,18 @@ Summary!B112:  =IF(SUMPRODUCT(ABS(L100:M109))&lt;0.000000001,"OK","DIFFERENT (co
 </code></pre></div>
 <p>The first check compares the mean numbers of this block with the FISH4 rows of the fish statistics. It shows <code>OK</code> for all inputs.
 The second check compares the block with the reference values. It is <code>OK</code> for the configuration of the workbook as delivered.</p>
-<h3 id="simulation-reference-from-row-38">Simulation reference, from row 38<a class="headerlink" href="#simulation-reference-from-row-38" title="Permanent link">&para;</a></h3>
+<h3 id="simulation-reference-from-row-37">Simulation reference, from row 37<a class="headerlink" href="#simulation-reference-from-row-37" title="Permanent link">&para;</a></h3>
 <p>These rows are fixed values from the Monte Carlo simulation (1,000,000,000,000 rounds). They are not formulas. They do not change when you change an input. The cells are orange.</p>
 <p>Column D shows the frequency (1 in N) of each row that is a probability, with the same formula as in the key figures. The cell is empty for the other rows.</p>
+<p>The last row of the block (<code>B56</code>) is the median number of paid spins of a session: 172. The label of the row gives the start balance and the number of sessions.</p>
+<ul>
+<li>The player starts one session with a balance of 60 x bet.</li>
+<li>Each base spin costs one bet. This is one paid spin. Free spins are not paid spins.</li>
+<li>The win of each game round goes to the balance.</li>
+<li>The session stops when the balance is less than one bet.</li>
+<li>One half or more of the sessions have this number of paid spins or fewer.</li>
+<li>The value comes from the session mode of the simulator (<code>sim_cpp/krakensim --sessions</code>). See the page <a href="rtp.html">RTP and volatility</a>.</li>
+</ul>
 <h2 id="10-sheet-distribution">10. Sheet Distribution<a class="headerlink" href="#10-sheet-distribution" title="Permanent link">&para;</a></h2>
 <p>This sheet holds two win distribution tables. One table is for full game rounds (rows 6 to 20). The other table is for the free spins features (rows 26 to 40).
 One row is one win band, as a multiple of the bet. The bands are the same as on the page <a href="rtp.html">RTP and volatility</a>.</p>
@@ -3896,23 +3961,23 @@ The other columns are formulas.</p>
 <ul>
 <li>The row below each table has the totals. The total of column D is the RTP of the simulation (round table) or the free spins RTP (free spins table). The total of column E is 1.</li>
 <li>In the free spins table, the probability is for one free spins feature. The RTP is a part of the total bet, so that the two tables use the same unit.</li>
-<li>Example: <code>I15</code> shows that one round in 1,105 wins 100 x bet or more.</li>
+<li>Example: <code>I15</code> shows that one round in 1,104 wins 100 x bet or more.</li>
 </ul>
 <h2 id="11-sheet-readme">11. Sheet ReadMe<a class="headerlink" href="#11-sheet-readme" title="Permanent link">&para;</a></h2>
 <p>This sheet gives short instructions, the model, the limits and the command that copies the inputs to the game configuration.</p>
 <h2 id="12-one-result-from-start-to-end">12. One result from start to end<a class="headerlink" href="#12-one-result-from-start-to-end" title="Permanent link">&para;</a></h2>
 <p>This section follows the 3 of a kind pay of PIC1 in the base game through the workbook.</p>
 <ol>
-<li><code>Reels_Base!B4:F103</code> holds the strips. Reel 1 has 7 PIC1 symbols and no WILD symbol.</li>
+<li><code>Reels_Base!B4:F103</code> holds the strips. Reel 1 has 7 PIC1 symbols and 1 WILD symbol.</li>
 <li><code>Win_Base</code> counts PIC1 and WILD in each window. For reel 1, the PIC1 column is <code>B</code> and the WILD column is <code>Q</code>.</li>
-<li><code>Ways!B5</code> = (sum of the two columns) / 100 = 0.2800. This is M(1). <code>Ways!C5</code> = 0.2000 and <code>Ways!D5</code> = 0.2800.</li>
+<li><code>Ways!B5</code> = (sum of the two columns) / 100 = 0.3200. This is M(1). <code>Ways!C5</code> = 0.1600 and <code>Ways!D5</code> = 0.2800.</li>
 <li><code>Ways!J5</code> = 0.6700. This is Z(4), the probability that reel 4 shows no PIC1 and no WILD.</li>
-<li><code>Ways!N5</code> = M(1) x M(2) x M(3) x Z(4) = 0.2800 x 0.2000 x 0.2800 x 0.6700 = 0.010506 expected ways.</li>
+<li><code>Ways!N5</code> = M(1) x M(2) x M(3) x Z(4) = 0.3200 x 0.1600 x 0.2800 x 0.6700 = 0.009605 expected ways.</li>
 <li><code>Ways!S5</code> reads the pay of 5 credits from <code>Config!D11</code>.</li>
-<li><code>Ways!X5</code> = 0.010506 x 5 = 0.052528 credits.</li>
-<li><code>Ways!AA5</code> adds the five EV cells of the symbol: 0.334768 credits.</li>
-<li><code>Ways!AA15</code> adds all pay symbols: 4.172461 credits.</li>
-<li><code>Summary!B6</code> reads <code>Ways!AA15</code>. <code>Summary!C6</code> divides by the bet: 41.7246%.</li>
+<li><code>Ways!X5</code> = 0.009605 x 5 = 0.048026 credits.</li>
+<li><code>Ways!AA5</code> adds the five EV cells of the symbol: 0.290591 credits.</li>
+<li><code>Ways!AA15</code> adds all pay symbols: 4.172564 credits.</li>
+<li><code>Summary!B6</code> reads <code>Ways!AA15</code>. <code>Summary!C6</code> divides by the bet: 41.7256%.</li>
 <li><code>Summary!C9</code> adds the three components: 96.2000%.</li>
 </ol>
 <h2 id="13-change-an-input">13. Change an input<a class="headerlink" href="#13-change-an-input" title="Permanent link">&para;</a></h2>

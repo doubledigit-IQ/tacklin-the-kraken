@@ -559,10 +559,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-5-collect-and-ways-pays-in-one-spin" class="md-nav__link">
+  <a href="#example-5-ways-with-only-wild-symbols" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 5: collect and ways pays in one spin
+        Example 5: ways with only WILD symbols
       
     </span>
   </a>
@@ -570,10 +570,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-6-fish-symbols-and-no-key-symbol" class="md-nav__link">
+  <a href="#example-6-collect-and-ways-pays-in-one-spin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 6: FISH symbols and no KEY symbol
+        Example 6: collect and ways pays in one spin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-7-fish-symbols-and-no-key-symbol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: FISH symbols and no KEY symbol
       
     </span>
   </a>
@@ -609,10 +620,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-7-trigger" class="md-nav__link">
+  <a href="#example-8-trigger" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 7: trigger
+        Example 8: trigger
       
     </span>
   </a>
@@ -692,10 +703,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-8-level-multiplier" class="md-nav__link">
+  <a href="#example-9-level-multiplier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 8: level multiplier
+        Example 9: level multiplier
       
     </span>
   </a>
@@ -703,10 +714,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-9-two-key-symbols-in-one-free-spin" class="md-nav__link">
+  <a href="#example-10-two-key-symbols-in-one-free-spin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 9: two KEY symbols in one free spin
+        Example 10: two KEY symbols in one free spin
       
     </span>
   </a>
@@ -1363,10 +1374,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-5-collect-and-ways-pays-in-one-spin" class="md-nav__link">
+  <a href="#example-5-ways-with-only-wild-symbols" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 5: collect and ways pays in one spin
+        Example 5: ways with only WILD symbols
       
     </span>
   </a>
@@ -1374,10 +1385,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-6-fish-symbols-and-no-key-symbol" class="md-nav__link">
+  <a href="#example-6-collect-and-ways-pays-in-one-spin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 6: FISH symbols and no KEY symbol
+        Example 6: collect and ways pays in one spin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-7-fish-symbols-and-no-key-symbol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: FISH symbols and no KEY symbol
       
     </span>
   </a>
@@ -1413,10 +1435,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-7-trigger" class="md-nav__link">
+  <a href="#example-8-trigger" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 7: trigger
+        Example 8: trigger
       
     </span>
   </a>
@@ -1496,10 +1518,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-8-level-multiplier" class="md-nav__link">
+  <a href="#example-9-level-multiplier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 8: level multiplier
+        Example 9: level multiplier
       
     </span>
   </a>
@@ -1507,10 +1529,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-9-two-key-symbols-in-one-free-spin" class="md-nav__link">
+  <a href="#example-10-two-key-symbols-in-one-free-spin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 9: two KEY symbols in one free spin
+        Example 10: two KEY symbols in one free spin
       
     </span>
   </a>
@@ -1700,7 +1722,7 @@ The examples use real stop positions of the reel strips. A script calculates eac
 <td><img alt="WILD" src="img/WILD.svg" width="56" /></td>
 <td>WILD</td>
 <td>Special</td>
-<td>reels 2, 3, 4, 5 (base game only)</td>
+<td>all reels (base game only)</td>
 <td>Substitutes for each PIC symbol and each AUS symbol. It has no pay of its own.</td>
 </tr>
 <tr>
@@ -1872,7 +1894,9 @@ The examples use real stop positions of the reel strips. A script calculates eac
 <li>Each pay symbol pays one time, for its longest combination only.</li>
 <li>Different pay symbols can pay in the same spin. The ways pays of the spin are the sum of the pays of all pay symbols.</li>
 <li>WILD substitutes for each pay symbol. One WILD symbol can be part of the combinations of different pay symbols in the same spin.</li>
-<li>WILD is not on reel 1. Thus each combination starts with a pay symbol on reel 1, and WILD symbols alone make no combination.</li>
+<li>WILD is on all reels of the base reel strips. Thus a way can have only WILD symbols. Such a way pays one time, as PIC1.</li>
+<li>For each other pay symbol, a way with only WILD symbols does not pay: a paying way has one or more of that pay symbol.
+    The number of paying ways of such a symbol is the number of ways of rule 4 minus the number of ways with only WILD symbols.</li>
 <li>A blocker symbol (KEY, FS, FISH) does not continue a combination.</li>
 </ol>
 <h3 id="example-1-one-way">Example 1: one way<a class="headerlink" href="#example-1-one-way" title="Permanent link">&para;</a></h3>
@@ -2145,7 +2169,7 @@ This spin has no ways pays.</p>
 <tr>
 <td>FISH1</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">50.0%</td>
+<td style="text-align: right;">50.1%</td>
 <td style="text-align: right;">40.0%</td>
 <td style="text-align: right;">45.0%</td>
 <td style="text-align: right;">50.0%</td>
@@ -2163,7 +2187,7 @@ This spin has no ways pays.</p>
 <tr>
 <td></td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">20.0%</td>
+<td style="text-align: right;">19.9%</td>
 <td style="text-align: right;">20.0%</td>
 <td style="text-align: right;">20.0%</td>
 <td style="text-align: right;">18.0%</td>
@@ -2287,7 +2311,64 @@ This spin has no ways pays.</p>
 <li>The collect win does not depend on the ways pays. One spin can have ways pays and a collect win.</li>
 <li>In the base game, KEY is on reels 1, 2, 3. FISH3 is on reel 4. FISH4 is on reel 5.</li>
 </ol>
-<h3 id="example-5-collect-and-ways-pays-in-one-spin">Example 5: collect and ways pays in one spin<a class="headerlink" href="#example-5-collect-and-ways-pays-in-one-spin" title="Permanent link">&para;</a></h3>
+<h3 id="example-5-ways-with-only-wild-symbols">Example 5: ways with only WILD symbols<a class="headerlink" href="#example-5-ways-with-only-wild-symbols" title="Permanent link">&para;</a></h3>
+<p>Stops 24, 16, 29, 69, 2 on the base reel strips:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Reel 1</th>
+<th style="text-align: center;">Reel 2</th>
+<th style="text-align: center;">Reel 3</th>
+<th style="text-align: center;">Reel 4</th>
+<th style="text-align: center;">Reel 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1</td>
+<td style="text-align: center;"><strong>AUS4</strong></td>
+<td style="text-align: center;"><strong>PIC5</strong></td>
+<td style="text-align: center;"><strong>AUS2</strong></td>
+<td style="text-align: center;"><strong>AUS3</strong></td>
+<td style="text-align: center;">AUS5</td>
+</tr>
+<tr>
+<td>Row 2</td>
+<td style="text-align: center;"><strong>AUS4</strong></td>
+<td style="text-align: center;"><strong>AUS3</strong></td>
+<td style="text-align: center;"><strong>AUS2</strong></td>
+<td style="text-align: center;"><strong>PIC5</strong></td>
+<td style="text-align: center;">AUS5</td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td style="text-align: center;"><strong>PIC5</strong></td>
+<td style="text-align: center;"><strong>AUS3</strong></td>
+<td style="text-align: center;"><strong>WILD</strong></td>
+<td style="text-align: center;"><strong>PIC5</strong></td>
+<td style="text-align: center;">PIC1</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td style="text-align: center;"><strong>WILD</strong></td>
+<td style="text-align: center;"><strong>WILD</strong></td>
+<td style="text-align: center;"><strong>AUS4</strong></td>
+<td style="text-align: center;"><strong>AUS2</strong></td>
+<td style="text-align: center;">AUS4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>PIC1: 3 of a kind. Ways = 1 x 1 x 1 = 1. This way has only WILD symbols. Pay = 5 x 1 = <strong>5 credits</strong>.</li>
+<li>PIC5: 4 of a kind. Ways = 2 x 2 x 1 x 2 = 8. Pay = 5 x 8 = <strong>40 credits</strong>.</li>
+<li>AUS2: 4 of a kind. Ways = 1 x 1 x 3 x 1 = 3. Pay = 2 x 3 = <strong>6 credits</strong>.</li>
+<li>AUS3: 4 of a kind. Ways = 1 x 3 x 1 x 1 = 3. Pay = 2 x 3 = <strong>6 credits</strong>.</li>
+<li>AUS4: 3 of a kind. Ways = 3 x 1 x 2 = 6. 1 of these ways has only WILD symbols. Paying ways = 6 - 1 = 5. Pay = 1 x 5 = <strong>5 credits</strong>.</li>
+</ul>
+<p>Reels 1, 2 and 3 show a WILD symbol and no PIC1 symbol. The way with only WILD symbols pays as PIC1 (rule 9). It does not pay as a different pay symbol (rule 10).
+The ways pays of this spin are 5 + 40 + 6 + 6 + 5 = <strong>62 credits</strong>.</p>
+<h3 id="example-6-collect-and-ways-pays-in-one-spin">Example 6: collect and ways pays in one spin<a class="headerlink" href="#example-6-collect-and-ways-pays-in-one-spin" title="Permanent link">&para;</a></h3>
 <p>Stops 88, 61, 4, 69, 47 on the base reel strips. The FISH symbols show the values in the table:</p>
 <table>
 <thead>
@@ -2341,7 +2422,7 @@ This spin has no ways pays.</p>
 <li>AUS4: 3 of a kind. Ways = 1 x 1 x 1 = 1. Pay = 1 x 1 = <strong>1 credits</strong>.</li>
 <li>Win of the spin = 1 + 29 = <strong>30 credits</strong>.</li>
 </ul>
-<h3 id="example-6-fish-symbols-and-no-key-symbol">Example 6: FISH symbols and no KEY symbol<a class="headerlink" href="#example-6-fish-symbols-and-no-key-symbol" title="Permanent link">&para;</a></h3>
+<h3 id="example-7-fish-symbols-and-no-key-symbol">Example 7: FISH symbols and no KEY symbol<a class="headerlink" href="#example-7-fish-symbols-and-no-key-symbol" title="Permanent link">&para;</a></h3>
 <p>Stops 47, 30, 62, 19, 39 on the base reel strips:</p>
 <table>
 <thead>
@@ -2444,7 +2525,7 @@ This spin has no ways pays.</p>
 <li>The base spin that starts the free spins pays its ways pays and its collect win as usual.</li>
 <li>The free spins start after the game pays the base spin.</li>
 </ol>
-<h3 id="example-7-trigger">Example 7: trigger<a class="headerlink" href="#example-7-trigger" title="Permanent link">&para;</a></h3>
+<h3 id="example-8-trigger">Example 8: trigger<a class="headerlink" href="#example-8-trigger" title="Permanent link">&para;</a></h3>
 <p>Stops 73, 25, 10, 5, 27 on the base reel strips:</p>
 <table>
 <thead>
@@ -2570,7 +2651,7 @@ This spin has no ways pays.</p>
 <li>The win of the free spins is the sum of the wins of all free spins.</li>
 <li>The game adds this win to the balance. Then the game goes back to the base reel strips.</li>
 </ol>
-<h3 id="example-8-level-multiplier">Example 8: level multiplier<a class="headerlink" href="#example-8-level-multiplier" title="Permanent link">&para;</a></h3>
+<h3 id="example-9-level-multiplier">Example 9: level multiplier<a class="headerlink" href="#example-9-level-multiplier" title="Permanent link">&para;</a></h3>
 <p>A free spin on level 3 (multiplier x5), stops 30, 25, 62, 80, 63 on the bonus reel strips:</p>
 <table>
 <thead>
@@ -2624,7 +2705,7 @@ This spin has no ways pays.</p>
 <li>Win of the spin = 5 x (4 + 13) = <strong>85 credits</strong>.</li>
 <li>The KEY counter increases by 1.</li>
 </ul>
-<h3 id="example-9-two-key-symbols-in-one-free-spin">Example 9: two KEY symbols in one free spin<a class="headerlink" href="#example-9-two-key-symbols-in-one-free-spin" title="Permanent link">&para;</a></h3>
+<h3 id="example-10-two-key-symbols-in-one-free-spin">Example 10: two KEY symbols in one free spin<a class="headerlink" href="#example-10-two-key-symbols-in-one-free-spin" title="Permanent link">&para;</a></h3>
 <p>Two reels show a KEY symbol in this spin. Stops 35, 81, 65, 83, 10 on the bonus reel strips, level 1:</p>
 <table>
 <thead>
@@ -2890,6 +2971,7 @@ This spin has no ways pays.</p>
 <p><strong>Can one spin have ways pays, a collect win and a free spins trigger?</strong> Yes. The game pays all of them.</p>
 <p><strong>Does a KEY symbol pay if there is no FISH symbol?</strong> No. In the free spins, the KEY symbol adds 1 to the KEY counter in each case.</p>
 <p><strong>Does a FISH symbol pay if there is no KEY symbol?</strong> No.</p>
+<p><strong>Can WILD symbols alone make a win?</strong> Yes, if reels 1, 2 and 3 show a WILD symbol. A way with only WILD symbols pays as PIC1. It does not pay as a different pay symbol.</p>
 <p><strong>Can two or more KEY symbols land in one spin?</strong> Yes. KEY is on reels 1, 2, 3 in the base game and on reels 1, 2, 3 in the free spins. One reel shows one KEY symbol at most. Thus one spin can show up to 3 KEY symbols in the base game and up to 3 KEY symbols in the free spins. The probability of two or more KEY symbols is 0.47% for each base spin and 1.23% for each free spin. Each KEY symbol collects each FISH value. In the free spins, each KEY symbol adds 1 to the counter.</p>
 <p><strong>Does the multiplier of a level apply to the ways pays?</strong> Yes. It applies to the full win of each spin of that level.</p>
 <p><strong>Do KEY symbols of level 1 count for level 3?</strong> Yes. The counter is the total for the full free spins.</p>
@@ -2908,6 +2990,8 @@ This spin has no ways pays.</p>
   The kraken symbol then stops in the window, or it goes out at the bottom of the window and the reel increases its speed again.
   A spotlight frame follows the kraken symbol. The step applies to the two kraken values.</li>
 <li><strong>Win presentation.</strong> The game shows the ways pays first, then the collect, then the level multiplier. This sequence does not change the win.</li>
+<li><strong>Win meters in the free spins.</strong> The meter WIN shows the win of the free spin on the reels. The meter TOTAL WON shows the win of all the free spins of the feature.
+  It counts together with the meter WIN. The game shows the meter TOTAL WON only in the free spins. After the free spins, the meter WIN shows the win of the free spins.</li>
 </ul>
 
 

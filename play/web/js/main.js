@@ -38,7 +38,7 @@ async function start() {
   const view = new ReelView($('reels'), assets, { reels: cfg.reelCount, rows: cfg.rows });
   const dom = {};
   for (const id of ['bg', 'logo', 'logoText', 'ladderRows', 'ladderTitle', 'ladderNote', 'fishNote', 'fishTitle', 'keyCountLabel', 'bonusInfo', 'spinsLeft', 'keyCount', 'bonusWin',
-    'fishRows', 'fx', 'status', 'balance', 'bet', 'win', 'btnSpin', 'btnAuto', 'btnTurbo', 'btnSound', 'btnInfo', 'overlay', 'overlayCard', 'paytable']) dom[id] = $(id);
+    'fishRows', 'fx', 'status', 'hud', 'balance', 'bet', 'win', 'totalMeter', 'totalWon', 'btnSpin', 'btnAuto', 'btnTurbo', 'btnSound', 'volume', 'btnInfo', 'overlay', 'overlayCard', 'paytable']) dom[id] = $(id);
   const game = new Game({ cfg, assets, sound, view, dom });
 
   // stage scale
@@ -55,7 +55,42 @@ async function start() {
   dom.btnSpin.onclick = () => game.press();
   dom.btnAuto.onclick = () => { sound.unlock(); game.setAuto(!game.auto); };
   dom.btnTurbo.onclick = () => { sound.unlock(); game.setTurbo(!game.turbo); };
-  dom.btnSound.onclick = () => { sound.unlock(); sound.setEnabled(!sound.enabled); dom.btnSound.classList.toggle('off', !sound.enabled); };
+  // sound: the note button sets the sound on or off, the slider sets the volume; the browser keeps the two settings
+  const SOUND_KEY = 'ttk.sound';
+  let lastVolume = 1;                                        // the volume to go back to when the sound goes on at the volume 0
+  try {
+    const saved = JSON.parse(localStorage.getItem(SOUND_KEY) || 'null');
+    if (saved && typeof saved.volume === 'number') sound.setVolume(saved.volume);
+    if (saved && saved.muted === true) sound.setEnabled(false);
+  } catch (e) { /* no saved setting */ }
+  if (sound.volume > 0) lastVolume = sound.volume;
+  const showSound = (save) => {
+    const pct = Math.round(sound.volume * 100);
+    const off = !sound.enabled || pct === 0;
+    dom.volume.value = String(pct);
+    dom.volume.style.setProperty('--fill', `${pct}%`);
+    dom.volume.title = `Volume ${pct}%`;
+    dom.volume.classList.toggle('off', off);
+    dom.btnSound.classList.toggle('off', off);
+    dom.btnSound.title = off ? 'Sound is off. Click for sound.' : 'Sound is on. Click for no sound.';
+    if (save) { try { localStorage.setItem(SOUND_KEY, JSON.stringify({ volume: sound.volume, muted: !sound.enabled })); } catch (e) { /* ignore */ } }
+  };
+  dom.btnSound.onclick = () => {
+    sound.unlock();
+    const off = !sound.enabled || sound.volume === 0;
+    if (off && sound.volume === 0) sound.setVolume(lastVolume);
+    sound.setEnabled(off);
+    showSound(true);
+    if (off) sound.click();
+  };
+  dom.volume.oninput = () => {
+    sound.unlock();
+    sound.setVolume(Number(dom.volume.value) / 100);
+    if (sound.volume > 0) { lastVolume = sound.volume; if (!sound.enabled) sound.setEnabled(true); }
+    showSound(true);
+  };
+  dom.volume.onchange = () => sound.click();                 // a short sound at the new volume
+  showSound(false);
   dom.btnInfo.onclick = () => {
     dom.paytable.innerHTML = game.paytableHtml();
     dom.paytable.classList.remove('hidden');
@@ -64,7 +99,7 @@ async function start() {
   window.addEventListener('keydown', (e) => {
     if (e.code !== 'Space' || e.repeat) return;
     const t = e.target;
-    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT')) return;
+    if (t && ((t.tagName === 'INPUT' && t.type !== 'range') || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT')) return;
     e.preventDefault();
     if (!dom.paytable.classList.contains('hidden')) { dom.paytable.classList.add('hidden'); return; }
     game.press();
